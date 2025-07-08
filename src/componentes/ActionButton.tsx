@@ -1,9 +1,9 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import colors from "../../utils/colors";
-import appShadow from "../../utils/appShadow";
-import { ColorName, ValidFraction } from "../../types";
+import colors from "../utils/colors";
+import appShadow from "../utils/appShadow";
+import { ColorName, ValidFraction } from "../types";
 
 import {
   incAllIn,

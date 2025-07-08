@@ -1,13 +1,13 @@
 import React from "react";
 import { View } from "react-native";
 import Cell from "./Cell";
-import handsArray from "../../utils/handsArray";
-import { gridNames } from "../../../assets/data/gridNames";
-import { gridData as raiseMatrix } from "../../../assets/data/dataArrays/RaiseMatrix";
-import { gridData as callMatrix } from "../../../assets/data/dataArrays/CallMatrix";
-import { gridData as allInMatrix } from "../../../assets/data/dataArrays/AllInMatrix";
-import { gridData as priorMatrix } from "../../../assets/data/dataArrays/PriorMatrix";
-import { ValidFraction } from "../../types";
+import handsArray from "../utils/handsArray";
+import { gridNames } from "../../assets/data/gridNames";
+import { gridData as raiseMatrix } from "../../assets/data/dataArrays/RaiseMatrix";
+import { gridData as callMatrix } from "../../assets/data/dataArrays/CallMatrix";
+import { gridData as allInMatrix } from "../../assets/data/dataArrays/AllInMatrix";
+import { gridData as priorMatrix } from "../../assets/data/dataArrays/PriorMatrix";
+import { ValidFraction } from "../types";
 import { useSelector } from "react-redux";
 import { selectTrainerState } from "@src/store/trainer";
 

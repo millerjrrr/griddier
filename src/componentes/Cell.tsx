@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
-import colors from "../../utils/colors";
-import { ValidFraction } from "../../types";
+import colors from "../utils/colors";
+import { ValidFraction } from "../types";
 
 const isValidFraction = (
   value: number

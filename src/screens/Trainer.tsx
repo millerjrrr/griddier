@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 import { selectTrainerState } from "@src/store/trainer";
 import { GridName } from "@src/types";
 import { gridNames } from "@assets/data/gridNames";
-import Cell from "../Grid/Cell";
-import ButtonContainer from "./ButtonContainer";
-import SpotName from "./SpotName";
+import Cell from "../componentes/Cell";
+import ButtonContainer from "../componentes/ButtonContainer";
+import SpotName from "../componentes/SpotName";
 import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 
 const Trainer: React.FC = () => {
@@ -23,23 +23,31 @@ const Trainer: React.FC = () => {
   const prior = priorMatrix[columnIndex][rowIndex];
 
   return (
-    <View style={styles.container}>
-      <SpotName name={gridName} />
-      <Cell
-        allIn={allin}
-        raise={raise}
-        call={call}
-        fold={fold}
-        prior={prior}
-        hand={handsForReview[index]} // placeholder for now
-        size={300}
-      />
-      <ButtonContainer gridName={gridName} />
+    <View style={styles.outerContainer}>
+      <View style={styles.container}>
+        <SpotName name={gridName} />
+        <Cell
+          allIn={allin}
+          raise={raise}
+          call={call}
+          fold={fold}
+          prior={prior}
+          hand={handsForReview[index]} // placeholder for now
+          size={300}
+        />
+        <ButtonContainer gridName={gridName} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   container: {
     alignItems: "center",
     padding: 20,
