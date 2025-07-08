@@ -22,7 +22,7 @@ const initialState: TrainerState = {
 };
 
 const slice = createSlice({
-  name: "admin",
+  name: "trainer",
   initialState,
   reducers: {
     incIndex(state) {

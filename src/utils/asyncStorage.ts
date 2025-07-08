@@ -74,3 +74,15 @@ export const clearStorage = async () => {
     await AsyncStorage.clear();
   }
 };
+
+export const fileBackedStorage = {
+  getItem: async (key: string) => {
+    return await getFromStorage(key);
+  },
+  setItem: async (key: string, value: string) => {
+    await saveToStorage(key, value);
+  },
+  removeItem: async (key: string) => {
+    await removeFromStorage(key);
+  },
+};

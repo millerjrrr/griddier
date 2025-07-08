@@ -9,7 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-async-storage/async-storage": "2.1.2",
     "@react-navigation/material-top-tabs": "^7.3.2",
     "@react-navigation/native": "^7.1.14",
     "@reduxjs/toolkit": "^2.8.2",
@@ -20,7 +20,8 @@
     "react": "19.0.0",
     "react-native": "0.79.5",
     "react-redux": "^9.2.0",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
