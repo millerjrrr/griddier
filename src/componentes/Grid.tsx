@@ -7,19 +7,18 @@ import { gridData as raiseMatrix } from "../../assets/data/dataArrays/RaiseMatri
 import { gridData as callMatrix } from "../../assets/data/dataArrays/CallMatrix";
 import { gridData as allInMatrix } from "../../assets/data/dataArrays/AllInMatrix";
 import { gridData as priorMatrix } from "../../assets/data/dataArrays/PriorMatrix";
-import { ValidFraction } from "../types";
-import { useSelector } from "react-redux";
-import { selectTrainerState } from "@src/store/trainer";
+import { GridName, ValidFraction } from "../types";
+import appShadow from "@src/utils/appShadow";
 
 interface GridProps {
+  name: GridName;
   size?: number;
 }
 
-const Grid: React.FC<GridProps> = ({ size = 25 }) => {
-  const { gridName } = useSelector(selectTrainerState);
-  const index = gridNames.indexOf(gridName);
+const Grid: React.FC<GridProps> = ({ name, size }) => {
+  const index = gridNames.indexOf(name);
   if (index === -1) {
-    throw new Error(`Grid name "${gridName}" not found`);
+    throw new Error(`Grid name "${name}" not found`);
   }
 
   // Extract each column as a flat array of 169 entries
@@ -31,9 +30,10 @@ const Grid: React.FC<GridProps> = ({ size = 25 }) => {
   return (
     <View
       style={{
-        flexDirection: "column",
-        borderColor: "black",
-        borderWidth: 1,
+        ...appShadow("black"),
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
       }}
     >
       {[...Array(13)].map((_, rowIdx) => (

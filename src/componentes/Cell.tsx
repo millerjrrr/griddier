@@ -23,11 +23,11 @@ const Cell: React.FC<GridCellProps> = ({
   raise = 0,
   call = 0,
   prior = 0,
-  hand = 0,
-  size = 50,
+  hand = "",
+  size,
   fold = 0,
 }) => {
-  const total = allIn / 4 + raise / 4 + call / 4;
+  const total = allIn + raise + call;
 
   if (![allIn, raise, call, prior].every(isValidFraction)) {
     throw new Error(
@@ -35,7 +35,7 @@ const Cell: React.FC<GridCellProps> = ({
     );
   }
 
-  if (total > 1) {
+  if (total > 12) {
     throw new Error(
       "Sum of allIn, raise, and call must be ≤ 1"
     );
@@ -45,77 +45,70 @@ const Cell: React.FC<GridCellProps> = ({
 
   const segments = [
     {
-      width: (allIn / 4) * size,
+      width: `${(allIn / 4) * 100}%` as `${number}%`,
       color: ALLIN,
-      height: prior * size,
+      height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
-      width: (raise / 4) * size,
+      width: `${(raise / 4) * 100}%` as `${number}%`,
       color: RAISE,
-      height: prior * size,
+      height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
-      width: (call / 4) * size,
+      width: `${(call / 4) * 100}%` as `${number}%`,
       color: CALL,
-      height: prior * size,
+      height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
-      width: (fold / 4) * size,
+      width: `${(fold / 4) * 100}%` as `${number}%`,
       color: FOLD,
-      height: prior * size,
+      height: `${(prior * 100) / 4}%` as `${number}%`,
     },
   ];
 
   return (
     <View
       style={{
-        width: size,
-        height: size,
-        position: "relative",
+        ...(size ? { width: size } : { flex: 1 }),
+        aspectRatio: 1,
+        // position: "relative",
         backgroundColor: PRIOR,
         borderColor: "black",
-        borderWidth: size / 100,
+        borderWidth: size ? size / 100 : 1,
         overflow: "hidden",
+        flexDirection: "row",
+        alignItems: "flex-end",
+        justifyContent: "flex-start",
       }}
     >
+      {segments.map((segment, index) => (
+        <View
+          key={index}
+          style={{
+            width: segment.width,
+            height: segment.height,
+            backgroundColor: segment.color,
+          }}
+        />
+      ))}
       <View
         style={{
-          flexDirection: "row",
-          width: size,
-          height: size,
-          alignItems: "flex-end",
-          justifyContent: "flex-start",
+          position: "absolute",
+          alignItems: "center",
+          justifyContent: "center",
+          width: size ? size : "100%",
+          aspectRatio: 1,
         }}
       >
-        {segments.map((segment, index) => (
-          <View
-            key={index}
-            style={{
-              width: segment.width,
-              height: segment.height,
-              backgroundColor: segment.color,
-            }}
-          />
-        ))}
-        <View
+        <Text
           style={{
-            position: "absolute",
-            alignItems: "center",
-            justifyContent: "center",
-            width: size,
-            height: size,
+            color: "black",
+            fontWeight: "bold",
+            fontSize: size ? size * 0.4 : 10,
           }}
         >
-          <Text
-            style={{
-              color: "black",
-              fontWeight: "bold",
-              fontSize: size * 0.4,
-            }}
-          >
-            {hand}
-          </Text>
-        </View>
+          {hand}
+        </Text>
       </View>
     </View>
   );

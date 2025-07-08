@@ -11,15 +11,28 @@ import Clock from "./Clock";
 import DateWithIcon from "./DateWithIcon";
 const lockIcon = require("@assets/img/lock.png");
 import * as FileSystem from "expo-file-system";
+import Toast from "react-native-toast-message";
 
 interface RangeCardProps {
   dataEntry: DataEntry;
+  selectFunction: () => void;
 }
 
 const RangeCard: React.FC<RangeCardProps> = ({
   dataEntry,
+  selectFunction,
 }) => {
-  const onPress = () => console.log(dataEntry.locked);
+  const onPress = dataEntry.locked
+    ? () =>
+        Toast.show({
+          type: "success",
+          text1: "Locked",
+          text2: "Complete previous levels!",
+          visibilityTime: 2000,
+          text1Style: { fontSize: 20 },
+          text2Style: { fontSize: 17 },
+        })
+    : selectFunction;
 
   //   const onPress = async () => {
   //     const path =

@@ -17,6 +17,7 @@ const getInitialUserData = (): DataEntry[] => {
     timeDrilling: 0,
     recordTime: 0,
     lastStudied: 0,
+    startingRank: index,
     locked: index !== 0,
   }));
 };

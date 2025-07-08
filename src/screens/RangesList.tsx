@@ -1,11 +1,28 @@
+import RangeModal from "@src/componentes/RangeModal";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeCard from "@src/componentes/RangeCard";
 import { selectUserDataState } from "@src/store/userData";
+import { DataEntry } from "@src/types";
+import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
+
+  const [selectedEntry, setSelectedEntry] =
+    useState<DataEntry | null>(null);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = (entry: DataEntry) => {
+    setSelectedEntry(entry);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedEntry(null);
+    setModalVisible(false);
+  };
 
   return (
     <View
@@ -18,12 +35,22 @@ const RangesList = () => {
         paddingVertical: 40,
       }}
     >
+      <RangeModal
+        visible={modalVisible}
+        dataEntry={selectedEntry}
+        onClose={closeModal}
+      />
       <FadeBackgroundView height={20} style={{ top: 40 }} />
       <FlatList
         data={dataEntries}
         renderItem={({ item }) => {
           // must be called item for FlatList to work
-          return <RangeCard dataEntry={item} />;
+          return (
+            <RangeCard
+              dataEntry={item}
+              selectFunction={() => openModal(item)}
+            />
+          );
         }}
         keyExtractor={(item) => item.gridName}
         style={{
