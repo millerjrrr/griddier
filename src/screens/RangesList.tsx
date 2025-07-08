@@ -1,18 +1,24 @@
-import Grid from "@src/componentes/Grid";
-import { Text, View } from "react-native";
+import RangeCard from "@src/componentes/RangeCard";
+import { selectUserDataState } from "@src/store/userData";
+import { ScrollView, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const RangesList = () => {
+  const { dataEntries } = useSelector(selectUserDataState);
+
   return (
-    <View
-      style={{
+    <ScrollView
+      contentContainerStyle={{
         flex: 1,
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+        width: "100%",
+        paddingHorizontal: 15,
       }}
     >
-      <Grid />
-    </View>
+      <RangeCard dataEntry={dataEntries[0]} />
+    </ScrollView>
   );
 };
 

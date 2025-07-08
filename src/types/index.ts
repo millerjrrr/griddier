@@ -17,3 +17,18 @@ export type ActionName =
   | "Raise"
   | "Call"
   | "Fold";
+
+export interface DataEntry {
+  gridName: GridName;
+  dueDate: string;
+  level: number;
+  drilled: number;
+  timeDrilling: number;
+  recordTime: number;
+  lastStudied: number;
+  locked: boolean;
+}
+
+export interface UserDataState {
+  dataEntries: DataEntry[];
+}

@@ -1,7 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as FileSystem from "expo-file-system";
 
-const STORAGE_PATH = "assets/data/AsyncStorage.json";
+const STORAGE_PATH =
+  FileSystem.documentDirectory + "AsyncStorage.json";
 
 const readFromFile = async (): Promise<
   Record<string, string>

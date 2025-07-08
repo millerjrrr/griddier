@@ -25,9 +25,11 @@ const rootReducer: Reducer<RootState, any> = (
   }
   return appReducers(state, action);
 };
+
 const persistConfig = {
   key: "root",
-  storage: fileBackedStorage, // Use file-backed storage for persistence
+  storage: fileBackedStorage,
+  whitelist: ["userData"], // ✅ only persist this slice
 };
 
 const persistedReducer = persistReducer(
@@ -37,8 +39,11 @@ const persistedReducer = persistReducer(
 
 const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // ✅ fully disables check
+    }),
 });
-
 export type RootState = ReturnType<typeof appReducers>;
 
 export type AppDispatch = typeof store.dispatch;

@@ -1,23 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
-import { GridName } from "@src/types";
-
-interface UserDataState {
-  dataEntries: dataEntry[];
-}
-
-interface dataEntry {
-  gridName: GridName;
-  dueDate: Date;
-  level: number;
-  drilled: number;
-  timeDrilling: number;
-  recordTime: number;
-  lastStudied: number;
-}
+import { DataEntry, UserDataState } from "@src/types";
+import getInitialUserData from "@src/utils/getInitialUserData";
 
 const initialState: UserDataState = {
-  dataEntries: [],
+  dataEntries: getInitialUserData(),
 };
 
 const slice = createSlice({
@@ -26,7 +13,7 @@ const slice = createSlice({
   reducers: {
     upsertDataEntry: (
       state,
-      action: { payload: dataEntry }
+      action: { payload: DataEntry }
     ) => {
       const index = state.dataEntries.findIndex(
         (entry) =>

@@ -74,7 +74,7 @@ const Cell: React.FC<GridCellProps> = ({
         position: "relative",
         backgroundColor: PRIOR,
         borderColor: "black",
-        borderWidth: 1,
+        borderWidth: size / 100,
         overflow: "hidden",
       }}
     >
