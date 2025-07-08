@@ -11,12 +11,11 @@ import {
   incCall,
   setFold,
   selectTrainerState,
+  setAllIn,
+  setRaise,
+  setCall,
 } from "@src/store/trainer";
 
-import { gridNames } from "@assets/data/gridNames";
-import isEqual from "@src/utils/isEqual";
-import handsArray from "@src/utils/handsArray";
-import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -67,7 +66,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
         break;
       case "Fold":
-        dispatch(setFold(1));
+        dispatch(setFold(4));
         subNow = true;
         break;
     }
@@ -81,6 +80,41 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     }
   };
 
+  const handleLongPress = () => {
+    let answer = { a: allin, r: raise, c: call };
+
+    switch (name) {
+      case "AllIn":
+        answer.a = (allin +
+          4 -
+          raise -
+          call) as ValidFraction;
+        dispatch(setAllIn(4 - raise - call));
+
+        break;
+      case "Raise":
+        answer.r = (raise +
+          4 -
+          allin -
+          call) as ValidFraction;
+        dispatch(setRaise(4 - allin - call));
+
+        break;
+      case "Call":
+        answer.c = (call +
+          4 -
+          allin -
+          raise) as ValidFraction;
+        dispatch(setCall(4 - allin - raise));
+        break;
+      case "Fold":
+        dispatch(setFold(4 - allin - raise - call));
+        break;
+    }
+
+    setTimeout(() => submitAnswer(), 200);
+  };
+
   return (
     <TouchableOpacity
       style={[
@@ -92,6 +126,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         },
       ]}
       onPress={handlePress}
+      onLongPress={handleLongPress}
+      delayLongPress={100}
     />
   );
 };

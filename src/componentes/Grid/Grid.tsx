@@ -7,12 +7,11 @@ import { gridData as raiseMatrix } from "../../../assets/data/dataArrays/RaiseMa
 import { gridData as callMatrix } from "../../../assets/data/dataArrays/CallMatrix";
 import { gridData as allInMatrix } from "../../../assets/data/dataArrays/AllInMatrix";
 import { gridData as priorMatrix } from "../../../assets/data/dataArrays/PriorMatrix";
-import { GridName, ValidFraction } from "../../types";
+import { ValidFraction } from "../../types";
 import { useSelector } from "react-redux";
 import { selectTrainerState } from "@src/store/trainer";
 
 interface GridProps {
-  name: GridName;
   size?: number;
 }
 

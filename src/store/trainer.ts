@@ -14,7 +14,7 @@ interface TrainerState {
 
 const initialState: TrainerState = {
   index: 0,
-  gridName: gridNames[7],
+  gridName: gridNames[0],
   allin: 0,
   raise: 0,
   call: 0,
@@ -43,6 +43,15 @@ const slice = createSlice({
     incCall(state) {
       state.call += 1;
     },
+    setAllIn(state, action) {
+      state.allin = action.payload;
+    },
+    setRaise(state, action) {
+      state.raise = action.payload;
+    },
+    setCall(state, action) {
+      state.call = action.payload;
+    },
     setFold(state, action) {
       state.fold = action.payload;
     },
@@ -62,6 +71,9 @@ export const {
   incAllIn,
   incRaise,
   incCall,
+  setAllIn,
+  setRaise,
+  setCall,
   setFold,
   resetActions,
 } = slice.actions;

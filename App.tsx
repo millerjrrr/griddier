@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { gridNames } from "./assets/data/gridNames";
 import Trainer from "./src/componentes/trainer";
 import { StyleSheet, View } from "react-native";
 import { Provider } from "react-redux";
@@ -11,7 +10,7 @@ export default function App() {
     <Provider store={store}>
       <View style={styles.container}>
         <Trainer />
-        <Grid name={gridNames[7]} />
+        {/* <Grid /> */}
         <StatusBar style="auto" />
       </View>
     </Provider>
