@@ -11,24 +11,28 @@ const slice = createSlice({
   name: "userData",
   initialState,
   reducers: {
-    upsertDataEntry: (
+    updateDataEntry: (
       state,
-      action: { payload: DataEntry }
+      action: {
+        payload: Partial<DataEntry> & { gridName: string };
+      }
     ) => {
       const index = state.dataEntries.findIndex(
         (entry) =>
           entry.gridName === action.payload.gridName
       );
+
       if (index !== -1) {
-        state.dataEntries[index] = action.payload; // update
-      } else {
-        state.dataEntries.push(action.payload); // insert
+        state.dataEntries[index] = {
+          ...state.dataEntries[index],
+          ...action.payload,
+        };
       }
     },
   },
 });
 
-export const {} = slice.actions;
+export const { updateDataEntry } = slice.actions;
 
 export const selectUserDataState = (state: RootState) =>
   state.userData;

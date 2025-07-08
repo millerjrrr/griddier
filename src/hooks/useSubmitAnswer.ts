@@ -2,7 +2,8 @@ import {
   incIndex,
   resetActions,
   resetIndex,
-  selectTrainerState,
+  setGridName,
+  setShowRangeModal,
 } from "@src/store/trainer";
 import { useDispatch, useSelector } from "react-redux";
 import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
@@ -13,12 +14,21 @@ import { ActionCombo } from "@src/types";
 import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 import store from "@src/store";
 import handsArray from "@src/utils/handsArray";
+import {
+  selectUserDataState,
+  updateDataEntry,
+} from "@src/store/userData";
+import sort from "@src/utils/sortDataEntries";
+import useUpdateDatabase from "./updateDatabase";
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.a === y.a && x.r === y.r && x.c === y.c;
 
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
+  const { dataEntries } = useSelector(selectUserDataState);
+
+  const updateDatabase = useUpdateDatabase();
 
   const submitAnswer = () => {
     const state = store.getState(); // ✅ safe here
@@ -44,18 +54,24 @@ const useSubmitAnswer = () => {
         dispatch(incIndex());
       } else {
         console.log("🎉 Test completed");
+        const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
+
         dispatch(resetIndex());
+        updateDatabase(gridName, true);
+        dispatch(setGridName(newGridName));
+        dispatch(
+          updateDataEntry({
+            gridName: newGridName,
+            locked: false,
+          })
+        );
       }
     } else {
       console.log("❌ Incorrect answer");
       dispatch(resetIndex());
+      dispatch(setShowRangeModal(true));
+      updateDatabase(gridName, false);
     }
-    console.log(
-      answer,
-      target,
-      handsForReview[index],
-      columnIndex
-    );
 
     dispatch(resetActions());
   };

@@ -25,7 +25,7 @@ export interface DataEntry {
   drilled: number;
   timeDrilling: number;
   recordTime: number;
-  lastStudied: number;
+  lastStudied: string;
   startingRank: number;
   locked: boolean;
 }

@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 
 import { gridData as priorMatrix } from "@assets/data/dataArrays/PriorMatrix";
 import handsArray from "@src/utils/handsArray";
-import { useSelector } from "react-redux";
-import { selectTrainerState } from "@src/store/trainer";
-import { GridName } from "@src/types";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  resetActions,
+  resetIndex,
+  selectTrainerState,
+  setShowRangeModal,
+} from "@src/store/trainer";
 import { gridNames } from "@assets/data/gridNames";
 import Cell from "../componentes/Cell";
 import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";
 import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
+import { useFocusEffect } from "@react-navigation/native";
+import RangeModal from "@src/componentes/RangeModal";
+import { selectUserDataState } from "@src/store/userData";
 
 const Trainer: React.FC = () => {
-  const { index, gridName, allin, raise, call, fold } =
-    useSelector(selectTrainerState);
+  const {
+    index,
+    gridName,
+    allin,
+    raise,
+    call,
+    fold,
+    showRangeModal,
+  } = useSelector(selectTrainerState);
   const columnIndex = gridNames.indexOf(gridName);
   const handsForReview = drillingData[columnIndex];
   const rowIndex = handsArray.indexOf(
@@ -22,9 +36,31 @@ const Trainer: React.FC = () => {
   );
   const prior = priorMatrix[columnIndex][rowIndex];
 
+  const dispatch = useDispatch();
+
+  useFocusEffect(
+    useCallback(() => {
+      // Screen was focused (mounted or returned to)
+      return () => {
+        // Screen was unfocused (navigated away from)
+        dispatch(resetIndex());
+        dispatch(resetActions());
+      };
+    }, [])
+  );
+
+  const { dataEntries } = useSelector(selectUserDataState);
+
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
+        <RangeModal
+          visible={showRangeModal}
+          dataEntry={
+            dataEntries[gridNames.indexOf(gridName)]
+          }
+          onClose={() => dispatch(setShowRangeModal(false))}
+        />
         <SpotName name={gridName} />
         <Cell
           allIn={allin}

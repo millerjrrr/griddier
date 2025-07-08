@@ -34,21 +34,21 @@ const RangeCard: React.FC<RangeCardProps> = ({
         })
     : selectFunction;
 
-  //   const onPress = async () => {
-  //     const path =
-  //       FileSystem.documentDirectory + "AsyncStorage.json";
-  //     try {
-  //       await FileSystem.writeAsStringAsync(path, "{}");
-  //       console.log(
-  //         "🧹 Cleared file-backed AsyncStorage.json"
-  //       );
-  //     } catch (err) {
-  //       console.error(
-  //         "❌ Failed to clear file-backed AsyncStorage:",
-  //         err
-  //       );
-  //     }
-  //   };
+  // const onPress = async () => {
+  //   const path =
+  //     FileSystem.documentDirectory + "AsyncStorage.json";
+  //   try {
+  //     await FileSystem.writeAsStringAsync(path, "{}");
+  //     console.log(
+  //       "🧹 Cleared file-backed AsyncStorage.json"
+  //     );
+  //   } catch (err) {
+  //     console.error(
+  //       "❌ Failed to clear file-backed AsyncStorage:",
+  //       err
+  //     );
+  //   }
+  // };
 
   return (
     <TouchableOpacity
@@ -101,7 +101,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
               padding: 5,
             }}
           >
-            <LevelStars stars={dataEntry.level + 3} />
+            <LevelStars stars={dataEntry.level} />
             <Clock record={dataEntry.recordTime} />
           </View>
         </>

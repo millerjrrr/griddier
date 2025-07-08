@@ -3,10 +3,12 @@ import Trainer from "@src/screens/Trainer";
 import RangesList from "@src/screens/RangesList";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import useSetGridName from "@src/hooks/useSetGridName";
 
 const Tab = createMaterialTopTabNavigator();
 
 const RootNavigator: React.FC = () => {
+  useSetGridName();
   return (
     <NavigationContainer>
       <Tab.Navigator

@@ -10,6 +10,14 @@ import { DataEntry } from "@src/types";
 import Grid from "./Grid";
 import appShadow from "@src/utils/appShadow";
 import LevelStars from "./LevelStars";
+import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import {
+  resetActions,
+  resetIndex,
+  resetStartTime,
+  setGridName,
+} from "@src/store/trainer";
 
 interface RangeModalProps {
   visible: boolean;
@@ -24,6 +32,18 @@ const RangeModal: React.FC<RangeModalProps> = ({
 }) => {
   if (!dataEntry) return null;
 
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const startTrainingDrill = () => {
+    dispatch(resetStartTime());
+    dispatch(resetActions());
+    dispatch(resetIndex());
+    dispatch(setGridName(dataEntry.gridName));
+    onClose();
+    navigation.navigate("Trainer");
+  };
+
   return (
     <Modal
       visible={visible}
@@ -36,7 +56,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <Text style={styles.title}>
               {dataEntry.gridName}
             </Text>
-            <LevelStars stars={dataEntry.level + 3} />
+            <LevelStars stars={dataEntry.level} />
           </View>
           <Grid name={dataEntry.gridName} />
           <View
@@ -63,7 +83,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
           </Text>
           {/* Add more fields here as needed */}
           <Pressable
-            onPress={() => console.log("up next")}
+            onPress={startTrainingDrill}
             style={styles.button}
           >
             <Text style={styles.buttonText}>Let's go!</Text>

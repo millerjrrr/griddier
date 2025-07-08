@@ -10,6 +10,8 @@ interface TrainerState {
   raise: ValidFraction;
   call: ValidFraction;
   fold: ValidFraction;
+  startedPlaying: string;
+  showRangeModal: boolean;
 }
 
 const initialState: TrainerState = {
@@ -19,6 +21,8 @@ const initialState: TrainerState = {
   raise: 0,
   call: 0,
   fold: 0,
+  startedPlaying: new Date().toISOString(),
+  showRangeModal: false,
 };
 
 const slice = createSlice({
@@ -61,6 +65,12 @@ const slice = createSlice({
       state.call = 0;
       state.fold = 0;
     },
+    resetStartTime(state) {
+      state.startedPlaying = new Date().toISOString();
+    },
+    setShowRangeModal(state, action) {
+      state.showRangeModal = action.payload;
+    },
   },
 });
 
@@ -76,6 +86,8 @@ export const {
   setCall,
   setFold,
   resetActions,
+  resetStartTime,
+  setShowRangeModal,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

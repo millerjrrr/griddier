@@ -4,13 +4,12 @@ const dateImage = require("@assets/img/date.png");
 const DateWithIcon: React.FC<{ date: string }> = ({
   date,
 }) => {
-  const formattedDate = new Date(date).toLocaleDateString(
-    "en-US",
-    {
-      day: "numeric",
-      month: "short", // gives "Jun", "Jan", etc.
-    }
-  );
+  const formattedDate = new Date(
+    date === "" ? new Date() : date
+  ).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short", // gives "Jun", "Jan", etc.
+  });
 
   return (
     <View
