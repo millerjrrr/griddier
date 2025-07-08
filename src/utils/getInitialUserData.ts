@@ -9,7 +9,7 @@ const getInitialUserData = (): DataEntry[] => {
     now.getDate()
   ); // time = 00:00
 
-  return gridNames.map((grid) => ({
+  return gridNames.map((grid, index) => ({
     gridName: grid,
     dueDate: today.toISOString(),
     level: 0,
@@ -17,7 +17,7 @@ const getInitialUserData = (): DataEntry[] => {
     timeDrilling: 0,
     recordTime: 0,
     lastStudied: 0,
-    locked: false,
+    locked: index !== 0,
   }));
 };
 
