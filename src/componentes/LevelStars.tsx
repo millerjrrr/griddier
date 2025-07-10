@@ -1,9 +1,10 @@
 import { Image, View } from "react-native";
 const starIcon = require("@assets/img/star.png");
 
-const LevelStars: React.FC<{ stars: number }> = ({
-  stars,
-}) => {
+const LevelStars: React.FC<{
+  stars: number;
+  size?: number;
+}> = ({ stars, size = 15 }) => {
   const levelArray = Array.from(new Array(stars));
 
   return (
@@ -14,8 +15,8 @@ const LevelStars: React.FC<{ stars: number }> = ({
           key={index}
           resizeMode="contain"
           style={{
-            width: 15,
-            height: 15,
+            width: size,
+            aspectRatio: 1,
             marginHorizontal: 2,
           }}
         />

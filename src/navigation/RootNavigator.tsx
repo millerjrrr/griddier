@@ -4,8 +4,10 @@ import RangesList from "@src/screens/RangesList";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import useSetGridName from "@src/hooks/useSetGridName";
+import { NavigationParamList } from "@src/types";
 
-const Tab = createMaterialTopTabNavigator();
+const Tab =
+  createMaterialTopTabNavigator<NavigationParamList>();
 
 const RootNavigator: React.FC = () => {
   useSetGridName();

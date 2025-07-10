@@ -9,6 +9,7 @@ import {
   resetIndex,
   selectTrainerState,
   setShowRangeModal,
+  setSuccessModal,
 } from "@src/store/trainer";
 import { gridNames } from "@assets/data/gridNames";
 import Cell from "../componentes/Cell";
@@ -18,6 +19,7 @@ import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/RangeModal";
 import { selectUserDataState } from "@src/store/userData";
+import SuccessModal from "@src/componentes/SuccessModal";
 
 const Trainer: React.FC = () => {
   const {
@@ -28,6 +30,7 @@ const Trainer: React.FC = () => {
     call,
     fold,
     showRangeModal,
+    showSuccessModal,
   } = useSelector(selectTrainerState);
   const columnIndex = gridNames.indexOf(gridName);
   const handsForReview = drillingData[columnIndex];
@@ -60,6 +63,12 @@ const Trainer: React.FC = () => {
             dataEntries[gridNames.indexOf(gridName)]
           }
           onClose={() => dispatch(setShowRangeModal(false))}
+        />
+        <SuccessModal
+          visible={showSuccessModal}
+          dataEntry={
+            dataEntries[gridNames.indexOf(gridName)]
+          }
         />
         <SpotName name={gridName} />
         <Cell

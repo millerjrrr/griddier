@@ -10,7 +10,6 @@ import LevelStars from "./LevelStars";
 import Clock from "./Clock";
 import DateWithIcon from "./DateWithIcon";
 const lockIcon = require("@assets/img/lock.png");
-import * as FileSystem from "expo-file-system";
 import Toast from "react-native-toast-message";
 
 interface RangeCardProps {
@@ -33,22 +32,6 @@ const RangeCard: React.FC<RangeCardProps> = ({
           text2Style: { fontSize: 17 },
         })
     : selectFunction;
-
-  // const onPress = async () => {
-  //   const path =
-  //     FileSystem.documentDirectory + "AsyncStorage.json";
-  //   try {
-  //     await FileSystem.writeAsStringAsync(path, "{}");
-  //     console.log(
-  //       "🧹 Cleared file-backed AsyncStorage.json"
-  //     );
-  //   } catch (err) {
-  //     console.error(
-  //       "❌ Failed to clear file-backed AsyncStorage:",
-  //       err
-  //     );
-  //   }
-  // };
 
   return (
     <TouchableOpacity

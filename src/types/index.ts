@@ -33,3 +33,8 @@ export interface DataEntry {
 export interface UserDataState {
   dataEntries: DataEntry[];
 }
+
+export type NavigationParamList = {
+  Trainer: undefined;
+  "Ranges List": undefined;
+};

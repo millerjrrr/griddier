@@ -4,6 +4,7 @@ import {
   resetIndex,
   setGridName,
   setShowRangeModal,
+  setSuccessModal,
 } from "@src/store/trainer";
 import { useDispatch, useSelector } from "react-redux";
 import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
@@ -50,7 +51,9 @@ const useSubmitAnswer = () => {
     if (isMatch(answer, target)) {
       console.log("✅ Correct answer");
 
-      if (index + 1 < handsForReview.length) {
+      //test console.log()
+      // if (index + 1 < handsForReview.length) {
+      if (index + 1 < 3) {
         dispatch(incIndex());
       } else {
         console.log("🎉 Test completed");
@@ -58,13 +61,13 @@ const useSubmitAnswer = () => {
 
         dispatch(resetIndex());
         updateDatabase(gridName, true);
-        dispatch(setGridName(newGridName));
         dispatch(
           updateDataEntry({
             gridName: newGridName,
             locked: false,
           })
         );
+        dispatch(setSuccessModal(true));
       }
     } else {
       console.log("❌ Incorrect answer");

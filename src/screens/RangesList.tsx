@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
 import sort from "@src/utils/sortDataEntries";
+import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -37,6 +38,7 @@ const RangesList = () => {
         paddingVertical: 40,
       }}
     >
+      {/* <ResetDataCard /> */}
       <RangeModal
         visible={modalVisible}
         dataEntry={selectedEntry}

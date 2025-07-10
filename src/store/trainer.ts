@@ -1,5 +1,8 @@
 import { gridNames } from "@assets/data/gridNames";
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
 import { GridName, ValidFraction } from "@src/types";
 
@@ -11,7 +14,9 @@ interface TrainerState {
   call: ValidFraction;
   fold: ValidFraction;
   startedPlaying: string;
+  filteredHandsArray: number[];
   showRangeModal: boolean;
+  showSuccessModal: boolean;
 }
 
 const initialState: TrainerState = {
@@ -22,7 +27,9 @@ const initialState: TrainerState = {
   call: 0,
   fold: 0,
   startedPlaying: new Date().toISOString(),
+  filteredHandsArray: [],
   showRangeModal: false,
+  showSuccessModal: false,
 };
 
 const slice = createSlice({
@@ -68,8 +75,17 @@ const slice = createSlice({
     resetStartTime(state) {
       state.startedPlaying = new Date().toISOString();
     },
-    setShowRangeModal(state, action) {
+    setShowRangeModal(
+      state,
+      action: PayloadAction<boolean>
+    ) {
       state.showRangeModal = action.payload;
+    },
+    setSuccessModal(state, action: PayloadAction<boolean>) {
+      state.showSuccessModal = action.payload;
+    },
+    setFilteredHandsArray(state, action) {
+      state.filteredHandsArray = action.payload;
     },
   },
 });
@@ -88,6 +104,8 @@ export const {
   resetActions,
   resetStartTime,
   setShowRangeModal,
+  setSuccessModal,
+  setFilteredHandsArray,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

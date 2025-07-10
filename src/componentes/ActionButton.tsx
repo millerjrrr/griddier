@@ -1,5 +1,9 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Vibration,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
@@ -76,6 +80,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       subNow || answer.a + answer.r + answer.c === 4;
 
     if (submit) {
+      Vibration.vibrate(50);
       setTimeout(() => submitAnswer(), 200);
     }
   };
@@ -112,6 +117,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         break;
     }
 
+    Vibration.vibrate(50);
     setTimeout(() => submitAnswer(), 200);
   };
 

@@ -6,51 +6,64 @@ import {
   Pressable,
   StyleSheet,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { DataEntry, NavigationParamList } from "@src/types";
 import Grid from "./Grid";
 import LevelStars from "./LevelStars";
+
+import { DataEntry, NavigationParamList } from "@src/types";
 import appShadow from "@src/utils/appShadow";
+import sort from "@src/utils/sortDataEntries";
 
 import {
   resetActions,
   resetIndex,
   resetStartTime,
   setGridName,
+  setShowRangeModal,
+  setSuccessModal,
 } from "@src/store/trainer";
+import { selectUserDataState } from "@src/store/userData";
+import { useNavigation } from "@react-navigation/native";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 
 interface RangeModalProps {
   visible: boolean;
   dataEntry: DataEntry | null;
-  onClose: () => void;
 }
 
-const RangeModal: React.FC<RangeModalProps> = ({
+const SuccessModal: React.FC<RangeModalProps> = ({
   visible,
   dataEntry,
-  onClose,
 }) => {
+  const dispatch = useDispatch();
   const navigation =
     useNavigation<
       MaterialTopTabNavigationProp<NavigationParamList>
     >();
-  const dispatch = useDispatch();
+
+  const { dataEntries } = useSelector(selectUserDataState);
 
   if (!dataEntry) return null;
 
-  const startTrainingDrill = () => {
+  const newGridName = sort(dataEntries)[0].gridName;
+
+  const moveToNextGrid = () => {
+    dispatch(setGridName(newGridName));
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());
-    dispatch(setGridName(dataEntry.gridName));
-    onClose();
-    navigation.navigate("Trainer"); // add `as never` if TS complains
+    dispatch(setGridName(newGridName));
+    dispatch(setSuccessModal(false));
+    dispatch(setShowRangeModal(true));
   };
 
+  const onClose = () => {
+    dispatch(setGridName(newGridName));
+    dispatch(setSuccessModal(false));
+    navigation.navigate("Ranges List");
+  };
   return (
     <Modal
       visible={visible}
@@ -59,28 +72,23 @@ const RangeModal: React.FC<RangeModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.content}>
-          <View style={styles.header}>
-            <Text style={styles.title}>
-              {dataEntry.gridName}
-            </Text>
-            <LevelStars stars={dataEntry.level} />
-          </View>
+          <Text style={styles.title}>
+            {dataEntry.gridName}
+          </Text>
 
           <Grid name={dataEntry.gridName} />
 
-          <View
-            style={[styles.infoRow, styles.centeredRow]}
-          >
-            <Text style={styles.infoText}>
+          <View style={[styles.row, styles.centeredRow]}>
+            <Text style={styles.text}>
               Drilled: {dataEntry.drilled}
             </Text>
-            <Text style={styles.infoText}>
+            <Text style={styles.text}>
               Time Drilling: {dataEntry.timeDrilling}
             </Text>
-            <Text style={styles.infoText}>
+            <Text style={styles.text}>
               Record Time: {dataEntry.recordTime}
             </Text>
-            <Text style={styles.infoText}>
+            <Text style={styles.text}>
               {dataEntry.lastStudied === ""
                 ? ""
                 : `Last Studied:${
@@ -89,24 +97,36 @@ const RangeModal: React.FC<RangeModalProps> = ({
             </Text>
           </View>
 
-          <Text style={styles.instructionText}>
-            Memorize this grid. When you are ready...
+          <Text style={styles.text2}>
+            Success! You have memorized this grid and
+            updated it to..
           </Text>
 
+          <Text style={styles.levelLabel}>{`Level ${
+            dataEntry.level + 1
+          }`}</Text>
+
+          <View style={styles.starsWrapper}>
+            <LevelStars
+              stars={dataEntry.level + 1}
+              size={25}
+            />
+          </View>
+
           <Pressable
-            onPress={startTrainingDrill}
+            onPress={moveToNextGrid}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>Let's go!</Text>
+            <Text style={styles.buttonText}>
+              Next grid!
+            </Text>
           </Pressable>
 
           <Pressable
             onPress={onClose}
-            style={styles.secondaryButton}
+            style={styles.button2}
           >
-            <Text style={styles.secondaryButtonText}>
-              Close
-            </Text>
+            <Text style={styles.buttonText2}>Exit</Text>
           </Pressable>
         </View>
       </View>
@@ -122,41 +142,49 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   content: {
-    backgroundColor: "white",
+    backgroundColor: "#f5e6a4",
     padding: 10,
     borderRadius: 12,
     width: "95%",
   },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 10,
-  },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    marginLeft: 10,
+    margin: 10,
+    textAlign: "center",
   },
-  infoRow: {
+  row: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 10,
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   centeredRow: {
     justifyContent: "center",
   },
-  infoText: {
-    paddingLeft: 5,
+  text: {
+    paddingLeft: 2,
     fontSize: 12,
-    marginTop: 5,
+    marginTop: 10,
     marginRight: 10,
   },
-  instructionText: {
-    paddingTop: 15,
+  text2: {
+    paddingLeft: 5,
     fontSize: 18,
+    marginTop: 10,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  levelLabel: {
+    width: "100%",
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: 10,
+    fontSize: 17,
+  },
+  starsWrapper: {
+    width: "100%",
+    alignItems: "center",
   },
   button: {
     backgroundColor: "#76cf70",
@@ -166,7 +194,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     ...appShadow("black"),
   },
-  secondaryButton: {
+  button2: {
     backgroundColor: "#3498db",
     marginTop: 10,
     paddingVertical: 10,
@@ -180,7 +208,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
-  secondaryButtonText: {
+  buttonText2: {
     color: "white",
     fontWeight: "bold",
     fontSize: 17,
@@ -188,4 +216,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RangeModal;
+export default SuccessModal;
