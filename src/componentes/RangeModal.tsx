@@ -22,6 +22,7 @@ import {
 } from "@src/store/trainer";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
+import formatTime from "./../utils/formatTime";
 
 interface RangeModalProps {
   visible: boolean;
@@ -75,10 +76,12 @@ const RangeModal: React.FC<RangeModalProps> = ({
               Drilled: {dataEntry.drilled}
             </Text>
             <Text style={styles.infoText}>
-              Time Drilling: {dataEntry.timeDrilling}
+              Time Drilling:{" "}
+              {formatTime(dataEntry.timeDrilling)}
             </Text>
             <Text style={styles.infoText}>
-              Record Time: {dataEntry.recordTime}
+              Record Time:{" "}
+              {formatTime(dataEntry.recordTime)}
             </Text>
             <Text style={styles.infoText}>
               {dataEntry.lastStudied === ""

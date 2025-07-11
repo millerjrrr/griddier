@@ -2,6 +2,7 @@ import {
   incIndex,
   resetActions,
   resetIndex,
+  resetStartTime,
   setGridName,
   setShowRangeModal,
   setSuccessModal,
@@ -47,6 +48,8 @@ const useSubmitAnswer = () => {
       r: raiseMatrix[columnIndex][rowIndex],
       c: callMatrix[columnIndex][rowIndex],
     };
+
+    if (index === 0) dispatch(resetStartTime());
 
     if (isMatch(answer, target)) {
       console.log("✅ Correct answer");

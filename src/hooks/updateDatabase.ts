@@ -1,13 +1,18 @@
+import { selectTrainerState } from "@src/store/trainer";
 import {
   selectUserDataState,
   updateDataEntry,
 } from "@src/store/userData";
 import { GridName } from "@src/types";
+import { timePassedSince } from "@src/utils/timePassedSince";
 import { useDispatch, useSelector } from "react-redux";
 
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
   const { dataEntries } = useSelector(selectUserDataState);
+  const { startedPlaying } = useSelector(
+    selectTrainerState
+  );
 
   const updateDatabase = (
     gridName: GridName,
@@ -23,6 +28,8 @@ const useUpdateDatabase = () => {
       console.warn(`No entry found for grid: ${gridName}`);
       return;
     }
+
+    const playTime = timePassedSince(startedPlaying);
 
     // Set today's date at midnight
     const today = new Date(
@@ -49,6 +56,11 @@ const useUpdateDatabase = () => {
           level: entry.level + 1,
           drilled: entry.drilled + 1,
           dueDate,
+          recordTime:
+            entry.recordTime === 0
+              ? playTime
+              : Math.min(entry.recordTime, playTime),
+          timeDrilling: entry.timeDrilling + playTime,
           lastStudied: today,
         })
       );
@@ -58,6 +70,7 @@ const useUpdateDatabase = () => {
         updateDataEntry({
           gridName,
           level: 0,
+          timeDrilling: entry.timeDrilling + playTime,
           dueDate: today,
           lastStudied: today,
         })

@@ -1,17 +1,10 @@
+import formatTime from "@src/utils/formatTime";
 import { Image, Text, View } from "react-native";
 const clock = require("@assets/img/clock.png");
 
 const Clock: React.FC<{ record: number }> = ({
   record,
 }) => {
-  const minutes = Math.floor(record / 60);
-  const seconds = record % 60;
-
-  // pad seconds with leading 0 if needed (e.g. "2:05")
-  const formatted = `${minutes}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
-
   return (
     <View
       style={{ flexDirection: "row", alignItems: "center" }}
@@ -26,7 +19,7 @@ const Clock: React.FC<{ record: number }> = ({
         }}
       />
       <Text style={{ fontSize: 20, paddingLeft: 5 }}>
-        {formatted}
+        {formatTime(record)}
       </Text>
     </View>
   );

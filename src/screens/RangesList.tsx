@@ -38,7 +38,7 @@ const RangesList = () => {
         paddingVertical: 40,
       }}
     >
-      {/* <ResetDataCard /> */}
+      <ResetDataCard />
       <RangeModal
         visible={modalVisible}
         dataEntry={selectedEntry}

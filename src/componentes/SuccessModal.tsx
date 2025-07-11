@@ -27,6 +27,7 @@ import { selectUserDataState } from "@src/store/userData";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
+import formatTime from "@src/utils/formatTime";
 
 interface RangeModalProps {
   visible: boolean;
@@ -83,10 +84,12 @@ const SuccessModal: React.FC<RangeModalProps> = ({
               Drilled: {dataEntry.drilled}
             </Text>
             <Text style={styles.text}>
-              Time Drilling: {dataEntry.timeDrilling}
+              Time Drilling:{" "}
+              {formatTime(dataEntry.timeDrilling)}
             </Text>
             <Text style={styles.text}>
-              Record Time: {dataEntry.recordTime}
+              Record Time:{" "}
+              {formatTime(dataEntry.recordTime)}
             </Text>
             <Text style={styles.text}>
               {dataEntry.lastStudied === ""
