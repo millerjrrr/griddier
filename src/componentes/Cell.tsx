@@ -74,48 +74,55 @@ const Cell: React.FC<GridCellProps> = ({
   return (
     <View
       style={{
-        ...(size ? { width: size } : { flex: 1 }),
         ...(shadow && appShadow("white", 10)),
-        borderRadius: borderRadius!! || 0,
+        ...(size ? { width: size } : { flex: 1 }),
         aspectRatio: 1,
-        // position: "relative",
-        backgroundColor: PRIOR,
-        borderColor: "black",
-        borderWidth: size ? size / 100 : 1,
-        // overflow: "hidden",
-        flexDirection: "row",
-        alignItems: "flex-end",
-        justifyContent: "flex-start",
       }}
     >
-      {segments.map((segment, index) => (
-        <View
-          key={index}
-          style={{
-            width: segment.width,
-            height: segment.height,
-            backgroundColor: segment.color,
-          }}
-        />
-      ))}
       <View
         style={{
-          position: "absolute",
-          alignItems: "center",
-          justifyContent: "center",
-          width: size ? size : "100%",
+          ...(size ? { width: size } : { flex: 1 }),
+          borderRadius: borderRadius!! || 0,
           aspectRatio: 1,
+          // position: "relative",
+          backgroundColor: PRIOR,
+          borderColor: "black",
+          borderWidth: size ? size / 100 : 1,
+          overflow: "hidden",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
         }}
       >
-        <Text
+        {segments.map((segment, index) => (
+          <View
+            key={index}
+            style={{
+              width: segment.width,
+              height: segment.height,
+              backgroundColor: segment.color,
+            }}
+          />
+        ))}
+        <View
           style={{
-            color: "black",
-            fontWeight: "bold",
-            fontSize: size ? size * 0.4 : 10,
+            position: "absolute",
+            alignItems: "center",
+            justifyContent: "center",
+            width: size ? size : "100%",
+            aspectRatio: 1,
           }}
         >
-          {hand}
-        </Text>
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              fontSize: size ? size * 0.4 : 10,
+            }}
+          >
+            {hand}
+          </Text>
+        </View>
       </View>
     </View>
   );

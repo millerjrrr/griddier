@@ -28,6 +28,11 @@ const RootNavigator: React.FC = () => {
             fontWeight: "bold", // Optional: make it bold
             textTransform: "none", // Optional: prevent uppercase transformation
           },
+          tabBarIndicatorStyle: {
+            backgroundColor: "#ff69b4", // Your pink glow color here
+            height: 3, // Optional: make it thicker or thinner
+            borderRadius: 2, // Optional: make the ends rounded
+          },
         }}
       >
         <Tab.Screen name="Trainer" component={Trainer} />
