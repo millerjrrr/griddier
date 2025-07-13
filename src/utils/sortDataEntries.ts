@@ -32,8 +32,8 @@ const sort = (dataEntries: DataEntry[]) => {
     // 4. Then by lowest level
     if (a.level !== b.level) return a.level - b.level;
 
-    // 5. Then by startingRank
-    return a.startingRank - b.startingRank;
+    // 5. Then by priority
+    return a.priority - b.priority;
   });
 };
 
