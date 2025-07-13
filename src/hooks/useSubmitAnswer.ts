@@ -85,8 +85,8 @@ const useSubmitAnswer = () => {
         setFilteredHandsArray(newFilteredHandsArray)
       );
       dispatch(resetIndex());
-      dispatch(setShowRangeModal(true));
       updateDatabase(gridName, false);
+      dispatch(setShowRangeModal(true));
     }
 
     dispatch(resetActions());

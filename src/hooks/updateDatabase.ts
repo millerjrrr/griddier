@@ -4,6 +4,7 @@ import {
   updateDataEntry,
 } from "@src/store/userData";
 import { GridName } from "@src/types";
+import formatDate from "@src/utils/formatDate";
 import { timePassedSince } from "@src/utils/timePassedSince";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,11 +33,7 @@ const useUpdateDatabase = () => {
     const playTime = timePassedSince(startedPlaying);
 
     // Set today's date at midnight
-    const today = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate()
-    ).toISOString();
+    const today = formatDate(now);
 
     if (correct) {
       // Next due date: today + 2^level days
@@ -44,11 +41,7 @@ const useUpdateDatabase = () => {
       nextDate.setDate(
         nextDate.getDate() + Math.pow(2, entry.level)
       );
-      const dueDate = new Date(
-        nextDate.getFullYear(),
-        nextDate.getMonth(),
-        nextDate.getDate()
-      ).toISOString();
+      const dueDate = formatDate(nextDate);
 
       dispatch(
         updateDataEntry({

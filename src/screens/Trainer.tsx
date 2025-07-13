@@ -9,7 +9,6 @@ import {
   resetIndex,
   selectTrainerState,
   setShowRangeModal,
-  setSuccessModal,
 } from "@src/store/trainer";
 import { gridNames } from "@assets/data/dataArrays/gridNames";
 import Cell from "../componentes/Cell";
@@ -68,14 +67,18 @@ const Trainer: React.FC = () => {
         <RangeModal
           visible={showRangeModal}
           dataEntry={
-            dataEntries[gridNames.indexOf(gridName)]
+            dataEntries.find(
+              (entry) => entry.gridName === gridName
+            ) || dataEntries[0]
           }
           onClose={() => dispatch(setShowRangeModal(false))}
         />
         <SuccessModal
           visible={showSuccessModal}
           dataEntry={
-            dataEntries[gridNames.indexOf(gridName)]
+            dataEntries.find(
+              (entry) => entry.gridName === gridName
+            ) || dataEntries[0]
           }
         />
         <SpotName name={gridName} />
