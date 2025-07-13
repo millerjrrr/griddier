@@ -15,11 +15,11 @@ import { gridNames } from "@assets/data/gridNames";
 import Cell from "../componentes/Cell";
 import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";
-import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/RangeModal";
 import { selectUserDataState } from "@src/store/userData";
 import SuccessModal from "@src/componentes/SuccessModal";
+import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
 
 const Trainer: React.FC = () => {
   const {
@@ -29,11 +29,18 @@ const Trainer: React.FC = () => {
     raise,
     call,
     fold,
+    filteredHandsArray,
     showRangeModal,
     showSuccessModal,
   } = useSelector(selectTrainerState);
   const columnIndex = gridNames.indexOf(gridName);
-  const handsForReview = drillingData[columnIndex];
+  const initializeFilteredHandsArray =
+    useInitializeFilteredHandsArray();
+  const handsForReview =
+    filteredHandsArray.length === 0
+      ? initializeFilteredHandsArray(gridName)
+      : filteredHandsArray;
+
   const rowIndex = handsArray.indexOf(
     handsForReview[index]
   );
@@ -77,7 +84,7 @@ const Trainer: React.FC = () => {
           call={call}
           fold={fold}
           prior={prior}
-          hand={handsForReview[index]} // placeholder for now
+          hand={handsForReview[index]}
           size={300}
         />
         <ButtonContainer gridName={gridName} />

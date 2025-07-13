@@ -3,7 +3,8 @@ import {
   resetActions,
   resetIndex,
   resetStartTime,
-  setGridName,
+  selectTrainerState,
+  setFilteredHandsArray,
   setShowRangeModal,
   setSuccessModal,
 } from "@src/store/trainer";
@@ -13,7 +14,6 @@ import { gridData as raiseMatrix } from "@assets/data/dataArrays/RaiseMatrix";
 import { gridData as callMatrix } from "@assets/data/dataArrays/CallMatrix";
 import { gridNames } from "@assets/data/gridNames";
 import { ActionCombo } from "@src/types";
-import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
 import store from "@src/store";
 import handsArray from "@src/utils/handsArray";
 import {
@@ -22,6 +22,7 @@ import {
 } from "@src/store/userData";
 import sort from "@src/utils/sortDataEntries";
 import useUpdateDatabase from "./updateDatabase";
+import { moveToFront } from "@src/utils/moveToFront";
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.a === y.a && x.r === y.r && x.c === y.c;
@@ -29,6 +30,9 @@ const isMatch = (x: ActionCombo, y: ActionCombo) =>
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
   const { dataEntries } = useSelector(selectUserDataState);
+  const { filteredHandsArray } = useSelector(
+    selectTrainerState
+  );
 
   const updateDatabase = useUpdateDatabase();
 
@@ -38,9 +42,8 @@ const useSubmitAnswer = () => {
       state.trainer; //needs to be inside submitAnswer to get up to date values
     const answer = { a: allin, r: raise, c: call };
     const columnIndex = gridNames.indexOf(gridName);
-    const handsForReview = drillingData[columnIndex];
     const rowIndex = handsArray.indexOf(
-      handsForReview[index]
+      filteredHandsArray[index]
     );
 
     const target = {
@@ -56,7 +59,7 @@ const useSubmitAnswer = () => {
 
       //test console.log()
       // if (index + 1 < handsForReview.length) {
-      if (index + 1 < 3) {
+      if (index + 1 < filteredHandsArray.length) {
         dispatch(incIndex());
       } else {
         console.log("🎉 Test completed");
@@ -74,6 +77,13 @@ const useSubmitAnswer = () => {
       }
     } else {
       console.log("❌ Incorrect answer");
+      const newFilteredHandsArray = moveToFront(
+        filteredHandsArray,
+        index
+      );
+      dispatch(
+        setFilteredHandsArray(newFilteredHandsArray)
+      );
       dispatch(resetIndex());
       dispatch(setShowRangeModal(true));
       updateDatabase(gridName, false);

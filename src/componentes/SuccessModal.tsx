@@ -28,6 +28,7 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "@src/utils/formatTime";
+import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
 
 interface RangeModalProps {
   visible: boolean;
@@ -39,6 +40,8 @@ const SuccessModal: React.FC<RangeModalProps> = ({
   dataEntry,
 }) => {
   const dispatch = useDispatch();
+  const initializeFilteredHandsArray =
+    useInitializeFilteredHandsArray();
   const navigation =
     useNavigation<
       MaterialTopTabNavigationProp<NavigationParamList>
@@ -52,6 +55,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   const moveToNextGrid = () => {
     dispatch(setGridName(newGridName));
+    initializeFilteredHandsArray(newGridName);
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());
@@ -62,6 +66,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   const onClose = () => {
     dispatch(setGridName(newGridName));
+    initializeFilteredHandsArray(newGridName);
     dispatch(setSuccessModal(false));
     navigation.navigate("Ranges List");
   };

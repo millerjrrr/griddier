@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { DataEntry, NavigationParamList } from "@src/types";
 import Grid from "./Grid";
@@ -18,11 +18,13 @@ import {
   resetActions,
   resetIndex,
   resetStartTime,
+  selectTrainerState,
   setGridName,
 } from "@src/store/trainer";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
+import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
 
 interface RangeModalProps {
   visible: boolean;
@@ -40,14 +42,21 @@ const RangeModal: React.FC<RangeModalProps> = ({
       MaterialTopTabNavigationProp<NavigationParamList>
     >();
   const dispatch = useDispatch();
+  const initializeFilteredHandsArray =
+    useInitializeFilteredHandsArray();
+  const { gridName } = useSelector(selectTrainerState);
 
   if (!dataEntry) return null;
+
+  const newDrill = gridName !== dataEntry.gridName;
 
   const startTrainingDrill = () => {
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());
     dispatch(setGridName(dataEntry.gridName));
+    if (newDrill)
+      initializeFilteredHandsArray(dataEntry.gridName);
     onClose();
     navigation.navigate("Trainer"); // add `as never` if TS complains
   };

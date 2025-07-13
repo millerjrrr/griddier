@@ -57,8 +57,4 @@ export const gridNames: string[] = [
   "BB4 vs SB3 vs HJO (2, 11, 23)",
   "BB4 vs SB3 vs COO (2.3, 11.5, 25)",
   "BB4 vs SB3 vs BUO (2.5, 12, 23)",
-  "HU RFI 2.5",
-  "HU BB vs RFI 2.5 (10)",
-  "HU RFI vs 3bet (10, 25)",
-  "HU BB vs BU4 (25, 100)",
 ];

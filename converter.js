@@ -98,7 +98,7 @@ function convertIrregularCsvToTs(inputPath, outputPath) {
       const cleanedRows = rows
         .slice(1)
         .map((row) =>
-          row.slice(2).filter((cell) => cell.trim() !== "")
+          row.slice(3).filter((cell) => cell.trim() !== "")
         );
 
       const tsContent = `export const drillingData: string[][] = ${JSON.stringify(
@@ -112,6 +112,20 @@ function convertIrregularCsvToTs(inputPath, outputPath) {
         `✅ Converted ${path.basename(
           inputPath
         )} → ${path.basename(outputPath)}`
+      );
+
+      // import the priorities
+      const priorities = rows.slice(1).map((row) => row[1]);
+      const tsContentForPriorities = `export const Priorities: string[] = ${JSON.stringify(
+        priorities,
+        null,
+        2
+      )};\n`;
+
+      fs.writeFileSync(
+        path.join(outputDir, "Priorities.ts"),
+        tsContentForPriorities,
+        "utf8"
       );
     }
   );

@@ -14,7 +14,7 @@ interface TrainerState {
   call: ValidFraction;
   fold: ValidFraction;
   startedPlaying: string;
-  filteredHandsArray: number[];
+  filteredHandsArray: string[];
   showRangeModal: boolean;
   showSuccessModal: boolean;
 }
