@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
 import { DataEntry, UserDataState } from "@src/types";
 import getInitialUserData from "@src/utils/getInitialUserData";
+import sort from "@src/utils/sortDataEntries";
 
 const initialState: UserDataState = {
   dataEntries: getInitialUserData(),
@@ -18,6 +19,7 @@ const slice = createSlice({
       }
     ) => {
       state.dataEntries = action.payload;
+      state.dataEntries = sort(state.dataEntries);
     },
     updateDataEntry: (
       state,
@@ -36,6 +38,7 @@ const slice = createSlice({
           ...action.payload,
         };
       }
+      state.dataEntries = sort(state.dataEntries);
     },
   },
 });

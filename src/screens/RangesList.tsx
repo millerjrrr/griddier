@@ -6,13 +6,11 @@ import { DataEntry } from "@src/types";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
-import sort from "@src/utils/sortDataEntries";
 import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
 
-  const sortedDataEntries = sort(dataEntries);
   const [selectedEntry, setSelectedEntry] =
     useState<DataEntry | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -46,7 +44,7 @@ const RangesList = () => {
       />
       <FadeBackgroundView height={20} />
       <FlatList
-        data={sortedDataEntries}
+        data={dataEntries}
         renderItem={({ item }) => {
           // must be called item for FlatList to work
           return (
