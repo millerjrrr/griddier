@@ -35,16 +35,16 @@ const RangesList = () => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        paddingVertical: 40,
+        paddingBottom: 40,
       }}
     >
-      <ResetDataCard />
+      {/* <ResetDataCard /> */}
       <RangeModal
         visible={modalVisible}
         dataEntry={selectedEntry}
         onClose={closeModal}
       />
-      <FadeBackgroundView height={20} style={{ top: 40 }} />
+      <FadeBackgroundView height={20} />
       <FlatList
         data={sortedDataEntries}
         renderItem={({ item }) => {

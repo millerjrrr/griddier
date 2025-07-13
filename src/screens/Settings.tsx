@@ -1,16 +1,21 @@
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
+import { importUserDataFromCsv } from "@src/utils/importUserData";
 import { View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Settings = () => {
   const { dataEntries } = useSelector(selectUserDataState);
+  const dispatch = useDispatch();
 
-  const importUserData = () =>
-    console.log("Import user data");
+  const importUserData = () => {
+    importUserDataFromCsv(dispatch);
+  };
+
   const exportUserData = () =>
     exportUserDataAsCsv(dataEntries);
+
   return (
     <View
       style={{

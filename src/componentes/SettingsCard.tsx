@@ -8,7 +8,7 @@ const SettingsCard: React.FC<{
     <TouchableOpacity
       style={{
         height: 60,
-        width: "100%",
+        width: "95%",
         borderBottomWidth: 2,
         borderColor: "gray",
         padding: 15,

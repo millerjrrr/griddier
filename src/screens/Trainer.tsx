@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 
 import { gridData as priorMatrix } from "@assets/data/dataArrays/PriorMatrix";
@@ -34,15 +34,16 @@ const Trainer: React.FC = () => {
     showSuccessModal,
   } = useSelector(selectTrainerState);
   const columnIndex = gridNames.indexOf(gridName);
+
   const initializeFilteredHandsArray =
     useInitializeFilteredHandsArray();
-  const handsForReview =
-    filteredHandsArray.length === 0
-      ? initializeFilteredHandsArray(gridName)
-      : filteredHandsArray;
+
+  useEffect(() => {
+    initializeFilteredHandsArray(gridName);
+  }, [gridName]);
 
   const rowIndex = handsArray.indexOf(
-    handsForReview[index]
+    filteredHandsArray[index]
   );
   const prior = priorMatrix[columnIndex][rowIndex];
 
@@ -84,7 +85,7 @@ const Trainer: React.FC = () => {
           call={call}
           fold={fold}
           prior={prior}
-          hand={handsForReview[index]}
+          hand={filteredHandsArray[index]}
           size={300}
         />
         <ButtonContainer gridName={gridName} />

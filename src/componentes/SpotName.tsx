@@ -11,7 +11,14 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
     <View
       style={[styles.container, { ...appShadow("black") }]}
     >
-      <Text style={styles.text}>{name}</Text>
+      <Text
+        style={[
+          styles.text,
+          { fontSize: name.length < 25 ? 30 : 20 },
+        ]}
+      >
+        {name}
+      </Text>
     </View>
   );
 };
