@@ -1,4 +1,4 @@
-import { gridNames } from "@assets/data/gridNames";
+import { gridNames } from "@assets/data/dataArrays/gridNames";
 import {
   createSlice,
   PayloadAction,

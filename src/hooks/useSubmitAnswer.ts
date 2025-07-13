@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
 import { gridData as raiseMatrix } from "@assets/data/dataArrays/RaiseMatrix";
 import { gridData as callMatrix } from "@assets/data/dataArrays/CallMatrix";
-import { gridNames } from "@assets/data/gridNames";
+import { gridNames } from "@assets/data/dataArrays/gridNames";
 import { ActionCombo } from "@src/types";
 import store from "@src/store";
 import handsArray from "@src/utils/handsArray";

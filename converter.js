@@ -85,8 +85,10 @@ export const gridData: ValidFraction[][] = ${JSON.stringify(
 /**
  * Converts a freeform CSV into a string[][] .ts file (e.g. FilteredDrilling)
  */
-function convertIrregularCsvToTs(inputPath, outputPath) {
-  const rawData = fs.readFileSync(inputPath, "utf8");
+function importActionListData() {
+  const rawData = fs.readFileSync(
+    path.join(inputDir, "ActionList.csv")
+  );
 
   parse(
     rawData,
@@ -107,24 +109,36 @@ function convertIrregularCsvToTs(inputPath, outputPath) {
         2
       )};\n`;
 
-      fs.writeFileSync(outputPath, tsContent, "utf8");
-      console.log(
-        `✅ Converted ${path.basename(
-          inputPath
-        )} → ${path.basename(outputPath)}`
+      fs.writeFileSync(
+        path.join(outputDir, "FilteredDrilling.ts"),
+        tsContent,
+        "utf8"
       );
+      console.log(`✅ Converted ActionList`);
 
       // import the priorities
-      const priorities = rows.slice(1).map((row) => row[1]);
-      const tsContentForPriorities = `export const Priorities: string[] = ${JSON.stringify(
-        priorities,
-        null,
-        2
+      const priorities = rows
+        .slice(1)
+        .map((row) => Number(row[1]));
+      const tsContentForPriorities = `export const Priorities: number[] = ${JSON.stringify(
+        priorities
       )};\n`;
 
       fs.writeFileSync(
         path.join(outputDir, "Priorities.ts"),
         tsContentForPriorities,
+        "utf8"
+      );
+
+      // import the gridNames
+      const gridNames = rows.slice(1).map((row) => row[0]);
+      const tsContentForGridNames = `export const gridNames: string[] = ${JSON.stringify(
+        gridNames
+      )};\n`;
+
+      fs.writeFileSync(
+        path.join(outputDir, "gridNames.ts"),
+        tsContentForGridNames,
         "utf8"
       );
     }
@@ -143,13 +157,4 @@ function convertIrregularCsvToTs(inputPath, outputPath) {
   convertMatrixCsvToTs(inputPath, outputPath);
 });
 
-// Convert the FilteredDrilling CSV
-const drillingInput = path.join(
-  inputDir,
-  "FilteredDrilling.csv"
-);
-const drillingOutput = path.join(
-  outputDir,
-  "FilteredDrilling.ts"
-);
-convertIrregularCsvToTs(drillingInput, drillingOutput);
+importActionListData();

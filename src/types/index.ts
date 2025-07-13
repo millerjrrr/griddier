@@ -1,4 +1,4 @@
-import { gridNames } from "../../assets/data/gridNames";
+import { gridNames } from "../../assets/data/dataArrays/gridNames";
 
 export type ValidFraction = 0 | 1 | 2 | 3 | 4;
 
@@ -26,7 +26,7 @@ export interface DataEntry {
   timeDrilling: number;
   recordTime: number;
   lastStudied: string;
-  startingRank: number;
+  priority: number;
   locked: boolean;
 }
 

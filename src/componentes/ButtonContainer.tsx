@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import ActionButton from "./ActionButton";
-import { gridNames } from "../../assets/data/gridNames";
+import { gridNames } from "../../assets/data/dataArrays/gridNames";
 import { GridName } from "../types";
 import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
 import { gridData as raiseMatrix } from "@assets/data/dataArrays/RaiseMatrix";

@@ -1,4 +1,5 @@
-import { gridNames } from "@assets/data/gridNames";
+import { gridNames } from "@assets/data/dataArrays/gridNames";
+import { Priorities } from "@assets/data/dataArrays/Priorities";
 import { DataEntry } from "@src/types"; // adjust path as needed
 
 const getInitialUserData = (): DataEntry[] => {
@@ -10,7 +11,7 @@ const getInitialUserData = (): DataEntry[] => {
     timeDrilling: 0,
     recordTime: 0,
     lastStudied: "",
-    startingRank: index,
+    priority: Priorities[index],
     locked: index !== 0,
   }));
 };

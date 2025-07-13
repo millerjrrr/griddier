@@ -11,7 +11,7 @@ import {
   setShowRangeModal,
   setSuccessModal,
 } from "@src/store/trainer";
-import { gridNames } from "@assets/data/gridNames";
+import { gridNames } from "@assets/data/dataArrays/gridNames";
 import Cell from "../componentes/Cell";
 import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";

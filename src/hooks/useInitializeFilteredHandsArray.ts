@@ -1,5 +1,5 @@
 import { drillingData } from "@assets/data/dataArrays/FilteredDrilling";
-import { gridNames } from "@assets/data/gridNames";
+import { gridNames } from "@assets/data/dataArrays/gridNames";
 import { setFilteredHandsArray } from "@src/store/trainer";
 import { GridName } from "@src/types";
 import { fisherYatesShuffle } from "@src/utils/fisherYatesShuffle";
