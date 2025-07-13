@@ -1,11 +1,16 @@
 import SettingsCard from "@src/componentes/SettingsCard";
-import { Text, View } from "react-native";
+import { selectUserDataState } from "@src/store/userData";
+import { exportUserDataAsCsv } from "@src/utils/exportUserData";
+import { View } from "react-native";
+import { useSelector } from "react-redux";
 
 const Settings = () => {
+  const { dataEntries } = useSelector(selectUserDataState);
+
   const importUserData = () =>
     console.log("Import user data");
   const exportUserData = () =>
-    console.log("Export user data");
+    exportUserDataAsCsv(dataEntries);
   return (
     <View
       style={{
