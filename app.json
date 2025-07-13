@@ -13,13 +13,9 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.yourcompany.gridmaster",
+      "bundleIdentifier": "com.gridmaster.app",
       "buildNumber": "1",
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSCameraUsageDescription": "This app uses the camera to scan QR codes.",
-        "NSPhotoLibraryUsageDescription": "This app allows you to pick photos from your library."
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
