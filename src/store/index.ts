@@ -5,9 +5,10 @@ import {
 import { persistStore } from "redux-persist";
 import { combineReducers, Reducer } from "redux";
 import trainerReducer from "./trainer";
-import userDataReducer from "./userData";
+import userDataReducer, { setUserData } from "./userData";
 import persistReducer from "redux-persist/es/persistReducer";
 import { fileBackedStorage } from "@src/utils/asyncStorage";
+import { addUserData } from "@src/utils/addUserData";
 
 export const resetStore = createAction("RESET_STORE");
 
@@ -50,4 +51,9 @@ export type AppDispatch = typeof store.dispatch;
 
 export default store;
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store, null, () => {
+  const state = store.getState();
+  const userData = state.userData.dataEntries; // Assuming your slice shape is `state.userData.data`
+  const merged = addUserData(userData);
+  store.dispatch(setUserData(merged));
+});

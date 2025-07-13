@@ -2,7 +2,7 @@ import { gridNames } from "@assets/data/dataArrays/gridNames";
 import { DataEntry } from "@src/types";
 import { Priorities } from "@assets/data/dataArrays/Priorities";
 
-export const updateUserData = (
+export const addUserData = (
   existingData: DataEntry[]
 ): DataEntry[] => {
   const updatedData = [...existingData];

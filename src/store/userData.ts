@@ -11,6 +11,14 @@ const slice = createSlice({
   name: "userData",
   initialState,
   reducers: {
+    setUserData: (
+      state,
+      action: {
+        payload: DataEntry[];
+      }
+    ) => {
+      state.dataEntries = action.payload;
+    },
     updateDataEntry: (
       state,
       action: {
@@ -32,7 +40,8 @@ const slice = createSlice({
   },
 });
 
-export const { updateDataEntry } = slice.actions;
+export const { setUserData, updateDataEntry } =
+  slice.actions;
 
 export const selectUserDataState = (state: RootState) =>
   state.userData;
