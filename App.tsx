@@ -4,11 +4,13 @@ import store, { persistor } from "./src/store";
 import RootNavigator from "./src/navigation/RootNavigator";
 import { PersistGate } from "redux-persist/integration/react";
 import Toast from "react-native-toast-message";
+import { View } from "react-native";
 
 export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <View style={{ height: 25 }} />
         <RootNavigator />
         <Toast />
         <StatusBar style="auto" />
