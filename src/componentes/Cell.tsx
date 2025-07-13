@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import colors from "../utils/colors";
 import { ValidFraction } from "../types";
+import appShadow from "@src/utils/appShadow";
 
 const isValidFraction = (
   value: number
@@ -16,6 +17,8 @@ export interface GridCellProps {
   hand?: string;
   size?: number;
   fold?: number;
+  shadow?: boolean;
+  borderRadius?: number;
 }
 
 const Cell: React.FC<GridCellProps> = ({
@@ -26,6 +29,8 @@ const Cell: React.FC<GridCellProps> = ({
   hand = "",
   size,
   fold = 0,
+  shadow,
+  borderRadius,
 }) => {
   const total = allIn + raise + call;
 
@@ -70,12 +75,14 @@ const Cell: React.FC<GridCellProps> = ({
     <View
       style={{
         ...(size ? { width: size } : { flex: 1 }),
+        ...(shadow && appShadow("white", 10)),
+        borderRadius: borderRadius!! || 0,
         aspectRatio: 1,
         // position: "relative",
         backgroundColor: PRIOR,
         borderColor: "black",
         borderWidth: size ? size / 100 : 1,
-        overflow: "hidden",
+        // overflow: "hidden",
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "flex-start",

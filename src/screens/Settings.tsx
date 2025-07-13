@@ -1,3 +1,4 @@
+import BGContainer from "@src/componentes/BGContainer";
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
@@ -17,24 +18,25 @@ const Settings = () => {
     exportUserDataAsCsv(dataEntries);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        width: "100%",
-        paddingVertical: 40,
-      }}
-    >
-      <SettingsCard
-        onPress={importUserData}
-        title={"Import user data"}
-      />
-      <SettingsCard
-        onPress={exportUserData}
-        title={"Export user data"}
-      />
-    </View>
+    <BGContainer>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          width: "100%",
+          paddingVertical: 40,
+        }}
+      >
+        <SettingsCard
+          onPress={importUserData}
+          title={"Import user data"}
+        />
+        <SettingsCard
+          onPress={exportUserData}
+          title={"Export user data"}
+        />
+      </View>
+    </BGContainer>
   );
 };
 

@@ -29,7 +29,7 @@ const applyAlpha = (
 const FadeBackgroundView: React.FC<
   FadeBackgroundViewProps
 > = ({
-  color = "#ffffff",
+  color = "#ff99cc",
   position = "top",
   height,
   style,

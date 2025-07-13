@@ -19,6 +19,7 @@ import RangeModal from "@src/componentes/RangeModal";
 import { selectUserDataState } from "@src/store/userData";
 import SuccessModal from "@src/componentes/SuccessModal";
 import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
+import BGContainer from "@src/componentes/BGContainer";
 
 const Trainer: React.FC = () => {
   const {
@@ -62,47 +63,53 @@ const Trainer: React.FC = () => {
   const { dataEntries } = useSelector(selectUserDataState);
 
   return (
-    <View style={styles.outerContainer}>
-      <View style={styles.container}>
-        <RangeModal
-          visible={showRangeModal}
-          dataEntry={
-            dataEntries.find(
-              (entry) => entry.gridName === gridName
-            ) || dataEntries[0]
-          }
-          onClose={() => dispatch(setShowRangeModal(false))}
-        />
-        <SuccessModal
-          visible={showSuccessModal}
-          dataEntry={
-            dataEntries.find(
-              (entry) => entry.gridName === gridName
-            ) || dataEntries[0]
-          }
-        />
-        <SpotName name={gridName} />
-        <Cell
-          allIn={allin}
-          raise={raise}
-          call={call}
-          fold={fold}
-          prior={prior}
-          hand={filteredHandsArray[index]}
-          size={300}
-        />
-        <ButtonContainer gridName={gridName} />
+    <BGContainer>
+      <View style={styles.outerContainer}>
+        <View style={styles.container}>
+          <RangeModal
+            visible={showRangeModal}
+            dataEntry={
+              dataEntries.find(
+                (entry) => entry.gridName === gridName
+              ) || dataEntries[0]
+            }
+            onClose={() =>
+              dispatch(setShowRangeModal(false))
+            }
+          />
+          <SuccessModal
+            visible={showSuccessModal}
+            dataEntry={
+              dataEntries.find(
+                (entry) => entry.gridName === gridName
+              ) || dataEntries[0]
+            }
+          />
+          <SpotName name={gridName} />
+          <Cell
+            allIn={allin}
+            raise={raise}
+            call={call}
+            fold={fold}
+            prior={prior}
+            hand={filteredHandsArray[index]}
+            size={300}
+            shadow
+            borderRadius={5}
+          />
+          <ButtonContainer gridName={gridName} />
+        </View>
       </View>
-    </View>
+    </BGContainer>
   );
 };
 
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "transparent",
   },
   container: {
     alignItems: "center",

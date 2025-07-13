@@ -3,6 +3,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Vibration,
+  View,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
@@ -21,6 +22,7 @@ import {
 } from "@src/store/trainer";
 
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
+import BGContainer from "./BGContainer";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -127,8 +129,10 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         styles.button,
         {
           backgroundColor: colors[colorMap[name]],
-          ...appShadow("black"),
+          ...appShadow("#ff0080ff"),
           maxWidth,
+          alignItems: "center",
+          justifyContent: "center",
         },
       ]}
       onPress={handlePress}
@@ -146,11 +150,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 10,
     width: "100%",
-  },
-  text: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 12,
   },
 });
 

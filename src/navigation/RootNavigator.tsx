@@ -16,8 +16,18 @@ const RootNavigator: React.FC = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
-          // tabBarStyle: { display: "none" },
           swipeEnabled: true,
+          tabBarStyle: {
+            backgroundColor: "transparent",
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+          },
+          tabBarLabelStyle: {
+            fontSize: 18, // <-- Increase this value to make text bigger
+            fontWeight: "bold", // Optional: make it bold
+            textTransform: "none", // Optional: prevent uppercase transformation
+          },
         }}
       >
         <Tab.Screen name="Trainer" component={Trainer} />
