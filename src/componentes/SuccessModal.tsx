@@ -110,15 +110,12 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             updated it to..
           </Text>
 
-          <Text style={styles.levelLabel}>{`Level ${
-            dataEntry.level + 1
-          }`}</Text>
+          <Text
+            style={styles.levelLabel}
+          >{`Level ${dataEntry.level}`}</Text>
 
           <View style={styles.starsWrapper}>
-            <LevelStars
-              stars={dataEntry.level + 1}
-              size={25}
-            />
+            <LevelStars stars={dataEntry.level} size={25} />
           </View>
 
           <Pressable
