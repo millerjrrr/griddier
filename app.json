@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "GridMaster",
+    "name": "GridMaster2025",
     "slug": "GridMaster",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,9 +13,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.gridmaster.app",
+      "bundleIdentifier": "com.gridmaster.poker",
       "buildNumber": "1",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -32,6 +35,7 @@
         "projectId": "b0a37512-1be0-4a1d-a990-5f707d690ce5"
       }
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["react-native-pager-view"]
   }
 }
