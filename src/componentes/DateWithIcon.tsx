@@ -1,15 +1,31 @@
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { Image, Text, View } from "react-native";
 const dateImage = require("@assets/img/date.png");
 
 const DateWithIcon: React.FC<{ date: string }> = ({
   date,
 }) => {
-  const formattedDate = new Date(
-    date === "" ? new Date() : date
-  ).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short", // gives "Jun", "Jan", etc.
-  });
+  const today = new Date();
+  const localToday = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
+  const localDate = getLocalDateFromYYYYMMDD(date);
+
+  // Decide whether to use today or the given date
+  const finalDate =
+    localDate < localToday ? localToday : localDate;
+
+  // Format for display
+  const formattedDate = finalDate.toLocaleDateString(
+    "en-US",
+    {
+      day: "numeric",
+      month: "short",
+    }
+  );
 
   return (
     <View

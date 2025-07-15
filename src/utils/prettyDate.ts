@@ -1,7 +1,11 @@
+import getLocalDateFromYYYYMMDD from "./getLocalDateFromYYYMMDD";
+
 export default function prettyDate(
-  isoString: string
+  stringDate: string
 ): string {
-  return new Date(isoString).toLocaleDateString("en-GB", {
+  return getLocalDateFromYYYYMMDD(
+    stringDate
+  ).toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
   });

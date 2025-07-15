@@ -63,6 +63,7 @@ const RangesList = () => {
             backgroundColor: "transparent",
           }}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 80 }}
         />
         <FadeBackgroundView
           height={30}
