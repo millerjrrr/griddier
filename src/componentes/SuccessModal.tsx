@@ -53,23 +53,32 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   const newGridName = sort(dataEntries)[0].gridName;
 
-  const moveToNextGrid = () => {
-    dispatch(setGridName(newGridName));
-    initializeFilteredHandsArray(newGridName);
+  const reset = (soft?: boolean) => {
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());
-    dispatch(setGridName(newGridName));
     dispatch(setSuccessModal(false));
-    dispatch(setShowRangeModal(true));
+    if (!soft) dispatch(setShowRangeModal(true));
+  };
+
+  const moveToNextGrid = () => {
+    dispatch(setGridName(newGridName));
+    initializeFilteredHandsArray(newGridName);
+    reset();
+  };
+
+  const repeatThisGrid = () => {
+    initializeFilteredHandsArray(dataEntry.gridName);
+    reset();
   };
 
   const onClose = () => {
     dispatch(setGridName(newGridName));
     initializeFilteredHandsArray(newGridName);
-    dispatch(setSuccessModal(false));
+    reset(true);
     navigation.navigate("Ranges List");
   };
+
   return (
     <Modal
       visible={visible}
@@ -126,12 +135,20 @@ const SuccessModal: React.FC<RangeModalProps> = ({
               Next grid!
             </Text>
           </Pressable>
+          <Pressable
+            onPress={repeatThisGrid}
+            style={styles.button2}
+          >
+            <Text style={styles.buttonText2}>
+              Repeat grid!
+            </Text>
+          </Pressable>
 
           <Pressable
             onPress={onClose}
-            style={styles.button2}
+            style={styles.button3}
           >
-            <Text style={styles.buttonText2}>Exit</Text>
+            <Text style={styles.buttonText3}>Exit</Text>
           </Pressable>
         </View>
       </View>
@@ -200,8 +217,18 @@ const styles = StyleSheet.create({
     ...appShadow("black"),
   },
   button2: {
+    backgroundColor: "#f87979ff",
+    marginTop: 10,
+    marginHorizontal: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    ...appShadow("black"),
+  },
+  button3: {
     backgroundColor: "#3498db",
     marginTop: 10,
+    marginHorizontal: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
@@ -216,7 +243,13 @@ const styles = StyleSheet.create({
   buttonText2: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 17,
+    fontSize: 18,
+    textAlign: "center",
+  },
+  buttonText3: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
     textAlign: "center",
   },
 });

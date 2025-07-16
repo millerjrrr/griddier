@@ -5,7 +5,9 @@ import {
 } from "@src/store/userData";
 import { GridName } from "@src/types";
 import formatDate from "@src/utils/formatDate";
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { timePassedSince } from "@src/utils/timePassedSince";
+import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
 
 const useUpdateDatabase = () => {
@@ -35,18 +37,33 @@ const useUpdateDatabase = () => {
     // Set today's date at midnight
     const today = formatDate(now);
 
+    const todaysDateAsDate = zeroTime(new Date());
+
+    const entryHasDueDate = !!entry.dueDate;
+
+    const dueDateAsDate = entryHasDueDate
+      ? getLocalDateFromYYYYMMDD(entry.dueDate)
+      : null;
+
+    const isDueTodayOrPast =
+      dueDateAsDate && dueDateAsDate <= todaysDateAsDate;
+
     if (correct) {
       // Next due date: today + 2^level days
       const nextDate = new Date();
       nextDate.setDate(
         nextDate.getDate() + Math.pow(2, entry.level)
       );
-      const dueDate = formatDate(nextDate);
+      const dueDate = isDueTodayOrPast
+        ? formatDate(nextDate)
+        : entry.dueDate;
 
       dispatch(
         updateDataEntry({
           gridName,
-          level: entry.level + 1,
+          level: isDueTodayOrPast
+            ? entry.level + 1
+            : entry.level,
           drilled: entry.drilled + 1,
           dueDate,
           recordTime:

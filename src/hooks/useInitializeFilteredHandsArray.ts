@@ -12,9 +12,13 @@ const useInitializeFilteredHandsArray = () => {
     gridName: GridName
   ) => {
     const columnIndex = gridNames.indexOf(gridName);
-    const handsForReview = fisherYatesShuffle(
+    let handsForReview = fisherYatesShuffle(
       drillingData[columnIndex]
     );
+    if (process.env.NODE_ENV === "development") {
+      handsForReview = handsForReview.slice(0, 3);
+    }
+
     dispatch(setFilteredHandsArray(handsForReview));
     return handsForReview;
   };
