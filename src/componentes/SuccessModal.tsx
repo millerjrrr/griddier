@@ -19,6 +19,7 @@ import {
   resetActions,
   resetIndex,
   resetStartTime,
+  setFeedback,
   setGridName,
   setShowRangeModal,
   setSuccessModal,
@@ -58,6 +59,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
     dispatch(resetActions());
     dispatch(resetIndex());
     dispatch(setSuccessModal(false));
+    dispatch(setFeedback(false));
     if (!soft) dispatch(setShowRangeModal(true));
   };
 

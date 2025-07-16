@@ -4,6 +4,7 @@ import {
   resetIndex,
   resetStartTime,
   selectTrainerState,
+  setFeedback,
   setFilteredHandsArray,
   setRepeatsArray,
   setShowRangeModal,
@@ -109,6 +110,7 @@ const useSubmitAnswer = () => {
       );
       dispatch(resetIndex());
       updateDatabase(gridName, false);
+      dispatch(setFeedback(true));
       dispatch(setShowRangeModal(true));
     }
 

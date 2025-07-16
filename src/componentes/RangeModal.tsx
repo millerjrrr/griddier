@@ -44,7 +44,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const dispatch = useDispatch();
   const initializeFilteredHandsArray =
     useInitializeFilteredHandsArray();
-  const { gridName } = useSelector(selectTrainerState);
+  const { gridName, feedback } = useSelector(
+    selectTrainerState
+  );
 
   if (!dataEntry) return null;
 
@@ -68,7 +70,16 @@ const RangeModal: React.FC<RangeModalProps> = ({
       animationType="slide"
     >
       <View style={styles.overlay}>
-        <View style={styles.content}>
+        <View
+          style={[
+            styles.content,
+            {
+              backgroundColor: feedback
+                ? "#eb7f64"
+                : "#ffe6f0",
+            },
+          ]}
+        >
           <View style={styles.header}>
             <Text style={styles.title}>
               {dataEntry.gridName}
@@ -109,7 +120,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
             onPress={startTrainingDrill}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>Let's go!</Text>
+            <Text style={styles.buttonText}>
+              {feedback ? "Try again!" : "Let's go!"}
+            </Text>
           </Pressable>
 
           <Pressable
@@ -134,7 +147,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   content: {
-    backgroundColor: "#ffe6f0",
     padding: 10,
     borderRadius: 12,
     width: "95%",

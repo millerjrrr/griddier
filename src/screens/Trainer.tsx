@@ -8,6 +8,7 @@ import {
   resetActions,
   resetIndex,
   selectTrainerState,
+  setFeedback,
   setShowRangeModal,
 } from "@src/store/trainer";
 import { gridNames } from "@assets/data/dataArrays/gridNames";
@@ -56,6 +57,7 @@ const Trainer: React.FC = () => {
         // Screen was unfocused (navigated away from)
         dispatch(resetIndex());
         dispatch(resetActions());
+        dispatch(setFeedback(false));
       };
     }, [])
   );

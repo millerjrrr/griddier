@@ -18,6 +18,7 @@ interface TrainerState {
   repeatsArray: string[];
   showRangeModal: boolean;
   showSuccessModal: boolean;
+  feedback: boolean;
 }
 
 const initialState: TrainerState = {
@@ -32,6 +33,7 @@ const initialState: TrainerState = {
   repeatsArray: [],
   showRangeModal: false,
   showSuccessModal: false,
+  feedback: false,
 };
 
 const slice = createSlice({
@@ -86,6 +88,9 @@ const slice = createSlice({
     setSuccessModal(state, action: PayloadAction<boolean>) {
       state.showSuccessModal = action.payload;
     },
+    setFeedback(state, action: PayloadAction<boolean>) {
+      state.feedback = action.payload;
+    },
     setFilteredHandsArray(state, action) {
       state.filteredHandsArray = action.payload;
     },
@@ -112,6 +117,7 @@ export const {
   setSuccessModal,
   setFilteredHandsArray,
   setRepeatsArray,
+  setFeedback,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

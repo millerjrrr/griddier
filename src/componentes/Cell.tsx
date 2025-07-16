@@ -3,8 +3,11 @@ import { View, Text, Pressable } from "react-native";
 import colors from "../utils/colors";
 import { ValidFraction } from "../types";
 import appShadow from "@src/utils/appShadow";
-import { useDispatch } from "react-redux";
-import { resetActions } from "@src/store/trainer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  resetActions,
+  selectTrainerState,
+} from "@src/store/trainer";
 
 const isValidFraction = (
   value: number
@@ -38,6 +41,16 @@ const Cell: React.FC<GridCellProps> = ({
 }) => {
   const total = allIn + raise + call;
   const dispatch = useDispatch();
+  const { feedback, filteredHandsArray } = useSelector(
+    selectTrainerState
+  );
+
+  const borderColor =
+    feedback &&
+    !clearActionsOnTouch &&
+    filteredHandsArray[0] === hand
+      ? "red"
+      : "black";
 
   if (![allIn, raise, call, prior].every(isValidFraction)) {
     throw new Error(
@@ -100,7 +113,7 @@ const Cell: React.FC<GridCellProps> = ({
           aspectRatio: 1,
           // position: "relative",
           backgroundColor: PRIOR,
-          borderColor: "black",
+          borderColor,
           borderWidth: size ? size / 100 : 1,
           overflow: "hidden",
           flexDirection: "row",
