@@ -81,7 +81,14 @@ const RangeModal: React.FC<RangeModalProps> = ({
           ]}
         >
           <View style={styles.header}>
-            <Text style={styles.title}>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize:
+                  dataEntry.gridName.length < 35 ? 20 : 17,
+                paddingBottom: 5,
+              }}
+            >
               {dataEntry.gridName}
             </Text>
             <LevelStars stars={dataEntry.level} />
@@ -166,16 +173,11 @@ const styles = StyleSheet.create({
     width: "95%",
   },
   header: {
-    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 10,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginLeft: 10,
-  },
+
   infoRow: {
     flexDirection: "row",
     flexWrap: "wrap",

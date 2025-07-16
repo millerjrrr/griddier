@@ -89,7 +89,14 @@ const SuccessModal: React.FC<RangeModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.content}>
-          <Text style={styles.title}>
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize:
+                dataEntry.gridName.length < 35 ? 20 : 17,
+              paddingBottom: 5,
+            }}
+          >
             {dataEntry.gridName}
           </Text>
 
@@ -170,12 +177,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 12,
     width: "95%",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    margin: 10,
-    textAlign: "center",
   },
   row: {
     flexDirection: "row",
