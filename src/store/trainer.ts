@@ -15,6 +15,7 @@ interface TrainerState {
   fold: ValidFraction;
   startedPlaying: string;
   filteredHandsArray: string[];
+  repeatsArray: string[];
   showRangeModal: boolean;
   showSuccessModal: boolean;
 }
@@ -28,6 +29,7 @@ const initialState: TrainerState = {
   fold: 0,
   startedPlaying: new Date().toISOString(),
   filteredHandsArray: [],
+  repeatsArray: [],
   showRangeModal: false,
   showSuccessModal: false,
 };
@@ -87,6 +89,9 @@ const slice = createSlice({
     setFilteredHandsArray(state, action) {
       state.filteredHandsArray = action.payload;
     },
+    setRepeatsArray(state, action) {
+      state.repeatsArray = action.payload;
+    },
   },
 });
 
@@ -106,6 +111,7 @@ export const {
   setShowRangeModal,
   setSuccessModal,
   setFilteredHandsArray,
+  setRepeatsArray,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

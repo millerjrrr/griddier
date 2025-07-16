@@ -5,6 +5,7 @@ import {
   resetStartTime,
   selectTrainerState,
   setFilteredHandsArray,
+  setRepeatsArray,
   setShowRangeModal,
   setSuccessModal,
 } from "@src/store/trainer";
@@ -30,7 +31,7 @@ const isMatch = (x: ActionCombo, y: ActionCombo) =>
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
   const { dataEntries } = useSelector(selectUserDataState);
-  const { filteredHandsArray } = useSelector(
+  const { filteredHandsArray, repeatsArray } = useSelector(
     selectTrainerState
   );
 
@@ -42,9 +43,10 @@ const useSubmitAnswer = () => {
       state.trainer; //needs to be inside submitAnswer to get up to date values
     const answer = { a: allin, r: raise, c: call };
     const columnIndex = gridNames.indexOf(gridName);
-    const rowIndex = handsArray.indexOf(
-      filteredHandsArray[index]
-    );
+
+    const currentHand = filteredHandsArray[index];
+
+    const rowIndex = handsArray.indexOf(currentHand);
 
     const target = {
       a: allInMatrix[columnIndex][rowIndex],
@@ -53,12 +55,11 @@ const useSubmitAnswer = () => {
     };
 
     if (index === 0) dispatch(resetStartTime());
+    console.log(filteredHandsArray);
 
     if (isMatch(answer, target)) {
       console.log("✅ Correct answer");
 
-      //test console.log()
-      // if (index + 1 < handsForReview.length) {
       if (index + 1 < filteredHandsArray.length) {
         dispatch(incIndex());
       } else {
@@ -77,10 +78,32 @@ const useSubmitAnswer = () => {
       }
     } else {
       console.log("❌ Incorrect answer");
-      const newFilteredHandsArray = moveToFront(
-        filteredHandsArray,
-        index
-      );
+
+      const newRepeatsArray = repeatsArray.includes(
+        currentHand
+      )
+        ? moveToFront(
+            repeatsArray,
+            repeatsArray.indexOf(currentHand)
+          )
+        : Array.from(
+            new Set([currentHand, ...repeatsArray])
+          );
+
+      const newFilteredHandsArray =
+        index < repeatsArray.length
+          ? [
+              ...newRepeatsArray,
+              ...filteredHandsArray.slice(
+                repeatsArray.length
+              ),
+            ]
+          : [
+              ...newRepeatsArray,
+              ...filteredHandsArray.slice(index + 1),
+            ];
+
+      dispatch(setRepeatsArray(newRepeatsArray));
       dispatch(
         setFilteredHandsArray(newFilteredHandsArray)
       );
