@@ -87,7 +87,12 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <LevelStars stars={dataEntry.level} />
           </View>
 
-          <Grid name={dataEntry.gridName} />
+          <Grid
+            name={dataEntry.gridName}
+            hidden={
+              !feedback && dataEntry.lastStudied !== ""
+            }
+          />
 
           <View
             style={[styles.infoRow, styles.centeredRow]}
@@ -110,10 +115,19 @@ const RangeModal: React.FC<RangeModalProps> = ({
                     " " + prettyDate(dataEntry.lastStudied)
                   }`}
             </Text>
+            <Text style={styles.infoText}>
+              {dataEntry.lastStudied === ""
+                ? ""
+                : `Due:${
+                    " " + prettyDate(dataEntry.dueDate)
+                  }`}
+            </Text>
           </View>
 
           <Text style={styles.instructionText}>
-            Memorize this grid. When you are ready...
+            {!feedback && dataEntry.lastStudied !== ""
+              ? "Ready to revise this grid?"
+              : "Memorize this grid. When you are ready..."}
           </Text>
 
           <Pressable

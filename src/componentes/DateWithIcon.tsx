@@ -1,5 +1,7 @@
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { Image, Text, View } from "react-native";
+import prettyDate from "@src/utils/prettyDate";
+import formatDate from "./../utils/formatDate";
 const dateImage = require("@assets/img/date.png");
 
 const DateWithIcon: React.FC<{ date: string }> = ({
@@ -19,13 +21,7 @@ const DateWithIcon: React.FC<{ date: string }> = ({
     localDate < localToday ? localToday : localDate;
 
   // Format for display
-  const formattedDate = finalDate.toLocaleDateString(
-    "en-US",
-    {
-      day: "numeric",
-      month: "short",
-    }
-  );
+  const formattedDate = prettyDate(formatDate(finalDate));
 
   return (
     <View
