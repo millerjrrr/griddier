@@ -6,7 +6,7 @@ import { importUserDataFromCsv } from "@src/utils/importUserData";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-const Settings = () => {
+const Data = () => {
   const { dataEntries } = useSelector(selectUserDataState);
   const dispatch = useDispatch();
 
@@ -40,4 +40,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Data;

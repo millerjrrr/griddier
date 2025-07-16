@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import useSetGridName from "@src/hooks/useSetGridName";
 import { NavigationParamList } from "@src/types";
-import Settings from "@src/screens/Settings";
+import Data from "@src/screens/Data";
 
 const Tab =
   createMaterialTopTabNavigator<NavigationParamList>();
@@ -40,7 +40,7 @@ const RootNavigator: React.FC = () => {
           name="Ranges List"
           component={RangesList}
         />
-        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="Data" component={Data} />
       </Tab.Navigator>
     </NavigationContainer>
   );

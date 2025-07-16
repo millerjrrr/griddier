@@ -37,5 +37,5 @@ export interface UserDataState {
 export type NavigationParamList = {
   Trainer: undefined;
   "Ranges List": undefined;
-  Settings: undefined;
+  Data: undefined;
 };
