@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import colors from "../utils/colors";
 import { ValidFraction } from "../types";
 import appShadow from "@src/utils/appShadow";
+import { useDispatch } from "react-redux";
+import { resetActions } from "@src/store/trainer";
 
 const isValidFraction = (
   value: number
@@ -19,6 +21,7 @@ export interface GridCellProps {
   fold?: number;
   shadow?: boolean;
   borderRadius?: number;
+  clearActionsOnTouch?: boolean;
 }
 
 const Cell: React.FC<GridCellProps> = ({
@@ -31,8 +34,10 @@ const Cell: React.FC<GridCellProps> = ({
   fold = 0,
   shadow,
   borderRadius,
+  clearActionsOnTouch,
 }) => {
   const total = allIn + raise + call;
+  const dispatch = useDispatch();
 
   if (![allIn, raise, call, prior].every(isValidFraction)) {
     throw new Error(
@@ -71,8 +76,17 @@ const Cell: React.FC<GridCellProps> = ({
     },
   ];
 
+  const clearActions = () => {
+    dispatch(resetActions());
+  };
+
+  const Container = !clearActionsOnTouch ? View : Pressable;
+
   return (
-    <View
+    <Container
+      {...(clearActionsOnTouch && {
+        onPress: clearActions,
+      })}
       style={{
         ...(shadow && appShadow("white", 10)),
         ...(size ? { width: size } : { flex: 1 }),
@@ -124,7 +138,7 @@ const Cell: React.FC<GridCellProps> = ({
           </Text>
         </View>
       </View>
-    </View>
+    </Container>
   );
 };
 

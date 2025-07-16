@@ -19,7 +19,7 @@ const useInitializeFilteredHandsArray = () => {
       drillingData[columnIndex]
     );
     if (process.env.NODE_ENV === "development") {
-      handsForReview = handsForReview.slice(0, 10);
+      handsForReview = handsForReview.slice(0, 15);
     }
 
     dispatch(setRepeatsArray([]));

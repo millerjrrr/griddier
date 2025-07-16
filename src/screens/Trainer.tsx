@@ -96,6 +96,7 @@ const Trainer: React.FC = () => {
             size={300}
             shadow
             borderRadius={5}
+            clearActionsOnTouch
           />
           <ButtonContainer gridName={gridName} />
         </View>
