@@ -56,7 +56,6 @@ const useSubmitAnswer = () => {
     };
 
     if (index === 0) dispatch(resetStartTime());
-    console.log(filteredHandsArray);
 
     if (isMatch(answer, target)) {
       console.log("✅ Correct answer");
