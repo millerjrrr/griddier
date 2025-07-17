@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "GridMaster2025",
+    "name": "Griddier",
     "slug": "GridMaster",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.gridmaster.poker",
-      "buildNumber": "5",
+      "buildNumber": "6",
       "supportsTablet": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
