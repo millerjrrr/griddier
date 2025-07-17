@@ -11,6 +11,7 @@ import Clock from "./Clock";
 import DateWithIcon from "./DateWithIcon";
 const lockIcon = require("@assets/img/lock.png");
 import Toast from "react-native-toast-message";
+import colors from "@src/utils/colors";
 
 interface RangeCardProps {
   dataEntry: DataEntry;
@@ -39,11 +40,13 @@ const RangeCard: React.FC<RangeCardProps> = ({
         marginVertical: 8,
         padding: 5,
         width: "100%",
-        ...appShadow("black"),
+        ...appShadow(colors.CONTRAST),
+        borderWidth: 2,
+        borderColor: colors.TERTIARY,
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#ffe6f0",
+        backgroundColor: colors.PRIMARY,
       }}
       onPress={onPress}
     >
@@ -73,6 +76,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
                 fontSize:
                   dataEntry.gridName.length < 25 ? 20 : 15,
                 fontWeight: "bold",
+                color: colors.CONTRAST,
               }}
             >
               {dataEntry.gridName}

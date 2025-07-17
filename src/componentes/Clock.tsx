@@ -1,3 +1,4 @@
+import colors from "@src/utils/colors";
 import formatTime from "@src/utils/formatTime";
 import { Image, Text, View } from "react-native";
 const clock = require("@assets/img/clock.png");
@@ -18,7 +19,13 @@ const Clock: React.FC<{ record: number }> = ({
           marginHorizontal: 2,
         }}
       />
-      <Text style={{ fontSize: 20, paddingLeft: 5 }}>
+      <Text
+        style={{
+          fontSize: 20,
+          paddingLeft: 5,
+          color: colors.CONTRAST,
+        }}
+      >
         {formatTime(record)}
       </Text>
     </View>

@@ -6,6 +6,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import useSetGridName from "@src/hooks/useSetGridName";
 import { NavigationParamList } from "@src/types";
 import Data from "@src/screens/Data";
+import colors from "@src/utils/colors";
 
 const Tab =
   createMaterialTopTabNavigator<NavigationParamList>();
@@ -27,9 +28,10 @@ const RootNavigator: React.FC = () => {
             fontSize: 18, // <-- Increase this value to make text bigger
             fontWeight: "bold", // Optional: make it bold
             textTransform: "none", // Optional: prevent uppercase transformation
+            color: colors.CONTRAST,
           },
           tabBarIndicatorStyle: {
-            backgroundColor: "#ff69b4", // Your pink glow color here
+            backgroundColor: colors.CONTRAST, // Your pink glow color here
             height: 3, // Optional: make it thicker or thinner
             borderRadius: 2, // Optional: make the ends rounded
           },

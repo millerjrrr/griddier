@@ -1,4 +1,5 @@
 import appShadow from "@src/utils/appShadow";
+import colors from "@src/utils/colors";
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
@@ -9,7 +10,10 @@ interface SpotNameProps {
 const SpotName: React.FC<SpotNameProps> = ({ name }) => {
   return (
     <View
-      style={[styles.container, { ...appShadow("black") }]}
+      style={[
+        styles.container,
+        { ...appShadow(colors.CONTRAST, 10) },
+      ]}
     >
       <Text
         style={[
@@ -27,11 +31,11 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 10,
     padding: 10,
-    backgroundColor: "#ffe6f0",
-    marginBottom: 30,
+    backgroundColor: colors.PRIMARY,
+    marginBottom: 40,
   },
   text: {
-    color: "black",
+    color: colors.CONTRAST,
     fontWeight: "bold",
     fontSize: 30,
   },

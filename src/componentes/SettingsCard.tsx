@@ -1,3 +1,4 @@
+import colors from "@src/utils/colors";
 import { Text, TouchableOpacity } from "react-native";
 
 const SettingsCard: React.FC<{
@@ -15,7 +16,11 @@ const SettingsCard: React.FC<{
       }}
       onPress={onPress}
     >
-      <Text style={{ fontSize: 25 }}>{title}</Text>
+      <Text
+        style={{ fontSize: 25, color: colors.CONTRAST }}
+      >
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

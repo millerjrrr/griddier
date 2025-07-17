@@ -1,3 +1,4 @@
+import colors from "@src/utils/colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { ReactNode } from "react";
 import { ColorValue, ViewStyle } from "react-native";
@@ -29,7 +30,7 @@ const applyAlpha = (
 const FadeBackgroundView: React.FC<
   FadeBackgroundViewProps
 > = ({
-  color = "#ff99cc",
+  color = colors.PRIMARY,
   position = "top",
   height,
   style,

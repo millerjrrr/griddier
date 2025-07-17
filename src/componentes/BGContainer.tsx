@@ -2,6 +2,7 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import colors from "@src/utils/colors";
 
 interface PinkGradientBackgroundProps {
   children: ReactNode;
@@ -10,10 +11,11 @@ interface PinkGradientBackgroundProps {
 export default function BGContainer({
   children,
 }: PinkGradientBackgroundProps) {
+  const { PRIMARY, SECONDARY, TERTIARY } = colors;
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={["#ff99cc", "#ffe6f0", "#ffffff"]}
+        colors={[PRIMARY, SECONDARY, TERTIARY]}
         locations={[0, 0.8, 1]}
         style={StyleSheet.absoluteFill}
         start={{ x: 0.0, y: 0.0 }}

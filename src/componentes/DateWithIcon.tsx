@@ -2,6 +2,7 @@ import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { Image, Text, View } from "react-native";
 import prettyDate from "@src/utils/prettyDate";
 import formatDate from "./../utils/formatDate";
+import colors from "@src/utils/colors";
 const dateImage = require("@assets/img/date.png");
 
 const DateWithIcon: React.FC<{ date: string }> = ({
@@ -36,7 +37,13 @@ const DateWithIcon: React.FC<{ date: string }> = ({
           marginHorizontal: 2,
         }}
       />
-      <Text style={{ fontSize: 20, paddingLeft: 5 }}>
+      <Text
+        style={{
+          fontSize: 20,
+          paddingLeft: 5,
+          color: colors.CONTRAST,
+        }}
+      >
         {formattedDate}
       </Text>
     </View>

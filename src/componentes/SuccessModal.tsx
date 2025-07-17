@@ -30,6 +30,7 @@ import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tab
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "@src/utils/formatTime";
 import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
+import colors from "@src/utils/colors";
 
 interface RangeModalProps {
   visible: boolean;
@@ -89,16 +90,20 @@ const SuccessModal: React.FC<RangeModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.content}>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize:
-                dataEntry.gridName.length < 35 ? 20 : 17,
-              paddingBottom: 5,
-            }}
+          <View
+            style={{ width: "100%", alignItems: "center" }}
           >
-            {dataEntry.gridName}
-          </Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize:
+                  dataEntry.gridName.length < 35 ? 20 : 17,
+                paddingBottom: 5,
+              }}
+            >
+              {dataEntry.gridName}
+            </Text>
+          </View>
 
           <Grid name={dataEntry.gridName} />
 
@@ -168,12 +173,11 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: "#00000099",
     justifyContent: "center",
     alignItems: "center",
   },
   content: {
-    backgroundColor: "#f5e6a4",
+    backgroundColor: colors.GOLD,
     padding: 10,
     borderRadius: 12,
     width: "95%",
@@ -212,45 +216,45 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    backgroundColor: "#76cf70",
+    backgroundColor: colors.GREEN,
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
-    ...appShadow("black"),
+    ...appShadow(colors.PRIMARY),
   },
   button2: {
-    backgroundColor: "#f87979ff",
+    backgroundColor: colors.DARKRED,
     marginTop: 10,
     marginHorizontal: 5,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    ...appShadow("black"),
+    ...appShadow(colors.PRIMARY),
   },
   button3: {
-    backgroundColor: "#3498db",
+    backgroundColor: colors.BLUE,
     marginTop: 10,
     marginHorizontal: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    ...appShadow("black"),
+    ...appShadow(colors.PRIMARY),
   },
   buttonText: {
-    color: "white",
+    color: colors.WHITE,
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
   },
   buttonText2: {
-    color: "white",
+    color: colors.WHITE,
     fontWeight: "bold",
     fontSize: 18,
     textAlign: "center",
   },
   buttonText3: {
-    color: "white",
+    color: colors.WHITE,
     fontWeight: "bold",
     fontSize: 16,
     textAlign: "center",

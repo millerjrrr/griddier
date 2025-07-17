@@ -8,6 +8,7 @@ import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
 import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 import BGContainer from "@src/componentes/BGContainer";
+import colors from "@src/utils/colors";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -68,7 +69,7 @@ const RangesList = () => {
         <FadeBackgroundView
           height={30}
           position={"bottom"}
-          color={"#ffffff"}
+          color={colors.TERTIARY as `#{string}`}
         />
       </View>
     </BGContainer>

@@ -25,12 +25,16 @@ import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tab
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
 import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
+import colors from "@src/utils/colors";
 
 interface RangeModalProps {
   visible: boolean;
   dataEntry: DataEntry | null;
   onClose: () => void;
 }
+
+const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
+  colors;
 
 const RangeModal: React.FC<RangeModalProps> = ({
   visible,
@@ -74,9 +78,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
           style={[
             styles.content,
             {
-              backgroundColor: feedback
-                ? "#eb7f64"
-                : "#ffe6f0",
+              backgroundColor: feedback ? RED : CONTRAST,
             },
           ]}
         >
@@ -163,7 +165,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: "#00000099",
+    backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -199,29 +201,29 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#76cf70",
+    backgroundColor: GREEN,
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
-    ...appShadow("black"),
+    ...appShadow(PRIMARY),
   },
   secondaryButton: {
-    backgroundColor: "#3498db",
+    backgroundColor: BLUE,
     marginTop: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    ...appShadow("black"),
+    ...appShadow(PRIMARY),
   },
   buttonText: {
-    color: "white",
+    color: WHITE,
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
   },
   secondaryButtonText: {
-    color: "white",
+    color: WHITE,
     fontWeight: "bold",
     fontSize: 17,
     textAlign: "center",

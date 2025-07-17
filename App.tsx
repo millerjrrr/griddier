@@ -12,10 +12,14 @@ export default function App() {
     <BGContainer>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <View style={{ height: 25 }} />
+          <View style={{ height: 30 }} />
           <RootNavigator />
           <Toast />
-          <StatusBar style="auto" />
+          <StatusBar
+            style="light"
+            translucent
+            backgroundColor="#00000000"
+          />
         </PersistGate>
       </Provider>
     </BGContainer>

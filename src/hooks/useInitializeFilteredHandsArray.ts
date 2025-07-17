@@ -18,9 +18,9 @@ const useInitializeFilteredHandsArray = () => {
     let handsForReview = fisherYatesShuffle(
       drillingData[columnIndex]
     );
-    // if (process.env.NODE_ENV === "development") {
-    //   handsForReview = handsForReview.slice(0, 15);
-    // }
+    if (process.env.NODE_ENV === "development") {
+      handsForReview = handsForReview.slice(0, 5);
+    }
 
     dispatch(setRepeatsArray([]));
     dispatch(setFilteredHandsArray(handsForReview));

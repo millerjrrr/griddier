@@ -10,6 +10,7 @@ import { gridData as priorMatrix } from "../../assets/data/dataArrays/PriorMatri
 import { GridName, ValidFraction } from "../types";
 import appShadow from "@src/utils/appShadow";
 import { FontAwesome } from "@expo/vector-icons";
+import colors from "@src/utils/colors";
 
 interface GridProps {
   name: GridName;
@@ -35,6 +36,8 @@ const Grid: React.FC<GridProps> = ({
 
   const [isHidden, setHidden] = useState(hidden);
 
+  const { SECONDARY, TERTIARY } = colors;
+
   return (
     <View
       style={{
@@ -54,16 +57,16 @@ const Grid: React.FC<GridProps> = ({
             borderColor: "black",
             borderWidth: 2,
             position: "relative",
-            backgroundColor: "#9c9c9cff",
+            backgroundColor: TERTIARY,
           }}
           onPress={() => setHidden(false)}
         >
           <FontAwesome
             name="eye"
             size={100}
-            color="#272727"
+            color={SECONDARY}
           />
-          <Text style={{ fontSize: 20, color: "#272727" }}>
+          <Text style={{ fontSize: 20, color: SECONDARY }}>
             Touch to reveal grid
           </Text>
         </Pressable>

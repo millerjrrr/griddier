@@ -1,6 +1,7 @@
 import appShadow from "@src/utils/appShadow";
 import { Text, TouchableOpacity, View } from "react-native";
 import * as FileSystem from "expo-file-system";
+import colors from "@src/utils/colors";
 
 const ResetDataCard = () => {
   const onPress = async () => {
@@ -29,7 +30,7 @@ const ResetDataCard = () => {
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#ffe6f0",
+        backgroundColor: colors.TERTIARY,
       }}
       onPress={onPress}
     >

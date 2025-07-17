@@ -2,7 +2,7 @@ import { Platform, ViewStyle } from "react-native";
 
 const appShadow = (
   color: string,
-  width: number = 5,
+  width: number = 5
 ): ViewStyle =>
   Platform.select({
     ios: {
@@ -26,7 +26,7 @@ const appShadow = (
 
 export const appShadowForStyledComponents = (
   color: string,
-  width: number = 5,
+  width: number = 5
 ) =>
   Platform.select({
     ios: `
