@@ -26,10 +26,7 @@ const Trainer: React.FC = () => {
   const {
     index,
     gridName,
-    allin,
-    raise,
-    call,
-    fold,
+    actions,
     filteredHandsArray,
     showRangeModal,
     showSuccessModal,
@@ -46,6 +43,7 @@ const Trainer: React.FC = () => {
   const rowIndex = handsArray.indexOf(
     filteredHandsArray[index]
   );
+
   const prior = priorMatrix[columnIndex][rowIndex];
 
   const dispatch = useDispatch();
@@ -89,11 +87,7 @@ const Trainer: React.FC = () => {
           />
           <SpotName name={gridName} />
           <Cell
-            allIn={allin}
-            raise={raise}
-            call={call}
-            fold={fold}
-            prior={prior}
+            actions={{ ...actions, prior }}
             hand={filteredHandsArray[index]}
             size={300}
             shadow

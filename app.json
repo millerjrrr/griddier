@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Griddier",
-    "slug": "GridMaster",
+    "slug": "Griddier",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,8 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.gridmaster.poker",
-      "buildNumber": "6",
+      "bundleIdentifier": "com.griddier.app",
+      "buildNumber": "1",
       "supportsTablet": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
@@ -32,9 +32,11 @@
     },
     "extra": {
       "eas": {
-        "projectId": "b0a37512-1be0-4a1d-a990-5f707d690ce5"
+        "projectId": "455eebb6-dbc0-443d-80e0-cb60c5c5f6ec"
       }
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": [
+      "**/*"
+    ]
   }
 }

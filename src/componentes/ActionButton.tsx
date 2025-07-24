@@ -3,7 +3,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Vibration,
-  View,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
@@ -22,7 +21,6 @@ import {
 } from "@src/store/trainer";
 
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
-import BGContainer from "./BGContainer";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -43,9 +41,9 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   maxWidth = 100,
 }) => {
   const dispatch = useDispatch();
-  const { allin, raise, call } = useSelector(
-    selectTrainerState
-  );
+  const {
+    actions: { allin, raise, call },
+  } = useSelector(selectTrainerState);
   const { submitAnswer } = useSubmitAnswer();
 
   const handlePress = () => {

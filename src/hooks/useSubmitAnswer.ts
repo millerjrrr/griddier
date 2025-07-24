@@ -40,8 +40,11 @@ const useSubmitAnswer = () => {
 
   const submitAnswer = () => {
     const state = store.getState(); // ✅ safe here
-    const { allin, raise, call, gridName, index } =
-      state.trainer; //needs to be inside submitAnswer to get up to date values
+    const {
+      actions: { allin, raise, call },
+      gridName,
+      index,
+    } = state.trainer; //needs to be inside submitAnswer to get up to date values
     const answer = { a: allin, r: raise, c: call };
     const columnIndex = gridNames.indexOf(gridName);
 

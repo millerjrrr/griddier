@@ -9,10 +9,12 @@ import { GridName, ValidFraction } from "@src/types";
 interface TrainerState {
   index: number;
   gridName: GridName;
-  allin: ValidFraction;
-  raise: ValidFraction;
-  call: ValidFraction;
-  fold: ValidFraction;
+  actions: {
+    allin: ValidFraction;
+    raise: ValidFraction;
+    call: ValidFraction;
+    fold: ValidFraction;
+  };
   startedPlaying: string;
   filteredHandsArray: string[];
   repeatsArray: string[];
@@ -24,10 +26,7 @@ interface TrainerState {
 const initialState: TrainerState = {
   index: 0,
   gridName: gridNames[0],
-  allin: 0,
-  raise: 0,
-  call: 0,
-  fold: 0,
+  actions: { allin: 0, raise: 0, call: 0, fold: 0 },
   startedPlaying: new Date().toISOString(),
   filteredHandsArray: [],
   repeatsArray: [],
@@ -50,31 +49,31 @@ const slice = createSlice({
       state.gridName = action.payload;
     },
     incAllIn(state) {
-      state.allin += 1;
+      state.actions.allin += 1;
     },
     incRaise(state) {
-      state.raise += 1;
+      state.actions.raise += 1;
     },
     incCall(state) {
-      state.call += 1;
+      state.actions.call += 1;
     },
     setAllIn(state, action) {
-      state.allin = action.payload;
+      state.actions.allin = action.payload;
     },
     setRaise(state, action) {
-      state.raise = action.payload;
+      state.actions.raise = action.payload;
     },
     setCall(state, action) {
-      state.call = action.payload;
+      state.actions.call = action.payload;
     },
     setFold(state, action) {
-      state.fold = action.payload;
+      state.actions.fold = action.payload;
     },
     resetActions(state) {
-      state.allin = 0;
-      state.raise = 0;
-      state.call = 0;
-      state.fold = 0;
+      state.actions.allin = 0;
+      state.actions.raise = 0;
+      state.actions.call = 0;
+      state.actions.fold = 0;
     },
     resetStartTime(state) {
       state.startedPlaying = new Date().toISOString();

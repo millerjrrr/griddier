@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import colors from "../utils/colors";
-import { ValidFraction } from "../types";
+import { HandActions, ValidFraction } from "../types";
 import appShadow from "@src/utils/appShadow";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,37 +9,32 @@ import {
   selectTrainerState,
 } from "@src/store/trainer";
 
-const isValidFraction = (
-  value: number
-): value is ValidFraction =>
-  [0, 1, 2, 3, 4].includes(value);
-
 export interface GridCellProps {
-  allIn?: ValidFraction;
-  raise?: ValidFraction;
-  call?: ValidFraction;
-  prior?: ValidFraction;
+  actions: HandActions;
   hand?: string;
   size?: number;
-  fold?: number;
   shadow?: boolean;
   borderRadius?: number;
   clearActionsOnTouch?: boolean;
 }
 
+function isValidFraction(
+  value: any
+): value is ValidFraction {
+  return (
+    typeof value === "number" && value >= 0 && value <= 1
+  );
+}
+
 const Cell: React.FC<GridCellProps> = ({
-  allIn = 0,
-  raise = 0,
-  call = 0,
-  prior = 0,
+  actions,
   hand = "",
   size,
-  fold = 0,
   shadow,
   borderRadius,
   clearActionsOnTouch,
 }) => {
-  const total = allIn + raise + call;
+  const { allin, raise, call, prior } = actions;
   const dispatch = useDispatch();
   const { feedback, filteredHandsArray } = useSelector(
     selectTrainerState
@@ -52,13 +47,7 @@ const Cell: React.FC<GridCellProps> = ({
       ? "red"
       : "black";
 
-  if (![allIn, raise, call, prior].every(isValidFraction)) {
-    throw new Error(
-      "All values must be one of: 0, 1, 2, 3, 4"
-    );
-  }
-
-  if (total > 12) {
+  if (allin + raise + call > 12) {
     throw new Error(
       "Sum of allIn, raise, and call must be ≤ 1"
     );
@@ -68,7 +57,7 @@ const Cell: React.FC<GridCellProps> = ({
 
   const segments = [
     {
-      width: `${(allIn / 4) * 100}%` as `${number}%`,
+      width: `${(allin / 4) * 100}%` as `${number}%`,
       color: ALLIN,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
@@ -83,7 +72,14 @@ const Cell: React.FC<GridCellProps> = ({
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
-      width: `${(fold / 4) * 100}%` as `${number}%`,
+      width: `${
+        ((typeof actions?.fold === "number" &&
+        isValidFraction(actions.fold)
+          ? actions.fold
+          : 4 - allin - raise - call) /
+          4) *
+        100
+      }%` as `${number}%`,
       color: FOLD,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },

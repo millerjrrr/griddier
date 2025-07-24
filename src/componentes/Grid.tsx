@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Cell from "./Cell";
 import handsArray from "../utils/handsArray";
-import { gridNames } from "../../assets/data/dataArrays/gridNames";
-import { gridData as raiseMatrix } from "../../assets/data/dataArrays/RaiseMatrix";
-import { gridData as callMatrix } from "../../assets/data/dataArrays/CallMatrix";
-import { gridData as allInMatrix } from "../../assets/data/dataArrays/AllInMatrix";
-import { gridData as priorMatrix } from "../../assets/data/dataArrays/PriorMatrix";
-import { GridName, ValidFraction } from "../types";
+import {
+  GridName,
+  HandActions,
+  HandsObject,
+  PokerHand,
+} from "../types";
 import appShadow from "@src/utils/appShadow";
 import { FontAwesome } from "@expo/vector-icons";
 import colors from "@src/utils/colors";
+import { GridData } from "@assets/data/GridData";
 
 interface GridProps {
   name: GridName;
@@ -23,18 +24,9 @@ const Grid: React.FC<GridProps> = ({
   size,
   hidden,
 }) => {
-  const index = gridNames.indexOf(name);
-  if (index === -1) {
-    throw new Error(`Grid name "${name}" not found`);
-  }
-
-  // Extract each column as a flat array of 169 entries
-  const raiseArray: ValidFraction[] = raiseMatrix[index];
-  const callArray: ValidFraction[] = callMatrix[index];
-  const allInArray: ValidFraction[] = allInMatrix[index];
-  const priorArray: ValidFraction[] = priorMatrix[index];
-
   const [isHidden, setHidden] = useState(hidden);
+
+  const hands: HandsObject = GridData[name].hands;
 
   const { SECONDARY, TERTIARY } = colors;
 
@@ -81,16 +73,7 @@ const Grid: React.FC<GridProps> = ({
               return (
                 <Cell
                   key={i}
-                  allIn={allInArray[i]}
-                  raise={raiseArray[i]}
-                  call={callArray[i]}
-                  prior={priorArray[i]}
-                  fold={
-                    4 -
-                    (allInArray[i] +
-                      raiseArray[i] +
-                      callArray[i])
-                  }
+                  actions={hands[handsArray[i]]}
                   hand={handsArray[i]}
                   size={size}
                 />
