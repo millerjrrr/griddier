@@ -24,7 +24,7 @@ import {
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
-import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
+import useInitializeFilteredHandsArray from "../hooks/useInitializeFilteredHandsArray";
 import colors from "@src/utils/colors";
 
 interface RangeModalProps {

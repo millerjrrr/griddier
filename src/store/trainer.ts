@@ -1,10 +1,15 @@
-import { gridNames } from "@assets/data/dataArrays/gridNames";
+import { GridData } from "@assets/data/GridData";
 import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
-import { GridName, ValidFraction } from "@src/types";
+import {
+  DueLevelPair,
+  GridName,
+  PokerHand,
+  ValidFraction,
+} from "@src/types";
 
 interface TrainerState {
   index: number;
@@ -16,20 +21,27 @@ interface TrainerState {
     fold: ValidFraction;
   };
   startedPlaying: string;
-  filteredHandsArray: string[];
   repeatsArray: string[];
+  filteredHandsArray: PokerHand[];
+  filteredHandsData: Record<PokerHand, DueLevelPair>;
   showRangeModal: boolean;
   showSuccessModal: boolean;
   feedback: boolean;
 }
 
+const gridName =
+  Object.entries(GridData).find(
+    ([_, value]) => value.priority === 1
+  )?.[0] || Object.keys(GridData)[0];
+
 const initialState: TrainerState = {
   index: 0,
-  gridName: gridNames[0],
+  gridName,
   actions: { allin: 0, raise: 0, call: 0, fold: 0 },
   startedPlaying: new Date().toISOString(),
-  filteredHandsArray: [],
   repeatsArray: [],
+  filteredHandsArray: ["AA"],
+  filteredHandsData: {},
   showRangeModal: false,
   showSuccessModal: false,
   feedback: false,
@@ -93,6 +105,21 @@ const slice = createSlice({
     setFilteredHandsArray(state, action) {
       state.filteredHandsArray = action.payload;
     },
+    setFilteredHandsData(state, action) {
+      state.filteredHandsData = action.payload;
+    },
+    updateFilteredHand(
+      state,
+      action: PayloadAction<{
+        [key: string]: { level: number; due: string };
+      }>
+    ) {
+      Object.entries(action.payload).forEach(
+        ([key, value]) => {
+          state.filteredHandsData[key] = value;
+        }
+      );
+    },
     setRepeatsArray(state, action) {
       state.repeatsArray = action.payload;
     },
@@ -115,6 +142,8 @@ export const {
   setShowRangeModal,
   setSuccessModal,
   setFilteredHandsArray,
+  setFilteredHandsData,
+  updateFilteredHand,
   setRepeatsArray,
   setFeedback,
 } = slice.actions;

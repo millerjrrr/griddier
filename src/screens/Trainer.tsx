@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 
-import { gridData as priorMatrix } from "@assets/data/dataArrays/PriorMatrix";
 import handsArray from "@src/utils/handsArray";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,7 +10,6 @@ import {
   setFeedback,
   setShowRangeModal,
 } from "@src/store/trainer";
-import { gridNames } from "@assets/data/dataArrays/gridNames";
 import Cell from "../componentes/Cell";
 import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";
@@ -19,8 +17,10 @@ import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/RangeModal";
 import { selectUserDataState } from "@src/store/userData";
 import SuccessModal from "@src/componentes/SuccessModal";
-import useInitializeFilteredHandsArray from "./../hooks/useInitializeFilteredHandsArray";
+import useInitializeFilteredHandsArray from "../hooks/useInitializeFilteredHandsArray";
 import BGContainer from "@src/componentes/BGContainer";
+import { GridData } from "@assets/data/GridData";
+import useGetDataEntries from "@src/hooks/useGetDataEntries";
 
 const Trainer: React.FC = () => {
   const {
@@ -31,20 +31,18 @@ const Trainer: React.FC = () => {
     showRangeModal,
     showSuccessModal,
   } = useSelector(selectTrainerState);
-  const columnIndex = gridNames.indexOf(gridName);
 
   const initializeFilteredHandsArray =
     useInitializeFilteredHandsArray();
+
+  const getDataEntries = useGetDataEntries();
 
   useEffect(() => {
     initializeFilteredHandsArray(gridName);
   }, [gridName]);
 
-  const rowIndex = handsArray.indexOf(
-    filteredHandsArray[index]
-  );
-
-  const prior = priorMatrix[columnIndex][rowIndex];
+  const { prior } =
+    GridData[gridName].hands[filteredHandsArray[index]];
 
   const dispatch = useDispatch();
 
@@ -68,22 +66,14 @@ const Trainer: React.FC = () => {
         <View style={styles.container}>
           <RangeModal
             visible={showRangeModal}
-            dataEntry={
-              dataEntries.find(
-                (entry) => entry.gridName === gridName
-              ) || dataEntries[0]
-            }
+            dataEntry={getDataEntries(gridName)}
             onClose={() =>
               dispatch(setShowRangeModal(false))
             }
           />
           <SuccessModal
             visible={showSuccessModal}
-            dataEntry={
-              dataEntries.find(
-                (entry) => entry.gridName === gridName
-              ) || dataEntries[0]
-            }
+            dataEntry={getDataEntries(gridName)}
           />
           <SpotName name={gridName} />
           <Cell

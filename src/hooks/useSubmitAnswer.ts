@@ -3,21 +3,16 @@ import {
   resetActions,
   resetIndex,
   resetStartTime,
-  selectTrainerState,
   setFeedback,
   setFilteredHandsArray,
   setRepeatsArray,
   setShowRangeModal,
   setSuccessModal,
+  updateFilteredHand,
 } from "@src/store/trainer";
 import { useDispatch, useSelector } from "react-redux";
-import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
-import { gridData as raiseMatrix } from "@assets/data/dataArrays/RaiseMatrix";
-import { gridData as callMatrix } from "@assets/data/dataArrays/CallMatrix";
-import { gridNames } from "@assets/data/dataArrays/gridNames";
 import { ActionCombo } from "@src/types";
 import store from "@src/store";
-import handsArray from "@src/utils/handsArray";
 import {
   selectUserDataState,
   updateDataEntry,
@@ -25,48 +20,87 @@ import {
 import sort from "@src/utils/sortDataEntries";
 import useUpdateDatabase from "./updateDatabase";
 import { moveToFront } from "@src/utils/moveToFront";
+import { GridData } from "@assets/data/GridData";
+import zeroTime from "@src/utils/zeroTime";
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
+import formatDate from "@src/utils/formatDate";
+import useGetDataEntries from "./useGetDataEntries";
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
-  x.a === y.a && x.r === y.r && x.c === y.c;
+  x.allin === y.allin &&
+  x.raise === y.raise &&
+  x.call === y.call;
 
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
   const { dataEntries } = useSelector(selectUserDataState);
-  const { filteredHandsArray, repeatsArray } = useSelector(
-    selectTrainerState
-  );
+  const getDataEntries = useGetDataEntries();
 
   const updateDatabase = useUpdateDatabase();
 
   const submitAnswer = () => {
     const state = store.getState(); // ✅ safe here
     const {
-      actions: { allin, raise, call },
+      actions: answer,
       gridName,
       index,
+      filteredHandsArray,
+      filteredHandsData,
+      repeatsArray,
     } = state.trainer; //needs to be inside submitAnswer to get up to date values
-    const answer = { a: allin, r: raise, c: call };
-    const columnIndex = gridNames.indexOf(gridName);
 
     const currentHand = filteredHandsArray[index];
+    const entry = getDataEntries(gridName);
 
-    const rowIndex = handsArray.indexOf(currentHand);
+    const handData =
+      entry.individualHandDrillingData?.[currentHand];
 
-    const target = {
-      a: allInMatrix[columnIndex][rowIndex],
-      r: raiseMatrix[columnIndex][rowIndex],
-      c: callMatrix[columnIndex][rowIndex],
-    };
+    const target = GridData[gridName].hands[currentHand];
+
+    // date management
+    const today = zeroTime(new Date());
+
+    const dueDate = handData
+      ? getLocalDateFromYYYYMMDD(handData.due)
+      : today;
+
+    const isDueTodayOrPast = dueDate <= today;
+
+    const nextDate = new Date();
+    if (handData)
+      nextDate.setDate(
+        nextDate.getDate() + Math.pow(2, handData.level - 1)
+      );
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
 
     if (index === 0) dispatch(resetStartTime());
 
     if (isMatch(answer, target)) {
+      //for a correct answer
       console.log("✅ Correct answer");
+      if (handData) {
+        const newDueDate = isDueTodayOrPast
+          ? formatDate(nextDate)
+          : handData.due;
+
+        // updating hand review data
+        if (index >= repeatsArray.length)
+          dispatch(
+            updateFilteredHand({
+              [currentHand]: {
+                level: handData.level + 1,
+                due: newDueDate,
+              },
+            })
+          );
+      }
 
       if (index + 1 < filteredHandsArray.length) {
         dispatch(incIndex());
       } else {
         console.log("🎉 Test completed");
+
         const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
 
         dispatch(resetIndex());
@@ -80,7 +114,16 @@ const useSubmitAnswer = () => {
         dispatch(setSuccessModal(true));
       }
     } else {
+      // for a wrong answer
       console.log("❌ Incorrect answer");
+
+      const newDueDate = formatDate(tomorrow);
+      if (index >= repeatsArray.length)
+        dispatch(
+          updateFilteredHand({
+            [currentHand]: { level: 1, due: newDueDate },
+          })
+        );
 
       const newRepeatsArray = repeatsArray.includes(
         currentHand
@@ -89,9 +132,7 @@ const useSubmitAnswer = () => {
             repeatsArray,
             repeatsArray.indexOf(currentHand)
           )
-        : Array.from(
-            new Set([currentHand, ...repeatsArray])
-          );
+        : [currentHand, ...repeatsArray];
 
       const newFilteredHandsArray =
         index < repeatsArray.length

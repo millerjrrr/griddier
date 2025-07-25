@@ -1,11 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import ActionButton from "./ActionButton";
-import { gridNames } from "../../assets/data/dataArrays/gridNames";
 import { GridName } from "../types";
-import { gridData as allInMatrix } from "@assets/data/dataArrays/AllInMatrix";
-import { gridData as raiseMatrix } from "@assets/data/dataArrays/RaiseMatrix";
-import { gridData as callMatrix } from "@assets/data/dataArrays/CallMatrix";
+import { GridData } from "@assets/data/GridData";
 
 interface ButtonsRowProps {
   gridName: GridName;
@@ -14,23 +11,22 @@ interface ButtonsRowProps {
 const ButtonContainer: React.FC<ButtonsRowProps> = ({
   gridName,
 }) => {
-  const index = gridNames.indexOf(gridName);
-  if (index === -1) {
-    throw new Error(`Grid name "${gridName}" not found`);
-  }
+  const handsEntries = Object.values(
+    GridData[gridName].hands
+  );
 
   const shouldShow = (array: number[]) =>
     array.some((val) => val > 0);
 
   const buttons = [];
 
-  if (shouldShow(allInMatrix[index])) {
+  if (shouldShow(handsEntries.map((hand) => hand.allin))) {
     buttons.push(<ActionButton key="AllIn" name="AllIn" />);
   }
-  if (shouldShow(raiseMatrix[index])) {
+  if (shouldShow(handsEntries.map((hand) => hand.raise))) {
     buttons.push(<ActionButton key="Raise" name="Raise" />);
   }
-  if (shouldShow(callMatrix[index])) {
+  if (shouldShow(handsEntries.map((hand) => hand.call))) {
     buttons.push(<ActionButton key="Call" name="Call" />);
   }
 

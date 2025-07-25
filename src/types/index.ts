@@ -26,9 +26,9 @@ export type ColorName =
   keyof typeof import("../utils/colors").default;
 
 export interface ActionCombo {
-  a: ValidFraction;
-  r: ValidFraction;
-  c: ValidFraction;
+  allin: ValidFraction;
+  raise: ValidFraction;
+  call: ValidFraction;
 }
 export type ActionName =
   | "AllIn"
@@ -46,7 +46,18 @@ export interface DataEntry {
   lastStudied: string;
   priority: number;
   locked: boolean;
+  individualHandDrillingData: IndividualHandDrillingData;
 }
+
+export interface DueLevelPair {
+  due: string;
+  level: number;
+}
+
+export type IndividualHandDrillingData = Record<
+  PokerHand,
+  DueLevelPair
+>;
 
 export interface UserDataState {
   dataEntries: DataEntry[];

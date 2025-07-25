@@ -362,7 +362,6 @@ function buildCombinedData() {
 
 function saveCombinedDataToFile(data) {
   const tsContent = `import { GridDataEntry } from "@src/types";\n
-
 export const GridData:Record<string, GridDataEntry> = ${JSON.stringify(
     data,
     null,

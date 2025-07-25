@@ -13,7 +13,11 @@ const generateCSVContent = (data: DataEntry[]): string => {
     "lastStudied",
     "priority",
     "locked",
+    "individualHandDrillingData",
   ].join(",");
+
+  const escapeCsvField = (field: string) =>
+    `"${field.replace(/"/g, '""')}"`;
 
   const rows = data.map((entry) =>
     [
@@ -26,6 +30,9 @@ const generateCSVContent = (data: DataEntry[]): string => {
       entry.lastStudied,
       entry.priority,
       entry.locked,
+      escapeCsvField(
+        JSON.stringify(entry.individualHandDrillingData)
+      ),
     ].join(",")
   );
 

@@ -3,16 +3,24 @@ import {
   selectUserDataState,
   updateDataEntry,
 } from "@src/store/userData";
-import { GridName } from "@src/types";
+import {
+  DueLevelPair,
+  GridName,
+  PokerHand,
+} from "@src/types";
 import formatDate from "@src/utils/formatDate";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { timePassedSince } from "@src/utils/timePassedSince";
 import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
+import useGetDataEntries from "./useGetDataEntries";
 
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
-  const { dataEntries } = useSelector(selectUserDataState);
+  const getDataEntries = useGetDataEntries();
+  const { filteredHandsData } = useSelector(
+    selectTrainerState
+  );
   const { startedPlaying } = useSelector(
     selectTrainerState
   );
@@ -24,9 +32,8 @@ const useUpdateDatabase = () => {
     const now = new Date();
 
     // Find the entry by gridName
-    const entry = dataEntries.find(
-      (e) => e.gridName === gridName
-    );
+    const entry = getDataEntries(gridName);
+
     if (!entry) {
       console.warn(`No entry found for grid: ${gridName}`);
       return;
@@ -48,11 +55,20 @@ const useUpdateDatabase = () => {
     const isDueTodayOrPast =
       dueDateAsDate && dueDateAsDate <= todaysDateAsDate;
 
+    const individualHandDrillingData = {
+      ...entry.individualHandDrillingData,
+      ...filteredHandsData,
+    };
+
     if (correct) {
       // Next due date: today + 2^level days
       const nextDate = new Date();
       nextDate.setDate(
-        nextDate.getDate() + Math.pow(2, entry.level)
+        nextDate.getDate() +
+          Math.pow(
+            2,
+            entry.level === 0 ? 0 : entry.level - 1
+          )
       );
       const dueDate = isDueTodayOrPast
         ? formatDate(nextDate)
@@ -72,6 +88,7 @@ const useUpdateDatabase = () => {
               : Math.min(entry.recordTime, playTime),
           timeDrilling: entry.timeDrilling + playTime,
           lastStudied: today,
+          individualHandDrillingData,
         })
       );
     } else {
@@ -83,6 +100,7 @@ const useUpdateDatabase = () => {
           timeDrilling: entry.timeDrilling + playTime,
           dueDate: today,
           lastStudied: today,
+          individualHandDrillingData,
         })
       );
     }

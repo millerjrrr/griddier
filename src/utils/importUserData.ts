@@ -1,13 +1,13 @@
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system";
 import Papa from "papaparse";
-import { gridNames } from "@assets/data/dataArrays/gridNames";
 import { DataEntry } from "@src/types";
 import { Alert } from "react-native";
 import { setUserData } from "@src/store/userData";
 import { normalizeDate } from "./normalizeDate";
 import { setGridName } from "@src/store/trainer";
 import sort from "./sortDataEntries";
+import { GridData } from "@assets/data/GridData";
 
 export const pickCsvFile = async (): Promise<
   string | null
@@ -60,7 +60,7 @@ export const parseAndValidateCsv = (
       if (!row.gridName) {
         throw new Error(
           `Missing gridName at row ${index + 2}`
-        ); // +2 to account for header + 0-index
+        );
       }
       if (csvGridNames.has(row.gridName)) {
         throw new Error(
@@ -68,6 +68,29 @@ export const parseAndValidateCsv = (
         );
       }
       csvGridNames.add(row.gridName);
+
+      let individualHandDrillingData = {};
+      if (row.individualHandDrillingData) {
+        try {
+          individualHandDrillingData = JSON.parse(
+            row.individualHandDrillingData
+          );
+        } catch (e) {
+          console.error(
+            `Failed to parse individualHandDrillingData at row ${
+              index + 2
+            }`,
+            e
+          );
+          Alert.alert(
+            "Error",
+            `Invalid data format in individualHandDrillingData at row ${
+              index + 2
+            }`
+          );
+          throw e;
+        }
+      }
 
       return {
         gridName: row.gridName,
@@ -79,10 +102,12 @@ export const parseAndValidateCsv = (
         lastStudied: normalizeDate(row.lastStudied),
         priority: parseInt(row.priority) || 0,
         locked: normalizeDate(row.dueDate) === "",
+        individualHandDrillingData,
       };
     }
   );
 
+  const gridNames = Object.keys(GridData);
   const gridNamesSet = new Set(gridNames);
   const missing = [...gridNamesSet].filter(
     (g) => !csvGridNames.has(g)
