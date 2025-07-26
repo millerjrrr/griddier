@@ -69,7 +69,7 @@ const useSubmitAnswer = () => {
     const nextDate = new Date();
     if (handData)
       nextDate.setDate(
-        nextDate.getDate() + Math.pow(2, handData.level - 1)
+        nextDate.getDate() + Math.pow(2, handData.level)
       );
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);

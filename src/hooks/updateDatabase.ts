@@ -64,11 +64,7 @@ const useUpdateDatabase = () => {
       // Next due date: today + 2^level days
       const nextDate = new Date();
       nextDate.setDate(
-        nextDate.getDate() +
-          Math.pow(
-            2,
-            entry.level === 0 ? 0 : entry.level - 1
-          )
+        nextDate.getDate() + Math.pow(2, entry.level)
       );
       const dueDate = isDueTodayOrPast
         ? formatDate(nextDate)
