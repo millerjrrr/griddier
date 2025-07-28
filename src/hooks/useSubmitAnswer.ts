@@ -104,6 +104,8 @@ const useSubmitAnswer = () => {
         const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
 
         dispatch(resetIndex());
+        dispatch(setFeedback(false));
+
         updateDatabase(gridName, true);
         dispatch(
           updateDataEntry({

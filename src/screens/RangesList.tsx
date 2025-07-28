@@ -5,19 +5,22 @@ import { selectUserDataState } from "@src/store/userData";
 import { DataEntry } from "@src/types";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 import BGContainer from "@src/componentes/BGContainer";
 import colors from "@src/utils/colors";
+import { setFeedback } from "@src/store/trainer";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
+  const dispatch = useDispatch();
 
   const [selectedEntry, setSelectedEntry] =
     useState<DataEntry | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = (entry: DataEntry) => {
+    dispatch(setFeedback(false));
     setSelectedEntry(entry);
     setModalVisible(true);
   };
