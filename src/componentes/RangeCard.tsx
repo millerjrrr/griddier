@@ -93,7 +93,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
             }}
           >
             <LevelStars stars={dataEntry.level} />
-            <Clock record={dataEntry.recordTime} />
+            <Clock record={dataEntry.timeDrilling} />
           </View>
         </>
       )}

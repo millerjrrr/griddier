@@ -100,7 +100,6 @@ export const parseAndValidateCsv = (
         level: parseInt(row.level) || 0,
         drilled: parseInt(row.drilled) || 0,
         timeDrilling: parseInt(row.timeDrilling) || 0,
-        recordTime: parseInt(row.recordTime) || 0,
         lastStudied: normalizeDate(row.lastStudied) as
           | StrictDateString
           | "",

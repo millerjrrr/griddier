@@ -24,7 +24,6 @@ export const addUserData = (
         level: 0,
         drilled: 0,
         timeDrilling: 0,
-        recordTime: 0,
         lastStudied: "",
         priority,
         locked: priority !== 1,

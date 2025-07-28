@@ -1,16 +1,11 @@
-import { selectTrainerState } from "@src/store/trainer";
 import {
-  selectUserDataState,
-  updateDataEntry,
-} from "@src/store/userData";
-import {
-  DueLevelPair,
-  GridName,
-  PokerHand,
-} from "@src/types";
+  selectTrainerState,
+  setTimePlaying,
+} from "@src/store/trainer";
+import { updateDataEntry } from "@src/store/userData";
+import { GridName } from "@src/types";
 import formatDate from "@src/utils/formatDate";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
-import { timePassedSince } from "@src/utils/timePassedSince";
 import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
@@ -18,10 +13,7 @@ import useGetDataEntries from "./useGetDataEntries";
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
-  const { filteredHandsData } = useSelector(
-    selectTrainerState
-  );
-  const { startedPlaying } = useSelector(
+  const { filteredHandsData, timePlaying } = useSelector(
     selectTrainerState
   );
 
@@ -38,8 +30,6 @@ const useUpdateDatabase = () => {
       console.warn(`No entry found for grid: ${gridName}`);
       return;
     }
-
-    const playTime = timePassedSince(startedPlaying);
 
     // Set today's date at midnight
     const today = formatDate(now);
@@ -78,11 +68,7 @@ const useUpdateDatabase = () => {
             : entry.level,
           drilled: entry.drilled + 1,
           dueDate,
-          recordTime:
-            entry.recordTime === 0
-              ? playTime
-              : Math.min(entry.recordTime, playTime),
-          timeDrilling: entry.timeDrilling + playTime,
+          timeDrilling: entry.timeDrilling + timePlaying,
           lastStudied: today,
           individualHandDrillingData,
         })
@@ -93,13 +79,15 @@ const useUpdateDatabase = () => {
         updateDataEntry({
           gridName,
           level: 0,
-          timeDrilling: entry.timeDrilling + playTime,
+          timeDrilling: entry.timeDrilling + timePlaying,
           dueDate: today,
           lastStudied: today,
           individualHandDrillingData,
         })
       );
     }
+
+    dispatch(setTimePlaying(0));
   };
 
   return updateDatabase;

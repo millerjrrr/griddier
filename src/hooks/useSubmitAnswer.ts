@@ -1,5 +1,6 @@
 import {
   incIndex,
+  incTimePlaying,
   resetActions,
   resetIndex,
   resetStartTime,
@@ -25,6 +26,7 @@ import zeroTime from "@src/utils/zeroTime";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import formatDate from "@src/utils/formatDate";
 import useGetDataEntries from "./useGetDataEntries";
+import { timePassedSince } from "@src/utils/timePassedSince";
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.allin === y.allin &&
@@ -46,7 +48,16 @@ const useSubmitAnswer = () => {
       index,
       filteredHandsArray,
       repeatsArray,
+      startedPlaying,
+      timePlaying,
     } = state.trainer; //needs to be inside submitAnswer to get up to date values
+
+    console.log(timePlaying);
+
+    const timeInc = Math.min(
+      10 * 1000,
+      timePassedSince(startedPlaying)
+    );
 
     const currentHand = filteredHandsArray[index];
     if (!currentHand) {
@@ -79,6 +90,9 @@ const useSubmitAnswer = () => {
 
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
+
+    dispatch(incTimePlaying(timeInc));
+    dispatch(resetStartTime());
 
     if (index === 0) dispatch(resetStartTime());
 

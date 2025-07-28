@@ -21,10 +21,11 @@ interface TrainerState {
     call: ValidFraction;
     fold: ValidFraction;
   };
-  startedPlaying: string;
   repeatsArray: string[];
   filteredHandsArray: PokerHand[];
   filteredHandsData: Record<PokerHand, DueLevelPair>;
+  startedPlaying: string;
+  timePlaying: number;
   showRangeModal: boolean;
   showSuccessModal: boolean;
   feedback: boolean;
@@ -39,10 +40,11 @@ const initialState: TrainerState = {
   index: 0,
   gridName,
   actions: { allin: 0, raise: 0, call: 0, fold: 0 },
-  startedPlaying: new Date().toISOString(),
   repeatsArray: [],
   filteredHandsArray: ["AA"],
   filteredHandsData: {},
+  startedPlaying: new Date().toISOString(),
+  timePlaying: 0,
   showRangeModal: false,
   showSuccessModal: false,
   feedback: false,
@@ -127,6 +129,12 @@ const slice = createSlice({
     setRepeatsArray(state, action) {
       state.repeatsArray = action.payload;
     },
+    setTimePlaying(state, action) {
+      state.timePlaying = action.payload;
+    },
+    incTimePlaying(state, action) {
+      state.timePlaying += action.payload;
+    },
   },
 });
 
@@ -150,6 +158,8 @@ export const {
   updateFilteredHand,
   setRepeatsArray,
   setFeedback,
+  setTimePlaying,
+  incTimePlaying,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

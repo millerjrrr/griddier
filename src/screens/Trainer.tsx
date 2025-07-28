@@ -17,10 +17,10 @@ import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/RangeModal";
 import { selectUserDataState } from "@src/store/userData";
 import SuccessModal from "@src/componentes/SuccessModal";
-import useInitializeFilteredHandsArray from "../hooks/useInitializeFilteredHandsArray";
 import BGContainer from "@src/componentes/BGContainer";
 import { GridData } from "@assets/data/GridData";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
+import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 
 const Trainer: React.FC = () => {
   const {
@@ -32,13 +32,13 @@ const Trainer: React.FC = () => {
     showSuccessModal,
   } = useSelector(selectTrainerState);
 
-  const initializeFilteredHandsArray =
-    useInitializeFilteredHandsArray();
+  const initializeTrainerState =
+    useInitializeTrainerState();
 
   const getDataEntries = useGetDataEntries();
 
   useEffect(() => {
-    initializeFilteredHandsArray(gridName);
+    initializeTrainerState(gridName);
   }, [gridName]);
 
   const { prior } =

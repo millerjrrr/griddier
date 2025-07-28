@@ -24,8 +24,8 @@ import {
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
-import useInitializeFilteredHandsArray from "../hooks/useInitializeFilteredHandsArray";
 import colors from "@src/utils/colors";
+import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 
 interface RangeModalProps {
   visible: boolean;
@@ -46,8 +46,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
       MaterialTopTabNavigationProp<NavigationParamList>
     >();
   const dispatch = useDispatch();
-  const initializeFilteredHandsArray =
-    useInitializeFilteredHandsArray();
+  const initializeTrainerState =
+    useInitializeTrainerState();
   const { gridName, feedback } = useSelector(
     selectTrainerState
   );
@@ -62,7 +62,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
     dispatch(resetIndex());
     dispatch(setGridName(dataEntry.gridName));
     if (newDrill)
-      initializeFilteredHandsArray(dataEntry.gridName);
+      initializeTrainerState(dataEntry.gridName);
     onClose();
     navigation.navigate("Trainer"); // add `as never` if TS complains
   };
@@ -112,10 +112,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <Text style={styles.infoText}>
               Time Drilling:{" "}
               {formatTime(dataEntry.timeDrilling)}
-            </Text>
-            <Text style={styles.infoText}>
-              Record Time:{" "}
-              {formatTime(dataEntry.recordTime)}
             </Text>
             <Text style={styles.infoText}>
               {dataEntry.lastStudied === ""

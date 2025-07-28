@@ -9,7 +9,6 @@ const generateCSVContent = (data: DataEntry[]): string => {
     "level",
     "drilled",
     "timeDrilling",
-    "recordTime",
     "lastStudied",
     "priority",
     "individualHandDrillingData",
@@ -25,7 +24,6 @@ const generateCSVContent = (data: DataEntry[]): string => {
       entry.level,
       entry.drilled,
       entry.timeDrilling,
-      entry.recordTime,
       entry.lastStudied,
       entry.priority,
       escapeCsvField(

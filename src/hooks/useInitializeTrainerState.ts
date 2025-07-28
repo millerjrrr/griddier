@@ -3,6 +3,7 @@ import {
   setFilteredHandsArray,
   setFilteredHandsData,
   setRepeatsArray,
+  setTimePlaying,
 } from "@src/store/trainer";
 import { GridName } from "@src/types";
 import { fisherYatesShuffle } from "@src/utils/fisherYatesShuffle";
@@ -12,13 +13,11 @@ import { useDispatch } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import formatDate from "@src/utils/formatDate";
 
-const useInitializeFilteredHandsArray = () => {
+const useInitializeTrainerState = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
 
-  const initializeFilteredHandsArray = (
-    gridName: GridName
-  ) => {
+  const initializeTrainerState = (gridName: GridName) => {
     const individualHandDrillingData =
       getDataEntries(gridName)?.individualHandDrillingData;
 
@@ -66,11 +65,12 @@ const useInitializeFilteredHandsArray = () => {
     // }
 
     dispatch(setRepeatsArray([]));
+    dispatch(setTimePlaying(0));
     dispatch(setFilteredHandsArray(handsForReview));
     dispatch(setFilteredHandsData({}));
     return handsForReview;
   };
-  return initializeFilteredHandsArray;
+  return initializeTrainerState;
 };
 
-export default useInitializeFilteredHandsArray;
+export default useInitializeTrainerState;
