@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
-
-import handsArray from "@src/utils/handsArray";
 import { useDispatch, useSelector } from "react-redux";
 import {
   resetActions,
@@ -15,7 +13,6 @@ import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";
 import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/RangeModal";
-import { selectUserDataState } from "@src/store/userData";
 import SuccessModal from "@src/componentes/SuccessModal";
 import BGContainer from "@src/componentes/BGContainer";
 import { GridData } from "@assets/data/GridData";
@@ -57,8 +54,6 @@ const Trainer: React.FC = () => {
       };
     }, [])
   );
-
-  const { dataEntries } = useSelector(selectUserDataState);
 
   return (
     <BGContainer>

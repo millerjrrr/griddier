@@ -52,8 +52,6 @@ const useSubmitAnswer = () => {
       timePlaying,
     } = state.trainer; //needs to be inside submitAnswer to get up to date values
 
-    console.log(timePlaying);
-
     const timeInc = Math.min(
       10 * 1000,
       timePassedSince(startedPlaying)
