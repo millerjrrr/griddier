@@ -52,25 +52,24 @@ const useSubmitAnswer = () => {
     const currentHand = filteredHandsArray[index];
     const entry = getDataEntries(gridName);
 
-    const handData =
-      entry.individualHandDrillingData?.[currentHand];
+    const handData = entry.individualHandDrillingData?.[
+      currentHand
+    ] || { due: formatDate(new Date()), level: 0 };
 
     const target = GridData[gridName].hands[currentHand];
 
     // date management
     const today = zeroTime(new Date());
 
-    const dueDate = handData
-      ? getLocalDateFromYYYYMMDD(handData.due)
-      : today;
+    const dueDate = getLocalDateFromYYYYMMDD(handData.due);
 
     const isDueTodayOrPast = dueDate <= today;
 
     const nextDate = new Date();
-    if (handData)
-      nextDate.setDate(
-        nextDate.getDate() + Math.pow(2, handData.level)
-      );
+    nextDate.setDate(
+      nextDate.getDate() + Math.pow(2, handData.level)
+    );
+
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
 
@@ -79,7 +78,8 @@ const useSubmitAnswer = () => {
     if (isMatch(answer, target)) {
       //for a correct answer
       console.log("✅ Correct answer");
-      if (handData) {
+      if (entry.individualHandDrillingData?.[currentHand]) {
+        //only increment the hand due date with level if the hand is due for revision
         const newDueDate = isDueTodayOrPast
           ? formatDate(nextDate)
           : handData.due;

@@ -8,6 +8,7 @@ import {
   DueLevelPair,
   GridName,
   PokerHand,
+  StrictDateString,
   ValidFraction,
 } from "@src/types";
 
@@ -111,7 +112,10 @@ const slice = createSlice({
     updateFilteredHand(
       state,
       action: PayloadAction<{
-        [key: string]: { level: number; due: string };
+        [key: string]: {
+          level: number;
+          due: StrictDateString;
+        };
       }>
     ) {
       Object.entries(action.payload).forEach(

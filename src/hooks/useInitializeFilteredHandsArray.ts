@@ -4,12 +4,11 @@ import {
   setFilteredHandsData,
   setRepeatsArray,
 } from "@src/store/trainer";
-import { selectUserDataState } from "@src/store/userData";
 import { GridName } from "@src/types";
 import { fisherYatesShuffle } from "@src/utils/fisherYatesShuffle";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import zeroTime from "@src/utils/zeroTime";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import formatDate from "@src/utils/formatDate";
 

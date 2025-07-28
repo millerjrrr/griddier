@@ -1,3 +1,4 @@
+import { StrictDateString } from "@src/types";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 
@@ -18,7 +19,9 @@ export const normalizeDate = (input?: string): string => {
   for (const format of acceptedFormats) {
     const parsed = dayjs(input, format, true);
     if (parsed.isValid()) {
-      return parsed.format("YYYY-MM-DD"); // normalize to ISO
+      return parsed.format(
+        "YYYY-MM-DD"
+      ) as StrictDateString; // normalize to ISO
     }
   }
 

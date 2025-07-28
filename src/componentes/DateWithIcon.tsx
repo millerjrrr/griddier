@@ -3,11 +3,12 @@ import { Image, Text, View } from "react-native";
 import prettyDate from "@src/utils/prettyDate";
 import formatDate from "./../utils/formatDate";
 import colors from "@src/utils/colors";
+import { StrictDateString } from "@src/types";
 const dateImage = require("@assets/img/date.png");
 
-const DateWithIcon: React.FC<{ date: string }> = ({
-  date,
-}) => {
+const DateWithIcon: React.FC<{
+  date: StrictDateString;
+}> = ({ date }) => {
   const today = new Date();
   const localToday = new Date(
     today.getFullYear(),

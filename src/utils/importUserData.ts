@@ -1,7 +1,7 @@
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system";
 import Papa from "papaparse";
-import { DataEntry } from "@src/types";
+import { DataEntry, StrictDateString } from "@src/types";
 import { Alert } from "react-native";
 import { setUserData } from "@src/store/userData";
 import { normalizeDate } from "./normalizeDate";
@@ -94,12 +94,16 @@ export const parseAndValidateCsv = (
 
       return {
         gridName: row.gridName,
-        dueDate: normalizeDate(row.dueDate),
+        dueDate: normalizeDate(
+          row.dueDate
+        ) as StrictDateString,
         level: parseInt(row.level) || 0,
         drilled: parseInt(row.drilled) || 0,
         timeDrilling: parseInt(row.timeDrilling) || 0,
         recordTime: parseInt(row.recordTime) || 0,
-        lastStudied: normalizeDate(row.lastStudied),
+        lastStudied: normalizeDate(row.lastStudied) as
+          | StrictDateString
+          | "",
         priority: parseInt(row.priority) || 0,
         locked: normalizeDate(row.dueDate) === "",
         individualHandDrillingData,

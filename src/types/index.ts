@@ -38,19 +38,19 @@ export type ActionName =
 
 export interface DataEntry {
   gridName: GridName;
-  dueDate: string;
+  dueDate: StrictDateString;
   level: number;
   drilled: number;
   timeDrilling: number;
   recordTime: number;
-  lastStudied: string;
+  lastStudied: StrictDateString | "";
   priority: number;
   locked: boolean;
   individualHandDrillingData: IndividualHandDrillingData;
 }
 
 export interface DueLevelPair {
-  due: string;
+  due: StrictDateString;
   level: number;
 }
 
@@ -68,3 +68,52 @@ export type NavigationParamList = {
   "Ranges List": undefined;
   Data: undefined;
 };
+
+type Year = `${number}${number}${number}${number}`;
+type Month =
+  | "01"
+  | "02"
+  | "03"
+  | "04"
+  | "05"
+  | "06"
+  | "07"
+  | "08"
+  | "09"
+  | "10"
+  | "11"
+  | "12";
+type Day =
+  | "01"
+  | "02"
+  | "03"
+  | "04"
+  | "05"
+  | "06"
+  | "07"
+  | "08"
+  | "09"
+  | "10"
+  | "11"
+  | "12"
+  | "13"
+  | "14"
+  | "15"
+  | "16"
+  | "17"
+  | "18"
+  | "19"
+  | "20"
+  | "21"
+  | "22"
+  | "23"
+  | "24"
+  | "25"
+  | "26"
+  | "27"
+  | "28"
+  | "29"
+  | "30"
+  | "31";
+
+export type StrictDateString = `${Year}-${Month}-${Day}`;

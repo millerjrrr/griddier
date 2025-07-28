@@ -1,7 +1,11 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import colors from "../utils/colors";
-import { HandActions, ValidFraction } from "../types";
+import {
+  HandActions,
+  PokerHand,
+  ValidFraction,
+} from "../types";
 import appShadow from "@src/utils/appShadow";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,7 +15,7 @@ import {
 
 export interface GridCellProps {
   actions: HandActions;
-  hand?: string;
+  hand?: PokerHand;
   size?: number;
   shadow?: boolean;
   borderRadius?: number;

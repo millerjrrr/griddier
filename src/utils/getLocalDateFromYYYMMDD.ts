@@ -1,4 +1,8 @@
-const getLocalDateFromYYYYMMDD = (dateString: string) => {
+import { StrictDateString } from "@src/types";
+
+const getLocalDateFromYYYYMMDD = (
+  dateString: StrictDateString | ""
+) => {
   if (dateString === "") return new Date();
   const [year, month, day] = dateString
     .split("-")
