@@ -45,11 +45,18 @@ const useSubmitAnswer = () => {
       gridName,
       index,
       filteredHandsArray,
-      filteredHandsData,
       repeatsArray,
     } = state.trainer; //needs to be inside submitAnswer to get up to date values
 
     const currentHand = filteredHandsArray[index];
+    if (!currentHand) {
+      console.error(
+        "❗ currentHand is undefined at index",
+        index
+      );
+      return;
+    }
+
     const entry = getDataEntries(gridName);
 
     const handData = entry.individualHandDrillingData?.[
@@ -144,10 +151,12 @@ const useSubmitAnswer = () => {
                 repeatsArray.length
               ),
             ]
-          : [
+          : index + 1 < filteredHandsArray.length
+          ? [
               ...newRepeatsArray,
               ...filteredHandsArray.slice(index + 1),
-            ];
+            ]
+          : [...newRepeatsArray];
 
       dispatch(setRepeatsArray(newRepeatsArray));
       dispatch(
