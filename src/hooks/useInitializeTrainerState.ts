@@ -60,9 +60,9 @@ const useInitializeTrainerState = () => {
 
     handsForReview = fisherYatesShuffle(handsForReview);
 
-    // if (process.env.NODE_ENV === "development") {
-    //   handsForReview = handsForReview.slice(0, 5);
-    // }
+    if (process.env.NODE_ENV === "development") {
+      handsForReview = handsForReview.slice(0, 5);
+    }
 
     dispatch(setRepeatsArray([]));
     dispatch(setTimePlaying(0));

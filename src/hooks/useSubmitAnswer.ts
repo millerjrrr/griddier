@@ -27,6 +27,7 @@ import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import formatDate from "@src/utils/formatDate";
 import useGetDataEntries from "./useGetDataEntries";
 import { timePassedSince } from "@src/utils/timePassedSince";
+import Toast from "react-native-toast-message";
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.allin === y.allin &&
@@ -49,7 +50,6 @@ const useSubmitAnswer = () => {
       filteredHandsArray,
       repeatsArray,
       startedPlaying,
-      timePlaying,
     } = state.trainer; //needs to be inside submitAnswer to get up to date values
 
     const timeInc = Math.min(
@@ -59,10 +59,14 @@ const useSubmitAnswer = () => {
 
     const currentHand = filteredHandsArray[index];
     if (!currentHand) {
-      console.error(
-        "❗ currentHand is undefined at index",
-        index
-      );
+      Toast.show({
+        type: "fail",
+        text1: "Warning!",
+        text2: "❗ currentHand is undefined at index",
+        visibilityTime: 2000,
+        text1Style: { fontSize: 20 },
+        text2Style: { fontSize: 17 },
+      });
       return;
     }
 
@@ -96,7 +100,7 @@ const useSubmitAnswer = () => {
 
     if (isMatch(answer, target)) {
       //for a correct answer
-      console.log("✅ Correct answer");
+      // console.log("✅ Correct answer");
       if (entry.individualHandDrillingData?.[currentHand]) {
         //only increment the hand due date with level if the hand is due for revision
         const newDueDate = isDueTodayOrPast
@@ -118,7 +122,7 @@ const useSubmitAnswer = () => {
       if (index + 1 < filteredHandsArray.length) {
         dispatch(incIndex());
       } else {
-        console.log("🎉 Test completed");
+        // console.log("🎉 Test completed");
 
         const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
 
@@ -136,7 +140,7 @@ const useSubmitAnswer = () => {
       }
     } else {
       // for a wrong answer
-      console.log("❌ Incorrect answer");
+      // console.log("❌ Incorrect answer");
 
       const newDueDate = formatDate(tomorrow);
       if (index >= repeatsArray.length)

@@ -25,7 +25,7 @@ const writeToFile = async (
       STORAGE_PATH,
       JSON.stringify(data, null, 2)
     );
-    console.log("📁 Wrote to asyncStorage.json");
+    // console.log("📁 Wrote to asyncStorage.json");
   } catch (error) {
     console.error(
       "❌ Failed to write to asyncStorage.json",

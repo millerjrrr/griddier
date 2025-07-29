@@ -9,6 +9,7 @@ import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
+import Toast from "react-native-toast-message";
 
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,14 @@ const useUpdateDatabase = () => {
     const entry = getDataEntries(gridName);
 
     if (!entry) {
-      console.warn(`No entry found for grid: ${gridName}`);
+      Toast.show({
+        type: "fail",
+        text1: "Warning!",
+        text2: `No entry found for grid: ${gridName}`,
+        visibilityTime: 2000,
+        text1Style: { fontSize: 20 },
+        text2Style: { fontSize: 17 },
+      });
       return;
     }
 
@@ -46,8 +54,8 @@ const useUpdateDatabase = () => {
       dueDateAsDate && dueDateAsDate <= todaysDateAsDate;
 
     const individualHandDrillingData = {
-      ...entry.individualHandDrillingData,
-      ...filteredHandsData,
+      ...(entry.individualHandDrillingData || {}),
+      ...(filteredHandsData || {}),
     };
 
     if (correct) {
