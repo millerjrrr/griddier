@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   View,
   Text,
   Pressable,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { DataEntry, NavigationParamList } from "@src/types";
+import {
+  DataEntry,
+  HandsObject,
+  NavigationParamList,
+} from "@src/types";
 import Grid from "./Grid";
 import LevelStars from "./LevelStars";
 import appShadow from "@src/utils/appShadow";
@@ -19,6 +24,7 @@ import {
   resetIndex,
   resetStartTime,
   selectTrainerState,
+  setFeedback,
   setGridName,
 } from "@src/store/trainer";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
@@ -26,6 +32,9 @@ import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
 import colors from "@src/utils/colors";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
+import Cell from "./Cell";
+import { GridData } from "@assets/data/GridData";
+import { FontAwesome } from "@expo/vector-icons";
 
 interface RangeModalProps {
   visible: boolean;
@@ -48,9 +57,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const dispatch = useDispatch();
   const initializeTrainerState =
     useInitializeTrainerState();
-  const { gridName, feedback } = useSelector(
-    selectTrainerState
-  );
+  const { gridName, feedback, filteredHandsArray } =
+    useSelector(selectTrainerState);
+  const hands: HandsObject = GridData[gridName].hands;
 
   if (!dataEntry) return null;
 
@@ -96,12 +105,54 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <LevelStars stars={dataEntry.level} />
           </View>
 
-          <Grid
-            name={dataEntry.gridName}
-            hidden={
-              !feedback && dataEntry.lastStudied !== ""
-            }
-          />
+          <View style={{ position: "relative" }}>
+            {feedback && (
+              <View
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: [
+                    { translateX: "-50%" },
+                    { translateY: "-50%" },
+                  ],
+                  zIndex: 500,
+                  padding: 15,
+                }}
+              >
+                <Pressable
+                  onPress={() =>
+                    dispatch(setFeedback(false))
+                  }
+                  style={{
+                    position: "absolute",
+                    right: 30,
+                    top: 30,
+                    zIndex: 100,
+                  }}
+                >
+                  <FontAwesome
+                    name="close"
+                    size={24}
+                    color={"black"}
+                  />
+                </Pressable>
+                <Cell
+                  hand={filteredHandsArray[0]}
+                  actions={hands[filteredHandsArray[0]]}
+                  size={
+                    Dimensions.get("window").width * 0.8
+                  }
+                />
+              </View>
+            )}
+            <Grid
+              name={dataEntry.gridName}
+              hidden={
+                !feedback && dataEntry.lastStudied !== ""
+              }
+            />
+          </View>
 
           <View
             style={[styles.infoRow, styles.centeredRow]}
