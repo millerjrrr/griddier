@@ -65,7 +65,7 @@ export interface UserDataState {
 export type NavigationParamList = {
   Trainer: undefined;
   "Ranges List": undefined;
-  Data: undefined;
+  Extras: undefined;
 };
 
 type Year = `${number}${number}${number}${number}`;
