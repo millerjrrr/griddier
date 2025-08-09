@@ -1,6 +1,7 @@
 import AboutModal from "@src/componentes/AboutModal";
 import BGContainer from "@src/componentes/BGContainer";
 import ContactModal from "@src/componentes/ContactModal";
+import MethodologyModal from "@src/componentes/MethodologyModal";
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
@@ -19,6 +20,7 @@ const Extras = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modal2Visible, setModal2Visible] = useState(false);
+  const [modal3Visible, setModal3Visible] = useState(false);
 
   const exportUserData = () =>
     exportUserDataAsCsv(dataEntries);
@@ -49,6 +51,10 @@ const Extras = () => {
           onPress={() => setModal2Visible(true)}
           title={"Contact"}
         />
+        <SettingsCard
+          onPress={() => setModal3Visible(true)}
+          title={"Methodology"}
+        />
       </View>
       <AboutModal
         visible={modalVisible}
@@ -57,6 +63,10 @@ const Extras = () => {
       <ContactModal
         visible={modal2Visible}
         onClose={() => setModal2Visible(false)}
+      />
+      <MethodologyModal
+        visible={modal3Visible}
+        onClose={() => setModal3Visible(false)}
       />
     </BGContainer>
   );
