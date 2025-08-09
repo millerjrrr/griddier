@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  TouchableOpacity,
-  StyleSheet,
-  Vibration,
-} from "react-native";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
 import { ColorName, ValidFraction } from "../types";
+
+const pop = require("assets/sounds/pop.wav");
 
 import {
   incAllIn,
@@ -21,6 +19,7 @@ import {
 } from "@src/store/trainer";
 
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
+import usePlaySound from "@src/hooks/usePlaySound";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -46,7 +45,10 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   } = useSelector(selectTrainerState);
   const { submitAnswer } = useSubmitAnswer();
 
+  const playSound = usePlaySound();
+
   const handlePress = () => {
+    playSound(pop);
     let answer = { a: allin, r: raise, c: call };
     let subNow = false;
 
@@ -80,7 +82,6 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       subNow || answer.a + answer.r + answer.c === 4;
 
     if (submit) {
-      Vibration.vibrate(50);
       setTimeout(() => submitAnswer(), 200);
     }
   };
@@ -117,7 +118,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         break;
     }
 
-    Vibration.vibrate(50);
+    playSound(pop);
     setTimeout(() => submitAnswer(), 200);
   };
 

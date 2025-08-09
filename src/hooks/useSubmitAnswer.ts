@@ -28,6 +28,9 @@ import formatDate from "@src/utils/formatDate";
 import useGetDataEntries from "./useGetDataEntries";
 import { timePassedSince } from "@src/utils/timePassedSince";
 import Toast from "react-native-toast-message";
+import usePlaySound from "./usePlaySound";
+const cymbal = require("assets/sounds/cymbal.wav");
+const success = require("assets/sounds/success.wav");
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.allin === y.allin &&
@@ -56,6 +59,8 @@ const useSubmitAnswer = () => {
       10 * 1000,
       timePassedSince(startedPlaying)
     );
+
+    const playSound = usePlaySound();
 
     const currentHand = filteredHandsArray[index];
     if (!currentHand) {
@@ -137,6 +142,7 @@ const useSubmitAnswer = () => {
           })
         );
         dispatch(setSuccessModal(true));
+        playSound(success);
       }
     } else {
       // for a wrong answer
@@ -182,6 +188,7 @@ const useSubmitAnswer = () => {
       updateDatabase(gridName, false);
       dispatch(setFeedback(true));
       dispatch(setShowRangeModal(true));
+      playSound(cymbal);
     }
 
     dispatch(resetActions());
