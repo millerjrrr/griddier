@@ -44,12 +44,10 @@ const Cell: React.FC<GridCellProps> = ({
     selectTrainerState
   );
 
-  const borderColor =
+  const red =
     feedback &&
     !clearActionsOnTouch &&
-    filteredHandsArray[0] === hand
-      ? "red"
-      : "black";
+    filteredHandsArray[0] === hand;
 
   if (allin + raise + call > 12) {
     throw new Error(
@@ -109,12 +107,12 @@ const Cell: React.FC<GridCellProps> = ({
       <View
         style={{
           ...(size ? { width: size } : { flex: 1 }),
-          borderRadius: borderRadius!! || 0,
+          borderRadius: red ? 3 : borderRadius!! || 0,
           aspectRatio: 1,
           // position: "relative",
           backgroundColor: PRIOR,
-          borderColor,
-          borderWidth: size ? size / 100 : 1,
+          borderColor: red ? "red" : "black",
+          borderWidth: size ? size / 100 : red ? 3 : 1,
           overflow: "hidden",
           flexDirection: "row",
           alignItems: "flex-end",

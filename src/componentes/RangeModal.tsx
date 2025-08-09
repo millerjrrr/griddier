@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Modal,
   View,
@@ -6,10 +6,18 @@ import {
   Pressable,
   StyleSheet,
   Dimensions,
+  Animated,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-
+import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
+import {
+  resetActions,
+  resetIndex,
+  resetStartTime,
+  selectTrainerState,
+  setGridName,
+} from "@src/store/trainer";
 import {
   DataEntry,
   HandsObject,
@@ -18,32 +26,21 @@ import {
 import Grid from "./Grid";
 import LevelStars from "./LevelStars";
 import appShadow from "@src/utils/appShadow";
-
-import {
-  resetActions,
-  resetIndex,
-  resetStartTime,
-  selectTrainerState,
-  setFeedback,
-  setGridName,
-} from "@src/store/trainer";
-import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import prettyDate from "@src/utils/prettyDate";
 import formatTime from "./../utils/formatTime";
 import colors from "@src/utils/colors";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import Cell from "./Cell";
 import { GridData } from "@assets/data/GridData";
-import { FontAwesome } from "@expo/vector-icons";
+
+const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
+  colors;
 
 interface RangeModalProps {
   visible: boolean;
   dataEntry: DataEntry | null;
   onClose: () => void;
 }
-
-const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
-  colors;
 
 const RangeModal: React.FC<RangeModalProps> = ({
   visible,
@@ -61,6 +58,33 @@ const RangeModal: React.FC<RangeModalProps> = ({
     useSelector(selectTrainerState);
   const hands: HandsObject = GridData[gridName].hands;
 
+  // Animation state
+  const [showFeedbackView, setShowFeedbackView] =
+    useState(false);
+  const feedbackScale = useRef(
+    new Animated.Value(1)
+  ).current;
+
+  useEffect(() => {
+    if (visible && feedback) {
+      setShowFeedbackView(true);
+      feedbackScale.setValue(1);
+
+      // Start zoom-out after 1 second
+      const timer = setTimeout(() => {
+        Animated.timing(feedbackScale, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: true,
+        }).start(() => {
+          setShowFeedbackView(false); // Remove from layout
+        });
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [visible, feedback]);
+
   if (!dataEntry) return null;
 
   const newDrill = gridName !== dataEntry.gridName;
@@ -73,8 +97,11 @@ const RangeModal: React.FC<RangeModalProps> = ({
     if (newDrill)
       initializeTrainerState(dataEntry.gridName);
     onClose();
-    navigation.navigate("Trainer"); // add `as never` if TS complains
+    navigation.navigate("Trainer" as never);
   };
+
+  const feedbackWidth =
+    Dimensions.get("window").width * 0.8;
 
   return (
     <Modal
@@ -86,9 +113,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
         <View
           style={[
             styles.content,
-            {
-              backgroundColor: feedback ? RED : CONTRAST,
-            },
+            { backgroundColor: feedback ? RED : CONTRAST },
           ]}
         >
           <View style={styles.header}>
@@ -106,46 +131,32 @@ const RangeModal: React.FC<RangeModalProps> = ({
           </View>
 
           <View style={{ position: "relative" }}>
-            {feedback && (
-              <View
+            {showFeedbackView && (
+              <Animated.View
                 style={{
                   position: "absolute",
                   top: "50%",
-                  left: "50%",
+                  left: 0,
                   transform: [
-                    { translateX: "-50%" },
-                    { translateY: "-50%" },
+                    {
+                      translateY: "-50%",
+                    },
+                    { scale: feedbackScale },
                   ],
                   zIndex: 500,
                   padding: 15,
                 }}
               >
-                <Pressable
-                  onPress={() =>
-                    dispatch(setFeedback(false))
-                  }
-                  style={{
-                    position: "absolute",
-                    right: 30,
-                    top: 30,
-                    zIndex: 100,
-                  }}
-                >
-                  <FontAwesome
-                    name="close"
-                    size={24}
-                    color={"black"}
+                {filteredHandsArray.length > 0 && (
+                  <Cell
+                    hand={filteredHandsArray[0]}
+                    actions={hands[filteredHandsArray[0]]}
+                    size={feedbackWidth}
                   />
-                </Pressable>
-                <Cell
-                  hand={filteredHandsArray[0]}
-                  actions={hands[filteredHandsArray[0]]}
-                  size={
-                    Dimensions.get("window").width * 0.8
-                  }
-                />
-              </View>
+                )}
+              </Animated.View>
             )}
+
             <Grid
               name={dataEntry.gridName}
               hidden={
@@ -167,16 +178,14 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <Text style={styles.infoText}>
               {dataEntry.lastStudied === ""
                 ? ""
-                : `Last Studied:${
-                    " " + prettyDate(dataEntry.lastStudied)
-                  }`}
+                : `Last Studied: ${prettyDate(
+                    dataEntry.lastStudied
+                  )}`}
             </Text>
             <Text style={styles.infoText}>
               {dataEntry.lastStudied === ""
                 ? ""
-                : `Due:${
-                    " " + prettyDate(dataEntry.dueDate)
-                  }`}
+                : `Due: ${prettyDate(dataEntry.dueDate)}`}
             </Text>
           </View>
 
@@ -226,7 +235,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 10,
   },
-
   infoRow: {
     flexDirection: "row",
     flexWrap: "wrap",
