@@ -3,7 +3,6 @@ import {
   Modal,
   View,
   Text,
-  Pressable,
   StyleSheet,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +30,7 @@ import prettyDate from "@src/utils/prettyDate";
 import formatTime from "@src/utils/formatTime";
 import colors from "@src/utils/colors";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
+import { AppPressable } from "./AppPressables";
 
 interface RangeModalProps {
   visible: boolean;
@@ -137,29 +137,29 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             <LevelStars stars={dataEntry.level} size={25} />
           </View>
 
-          <Pressable
+          <AppPressable
             onPress={moveToNextGrid}
             style={styles.button}
           >
             <Text style={styles.buttonText}>
               Next grid!
             </Text>
-          </Pressable>
-          <Pressable
+          </AppPressable>
+          <AppPressable
             onPress={repeatThisGrid}
             style={styles.button2}
           >
             <Text style={styles.buttonText2}>
               Repeat grid!
             </Text>
-          </Pressable>
+          </AppPressable>
 
-          <Pressable
+          <AppPressable
             onPress={onClose}
             style={styles.button3}
           >
             <Text style={styles.buttonText3}>Exit</Text>
-          </Pressable>
+          </AppPressable>
         </View>
       </View>
     </Modal>

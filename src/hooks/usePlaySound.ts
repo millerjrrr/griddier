@@ -1,10 +1,12 @@
 import { Audio, InterruptionModeIOS } from "expo-av";
 
+const pop = require("assets/sounds/pop.wav");
+
 type PlaySoundCallback = () => void;
 
 const usePlaySound = () => {
   const playSound = async (
-    file: number | { uri: string }, // Can be require(...) or a URI object
+    file: number | { uri: string } = pop, // Can be require(...) or a URI object
     callback?: PlaySoundCallback
   ): Promise<void> => {
     try {

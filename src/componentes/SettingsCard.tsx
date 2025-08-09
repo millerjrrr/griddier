@@ -1,12 +1,13 @@
 import colors from "@src/utils/colors";
-import { Text, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
+import { AppTouchable } from "./AppPressables";
 
 const SettingsCard: React.FC<{
   onPress: () => void;
   title: string;
 }> = ({ onPress, title }) => {
   return (
-    <TouchableOpacity
+    <AppTouchable
       style={{
         height: 60,
         width: "95%",
@@ -21,7 +22,7 @@ const SettingsCard: React.FC<{
       >
         {title}
       </Text>
-    </TouchableOpacity>
+    </AppTouchable>
   );
 };
 

@@ -8,6 +8,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { AppPressable } from "./AppPressables";
 
 interface ModalProps {
   visible: boolean;
@@ -85,7 +86,7 @@ const AboutModal: React.FC<ModalProps> = ({
             preflop grids perfectly.
           </Text>
 
-          <Pressable
+          <AppPressable
             onPress={onClose}
             style={{
               backgroundColor: colors.SECONDARY,
@@ -105,7 +106,7 @@ const AboutModal: React.FC<ModalProps> = ({
             >
               Close
             </Text>
-          </Pressable>
+          </AppPressable>
         </View>
       </View>
     </Modal>

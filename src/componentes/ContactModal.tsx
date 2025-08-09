@@ -2,13 +2,8 @@ import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 const myPic = require("@assets/img/myPic.jpg");
 
-import {
-  Image,
-  Modal,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import { Image, Modal, Text, View } from "react-native";
+import { AppPressable } from "./AppPressables";
 
 interface ModalProps {
   visible: boolean;
@@ -109,7 +104,7 @@ const ContactModal: React.FC<ModalProps> = ({
             {"jacob@link-king.com \n +353 86 089 7326"}
           </Text>
 
-          <Pressable
+          <AppPressable
             onPress={onClose}
             style={{
               backgroundColor: colors.SECONDARY,
@@ -129,7 +124,7 @@ const ContactModal: React.FC<ModalProps> = ({
             >
               Close
             </Text>
-          </Pressable>
+          </AppPressable>
         </View>
       </View>
     </Modal>

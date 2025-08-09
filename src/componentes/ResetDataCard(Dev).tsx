@@ -1,7 +1,8 @@
 import appShadow from "@src/utils/appShadow";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import * as FileSystem from "expo-file-system";
 import colors from "@src/utils/colors";
+import { AppTouchable } from "./AppPressables";
 
 const ResetDataCard = () => {
   const onPress = async () => {
@@ -21,7 +22,7 @@ const ResetDataCard = () => {
   };
 
   return (
-    <TouchableOpacity
+    <AppTouchable
       style={{
         marginVertical: 8,
         padding: 5,
@@ -47,7 +48,7 @@ const ResetDataCard = () => {
           ⚠️ Reset User Data
         </Text>
       </View>
-    </TouchableOpacity>
+    </AppTouchable>
   );
 };
 

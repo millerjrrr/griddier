@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
@@ -20,6 +20,7 @@ import {
 
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
 import usePlaySound from "@src/hooks/usePlaySound";
+import { AppTouchable } from "./AppPressables";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -48,7 +49,6 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   const playSound = usePlaySound();
 
   const handlePress = () => {
-    playSound(pop);
     let answer = { a: allin, r: raise, c: call };
     let subNow = false;
 
@@ -123,7 +123,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   };
 
   return (
-    <TouchableOpacity
+    <AppTouchable
       style={[
         styles.button,
         {

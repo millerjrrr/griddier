@@ -3,7 +3,6 @@ import {
   Modal,
   View,
   Text,
-  Pressable,
   StyleSheet,
   Dimensions,
   Animated,
@@ -32,6 +31,7 @@ import colors from "@src/utils/colors";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import Cell from "./Cell";
 import { GridData } from "@assets/data/GridData";
+import { AppPressable } from "./AppPressables";
 
 const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
   colors;
@@ -131,7 +131,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
           </View>
 
           <View style={{ position: "relative" }}>
-            {showFeedbackView && (
+            {feedback && showFeedbackView && (
               <Animated.View
                 style={{
                   position: "absolute",
@@ -195,23 +195,23 @@ const RangeModal: React.FC<RangeModalProps> = ({
               : "Memorize this grid. When you are ready..."}
           </Text>
 
-          <Pressable
+          <AppPressable
             onPress={startTrainingDrill}
             style={styles.button}
           >
             <Text style={styles.buttonText}>
               {feedback ? "Try again!" : "Let's go!"}
             </Text>
-          </Pressable>
+          </AppPressable>
 
-          <Pressable
+          <AppPressable
             onPress={onClose}
             style={styles.secondaryButton}
           >
             <Text style={styles.secondaryButtonText}>
               Close
             </Text>
-          </Pressable>
+          </AppPressable>
         </View>
       </View>
     </Modal>

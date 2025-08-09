@@ -12,6 +12,7 @@ import appShadow from "@src/utils/appShadow";
 import { FontAwesome } from "@expo/vector-icons";
 import colors from "@src/utils/colors";
 import { GridData } from "@assets/data/GridData";
+import { AppPressable } from "./AppPressables";
 
 interface GridProps {
   name: GridName;
@@ -40,7 +41,7 @@ const Grid: React.FC<GridProps> = ({
       }}
     >
       {isHidden ? (
-        <Pressable
+        <AppPressable
           style={{
             justifyContent: "center",
             alignItems: "center",
@@ -61,7 +62,7 @@ const Grid: React.FC<GridProps> = ({
           <Text style={{ fontSize: 20, color: SECONDARY }}>
             Touch to reveal grid
           </Text>
-        </Pressable>
+        </AppPressable>
       ) : (
         [...Array(13)].map((_, rowIdx) => (
           <View
