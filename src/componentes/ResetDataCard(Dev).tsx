@@ -24,7 +24,7 @@ const ResetDataCard = () => {
   return (
     <AppTouchable
       style={{
-        marginVertical: 8,
+        marginTop: 30,
         padding: 5,
         width: "100%",
         ...appShadow("black"),

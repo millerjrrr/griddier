@@ -40,7 +40,9 @@ const RangesList = () => {
           width: "100%",
         }}
       >
-        {/* <ResetDataCard /> */}
+        {process.env.NODE_ENV === "development" && (
+          <ResetDataCard />
+        )}
         <RangeModal
           visible={modalVisible}
           dataEntry={selectedEntry}

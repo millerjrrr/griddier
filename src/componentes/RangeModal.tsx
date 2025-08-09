@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   Animated,
+  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,6 +33,8 @@ import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import Cell from "./Cell";
 import { GridData } from "@assets/data/GridData";
 import { AppPressable } from "./AppPressables";
+import Toast from "react-native-toast-message";
+const lockIcon = require("@assets/img/lock.png");
 
 const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
   colors;
@@ -196,12 +199,35 @@ const RangeModal: React.FC<RangeModalProps> = ({
           </Text>
 
           <AppPressable
-            onPress={startTrainingDrill}
+            onPress={
+              dataEntry.locked
+                ? () =>
+                    Toast.show({
+                      type: "success",
+                      text1: "Locked",
+                      text2: "Complete previous levels!",
+                      visibilityTime: 2000,
+                      text1Style: { fontSize: 20 },
+                      text2Style: { fontSize: 17 },
+                    })
+                : startTrainingDrill
+            }
             style={styles.button}
           >
-            <Text style={styles.buttonText}>
-              {feedback ? "Try again!" : "Let's go!"}
-            </Text>
+            {dataEntry.locked ? (
+              <Image
+                source={lockIcon}
+                resizeMode="contain"
+                style={{
+                  height: 25,
+                  width: 25,
+                }}
+              />
+            ) : (
+              <Text style={styles.buttonText}>
+                {feedback ? "Try again!" : "Let's go!"}
+              </Text>
+            )}
           </AppPressable>
 
           <AppPressable
@@ -257,6 +283,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: GREEN,
+    alignItems: "center",
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
