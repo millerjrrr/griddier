@@ -136,7 +136,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       ]}
       onPress={handlePress}
       onLongPress={handleLongPress}
-      delayLongPress={100}
+      delayLongPress={300}
     />
   );
 };
