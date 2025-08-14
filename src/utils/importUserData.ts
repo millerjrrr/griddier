@@ -9,6 +9,9 @@ import { setGridName } from "@src/store/trainer";
 import sort from "./sortDataEntries";
 import { GridData } from "@assets/data/GridData";
 
+const removeSize100ForShoveRanges = (string: string) =>
+  string.replace("->100", "");
+
 export const pickCsvFile = async (): Promise<
   string | null
 > => {
@@ -67,7 +70,9 @@ export const parseAndValidateCsv = (
           `Duplicate gridName: ${row.gridName}`
         );
       }
-      csvGridNames.add(row.gridName);
+      csvGridNames.add(
+        removeSize100ForShoveRanges(row.gridName)
+      );
 
       let individualHandDrillingData = {};
       if (row.individualHandDrillingData) {
@@ -93,7 +98,7 @@ export const parseAndValidateCsv = (
       }
 
       return {
-        gridName: row.gridName,
+        gridName: removeSize100ForShoveRanges(row.gridName),
         dueDate: normalizeDate(
           row.dueDate
         ) as StrictDateString,

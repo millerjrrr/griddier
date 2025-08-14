@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import ActionButton from "./ActionButton";
-import { GridName } from "../types";
+import { ActionName, GridName } from "../types";
 import { GridData } from "@assets/data/GridData";
 
 interface ButtonsRowProps {
@@ -18,27 +18,51 @@ const ButtonContainer: React.FC<ButtonsRowProps> = ({
   const shouldShow = (array: number[]) =>
     array.some((val) => val > 0);
 
-  const buttons = [];
+  const buttonsConfig: {
+    key: string;
+    name: ActionName;
+    show: boolean;
+  }[] = [
+    {
+      key: "AllIn",
+      name: "AllIn",
+      show: shouldShow(handsEntries.map((h) => h.allin)),
+    },
+    {
+      key: "Raise",
+      name: "Raise",
+      show: shouldShow(handsEntries.map((h) => h.raise)),
+    },
+    {
+      key: "Call",
+      name: "Call",
+      show: shouldShow(handsEntries.map((h) => h.call)),
+    },
+    { key: "Fold", name: "Fold", show: true },
+  ];
 
-  if (shouldShow(handsEntries.map((hand) => hand.allin))) {
-    buttons.push(<ActionButton key="AllIn" name="AllIn" />);
-  }
-  if (shouldShow(handsEntries.map((hand) => hand.raise))) {
-    buttons.push(<ActionButton key="Raise" name="Raise" />);
-  }
-  if (shouldShow(handsEntries.map((hand) => hand.call))) {
-    buttons.push(<ActionButton key="Call" name="Call" />);
-  }
+  const buttonsToRender = buttonsConfig.filter(
+    (btn) => btn.show
+  );
+  const maxWidth = buttonsToRender.length === 4 ? 75 : 100; // default 100 if 3 or less
 
-  buttons.push(<ActionButton key="Fold" name="Fold" />);
-
-  return <View style={styles.container}>{buttons}</View>;
+  return (
+    <View style={styles.container}>
+      {buttonsToRender.map((btn) => (
+        <ActionButton
+          key={btn.key}
+          name={btn.name}
+          maxWidth={maxWidth}
+        />
+      ))}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     flexDirection: "row",
-    justifyContent: "space-evenly",
     alignItems: "center",
     marginTop: 30,
   },

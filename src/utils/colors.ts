@@ -1,5 +1,5 @@
 const colors = {
-  ALLIN: "#8a2c2c", // Red
+  ALLIN: "#a56641ff", // Red
   RAISE: "#ea9b6d", // Orange
   CALL: "#b6d7a8", // Green
   PRIOR: "#a6a6a6", // Gray

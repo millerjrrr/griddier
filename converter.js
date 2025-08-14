@@ -228,7 +228,7 @@ function parseMatrixCsvToColumns(filePath) {
 // Read gridNames from ActionList.csv
 function getGridNamesPrioritiesAndFeaturedHands() {
   const rawData = fs.readFileSync(
-    path.join(inputDir, "ActionList.csv"),
+    path.join(inputDir, "GriddierRanges - Action List.csv"),
     "utf8"
   );
   const rows = rawData
@@ -301,28 +301,16 @@ function getGridNamesPrioritiesAndFeaturedHands() {
 function buildCombinedData() {
   // Parse each matrix
   const allInCols = parseMatrixCsvToColumns(
-    path.join(
-      inputDir,
-      "PreflopPokerJuly2025 - AllInMatrix.csv"
-    )
+    path.join(inputDir, "GriddierRanges - AllInMatrix.csv")
   );
   const callCols = parseMatrixCsvToColumns(
-    path.join(
-      inputDir,
-      "PreflopPokerJuly2025 - CallMatrix.csv"
-    )
+    path.join(inputDir, "GriddierRanges - CallMatrix.csv")
   );
   const raiseCols = parseMatrixCsvToColumns(
-    path.join(
-      inputDir,
-      "PreflopPokerJuly2025 - RaiseMatrix.csv"
-    )
+    path.join(inputDir, "GriddierRanges - RaiseMatrix.csv")
   );
   const priorCols = parseMatrixCsvToColumns(
-    path.join(
-      inputDir,
-      "PreflopPokerJuly2025 - PriorMatrix.csv"
-    )
+    path.join(inputDir, "GriddierRanges - PriorMatrix.csv")
   );
 
   // Get gridNames

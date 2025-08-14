@@ -130,6 +130,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           backgroundColor: colors[colorMap[name]],
           ...appShadow(colors.CONTRAST),
           maxWidth,
+          margin: maxWidth / 20,
           alignItems: "center",
           justifyContent: "center",
         },
@@ -147,7 +148,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    margin: 10,
     width: "100%",
   },
 });

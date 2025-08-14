@@ -35428,9 +35428,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "A3s": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "A2s": {
@@ -35440,9 +35440,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AKo": {
-        "allin": 0,
+        "allin": 3,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "KK": {
@@ -35452,15 +35452,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "KQs": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "KJs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KTs": {
@@ -35518,9 +35518,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AQo": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQo": {
@@ -35698,9 +35698,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "TT": {
-        "allin": 0,
+        "allin": 2,
         "call": 0,
-        "raise": 4,
+        "raise": 2,
         "prior": 4
       },
       "T9s": {
@@ -36440,15 +36440,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 3
       },
       "AA": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -36518,15 +36518,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -37490,15 +37490,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 3
       },
       "AA": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -37568,15 +37568,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -38540,15 +38540,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AA": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -38618,15 +38618,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -39595,15 +39595,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "AA": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -39673,15 +39673,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 3
       },
       "KK": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -40648,15 +40648,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "AA": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -40726,15 +40726,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 3
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -40816,9 +40816,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 3
       },
       "QQ": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -41708,9 +41708,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -41756,9 +41756,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 3
       },
       "A5s": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 3
       },
       "A4s": {
@@ -41780,15 +41780,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -41870,9 +41870,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 3
       },
       "QQ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -41954,9 +41954,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "JJ": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 3
       },
       "JTs": {
@@ -42757,15 +42757,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 2
       },
       "AA": {
-        "allin": 0,
+        "allin": 1,
         "call": 0,
-        "raise": 4,
+        "raise": 3,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 3,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "AQs": {
@@ -42835,15 +42835,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -43808,15 +43808,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 2
       },
       "AA": {
-        "allin": 0,
+        "allin": 1,
         "call": 0,
-        "raise": 4,
+        "raise": 3,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 3,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "AQs": {
@@ -43862,9 +43862,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "A4s": {
@@ -43886,15 +43886,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -43976,9 +43976,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 2
       },
       "QQ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -44060,9 +44060,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "JJ": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -44809,7 +44809,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "KQo"
     ]
   },
-  "SB vs CO4 (25->100)": {
+  "SB vs CO4 (25)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -44860,15 +44860,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AA": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -44914,15 +44914,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "A4s": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 3
       },
       "A3s": {
@@ -44938,15 +44938,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -45028,9 +45028,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "QQ": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -45112,9 +45112,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "JJ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -45196,9 +45196,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "TT": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "T9s": {
@@ -45865,7 +45865,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "KJo"
     ]
   },
-  "SB vs BU4 (26->100)": {
+  "SB vs BU4 (26)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -45910,21 +45910,21 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "99": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "AA": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -45970,15 +45970,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "A4s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "A3s": {
@@ -45994,15 +45994,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -46084,9 +46084,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "QQ": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -46168,9 +46168,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "JJ": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -46252,9 +46252,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "TT": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "T9s": {
@@ -46979,15 +46979,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AA": {
-        "allin": 0,
+        "allin": 1,
         "call": 1,
-        "raise": 3,
+        "raise": 2,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -47057,15 +47057,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 2
       },
       "KK": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -47981,7 +47981,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "KQo"
     ]
   },
-  "BB vs HJ4 (24.9->100)": {
+  "BB vs HJ4 (24.9)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -48032,15 +48032,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AA": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -48086,15 +48086,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 1
       },
       "A4s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 1
       },
       "A3s": {
@@ -48110,15 +48110,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "AKo": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 3
       },
       "KK": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -48200,9 +48200,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "QQ": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -49038,7 +49038,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "KJo"
     ]
   },
-  "BB vs CO4 (28->100)": {
+  "BB vs CO4 (28)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -49089,15 +49089,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AA": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -49143,9 +49143,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 2
       },
       "A4s": {
@@ -49167,15 +49167,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "AKo": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -49257,9 +49257,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "QQ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -49341,9 +49341,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "JJ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -50110,7 +50110,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "QJo"
     ]
   },
-  "BB vs BU4 (27->100)": {
+  "BB vs BU4 (27)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -50155,21 +50155,21 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "99": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 3
       },
       "AA": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -50185,9 +50185,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "ATs": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 2
       },
       "A9s": {
@@ -50215,15 +50215,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "A4s": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 2
       },
       "A3s": {
@@ -50239,15 +50239,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -50317,9 +50317,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AQo": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "KQo": {
@@ -50329,9 +50329,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 2
       },
       "QQ": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -50413,9 +50413,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "JJ": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -50497,9 +50497,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "TT": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "T9s": {
@@ -51190,7 +51190,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "Q9o"
     ]
   },
-  "BB vs SB4 (25->100)": {
+  "BB vs SB4 (25)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -51247,9 +51247,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AKs": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "AQs": {
@@ -51295,15 +51295,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A5s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "A4s": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 3
       },
       "A3s": {
@@ -51319,15 +51319,15 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AKo": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "KK": {
-        "allin": 0,
+        "allin": 2,
         "call": 2,
-        "raise": 2,
+        "raise": 0,
         "prior": 4
       },
       "KQs": {
@@ -51409,9 +51409,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "QQ": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "QJs": {
@@ -51493,9 +51493,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "JJ": {
-        "allin": 0,
+        "allin": 3,
         "call": 1,
-        "raise": 3,
+        "raise": 0,
         "prior": 4
       },
       "JTs": {
@@ -51577,9 +51577,9 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 1
       },
       "TT": {
-        "allin": 0,
+        "allin": 1,
         "call": 3,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "T9s": {
