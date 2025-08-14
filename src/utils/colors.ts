@@ -11,6 +11,7 @@ const colors = {
   CONTRAST: "#efccff",
   RED: "#ffb9a8ff",
   GREEN: "#76cf70",
+  TURQ: "#65B9A9",
   BLUE: "#54a2e2ff",
   GOLD: "#f5e6a4",
   DARKRED: "#f87979ff",

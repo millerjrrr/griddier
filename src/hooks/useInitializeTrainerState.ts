@@ -12,12 +12,17 @@ import zeroTime from "@src/utils/zeroTime";
 import { useDispatch } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import formatDate from "@src/utils/formatDate";
+import { sortHands } from "@src/utils/handsArrayLogic";
 
 const useInitializeTrainerState = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
 
-  const initializeTrainerState = (gridName: GridName) => {
+  const initializeTrainerState = (
+    gridName: GridName,
+    shuffled: boolean = true,
+    fullReview: boolean = false
+  ) => {
     const individualHandDrillingData =
       getDataEntries(gridName)?.individualHandDrillingData;
 
@@ -30,23 +35,24 @@ const useInitializeTrainerState = () => {
       getDataEntries(gridName).dueDate ===
       formatDate(tomorrow);
 
-    let handsForReview =
-      individualHandDrillingData &&
-      Object.keys(individualHandDrillingData).length > 0
-        ? repeating
-          ? Object.entries(individualHandDrillingData)
-              .filter(
-                ([_, { due }]) =>
-                  getLocalDateFromYYYYMMDD(due) <= tomorrow
-              )
-              .map(([key]) => key)
-          : Object.entries(individualHandDrillingData)
-              .filter(
-                ([_, { due }]) =>
-                  getLocalDateFromYYYYMMDD(due) <= today
-              )
-              .map(([key]) => key)
-        : [...featured];
+    let handsForReview = fullReview
+      ? [...featured]
+      : individualHandDrillingData &&
+        Object.keys(individualHandDrillingData).length > 0
+      ? repeating
+        ? Object.entries(individualHandDrillingData)
+            .filter(
+              ([_, { due }]) =>
+                getLocalDateFromYYYYMMDD(due) <= tomorrow
+            )
+            .map(([key]) => key)
+        : Object.entries(individualHandDrillingData)
+            .filter(
+              ([_, { due }]) =>
+                getLocalDateFromYYYYMMDD(due) <= today
+            )
+            .map(([key]) => key)
+      : [...featured];
 
     // revise at least minRevision grids
     const minRevision = 10;
@@ -58,7 +64,10 @@ const useInitializeTrainerState = () => {
       handsForReview.push(...available.slice(0, missing));
     }
 
-    handsForReview = fisherYatesShuffle(handsForReview);
+    handsForReview =
+      shuffled && getDataEntries(gridName)?.level > 0
+        ? fisherYatesShuffle(handsForReview)
+        : sortHands(handsForReview);
 
     if (process.env.NODE_ENV === "development") {
       handsForReview = handsForReview.slice(0, 5);

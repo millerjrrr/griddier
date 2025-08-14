@@ -36,7 +36,7 @@ import { AppPressable } from "./AppPressables";
 import Toast from "react-native-toast-message";
 const lockIcon = require("@assets/img/lock.png");
 
-const { GREEN, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
+const { GREEN, TURQ, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
   colors;
 
 interface RangeModalProps {
@@ -82,7 +82,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
         }).start(() => {
           setShowFeedbackView(false); // Remove from layout
         });
-      }, 1500);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -99,6 +99,16 @@ const RangeModal: React.FC<RangeModalProps> = ({
     dispatch(setGridName(dataEntry.gridName));
     if (newDrill)
       initializeTrainerState(dataEntry.gridName);
+    onClose();
+    navigation.navigate("Trainer" as never);
+  };
+
+  const startFullReview = () => {
+    dispatch(resetStartTime());
+    dispatch(resetActions());
+    dispatch(resetIndex());
+    dispatch(setGridName(dataEntry.gridName));
+    initializeTrainerState(dataEntry.gridName, false, true);
     onClose();
     navigation.navigate("Trainer" as never);
   };
@@ -225,18 +235,48 @@ const RangeModal: React.FC<RangeModalProps> = ({
               />
             ) : (
               <Text style={styles.buttonText}>
-                {feedback ? "Try again!" : "Let's go!"}
+                {feedback ? "Try again!" : "Quick Review"}
+              </Text>
+            )}
+          </AppPressable>
+
+          <AppPressable
+            onPress={
+              dataEntry.locked
+                ? () =>
+                    Toast.show({
+                      type: "success",
+                      text1: "Locked",
+                      text2: "Complete previous levels!",
+                      visibilityTime: 2000,
+                      text1Style: { fontSize: 20 },
+                      text2Style: { fontSize: 17 },
+                    })
+                : startFullReview
+            }
+            style={styles.button2}
+          >
+            {dataEntry.locked ? (
+              <Image
+                source={lockIcon}
+                resizeMode="contain"
+                style={{
+                  height: 23,
+                  width: 23,
+                }}
+              />
+            ) : (
+              <Text style={styles.buttonText2}>
+                Do a Full Review
               </Text>
             )}
           </AppPressable>
 
           <AppPressable
             onPress={onClose}
-            style={styles.secondaryButton}
+            style={styles.button3}
           >
-            <Text style={styles.secondaryButtonText}>
-              Close
-            </Text>
+            <Text style={styles.buttonText3}>Close</Text>
           </AppPressable>
         </View>
       </View>
@@ -290,7 +330,16 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     ...appShadow(PRIMARY),
   },
-  secondaryButton: {
+  button2: {
+    backgroundColor: TURQ,
+    alignItems: "center",
+    marginTop: 10,
+    paddingVertical: 11,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    ...appShadow(PRIMARY),
+  },
+  button3: {
     backgroundColor: BLUE,
     marginTop: 10,
     paddingVertical: 10,
@@ -304,10 +353,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
-  secondaryButtonText: {
+  buttonText2: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 17,
+    fontSize: 18,
+    textAlign: "center",
+  },
+  buttonText3: {
+    color: WHITE,
+    fontWeight: "bold",
+    fontSize: 16,
     textAlign: "center",
   },
 });

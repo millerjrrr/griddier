@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Cell from "./Cell";
-import handsArray from "../utils/handsArray";
-import {
-  GridName,
-  HandActions,
-  HandsObject,
-  PokerHand,
-} from "../types";
+import { handsArray } from "../utils/handsArrayLogic";
+import { GridName, HandsObject } from "../types";
 import appShadow from "@src/utils/appShadow";
 import { FontAwesome } from "@expo/vector-icons";
 import colors from "@src/utils/colors";

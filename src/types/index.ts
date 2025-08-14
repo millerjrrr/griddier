@@ -1,4 +1,4 @@
-import handsArray from "@src/utils/handsArray";
+import { handsArray } from "@src/utils/handsArrayLogic";
 import { GridData } from "@assets/data/GridData";
 
 export type PokerHand = (typeof handsArray)[number];
