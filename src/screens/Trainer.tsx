@@ -36,7 +36,7 @@ const Trainer: React.FC = () => {
 
   useEffect(() => {
     initializeTrainerState(gridName, false);
-  }, []);
+  }, [gridName]);
 
   const { prior } =
     GridData[gridName].hands[filteredHandsArray[index]];
