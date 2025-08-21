@@ -34,6 +34,7 @@ import Cell from "./Cell";
 import { GridData } from "@assets/data/GridData";
 import { AppPressable } from "./AppPressables";
 import Toast from "react-native-toast-message";
+import FrequencyBar from "./FrequencyBar";
 const lockIcon = require("@assets/img/lock.png");
 
 const { GREEN, TURQ, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
@@ -177,6 +178,10 @@ const RangeModal: React.FC<RangeModalProps> = ({
               }
             />
           </View>
+
+          <FrequencyBar
+            handsObject={GridData[dataEntry.gridName].hands}
+          />
 
           <View
             style={[styles.infoRow, styles.centeredRow]}
