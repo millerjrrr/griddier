@@ -11,11 +11,13 @@ import { AppTouchable } from "./AppPressables";
 interface RangeCardProps {
   dataEntry: DataEntry;
   selectFunction: () => void;
+  showDeleteModal: () => void;
 }
 
 const RangeCard: React.FC<RangeCardProps> = ({
   dataEntry,
   selectFunction,
+  showDeleteModal,
 }) => {
   const onPress = selectFunction;
 
@@ -34,6 +36,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
         backgroundColor: colors.PRIMARY,
       }}
       onPress={onPress}
+      onLongPress={showDeleteModal}
     >
       <View
         style={{

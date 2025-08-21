@@ -35308,7 +35308,13 @@ export const GridData:Record<string, GridDataEntry> = {
       "AQo",
       "AJo",
       "ATo",
-      "A9o"
+      "A9o",
+      "KQo",
+      "KJo",
+      "KTo",
+      "QJo",
+      "QTo",
+      "JTo"
     ]
   },
   "SB RFI vs BB3 (10->21)": {
@@ -36386,7 +36392,13 @@ export const GridData:Record<string, GridDataEntry> = {
       "AQo",
       "AJo",
       "ATo",
-      "A9o"
+      "A9o",
+      "KQo",
+      "KJo",
+      "KTo",
+      "QJo",
+      "QTo",
+      "JTo"
     ]
   },
   "HJ vs LJ4 (19)": {

@@ -38,7 +38,7 @@ export type ActionName =
 
 export interface DataEntry {
   gridName: GridName;
-  dueDate: StrictDateString;
+  dueDate: StrictDateString | "";
   level: number;
   drilled: number;
   timeDrilling: number;

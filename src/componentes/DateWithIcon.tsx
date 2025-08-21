@@ -7,7 +7,7 @@ import { StrictDateString } from "@src/types";
 const dateImage = require("@assets/img/date.png");
 
 const DateWithIcon: React.FC<{
-  date: StrictDateString;
+  date: StrictDateString | "";
 }> = ({ date }) => {
   const today = new Date();
   const localToday = new Date(

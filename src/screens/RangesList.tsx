@@ -10,6 +10,7 @@ import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 import BGContainer from "@src/componentes/BGContainer";
 import colors from "@src/utils/colors";
 import { setFeedback } from "@src/store/trainer";
+import DeleteModal from "@src/componentes/DeleteModal";
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -18,6 +19,8 @@ const RangesList = () => {
   const [selectedEntry, setSelectedEntry] =
     useState<DataEntry | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] =
+    useState(false);
 
   const openModal = (entry: DataEntry) => {
     dispatch(setFeedback(false));
@@ -28,6 +31,16 @@ const RangesList = () => {
   const closeModal = () => {
     setSelectedEntry(null);
     setModalVisible(false);
+  };
+
+  const openDeleteModal = (entry: DataEntry) => {
+    setSelectedEntry(entry);
+    setDeleteModalVisible(true);
+  };
+
+  const closeDeleteModal = () => {
+    setSelectedEntry(null);
+    setDeleteModalVisible(false);
   };
 
   return (
@@ -48,15 +61,24 @@ const RangesList = () => {
           dataEntry={selectedEntry}
           onClose={closeModal}
         />
+        <DeleteModal
+          visible={deleteModalVisible}
+          dataEntry={selectedEntry}
+          onClose={closeDeleteModal}
+        />
         <FadeBackgroundView height={20} />
         <FlatList
           data={dataEntries}
+          extraData={dataEntries}
           renderItem={({ item }) => {
             // must be called item for FlatList to work
             return (
               <RangeCard
                 dataEntry={item}
                 selectFunction={() => openModal(item)}
+                showDeleteModal={() =>
+                  openDeleteModal(item)
+                }
               />
             );
           }}
