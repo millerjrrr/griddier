@@ -29,6 +29,7 @@ interface TrainerState {
   showRangeModal: boolean;
   showSuccessModal: boolean;
   feedback: boolean;
+  showCombos: boolean;
 }
 
 const gridName =
@@ -48,6 +49,7 @@ const initialState: TrainerState = {
   showRangeModal: false,
   showSuccessModal: false,
   feedback: false,
+  showCombos: false,
 };
 
 const slice = createSlice({
@@ -135,6 +137,9 @@ const slice = createSlice({
     incTimePlaying(state, action) {
       state.timePlaying += action.payload;
     },
+    toggleShowCombos(state) {
+      state.showCombos = !state.showCombos;
+    },
   },
 });
 
@@ -160,6 +165,7 @@ export const {
   setFeedback,
   setTimePlaying,
   incTimePlaying,
+  toggleShowCombos,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

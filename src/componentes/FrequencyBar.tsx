@@ -1,7 +1,17 @@
+import {
+  selectTrainerState,
+  toggleShowCombos,
+} from "@src/store/trainer";
 import { HandsObject } from "@src/types";
 import calculateFrequencies from "@src/utils/calculateFrequencies";
 import colors from "@src/utils/colors";
-import { Dimensions, Text, View } from "react-native";
+import {
+  Dimensions,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
 interface FreqBarProps {
   handsObject: HandsObject;
@@ -14,11 +24,18 @@ const SubBar: React.FC<{
   combos: number;
   color: string;
 }> = ({ freq, combos, color }) => {
+  const { showCombos } = useSelector(selectTrainerState);
+  const dispatch = useDispatch();
+  const toggleCombos = () => dispatch(toggleShowCombos());
+
   return (
-    <View style={{ alignItems: "center" }}>
+    <Pressable
+      style={{ alignItems: "center" }}
+      onPress={toggleCombos}
+    >
       <View
         style={{
-          width: freq * vw * 0.85,
+          width: freq > 0 ? 0.25 * vw * 0.85 : 0,
           backgroundColor: color,
           borderRadius: 10,
           height: 20,
@@ -29,12 +46,12 @@ const SubBar: React.FC<{
       >
         {freq > 0 && (
           <Text style={{ fontSize: 18 }}>
-            {Math.round(freq * 100)}
+            {showCombos ? combos : Math.round(freq * 100)}
           </Text>
         )}
-        <Text style={{ fontSize: freq > 0.1 ? 10 : 1 }}>
-          %
-        </Text>
+        {!showCombos && (
+          <Text style={{ fontSize: 10 }}>%</Text>
+        )}
 
         {/* {freq > 0 && (
           <Text style={{ fontSize: 18 }}>{`${Math.round(
@@ -42,7 +59,7 @@ const SubBar: React.FC<{
           )}`}</Text>
         )} */}
       </View>
-    </View>
+    </Pressable>
   );
 };
 
