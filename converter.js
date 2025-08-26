@@ -336,6 +336,25 @@ function buildCombinedData() {
 
     for (let rowIndex = 0; rowIndex < 169; rowIndex++) {
       const hand = handsArray[rowIndex];
+      //check frequencies
+
+      if (
+        allInCols[colIndex][rowIndex] +
+          callCols[colIndex][rowIndex] +
+          raiseCols[colIndex][rowIndex] >
+        4
+      )
+        throw new Error(
+          `Mismatch for frequencies on ${gridName} for the hand ${hand} allin:${
+            allInCols[colIndex][rowIndex] / 4
+          }, raise:${
+            raiseCols[colIndex][rowIndex] / 4
+          }, call:${
+            callCols[colIndex][rowIndex] / 4
+          }, prior:${
+            priorCols[colIndex][rowIndex] / 4
+          }, colIndex:${colIndex}`
+        );
       combined[gridName].hands[hand] = {
         allin: allInCols[colIndex][rowIndex],
         call: callCols[colIndex][rowIndex],

@@ -47070,7 +47070,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "AKo": {
         "allin": 4,
-        "call": 2,
+        "call": 0,
         "raise": 0,
         "prior": 2
       },
