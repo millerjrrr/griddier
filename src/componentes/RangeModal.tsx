@@ -130,6 +130,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
             { backgroundColor: feedback ? RED : CONTRAST },
           ]}
         >
+          <View style={{ zIndex: 1000 }}>
+            <Toast />
+          </View>
           <View style={styles.header}>
             <Text
               style={{
