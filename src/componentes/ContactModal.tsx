@@ -4,6 +4,7 @@ const myPic = require("@assets/img/myPic.jpg");
 
 import { Image, Modal, Text, View } from "react-native";
 import { AppPressable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
 
 interface ModalProps {
   visible: boolean;
@@ -32,7 +33,7 @@ const ContactModal: React.FC<ModalProps> = ({
           style={{
             borderRadius: 12,
             padding: 15,
-            width: "95%",
+            width: 0.9 * screenDimensions().width,
             backgroundColor: colors.PRIMARY,
             alignItems: "center",
             ...appShadow(colors.CONTRAST),

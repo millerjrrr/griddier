@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import Cell from "./Cell";
 import { handsArray } from "../utils/handsArrayLogic";
 import { GridName, HandsObject } from "../types";
@@ -8,12 +8,15 @@ import { FontAwesome } from "@expo/vector-icons";
 import colors from "@src/utils/colors";
 import { GridData } from "@assets/data/GridData";
 import { AppPressable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
 
 interface GridProps {
   name: GridName;
   size?: number;
   hidden?: boolean;
 }
+
+const { width } = screenDimensions();
 
 const Grid: React.FC<GridProps> = ({
   name,
@@ -32,7 +35,7 @@ const Grid: React.FC<GridProps> = ({
         ...appShadow("black"),
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
+        width: 0.85 * width,
       }}
     >
       {isHidden ? (
@@ -71,7 +74,11 @@ const Grid: React.FC<GridProps> = ({
                   key={i}
                   actions={hands[handsArray[i]]}
                   hand={handsArray[i]}
-                  size={size}
+                  size={
+                    Platform.OS === "web"
+                      ? (0.85 * width) / 13
+                      : size
+                  }
                 />
               );
             })}

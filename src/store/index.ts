@@ -9,6 +9,16 @@ import userDataReducer, { setUserData } from "./userData";
 import persistReducer from "redux-persist/es/persistReducer";
 import { fileBackedStorage } from "@src/utils/asyncStorage";
 import { addUserData } from "@src/utils/addUserData";
+import { Platform } from "react-native";
+
+let storage: any;
+
+if (Platform.OS === "web") {
+  // Dynamically import only on web
+  storage = require("redux-persist/lib/storage").default;
+} else {
+  storage = fileBackedStorage;
+}
 
 export const resetStore = createAction("RESET_STORE");
 
@@ -29,7 +39,7 @@ const rootReducer: Reducer<RootState, any> = (
 
 const persistConfig = {
   key: "root",
-  storage: fileBackedStorage,
+  storage: storage,
   whitelist: ["userData"], // ✅ only persist this slice
 };
 

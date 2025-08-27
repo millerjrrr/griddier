@@ -31,6 +31,9 @@ import formatTime from "@src/utils/formatTime";
 import colors from "@src/utils/colors";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import { AppPressable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
+import FrequencyBar from "./FrequencyBar";
+import { GridData } from "@assets/data/GridData";
 
 interface RangeModalProps {
   visible: boolean;
@@ -106,6 +109,9 @@ const SuccessModal: React.FC<RangeModalProps> = ({
           </View>
 
           <Grid name={dataEntry.gridName} />
+          <FrequencyBar
+            handsObject={GridData[dataEntry.gridName].hands}
+          />
 
           <View style={[styles.row, styles.centeredRow]}>
             <Text style={styles.text}>
@@ -166,6 +172,8 @@ const SuccessModal: React.FC<RangeModalProps> = ({
   );
 };
 
+const { width, height } = screenDimensions();
+
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
@@ -176,7 +184,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.GOLD,
     padding: 10,
     borderRadius: 12,
-    width: "95%",
+    width: 0.9 * width,
+    height: 0.9 * height,
   },
   row: {
     flexDirection: "row",
@@ -210,10 +219,10 @@ const styles = StyleSheet.create({
   starsWrapper: {
     width: "100%",
     alignItems: "center",
+    height: 50,
   },
   button: {
     backgroundColor: colors.GREEN,
-    marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,

@@ -8,7 +8,7 @@ const LevelStars: React.FC<{
   const levelArray = Array.from(new Array(stars));
 
   return (
-    <View style={{ flexDirection: "row" }}>
+    <View style={{ flexDirection: "row", height: 30 }}>
       {levelArray.map((_, index) => (
         <Image
           source={starIcon}
@@ -16,7 +16,7 @@ const LevelStars: React.FC<{
           resizeMode="contain"
           style={{
             width: size,
-            aspectRatio: 1,
+            height: size,
             marginHorizontal: 2,
           }}
         />

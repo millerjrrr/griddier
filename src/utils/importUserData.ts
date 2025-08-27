@@ -2,12 +2,16 @@ import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system";
 import Papa from "papaparse";
 import { DataEntry, StrictDateString } from "@src/types";
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 import { setUserData } from "@src/store/userData";
 import { normalizeDate } from "./normalizeDate";
 import { setGridName } from "@src/store/trainer";
 import sort from "./sortDataEntries";
 import { GridData } from "@assets/data/GridData";
+import {
+  confirmOverwrite,
+  showAlert,
+} from "./platformBasedAlerts";
 
 const removeSize100ForShoveRanges = (string: string) =>
   string.replace("->100", "");
@@ -16,25 +20,45 @@ export const pickCsvFile = async (): Promise<
   string | null
 > => {
   try {
-    const result = await DocumentPicker.getDocumentAsync({
-      type: "text/csv",
-      copyToCacheDirectory: true,
-    });
-    if (
-      result.canceled ||
-      !result.assets ||
-      !result.assets[0].uri
-    ) {
-      return null;
-    }
-    const uri = result.assets[0].uri;
-    const content = await FileSystem.readAsStringAsync(
-      uri,
-      {
-        encoding: FileSystem.EncodingType.UTF8,
+    if (Platform.OS === "web") {
+      return new Promise((resolve) => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = ".csv,text/csv";
+        input.onchange = (e: any) => {
+          const file = e.target.files[0];
+          if (!file) return resolve(null);
+
+          const reader = new FileReader();
+          reader.onload = () => {
+            resolve(reader.result as string);
+          };
+          reader.onerror = () => {
+            console.error("Failed to read file");
+            resolve(null);
+          };
+          reader.readAsText(file, "utf-8");
+        };
+        input.click();
+      });
+    } else {
+      // ✅ mobile path
+      const result = await DocumentPicker.getDocumentAsync({
+        type: "text/csv",
+        copyToCacheDirectory: true,
+      });
+      if (result.canceled || !result.assets?.[0].uri) {
+        return null;
       }
-    );
-    return content;
+      const uri = result.assets[0].uri;
+      const content = await FileSystem.readAsStringAsync(
+        uri,
+        {
+          encoding: FileSystem.EncodingType.UTF8,
+        }
+      );
+      return content;
+    }
   } catch (error) {
     console.error("Failed to pick CSV:", error);
     return null;
@@ -50,7 +74,7 @@ export const parseAndValidateCsv = (
   });
   if (errors.length > 0) {
     console.error("CSV parsing errors:", errors);
-    Alert.alert(
+    showAlert(
       "Error",
       "The file could not be parsed. Check formatting."
     );
@@ -87,7 +111,7 @@ export const parseAndValidateCsv = (
             }`,
             e
           );
-          Alert.alert(
+          showAlert(
             "Error",
             `Invalid data format in individualHandDrillingData at row ${
               index + 2
@@ -125,7 +149,7 @@ export const parseAndValidateCsv = (
   );
 
   if (missing.length > 0) {
-    Alert.alert(
+    showAlert(
       "Error",
       `Missing grids in file: ${missing.join(", ")}`
     );
@@ -133,7 +157,7 @@ export const parseAndValidateCsv = (
   }
 
   if (extra.length > 0) {
-    Alert.alert(
+    showAlert(
       "Error",
       `Unexpected grid names in file: ${extra.join(", ")}`
     );
@@ -142,24 +166,6 @@ export const parseAndValidateCsv = (
 
   return parsedData;
 };
-
-export const confirmOverwrite =
-  async (): Promise<boolean> => {
-    return new Promise((resolve) => {
-      Alert.alert(
-        "Warning",
-        "This will overwrite all your current progress. Are you sure?",
-        [
-          {
-            text: "Cancel",
-            onPress: () => resolve(false),
-            style: "cancel",
-          },
-          { text: "Yes", onPress: () => resolve(true) },
-        ]
-      );
-    });
-  };
 
 export const importUserDataFromCsv = async (
   dispatch: any
@@ -177,12 +183,12 @@ export const importUserDataFromCsv = async (
     dispatch(setUserData(parsedData));
     dispatch(setGridName(sort(parsedData)[0].gridName));
 
-    Alert.alert(
+    showAlert(
       "Success",
       "User data imported successfully."
     );
   } catch (error) {
     console.error("Import failed:", error);
-    Alert.alert("Error", "Something went wrong.");
+    showAlert("Error", "Something went wrong.");
   }
 };

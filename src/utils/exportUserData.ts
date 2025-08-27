@@ -1,6 +1,7 @@
-import { DataEntry } from "@src/types";
+import { Platform } from "react-native";
 import * as FileSystem from "expo-file-system";
 import * as Sharing from "expo-sharing";
+import { DataEntry } from "@src/types";
 
 const generateCSVContent = (data: DataEntry[]): string => {
   const header = [
@@ -35,34 +36,45 @@ const generateCSVContent = (data: DataEntry[]): string => {
   return [header, ...rows].join("\n");
 };
 
-export const saveCsvToFile = async (
-  csvContent: string
-): Promise<string> => {
-  const fileUri =
-    FileSystem.documentDirectory + "user_data.csv";
-
-  await FileSystem.writeAsStringAsync(fileUri, csvContent, {
-    encoding: FileSystem.EncodingType.UTF8,
-  });
-
-  return fileUri;
-};
-
-export const shareFile = async (fileUri: string) => {
-  if (await Sharing.isAvailableAsync()) {
-    await Sharing.shareAsync(fileUri);
-  } else {
-    alert("Sharing is not available on this device.");
-  }
-};
-
 export const exportUserDataAsCsv = async (
   userData: DataEntry[]
 ) => {
   try {
     const csvContent = generateCSVContent(userData);
-    const fileUri = await saveCsvToFile(csvContent);
-    await shareFile(fileUri);
+
+    if (Platform.OS === "web") {
+      // ✅ Web: trigger file download
+      const blob = new Blob([csvContent], {
+        type: "text/csv;charset=utf-8;",
+      });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "user_data.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(url);
+    } else {
+      // ✅ Mobile: use FileSystem + Sharing
+      const fileUri =
+        FileSystem.documentDirectory + "user_data.csv";
+      await FileSystem.writeAsStringAsync(
+        fileUri,
+        csvContent,
+        {
+          encoding: FileSystem.EncodingType.UTF8,
+        }
+      );
+
+      if (await Sharing.isAvailableAsync()) {
+        await Sharing.shareAsync(fileUri);
+      } else {
+        alert("Sharing is not available on this device.");
+      }
+    }
   } catch (error) {
     console.error("Export failed:", error);
   }

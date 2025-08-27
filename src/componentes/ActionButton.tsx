@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
@@ -21,6 +21,7 @@ import {
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
 import usePlaySound from "@src/hooks/usePlaySound";
 import { AppTouchable } from "./AppPressables";
+import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcutHook";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -48,41 +49,45 @@ const ActionButton: React.FC<ActionButtonProps> = ({
 
   const playSound = usePlaySound();
 
-  const handlePress = () => {
-    let answer = { a: allin, r: raise, c: call };
-    let subNow = false;
+  const handlePress = (
+    action: "AllIn" | "Raise" | "Call" | "Fold"
+  ) => {
+    if (action === name) {
+      let answer = { a: allin, r: raise, c: call };
+      let subNow = false;
 
-    switch (name) {
-      case "AllIn":
-        if (allin < 4) {
-          answer.a = (allin + 1) as ValidFraction;
-          dispatch(incAllIn());
-        }
-        break;
-      case "Raise":
-        if (raise < 4) {
-          answer.r = (raise + 1) as ValidFraction;
-          dispatch(incRaise());
-        }
-        break;
-      case "Call":
-        if (call < 4) {
-          answer.c = (call + 1) as ValidFraction;
-          dispatch(incCall());
-        }
-        break;
-      case "Fold":
-        dispatch(setFold(4));
-        subNow = true;
-        break;
-    }
+      switch (action) {
+        case "AllIn":
+          if (allin < 4) {
+            answer.a = (allin + 1) as ValidFraction;
+            dispatch(incAllIn());
+          }
+          break;
+        case "Raise":
+          if (raise < 4) {
+            answer.r = (raise + 1) as ValidFraction;
+            dispatch(incRaise());
+          }
+          break;
+        case "Call":
+          if (call < 4) {
+            answer.c = (call + 1) as ValidFraction;
+            dispatch(incCall());
+          }
+          break;
+        case "Fold":
+          dispatch(setFold(4));
+          subNow = true;
+          break;
+      }
 
-    // Call submit if we're at or over max capacity or over the correct values
-    const submit =
-      subNow || answer.a + answer.r + answer.c === 4;
+      // Call submit if we're at or over max capacity or over the correct values
+      const submit =
+        subNow || answer.a + answer.r + answer.c === 4;
 
-    if (submit) {
-      setTimeout(() => submitAnswer(), 200);
+      if (submit) {
+        setTimeout(() => submitAnswer(), 200);
+      }
     }
   };
 
@@ -121,6 +126,13 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     playSound(pop);
     setTimeout(() => submitAnswer(), 200);
   };
+  if (Platform.OS === "web")
+    useKeyboardShortcuts({
+      a: () => handlePress("AllIn"), // Press "A" for AllIn
+      s: () => handlePress("Raise"), // Press "R" for Raise
+      c: () => handlePress("Call"), // Press "C" for Call
+      f: () => handlePress("Fold"), // Press "F" for Fold
+    });
 
   return (
     <AppTouchable
@@ -135,7 +147,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           justifyContent: "center",
         },
       ]}
-      onPress={handlePress}
+      onPress={() => handlePress(name)}
       onLongPress={handleLongPress}
       delayLongPress={300}
     />

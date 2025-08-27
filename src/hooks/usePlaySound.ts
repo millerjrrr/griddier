@@ -20,17 +20,12 @@ const usePlaySound = () => {
       });
 
       const { sound } = await Audio.Sound.createAsync(file);
-      const status = await sound.getStatusAsync();
-
-      const duration =
-        (status.isLoaded && status.durationMillis
-          ? status.durationMillis
-          : 0) + 200;
-
-      setTimeout(async () => {
-        await sound.unloadAsync();
-        if (callback) callback();
-      }, duration);
+      sound.setOnPlaybackStatusUpdate((status) => {
+        if (status.isLoaded && status.didJustFinish) {
+          sound.unloadAsync();
+          if (callback) callback();
+        }
+      });
 
       await sound.playAsync();
     } catch (error) {

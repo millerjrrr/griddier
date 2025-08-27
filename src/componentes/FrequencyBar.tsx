@@ -5,19 +5,16 @@ import {
 import { HandsObject } from "@src/types";
 import calculateFrequencies from "@src/utils/calculateFrequencies";
 import colors from "@src/utils/colors";
-import {
-  Dimensions,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import screenDimensions from "@src/utils/screenDimensions";
+import { Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { AppPressable } from "./AppPressables";
 
 interface FreqBarProps {
   handsObject: HandsObject;
 }
 
-const { width: vw } = Dimensions.get("window");
+const { width: vw } = screenDimensions();
 
 const SubBar: React.FC<{
   freq: number;
@@ -29,37 +26,36 @@ const SubBar: React.FC<{
   const toggleCombos = () => dispatch(toggleShowCombos());
 
   return (
-    <Pressable
-      style={{ alignItems: "center" }}
-      onPress={toggleCombos}
-    >
-      <View
-        style={{
-          width: freq > 0 ? 0.25 * vw * 0.85 : 0,
-          backgroundColor: color,
-          borderRadius: 10,
-          height: 20,
-          // alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-        }}
+    freq > 0 && (
+      <AppPressable
+        style={{ alignItems: "center" }}
+        onPress={toggleCombos}
       >
-        {freq > 0 && (
+        <View
+          style={{
+            width: freq > 0 ? 0.25 * vw * 0.85 : 0,
+            backgroundColor: color,
+            borderRadius: 10,
+            // alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "row",
+          }}
+        >
           <Text style={{ fontSize: 18 }}>
             {showCombos ? combos : Math.round(freq * 100)}
           </Text>
-        )}
-        {!showCombos && (
-          <Text style={{ fontSize: 10 }}>%</Text>
-        )}
+          {!showCombos && (
+            <Text style={{ fontSize: 10 }}>%</Text>
+          )}
 
-        {/* {freq > 0 && (
+          {/* {freq > 0 && (
           <Text style={{ fontSize: 18 }}>{`${Math.round(
             combos
           )}`}</Text>
         )} */}
-      </View>
-    </Pressable>
+        </View>
+      </AppPressable>
+    )
   );
 };
 

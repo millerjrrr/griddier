@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { AppPressable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
 
 interface ModalProps {
   visible: boolean;
@@ -37,7 +38,8 @@ const MethodologyModal: React.FC<ModalProps> = ({
           style={{
             borderRadius: 12,
             padding: 15,
-            width: "95%",
+            width: 0.9 * screenDimensions().width,
+            height: 0.9 * screenDimensions().height,
             backgroundColor: colors.PRIMARY,
             alignItems: "center",
             ...appShadow(colors.CONTRAST),

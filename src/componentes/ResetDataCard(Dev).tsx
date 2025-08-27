@@ -1,23 +1,35 @@
 import appShadow from "@src/utils/appShadow";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import * as FileSystem from "expo-file-system";
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
 
 const ResetDataCard = () => {
   const onPress = async () => {
-    const path =
-      FileSystem.documentDirectory + "AsyncStorage.json";
-    try {
-      await FileSystem.writeAsStringAsync(path, "{}");
-      console.log(
-        "🧹 Cleared file-backed AsyncStorage.json"
-      );
-    } catch (err) {
-      console.error(
-        "❌ Failed to clear file-backed AsyncStorage:",
-        err
-      );
+    if (Platform.OS === "web") {
+      try {
+        localStorage.clear();
+        window.location.reload();
+      } catch (err) {
+        console.error(
+          "❌ Failed to clear localStorage:",
+          err
+        );
+      }
+    } else {
+      const path =
+        FileSystem.documentDirectory + "AsyncStorage.json";
+      try {
+        await FileSystem.writeAsStringAsync(path, "{}");
+        console.log(
+          "🧹 Cleared file-backed AsyncStorage.json (native)"
+        );
+      } catch (err) {
+        console.error(
+          "❌ Failed to clear file-backed AsyncStorage:",
+          err
+        );
+      }
     }
   };
 

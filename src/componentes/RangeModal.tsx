@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   Animated,
   Image,
 } from "react-native";
@@ -35,10 +34,13 @@ import { GridData } from "@assets/data/GridData";
 import { AppPressable } from "./AppPressables";
 import Toast from "react-native-toast-message";
 import FrequencyBar from "./FrequencyBar";
+import screenDimensions from "@src/utils/screenDimensions";
 const lockIcon = require("@assets/img/lock.png");
 
 const { GREEN, TURQ, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
   colors;
+
+const { width, height } = screenDimensions();
 
 interface RangeModalProps {
   visible: boolean;
@@ -114,8 +116,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
     navigation.navigate("Trainer" as never);
   };
 
-  const feedbackWidth =
-    Dimensions.get("window").width * 0.8;
+  const feedbackWidth = width * 0.8;
 
   return (
     <Modal
@@ -302,7 +303,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 10,
     borderRadius: 12,
-    width: "95%",
+    width: width * 0.9,
   },
   header: {
     alignItems: "center",

@@ -6,22 +6,25 @@ import { PersistGate } from "redux-persist/integration/react";
 import Toast from "react-native-toast-message";
 import { View } from "react-native";
 import BGContainer from "./src/componentes/BGContainer";
+import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
 
 export default function App() {
   return (
-    <BGContainer>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <View style={{ height: 30 }} />
-          <RootNavigator />
-          <Toast />
-          <StatusBar
-            style="light"
-            translucent
-            backgroundColor="#00000000"
-          />
-        </PersistGate>
-      </Provider>
-    </BGContainer>
+    <AdaptiveAppContainer>
+      <BGContainer>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <View style={{ height: 30 }} />
+            <RootNavigator />
+            <Toast />
+            <StatusBar
+              style="light"
+              translucent
+              backgroundColor="#00000000"
+            />
+          </PersistGate>
+        </Provider>
+      </BGContainer>
+    </AdaptiveAppContainer>
   );
 }
