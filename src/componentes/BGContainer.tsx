@@ -12,6 +12,7 @@ export default function BGContainer({
   children,
 }: PinkGradientBackgroundProps) {
   const { PRIMARY, SECONDARY, TERTIARY } = colors;
+
   return (
     <View style={styles.container}>
       <LinearGradient

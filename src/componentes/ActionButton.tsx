@@ -21,7 +21,7 @@ import {
 import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
 import usePlaySound from "@src/hooks/usePlaySound";
 import { AppTouchable } from "./AppPressables";
-import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcutHook";
+import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
