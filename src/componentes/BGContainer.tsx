@@ -17,7 +17,7 @@ export default function BGContainer({
     <View style={styles.container}>
       <LinearGradient
         colors={[PRIMARY, SECONDARY, TERTIARY]}
-        locations={[0, 0.8, 1]}
+        locations={[0, 0.5, 1]}
         style={StyleSheet.absoluteFill}
         start={{ x: 0.0, y: 0.0 }}
         end={{ x: 1, y: 1 }}

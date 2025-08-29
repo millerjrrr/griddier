@@ -1,18 +1,20 @@
 import { Dimensions, Platform } from "react-native";
 
+const scale = 800;
+
 const screenDimensions = () => {
   const { width: vw, height: vh } =
     Dimensions.get("window");
 
   const { width, height, base } = Platform.select({
-    ios: { width: vw, height: vh, base: vh / 930 },
-    android: { width: vw, height: vh, base: vh / 930 },
+    ios: { width: vw, height: vh, base: vh / scale },
+    android: { width: vw, height: vh, base: vh / scale },
     web: {
       width: Math.min(430, vh * 0.462),
       height: Math.min(930, vh * 0.95),
-      base: Math.min(930, vh * 0.95) / 930,
+      base: Math.min(930, vh * 0.95) / scale,
     },
-    default: { width: vw, height: vh, base: vh / 930 },
+    default: { width: vw, height: vh, base: vh / scale },
   });
 
   return { width, height, base };

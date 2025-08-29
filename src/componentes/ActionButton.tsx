@@ -162,7 +162,15 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       delayLongPress={300}
     >
       {Platform.OS === "web" && (
-        <Text>{shortcutMap[name]}</Text>
+        <Text
+          style={{
+            fontSize: 25 * base,
+            fontWeight: "bold",
+            color: "gray",
+          }}
+        >
+          {shortcutMap[name]}
+        </Text>
       )}
     </AppTouchable>
   );

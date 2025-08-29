@@ -4,7 +4,7 @@ import store, { persistor } from "./src/store";
 import RootNavigator from "./src/navigation/RootNavigator";
 import { PersistGate } from "redux-persist/integration/react";
 import Toast from "react-native-toast-message";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import BGContainer from "./src/componentes/BGContainer";
 import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
 
@@ -14,7 +14,9 @@ export default function App() {
       <BGContainer>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <View style={{ height: 30 }} />
+            {Platform.OS !== "web" && (
+              <View style={{ height: 30 }} />
+            )}
             <RootNavigator />
             <Toast />
             <StatusBar

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import ActionButton from "./ActionButton";
 import { ActionName, GridName } from "../types";
 import { GridData } from "@assets/data/GridData";
@@ -64,7 +64,7 @@ const ButtonContainer: React.FC<ButtonsRowProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: Platform.OS === "web" ? "100%" : undefined,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
