@@ -19,7 +19,7 @@ import {
   updateDataEntry,
 } from "@src/store/userData";
 import sort from "@src/utils/sortDataEntries";
-import useUpdateDatabase from "./updateDatabase";
+import useUpdateDatabase from "./useUpdateDatabase";
 import { moveToFront } from "@src/utils/moveToFront";
 import { GridData } from "@assets/data/GridData";
 import zeroTime from "@src/utils/zeroTime";
@@ -32,6 +32,7 @@ import usePlaySound from "./usePlaySound";
 import screenDimensions from "@src/utils/screenDimensions";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
+const pop = require("assets/sounds/pop.wav");
 const { base } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
@@ -130,7 +131,6 @@ const useSubmitAnswer = () => {
         dispatch(incIndex());
       } else {
         // console.log("🎉 Test completed");
-
         const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
 
         dispatch(resetIndex());

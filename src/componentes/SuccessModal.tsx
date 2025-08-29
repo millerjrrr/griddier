@@ -152,16 +152,14 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             onPress={moveToNextGrid}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>
-              Next grid!
-            </Text>
+            <Text style={styles.buttonText}>Next Grid</Text>
           </AppPressable>
           <AppPressable
             onPress={repeatThisGrid}
             style={styles.button2}
           >
             <Text style={styles.buttonText2}>
-              Repeat grid!
+              Repeat Grid
             </Text>
           </AppPressable>
 

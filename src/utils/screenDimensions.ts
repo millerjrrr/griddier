@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from "react-native";
 
-const scale = 800;
+const scale = 930;
 
 const screenDimensions = () => {
   const { width: vw, height: vh } =

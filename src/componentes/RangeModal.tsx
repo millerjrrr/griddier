@@ -15,6 +15,7 @@ import {
   resetIndex,
   resetStartTime,
   selectTrainerState,
+  setFeedback,
   setGridName,
 } from "@src/store/trainer";
 import {
@@ -35,10 +36,24 @@ import { AppPressable } from "./AppPressables";
 import Toast from "react-native-toast-message";
 import FrequencyBar from "./FrequencyBar";
 import screenDimensions from "@src/utils/screenDimensions";
+import {
+  selectUserDataState,
+  updateDataEntry,
+} from "@src/store/userData";
+import sort from "@src/utils/sortDataEntries";
+import formatDate from "@src/utils/formatDate";
 const lockIcon = require("@assets/img/lock.png");
 
-const { GREEN, TURQ, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
-  colors;
+const {
+  GREEN,
+  TURQ,
+  BLUE,
+  WHITE,
+  PRIMARY,
+  RED,
+  CONTRAST,
+  DARKRED,
+} = colors;
 
 const { width, base } = screenDimensions();
 
@@ -53,6 +68,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
   dataEntry,
   onClose,
 }) => {
+  const { dataEntries } = useSelector(selectUserDataState);
   const navigation =
     useNavigation<
       MaterialTopTabNavigationProp<NavigationParamList>
@@ -114,6 +130,35 @@ const RangeModal: React.FC<RangeModalProps> = ({
     initializeTrainerState(dataEntry.gridName, false, true);
     onClose();
     navigation.navigate("Trainer" as never);
+  };
+
+  const reviewTomorrow = () => {
+    const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
+    dispatch(resetStartTime());
+    dispatch(resetActions());
+    dispatch(resetIndex());
+    dispatch(setFeedback(false));
+    dispatch(
+      updateDataEntry({
+        gridName: newGridName,
+        locked: false,
+      })
+    );
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dispatch(
+      updateDataEntry({
+        gridName: dataEntry.gridName,
+        dueDate: formatDate(tomorrow),
+      })
+    );
+
+    onClose();
+    dispatch(setGridName(newGridName));
+    initializeTrainerState(newGridName);
+
+    navigation.navigate("Ranges List" as never);
   };
 
   const feedbackWidth = width * 0.8;
@@ -233,7 +278,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                     })
                 : startTrainingDrill
             }
-            style={styles.button}
+            style={[styles.buttonBase, styles.button]}
           >
             {dataEntry.locked ? (
               <Image
@@ -245,7 +290,12 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 }}
               />
             ) : (
-              <Text style={styles.buttonText}>
+              <Text
+                style={[
+                  styles.buttonTextBase,
+                  styles.buttonText,
+                ]}
+              >
                 {feedback ? "Try again!" : "Quick Review"}
               </Text>
             )}
@@ -265,7 +315,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                     })
                 : startFullReview
             }
-            style={styles.button2}
+            style={[styles.buttonBase, styles.button2]}
           >
             {dataEntry.locked ? (
               <Image
@@ -277,17 +327,43 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 }}
               />
             ) : (
-              <Text style={styles.buttonText2}>
+              <Text
+                style={[
+                  styles.buttonTextBase,
+                  styles.buttonText2,
+                ]}
+              >
                 Do a Full Review
               </Text>
             )}
           </AppPressable>
 
           <AppPressable
-            onPress={onClose}
-            style={styles.button3}
+            onPress={reviewTomorrow}
+            style={[styles.buttonBase, styles.button3]}
           >
-            <Text style={styles.buttonText3}>Close</Text>
+            <Text
+              style={[
+                styles.buttonTextBase,
+                styles.buttonText3,
+              ]}
+            >
+              Review Tomorrow
+            </Text>
+          </AppPressable>
+
+          <AppPressable
+            onPress={onClose}
+            style={[styles.buttonBase, styles.button4]}
+          >
+            <Text
+              style={[
+                styles.buttonTextBase,
+                styles.buttonText4,
+              ]}
+            >
+              Close
+            </Text>
           </AppPressable>
         </View>
       </View>
@@ -332,49 +408,50 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+
+  // ---------- Buttons ----------
+  buttonBase: {
+    alignItems: "center",
+    borderRadius: 8 * base,
+    marginTop: 10 * base,
+    ...appShadow(PRIMARY),
+  },
   button: {
     backgroundColor: GREEN,
-    alignItems: "center",
     marginTop: 20 * base,
     paddingVertical: 12 * base,
-    paddingHorizontal: 20 * base,
-    borderRadius: 8 * base,
-    ...appShadow(PRIMARY),
   },
   button2: {
     backgroundColor: TURQ,
-    alignItems: "center",
-    marginTop: 10 * base,
+
     paddingVertical: 11 * base,
-    paddingHorizontal: 20 * base,
-    borderRadius: 8 * base,
-    ...appShadow(PRIMARY),
   },
   button3: {
-    backgroundColor: BLUE,
-    marginTop: 10 * base,
+    backgroundColor: DARKRED,
     paddingVertical: 10 * base,
-    paddingHorizontal: 20 * base,
-    borderRadius: 8 * base,
-    ...appShadow(PRIMARY),
+  },
+  button4: {
+    backgroundColor: BLUE,
+    paddingVertical: 9 * base,
+  },
+
+  // ---------- Button text ----------
+  buttonTextBase: {
+    color: WHITE,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   buttonText: {
-    color: WHITE,
-    fontWeight: "bold",
     fontSize: 20 * base,
-    textAlign: "center",
   },
   buttonText2: {
-    color: WHITE,
-    fontWeight: "bold",
     fontSize: 18 * base,
-    textAlign: "center",
   },
   buttonText3: {
-    color: WHITE,
-    fontWeight: "bold",
     fontSize: 16 * base,
-    textAlign: "center",
+  },
+  buttonText4: {
+    fontSize: 16 * base,
   },
 });
 

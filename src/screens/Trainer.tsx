@@ -19,7 +19,7 @@ import { GridData } from "@assets/data/GridData";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import screenDimensions from "@src/utils/screenDimensions";
-const { base } = screenDimensions();
+const { width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
   const {
@@ -76,7 +76,7 @@ const Trainer: React.FC = () => {
           <Cell
             actions={{ ...actions, prior }}
             hand={filteredHandsArray[index]}
-            size={300 * base}
+            size={0.85 * width}
             shadow
             borderRadius={5 * base}
             clearActionsOnTouch

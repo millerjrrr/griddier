@@ -77,7 +77,6 @@ const ContactModal: React.FC<ModalProps> = ({
                 borderRadius: 100 * base,
                 borderWidth: 2 * base,
                 borderColor: colors.CONTRAST,
-                margin: 8 * base,
               }}
             />
           </View>

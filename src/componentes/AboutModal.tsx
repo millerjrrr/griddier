@@ -64,7 +64,6 @@ const AboutModal: React.FC<ModalProps> = ({
                 width: 100 * base,
                 height: 100 * base,
                 borderRadius: 15 * base,
-                margin: 8 * base,
               }}
             />
           </View>
