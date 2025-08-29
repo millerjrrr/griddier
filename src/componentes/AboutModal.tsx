@@ -1,15 +1,11 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 const icon = require("@assets/icon.png");
-import {
-  Image,
-  Modal,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import { Image, Modal, Text, View } from "react-native";
 import { AppPressable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
+
+const { width, base } = screenDimensions();
 
 interface ModalProps {
   visible: boolean;
@@ -36,9 +32,9 @@ const AboutModal: React.FC<ModalProps> = ({
       >
         <View
           style={{
-            borderRadius: 12,
-            padding: 15,
-            width: 0.9 * screenDimensions().width,
+            borderRadius: 12 * base,
+            padding: 15 * base,
+            width: 0.9 * width,
             backgroundColor: colors.PRIMARY,
             alignItems: "center",
             ...appShadow(colors.CONTRAST),
@@ -47,9 +43,9 @@ const AboutModal: React.FC<ModalProps> = ({
           <Text
             style={{
               fontWeight: "bold",
-              fontSize: 35,
+              fontSize: 35 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -57,26 +53,26 @@ const AboutModal: React.FC<ModalProps> = ({
           </Text>
           <View
             style={{
-              borderRadius: 15,
-              ...appShadow(colors.CONTRAST, 20),
+              borderRadius: 15 * base,
+              ...appShadow(colors.CONTRAST, 20 * base),
             }}
           >
             <Image
               source={icon}
               resizeMode="contain"
               style={{
-                width: 100,
-                height: 100,
-                borderRadius: 15,
-                margin: 8,
+                width: 100 * base,
+                height: 100 * base,
+                borderRadius: 15 * base,
+                margin: 8 * base,
               }}
             />
           </View>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 25 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -91,10 +87,10 @@ const AboutModal: React.FC<ModalProps> = ({
             onPress={onClose}
             style={{
               backgroundColor: colors.SECONDARY,
-              marginTop: 20,
-              paddingVertical: 12,
-              paddingHorizontal: 20,
-              borderRadius: 8,
+              marginTop: 20 * base,
+              paddingVertical: 12 * base,
+              paddingHorizontal: 20 * base,
+              borderRadius: 8 * base,
               width: "100%",
               ...appShadow(colors.CONTRAST),
             }}

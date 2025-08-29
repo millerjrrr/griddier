@@ -1,7 +1,9 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
+const { base } = screenDimensions();
 
 interface SpotNameProps {
   name: string;
@@ -12,13 +14,18 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
     <View
       style={[
         styles.container,
-        { ...appShadow(colors.CONTRAST, 10) },
+        { ...appShadow(colors.CONTRAST, 10 * base) },
       ]}
     >
       <Text
         style={[
           styles.text,
-          { fontSize: name.length < 25 ? 30 : 20 },
+          {
+            fontSize:
+              name.length < 25 * base
+                ? 30 * base
+                : 20 * base,
+          },
         ]}
       >
         {name}
@@ -29,15 +36,15 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 10,
-    padding: 10,
+    borderRadius: 10 * base,
+    padding: 10 * base,
     backgroundColor: colors.PRIMARY,
-    marginBottom: 40,
+    marginBottom: 40 * base,
   },
   text: {
     color: colors.CONTRAST,
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 30 * base,
   },
 });
 

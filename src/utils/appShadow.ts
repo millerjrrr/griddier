@@ -1,8 +1,11 @@
 import { Platform, ViewStyle } from "react-native";
+import screenDimensions from "./screenDimensions";
+
+const { base } = screenDimensions();
 
 const appShadow = (
   color: string,
-  width: number = 5
+  width: number = 5 * base
 ): ViewStyle =>
   Platform.select({
     ios: {
@@ -26,7 +29,7 @@ const appShadow = (
 
 export const appShadowForStyledComponents = (
   color: string,
-  width: number = 5
+  width: number = 5 * base
 ) =>
   Platform.select({
     ios: `

@@ -3,6 +3,9 @@ import { Platform, Text, View } from "react-native";
 import * as FileSystem from "expo-file-system";
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
+
+const { base } = screenDimensions();
 
 const ResetDataCard = () => {
   const onPress = async () => {
@@ -36,11 +39,12 @@ const ResetDataCard = () => {
   return (
     <AppTouchable
       style={{
-        marginTop: 30,
-        padding: 5,
+        margin: 5 * base,
+        marginTop: 30 * base,
+        padding: 5 * base,
         width: "100%",
         ...appShadow("black"),
-        borderRadius: 10,
+        borderRadius: 10 * base,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.TERTIARY,
@@ -53,10 +57,15 @@ const ResetDataCard = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "row",
-          padding: 5,
+          padding: 5 * base,
         }}
       >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+        <Text
+          style={{
+            fontSize: 20 * base,
+            fontWeight: "bold",
+          }}
+        >
           ⚠️ Reset User Data
         </Text>
       </View>

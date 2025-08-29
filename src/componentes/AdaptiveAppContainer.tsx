@@ -11,7 +11,7 @@ const AdaptiveAppContainer = ({
   children: ReactNode;
 }) => {
   const { CONTRAST, PRIMARY } = colors;
-  const { height, width } = screenDimensions();
+  const { height, width, base } = screenDimensions();
   const borderRadius = height * 0.0542;
 
   //run npx expo export --platform web to export
@@ -31,9 +31,9 @@ const AdaptiveAppContainer = ({
       <View
         style={{
           borderColor: PRIMARY,
-          borderWidth: 3,
+          borderWidth: 3 * base,
           borderRadius,
-          ...appShadow(CONTRAST, 15),
+          ...appShadow(CONTRAST, 15 * base),
         }}
       >
         <View
@@ -42,7 +42,7 @@ const AdaptiveAppContainer = ({
             width,
             borderRadius,
             overflow: "hidden",
-            borderWidth: 10,
+            borderWidth: 10 * base,
             backgroundColor: "black",
           }}
         >

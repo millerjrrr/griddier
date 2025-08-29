@@ -7,6 +7,9 @@ import useSetGridName from "@src/hooks/useSetGridName";
 import { NavigationParamList } from "@src/types";
 import Extras from "@src/screens/Extras";
 import colors from "@src/utils/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const Tab =
   createMaterialTopTabNavigator<NavigationParamList>();
@@ -18,6 +21,7 @@ const RootNavigator: React.FC = () => {
       <Tab.Navigator
         screenOptions={{
           swipeEnabled: true,
+          tabBarShowLabel: false,
           tabBarStyle: {
             backgroundColor: "transparent",
             elevation: 0,
@@ -25,24 +29,57 @@ const RootNavigator: React.FC = () => {
             borderBottomWidth: 0,
           },
           tabBarLabelStyle: {
-            fontSize: 18, // <-- Increase this value to make text bigger
+            fontSize: 18 * base, // <-- Increase this value to make text bigger
             fontWeight: "bold", // Optional: make it bold
             textTransform: "none", // Optional: prevent uppercase transformation
             color: colors.CONTRAST,
           },
           tabBarIndicatorStyle: {
             backgroundColor: colors.CONTRAST, // Your pink glow color here
-            height: 3, // Optional: make it thicker or thinner
-            borderRadius: 2, // Optional: make the ends rounded
+            height: 3 * base, // Optional: make it thicker or thinner
+            borderRadius: 2 * base, // Optional: make the ends rounded
           },
         }}
       >
-        <Tab.Screen name="Trainer" component={Trainer} />
+        <Tab.Screen
+          name="Trainer"
+          component={Trainer}
+          options={{
+            tabBarIcon: ({ color, focused }) => (
+              <MaterialCommunityIcons
+                name="google-controller"
+                size={40 * base}
+                color={colors.CONTRAST}
+              />
+            ),
+          }}
+        />
         <Tab.Screen
           name="Ranges List"
           component={RangesList}
+          options={{
+            tabBarIcon: ({ color, focused }) => (
+              <MaterialCommunityIcons
+                name="book-open-variant"
+                size={40 * base}
+                color={colors.CONTRAST}
+              />
+            ),
+          }}
         />
-        <Tab.Screen name="Extras" component={Extras} />
+        <Tab.Screen
+          name="Extras"
+          component={Extras}
+          options={{
+            tabBarIcon: ({ color, focused }) => (
+              <MaterialCommunityIcons
+                name="help-circle-outline"
+                size={40 * base}
+                color={colors.CONTRAST}
+              />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

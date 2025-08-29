@@ -3,6 +3,8 @@ import { View, StyleSheet } from "react-native";
 import ActionButton from "./ActionButton";
 import { ActionName, GridName } from "../types";
 import { GridData } from "@assets/data/GridData";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 interface ButtonsRowProps {
   gridName: GridName;
@@ -44,7 +46,8 @@ const ButtonContainer: React.FC<ButtonsRowProps> = ({
   const buttonsToRender = buttonsConfig.filter(
     (btn) => btn.show
   );
-  const maxWidth = buttonsToRender.length === 4 ? 75 : 100; // default 100 if 3 or less
+  const maxWidth =
+    buttonsToRender.length === 4 ? 75 * base : 100 * base; // default 100 if 3 or less
 
   return (
     <View style={styles.container}>
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 30 * base,
   },
 });
 

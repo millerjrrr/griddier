@@ -40,7 +40,7 @@ const lockIcon = require("@assets/img/lock.png");
 const { GREEN, TURQ, BLUE, WHITE, PRIMARY, RED, CONTRAST } =
   colors;
 
-const { width, height } = screenDimensions();
+const { width, base } = screenDimensions();
 
 interface RangeModalProps {
   visible: boolean;
@@ -139,8 +139,10 @@ const RangeModal: React.FC<RangeModalProps> = ({
               style={{
                 fontWeight: "bold",
                 fontSize:
-                  dataEntry.gridName.length < 35 ? 20 : 17,
-                paddingBottom: 5,
+                  dataEntry.gridName.length < 35 * base
+                    ? 20 * base
+                    : 17 * base,
+                paddingBottom: 5 * base,
               }}
             >
               {dataEntry.gridName}
@@ -162,7 +164,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                     { scale: feedbackScale },
                   ],
                   zIndex: 500,
-                  padding: 15,
+                  padding: 15 * base,
                 }}
               >
                 {filteredHandsArray.length > 0 && (
@@ -226,8 +228,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                       text1: "Locked",
                       text2: "Complete previous levels!",
                       visibilityTime: 2000,
-                      text1Style: { fontSize: 20 },
-                      text2Style: { fontSize: 17 },
+                      text1Style: { fontSize: 20 * base },
+                      text2Style: { fontSize: 17 * base },
                     })
                 : startTrainingDrill
             }
@@ -238,8 +240,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 source={lockIcon}
                 resizeMode="contain"
                 style={{
-                  height: 25,
-                  width: 25,
+                  height: 25 * base,
+                  width: 25 * base,
                 }}
               />
             ) : (
@@ -258,8 +260,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                       text1: "Locked",
                       text2: "Complete previous levels!",
                       visibilityTime: 2000,
-                      text1Style: { fontSize: 20 },
-                      text2Style: { fontSize: 17 },
+                      text1Style: { fontSize: 20 * base },
+                      text2Style: { fontSize: 17 * base },
                     })
                 : startFullReview
             }
@@ -270,8 +272,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 source={lockIcon}
                 resizeMode="contain"
                 style={{
-                  height: 23,
-                  width: 23,
+                  height: 23 * base,
+                  width: 23 * base,
                 }}
               />
             ) : (
@@ -301,77 +303,77 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   content: {
-    padding: 10,
-    borderRadius: 12,
+    padding: 10 * base,
+    borderRadius: 12 * base,
     width: width * 0.9,
   },
   header: {
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 10,
+    marginBottom: 10 * base,
   },
   infoRow: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 10,
+    marginTop: 10 * base,
   },
   centeredRow: {
     justifyContent: "center",
   },
   infoText: {
-    paddingLeft: 5,
-    fontSize: 12,
-    marginTop: 5,
-    marginRight: 10,
+    paddingLeft: 5 * base,
+    fontSize: 12 * base,
+    marginTop: 5 * base,
+    marginRight: 10 * base,
   },
   instructionText: {
-    paddingTop: 15,
-    fontSize: 18,
+    paddingTop: 15 * base,
+    fontSize: 18 * base,
     fontWeight: "bold",
     textAlign: "center",
   },
   button: {
     backgroundColor: GREEN,
     alignItems: "center",
-    marginTop: 20,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 20 * base,
+    paddingVertical: 12 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(PRIMARY),
   },
   button2: {
     backgroundColor: TURQ,
     alignItems: "center",
-    marginTop: 10,
-    paddingVertical: 11,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 10 * base,
+    paddingVertical: 11 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(PRIMARY),
   },
   button3: {
     backgroundColor: BLUE,
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 10 * base,
+    paddingVertical: 10 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(PRIMARY),
   },
   buttonText: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 20 * base,
     textAlign: "center",
   },
   buttonText2: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 18 * base,
     textAlign: "center",
   },
   buttonText3: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 16 * base,
     textAlign: "center",
   },
 });

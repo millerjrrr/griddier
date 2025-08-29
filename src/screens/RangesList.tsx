@@ -11,6 +11,8 @@ import BGContainer from "@src/componentes/BGContainer";
 import colors from "@src/utils/colors";
 import { setFeedback } from "@src/store/trainer";
 import DeleteModal from "@src/componentes/DeleteModal";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const RangesList = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -66,7 +68,7 @@ const RangesList = () => {
           dataEntry={selectedEntry}
           onClose={closeDeleteModal}
         />
-        <FadeBackgroundView height={20} />
+        <FadeBackgroundView height={20 * base} />
         <FlatList
           data={dataEntries}
           extraData={dataEntries}
@@ -86,15 +88,17 @@ const RangesList = () => {
           style={{
             flex: 1,
             width: "100%",
-            paddingVertical: 20,
-            paddingHorizontal: 15,
+            paddingVertical: 20 * base,
+            paddingHorizontal: 15 * base,
             backgroundColor: "transparent",
           }}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 80 }}
+          contentContainerStyle={{
+            paddingBottom: 80 * base,
+          }}
         />
         <FadeBackgroundView
-          height={30}
+          height={30 * base}
           position={"bottom"}
           color={colors.TERTIARY as `#{string}`}
         />

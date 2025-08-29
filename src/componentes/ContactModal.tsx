@@ -6,6 +6,8 @@ import { Image, Modal, Text, View } from "react-native";
 import { AppPressable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
 
+const { base, width } = screenDimensions();
+
 interface ModalProps {
   visible: boolean;
   onClose: () => void;
@@ -33,7 +35,7 @@ const ContactModal: React.FC<ModalProps> = ({
           style={{
             borderRadius: 12,
             padding: 15,
-            width: 0.9 * screenDimensions().width,
+            width: 0.9 * width,
             backgroundColor: colors.PRIMARY,
             alignItems: "center",
             ...appShadow(colors.CONTRAST),
@@ -42,9 +44,9 @@ const ContactModal: React.FC<ModalProps> = ({
           <Text
             style={{
               fontWeight: "bold",
-              fontSize: 35,
+              fontSize: 35 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -52,9 +54,9 @@ const ContactModal: React.FC<ModalProps> = ({
           </Text>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 25 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -62,28 +64,28 @@ const ContactModal: React.FC<ModalProps> = ({
           </Text>
           <View
             style={{
-              borderRadius: 100,
-              ...appShadow(colors.CONTRAST, 20),
+              borderRadius: 100 * base,
+              ...appShadow(colors.CONTRAST, 20 * base),
             }}
           >
             <Image
               source={myPic}
               resizeMode="contain"
               style={{
-                width: 100,
-                height: 100,
-                borderRadius: 100,
-                borderWidth: 2,
+                width: 100 * base,
+                height: 100 * base,
+                borderRadius: 100 * base,
+                borderWidth: 2 * base,
                 borderColor: colors.CONTRAST,
-                margin: 8,
+                margin: 8 * base,
               }}
             />
           </View>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 25 * base,
               color: colors.CONTRAST,
-              paddingBottom: 15,
+              paddingBottom: 15 * base,
               textAlign: "center",
             }}
           >
@@ -96,9 +98,9 @@ const ContactModal: React.FC<ModalProps> = ({
           </Text>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 25 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -109,10 +111,10 @@ const ContactModal: React.FC<ModalProps> = ({
             onPress={onClose}
             style={{
               backgroundColor: colors.SECONDARY,
-              marginTop: 20,
-              paddingVertical: 12,
-              paddingHorizontal: 20,
-              borderRadius: 8,
+              marginTop: 20 * base,
+              paddingVertical: 12 * base,
+              paddingHorizontal: 20 * base,
+              borderRadius: 8 * base,
               width: "100%",
               ...appShadow(colors.CONTRAST),
             }}

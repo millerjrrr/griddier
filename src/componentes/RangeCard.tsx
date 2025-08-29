@@ -7,6 +7,9 @@ import DateWithIcon from "./DateWithIcon";
 const lockIcon = require("@assets/img/lock.png");
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
+import screenDimensions from "@src/utils/screenDimensions";
+
+const { base } = screenDimensions();
 
 interface RangeCardProps {
   dataEntry: DataEntry;
@@ -24,13 +27,13 @@ const RangeCard: React.FC<RangeCardProps> = ({
   return (
     <AppTouchable
       style={{
-        marginVertical: 8,
-        padding: 5,
+        marginVertical: 8 * base,
+        padding: 5 * base,
         width: "100%",
         ...appShadow(colors.CONTRAST),
-        borderWidth: 2,
+        borderWidth: 2 * base,
         borderColor: colors.TERTIARY,
-        borderRadius: 10,
+        borderRadius: 10 * base,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.PRIMARY,
@@ -44,13 +47,15 @@ const RangeCard: React.FC<RangeCardProps> = ({
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "row",
-          padding: 5,
+          padding: 5 * base,
         }}
       >
         <Text
           style={{
             fontSize:
-              dataEntry.gridName.length < 25 ? 20 : 15,
+              dataEntry.gridName.length < 25 * base
+                ? 20 * base
+                : 15 * base,
             fontWeight: "bold",
             color: colors.CONTRAST,
           }}
@@ -62,8 +67,8 @@ const RangeCard: React.FC<RangeCardProps> = ({
             source={lockIcon}
             resizeMode="contain"
             style={{
-              height: 30,
-              width: 30,
+              height: 30 * base,
+              width: 30 * base,
               aspectRatio: 1,
             }}
           />
@@ -78,7 +83,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
             justifyContent: "space-between",
             alignItems: "center",
             flexDirection: "row",
-            padding: 5,
+            padding: 5 * base,
           }}
         >
           <LevelStars stars={dataEntry.level} />

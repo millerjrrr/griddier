@@ -4,7 +4,10 @@ import prettyDate from "@src/utils/prettyDate";
 import formatDate from "./../utils/formatDate";
 import colors from "@src/utils/colors";
 import { StrictDateString } from "@src/types";
+import screenDimensions from "@src/utils/screenDimensions";
 const dateImage = require("@assets/img/date.png");
+
+const { base } = screenDimensions();
 
 const DateWithIcon: React.FC<{
   date: StrictDateString | "";
@@ -33,15 +36,15 @@ const DateWithIcon: React.FC<{
         source={dateImage}
         resizeMode="contain"
         style={{
-          width: 18,
-          height: 18,
-          marginHorizontal: 2,
+          width: 18 * base,
+          height: 18 * base,
+          marginHorizontal: 2 * base,
         }}
       />
       <Text
         style={{
-          fontSize: 20,
-          paddingLeft: 5,
+          fontSize: 20 * base,
+          paddingLeft: 5 * base,
           color: colors.CONTRAST,
         }}
       >

@@ -16,7 +16,7 @@ interface GridProps {
   hidden?: boolean;
 }
 
-const { width } = screenDimensions();
+const { width, base } = screenDimensions();
 
 const Grid: React.FC<GridProps> = ({
   name,
@@ -46,7 +46,7 @@ const Grid: React.FC<GridProps> = ({
             width: "100%",
             aspectRatio: 1,
             borderColor: "black",
-            borderWidth: 2,
+            borderWidth: 2 * base,
             position: "relative",
             backgroundColor: TERTIARY,
           }}
@@ -57,7 +57,12 @@ const Grid: React.FC<GridProps> = ({
             size={100}
             color={SECONDARY}
           />
-          <Text style={{ fontSize: 20, color: SECONDARY }}>
+          <Text
+            style={{
+              fontSize: 20 * base,
+              color: SECONDARY,
+            }}
+          >
             Touch to reveal grid
           </Text>
         </AppPressable>

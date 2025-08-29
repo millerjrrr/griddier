@@ -100,8 +100,10 @@ const SuccessModal: React.FC<RangeModalProps> = ({
               style={{
                 fontWeight: "bold",
                 fontSize:
-                  dataEntry.gridName.length < 35 ? 20 : 17,
-                paddingBottom: 5,
+                  dataEntry.gridName.length < 35 * base
+                    ? 20 * base
+                    : 17 * base,
+                paddingBottom: 5 * base,
               }}
             >
               {dataEntry.gridName}
@@ -140,7 +142,10 @@ const SuccessModal: React.FC<RangeModalProps> = ({
           >{`Level ${dataEntry.level}`}</Text>
 
           <View style={styles.starsWrapper}>
-            <LevelStars stars={dataEntry.level} size={25} />
+            <LevelStars
+              stars={dataEntry.level}
+              size={25 * base}
+            />
           </View>
 
           <AppPressable
@@ -172,7 +177,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
   );
 };
 
-const { width, height } = screenDimensions();
+const { width, height, base } = screenDimensions();
 
 const styles = StyleSheet.create({
   overlay: {
@@ -182,8 +187,8 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.GOLD,
-    padding: 10,
-    borderRadius: 12,
+    padding: 10 * base,
+    borderRadius: 12 * base,
     width: 0.9 * width,
     height: 0.9 * height,
   },
@@ -197,15 +202,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    paddingLeft: 2,
-    fontSize: 12,
-    marginTop: 10,
-    marginRight: 10,
+    paddingLeft: 2 * base,
+    fontSize: 12 * base,
+    marginTop: 10 * base,
+    marginRight: 10 * base,
   },
   text2: {
-    paddingLeft: 5,
-    fontSize: 18,
-    marginTop: 10,
+    paddingLeft: 5 * base,
+    fontSize: 18 * base,
+    marginTop: 10 * base,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -213,55 +218,55 @@ const styles = StyleSheet.create({
     width: "100%",
     textAlign: "center",
     fontWeight: "bold",
-    padding: 10,
-    fontSize: 17,
+    padding: 10 * base,
+    fontSize: 17 * base,
   },
   starsWrapper: {
     width: "100%",
     alignItems: "center",
-    height: 50,
+    height: 50 * base,
   },
   button: {
     backgroundColor: colors.GREEN,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: 12 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(colors.PRIMARY),
   },
   button2: {
     backgroundColor: colors.DARKRED,
-    marginTop: 10,
-    marginHorizontal: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 10 * base,
+    marginHorizontal: 5 * base,
+    paddingVertical: 10 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(colors.PRIMARY),
   },
   button3: {
     backgroundColor: colors.BLUE,
-    marginTop: 10,
-    marginHorizontal: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 10 * base,
+    marginHorizontal: 10 * base,
+    paddingVertical: 10 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(colors.PRIMARY),
   },
   buttonText: {
     color: colors.WHITE,
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 20 * base,
     textAlign: "center",
   },
   buttonText2: {
     color: colors.WHITE,
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 18 * base,
     textAlign: "center",
   },
   buttonText3: {
     color: colors.WHITE,
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 16 * base,
     textAlign: "center",
   },
 });

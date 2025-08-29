@@ -10,6 +10,8 @@ import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import Toast from "react-native-toast-message";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
@@ -33,8 +35,8 @@ const useUpdateDatabase = () => {
         text1: "Warning!",
         text2: `No entry found for grid: ${gridName}`,
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 },
-        text2Style: { fontSize: 17 },
+        text1Style: { fontSize: 20 * base },
+        text2Style: { fontSize: 17 * base },
       });
       return;
     }

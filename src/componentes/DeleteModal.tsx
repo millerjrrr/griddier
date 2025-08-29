@@ -15,8 +15,11 @@ import { AppPressable } from "./AppPressables";
 import { FontAwesome } from "@expo/vector-icons";
 import { updateDataEntry } from "@src/store/userData";
 import { GridData } from "@assets/data/GridData";
+import screenDimensions from "@src/utils/screenDimensions";
 
 const { BLUE, WHITE, PRIMARY, DARKRED, CONTRAST } = colors;
+
+const { base } = screenDimensions();
 
 interface RangeModalProps {
   visible: boolean;
@@ -70,7 +73,9 @@ const DeleteModal: React.FC<RangeModalProps> = ({
               style={{
                 fontWeight: "bold",
                 fontSize:
-                  dataEntry.gridName.length < 35 ? 20 : 17,
+                  dataEntry.gridName.length < 35 * base
+                    ? 20 * base
+                    : 17 * base,
                 paddingBottom: 5,
               }}
             >
@@ -83,14 +88,14 @@ const DeleteModal: React.FC<RangeModalProps> = ({
           >
             <FontAwesome
               name="trash"
-              size={150}
+              size={150 * base}
               color={PRIMARY}
             />
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 18 * base,
                 textAlign: "center",
-                paddingVertical: 15,
+                paddingVertical: 15 * base,
               }}
             >
               Are you sure you want to reset learning data
@@ -126,43 +131,43 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   content: {
-    padding: 10,
-    borderRadius: 12,
+    padding: 10 * base,
+    borderRadius: 12 * base,
     width: "95%",
   },
   header: {
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 10,
+    marginBottom: 10 * base,
   },
   button: {
     backgroundColor: DARKRED,
     alignItems: "center",
-    marginTop: 20,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 20 * base,
+    paddingVertical: 12 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(PRIMARY),
   },
 
   buttonText: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 20 * base,
     textAlign: "center",
   },
   button3: {
     backgroundColor: BLUE,
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    marginTop: 10 * base,
+    paddingVertical: 10 * base,
+    paddingHorizontal: 20 * base,
+    borderRadius: 8 * base,
     ...appShadow(PRIMARY),
   },
   buttonText3: {
     color: WHITE,
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 16 * base,
     textAlign: "center",
   },
 });

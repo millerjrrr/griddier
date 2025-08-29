@@ -29,8 +29,10 @@ import useGetDataEntries from "./useGetDataEntries";
 import { timePassedSince } from "@src/utils/timePassedSince";
 import Toast from "react-native-toast-message";
 import usePlaySound from "./usePlaySound";
+import screenDimensions from "@src/utils/screenDimensions";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
+const { base } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.allin === y.allin &&
@@ -69,8 +71,8 @@ const useSubmitAnswer = () => {
         text1: "Warning!",
         text2: "❗ currentHand is undefined at index",
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 },
-        text2Style: { fontSize: 17 },
+        text1Style: { fontSize: 20 * base },
+        text2Style: { fontSize: 17 * base },
       });
       return;
     }

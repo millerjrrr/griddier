@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
@@ -22,6 +22,8 @@ import useSubmitAnswer from "@src/hooks/useSubmitAnswer";
 import usePlaySound from "@src/hooks/usePlaySound";
 import { AppTouchable } from "./AppPressables";
 import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -39,7 +41,7 @@ const colorMap: Record<ActionName, ColorName> = {
 
 const ActionButton: React.FC<ActionButtonProps> = ({
   name,
-  maxWidth = 100,
+  maxWidth = 100 * base,
 }) => {
   const dispatch = useDispatch();
   const {
@@ -126,13 +128,21 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     playSound(pop);
     setTimeout(() => submitAnswer(), 200);
   };
+
   if (Platform.OS === "web")
     useKeyboardShortcuts({
-      a: () => handlePress("AllIn"), // Press "A" for AllIn
-      s: () => handlePress("Raise"), // Press "R" for Raise
-      c: () => handlePress("Call"), // Press "C" for Call
-      f: () => handlePress("Fold"), // Press "F" for Fold
+      a: () => handlePress("AllIn"),
+      s: () => handlePress("Raise"),
+      d: () => handlePress("Call"),
+      f: () => handlePress("Fold"),
     });
+
+  const shortcutMap: Record<ActionName, string> = {
+    AllIn: "A",
+    Raise: "S",
+    Call: "D",
+    Fold: "F",
+  };
 
   return (
     <AppTouchable
@@ -150,14 +160,18 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       onPress={() => handlePress(name)}
       onLongPress={handleLongPress}
       delayLongPress={300}
-    />
+    >
+      {Platform.OS === "web" && (
+        <Text>{shortcutMap[name]}</Text>
+      )}
+    </AppTouchable>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
     aspectRatio: 1,
-    borderRadius: 10,
+    borderRadius: 10 * base,
     justifyContent: "center",
     alignItems: "center",
     width: "100%",

@@ -14,7 +14,7 @@ interface FreqBarProps {
   handsObject: HandsObject;
 }
 
-const { width: vw } = screenDimensions();
+const { width: vw, base } = screenDimensions();
 
 const SubBar: React.FC<{
   freq: number;
@@ -35,21 +35,21 @@ const SubBar: React.FC<{
           style={{
             width: freq > 0 ? 0.25 * vw * 0.85 : 0,
             backgroundColor: color,
-            borderRadius: 10,
+            borderRadius: 10 * base,
             // alignItems: "center",
             justifyContent: "center",
             flexDirection: "row",
           }}
         >
-          <Text style={{ fontSize: 18 }}>
+          <Text style={{ fontSize: 18 * base }}>
             {showCombos ? combos : Math.round(freq * 100)}
           </Text>
           {!showCombos && (
-            <Text style={{ fontSize: 10 }}>%</Text>
+            <Text style={{ fontSize: 10 * base }}>%</Text>
           )}
 
           {/* {freq > 0 && (
-          <Text style={{ fontSize: 18 }}>{`${Math.round(
+          <Text style={{ fontSize: 18*base }}>{`${Math.round(
             combos
           )}`}</Text>
         )} */}

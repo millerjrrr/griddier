@@ -12,6 +12,8 @@ import {
   resetActions,
   selectTrainerState,
 } from "@src/store/trainer";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 export interface GridCellProps {
   actions: HandActions;
@@ -142,7 +144,7 @@ const Cell: React.FC<GridCellProps> = ({
             style={{
               color: "black",
               fontWeight: "bold",
-              fontSize: size ? size * 0.4 : 10,
+              fontSize: size ? size * 0.4 : 10 * base,
             }}
           >
             {hand}

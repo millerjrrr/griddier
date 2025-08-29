@@ -18,6 +18,8 @@ import BGContainer from "@src/componentes/BGContainer";
 import { GridData } from "@assets/data/GridData";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const Trainer: React.FC = () => {
   const {
@@ -74,9 +76,9 @@ const Trainer: React.FC = () => {
           <Cell
             actions={{ ...actions, prior }}
             hand={filteredHandsArray[index]}
-            size={300}
+            size={300 * base}
             shadow
-            borderRadius={5}
+            borderRadius={5 * base}
             clearActionsOnTouch
           />
           <ButtonContainer gridName={gridName} />
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    padding: 20,
+    padding: 20 * base,
   },
 });
 

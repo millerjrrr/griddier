@@ -15,6 +15,7 @@ interface ModalProps {
   visible: boolean;
   onClose: () => void;
 }
+const { base } = screenDimensions();
 
 const MethodologyModal: React.FC<ModalProps> = ({
   visible,
@@ -36,8 +37,8 @@ const MethodologyModal: React.FC<ModalProps> = ({
       >
         <View
           style={{
-            borderRadius: 12,
-            padding: 15,
+            borderRadius: 12 * base,
+            padding: 15 * base,
             width: 0.9 * screenDimensions().width,
             height: 0.9 * screenDimensions().height,
             backgroundColor: colors.PRIMARY,
@@ -48,9 +49,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
           <Text
             style={{
               fontWeight: "bold",
-              fontSize: 35,
+              fontSize: 35 * base,
               color: colors.CONTRAST,
-              paddingBottom: 5,
+              paddingBottom: 5 * base,
               textAlign: "center",
             }}
           >
@@ -58,18 +59,18 @@ const MethodologyModal: React.FC<ModalProps> = ({
           </Text>
           <View
             style={{
-              borderRadius: 15,
-              ...appShadow(colors.CONTRAST, 20),
+              borderRadius: 15 * base,
+              ...appShadow(colors.CONTRAST, 20 * base),
             }}
           >
             <Image
               source={icon}
               resizeMode="contain"
               style={{
-                width: 100,
-                height: 100,
-                borderRadius: 15,
-                margin: 8,
+                width: 100 * base,
+                height: 100 * base,
+                borderRadius: 15 * base,
+                margin: 8 * base,
               }}
             />
           </View>
@@ -78,9 +79,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
           >
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Range memorization isn't about blindly
@@ -91,9 +92,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
             </Text>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Griddier provides a roadmap to range mastery!
@@ -101,9 +102,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
 
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Ranges are carefully designed and prioritized
@@ -111,20 +112,20 @@ const MethodologyModal: React.FC<ModalProps> = ({
             </Text>
             <Text
               style={{
-                fontSize: 25,
+                fontSize: 25 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 5,
+                paddingBottom: 5 * base,
               }}
             >
               1. Opening Ranges
             </Text>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Playing standard mid-stakes sizes for
@@ -132,20 +133,20 @@ const MethodologyModal: React.FC<ModalProps> = ({
             </Text>
             <Text
               style={{
-                fontSize: 25,
+                fontSize: 25 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 5,
+                paddingBottom: 5 * base,
               }}
             >
               2. SB 3bet
             </Text>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Starting out, I recommend using SB 3bet ranges
@@ -160,20 +161,20 @@ const MethodologyModal: React.FC<ModalProps> = ({
 
             <Text
               style={{
-                fontSize: 25,
+                fontSize: 25 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 5,
+                paddingBottom: 5 * base,
               }}
             >
               3. HJ,CO 3bet
             </Text>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               Next logical step, linear 3bettig IP. We don't
@@ -182,20 +183,20 @@ const MethodologyModal: React.FC<ModalProps> = ({
 
             <Text
               style={{
-                fontSize: 25,
+                fontSize: 25 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 5,
+                paddingBottom: 5 * base,
               }}
             >
               4. And so on...
             </Text>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 20 * base,
                 width: "100%",
                 color: colors.CONTRAST,
-                paddingBottom: 15,
+                paddingBottom: 15 * base,
               }}
             >
               I intend to update this at a later date but
@@ -207,10 +208,10 @@ const MethodologyModal: React.FC<ModalProps> = ({
             onPress={onClose}
             style={{
               backgroundColor: colors.SECONDARY,
-              marginTop: 20,
-              paddingVertical: 12,
-              paddingHorizontal: 20,
-              borderRadius: 8,
+              marginTop: 20 * base,
+              paddingVertical: 12 * base,
+              paddingHorizontal: 20 * base,
+              borderRadius: 8 * base,
               width: "100%",
               ...appShadow(colors.CONTRAST),
             }}
