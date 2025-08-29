@@ -339,17 +339,40 @@ const RangeModal: React.FC<RangeModalProps> = ({
           </AppPressable>
 
           <AppPressable
-            onPress={reviewTomorrow}
+            onPress={
+              dataEntry.locked
+                ? () =>
+                    Toast.show({
+                      type: "success",
+                      text1: "Locked",
+                      text2: "Complete previous levels!",
+                      visibilityTime: 2000,
+                      text1Style: { fontSize: 20 * base },
+                      text2Style: { fontSize: 17 * base },
+                    })
+                : reviewTomorrow
+            }
             style={[styles.buttonBase, styles.button3]}
           >
-            <Text
-              style={[
-                styles.buttonTextBase,
-                styles.buttonText3,
-              ]}
-            >
-              Review Tomorrow
-            </Text>
+            {dataEntry.locked ? (
+              <Image
+                source={lockIcon}
+                resizeMode="contain"
+                style={{
+                  height: 21 * base,
+                  width: 21 * base,
+                }}
+              />
+            ) : (
+              <Text
+                style={[
+                  styles.buttonTextBase,
+                  styles.buttonText3,
+                ]}
+              >
+                Review Tomorrow
+              </Text>
+            )}
           </AppPressable>
 
           <AppPressable

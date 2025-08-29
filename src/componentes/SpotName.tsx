@@ -10,6 +10,8 @@ interface SpotNameProps {
 }
 
 const SpotName: React.FC<SpotNameProps> = ({ name }) => {
+  const formattedName =
+    name.length < 25 ? name : name.replace(" (", "\n(");
   return (
     <View
       style={[
@@ -23,12 +25,12 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
           {
             fontSize:
               name.length < 25 * base
-                ? 30 * base
-                : 20 * base,
+                ? 40 * base
+                : 25 * base,
           },
         ]}
       >
-        {name}
+        {formattedName}
       </Text>
     </View>
   );
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
     color: colors.CONTRAST,
     fontWeight: "bold",
     fontSize: 30 * base,
+    textAlign: "center",
   },
 });
 

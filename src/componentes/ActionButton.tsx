@@ -41,7 +41,7 @@ const colorMap: Record<ActionName, ColorName> = {
 
 const ActionButton: React.FC<ActionButtonProps> = ({
   name,
-  maxWidth = 100 * base,
+  maxWidth = 125 * base,
 }) => {
   const dispatch = useDispatch();
   const {

@@ -47,7 +47,7 @@ const ButtonContainer: React.FC<ButtonsRowProps> = ({
     (btn) => btn.show
   );
   const maxWidth =
-    buttonsToRender.length === 4 ? 75 * base : 100 * base; // default 100 if 3 or less
+    buttonsToRender.length === 4 ? 90 * base : 120 * base; // default 100 if 3 or less
 
   return (
     <View style={styles.container}>
