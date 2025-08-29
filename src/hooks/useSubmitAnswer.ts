@@ -143,6 +143,12 @@ const useSubmitAnswer = () => {
             locked: false,
           })
         );
+        dispatch(
+          updateDataEntry({
+            gridName: sort(dataEntries)[0].gridName,
+            locked: false,
+          })
+        );
         dispatch(setSuccessModal(true));
         playSound(success);
       }

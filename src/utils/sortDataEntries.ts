@@ -25,7 +25,7 @@ const sort = (dataEntries: DataEntry[]) => {
 
     // 2. Inside Due/Past group -> level, priority
     if (aIsDueOrPast && bIsDueOrPast) {
-      if (a.level !== b.level) return a.level - b.level;
+      if (a.level !== b.level) return b.level - a.level;
       return a.priority - b.priority;
     }
 
