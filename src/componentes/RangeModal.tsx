@@ -111,7 +111,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
 
   const newDrill = gridName !== dataEntry.gridName;
 
-  const startTrainingDrill = () => {
+  const startQuickReview = () => {
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());
@@ -276,7 +276,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
                       text1Style: { fontSize: 20 * base },
                       text2Style: { fontSize: 17 * base },
                     })
-                : startTrainingDrill
+                : dataEntry.level > 1 || feedback
+                ? startQuickReview
+                : startFullReview
             }
             style={[styles.buttonBase, styles.button]}
           >
@@ -296,7 +298,11 @@ const RangeModal: React.FC<RangeModalProps> = ({
                   styles.buttonText,
                 ]}
               >
-                {feedback ? "Try again!" : "Quick Review"}
+                {dataEntry.level > 1 || feedback
+                  ? feedback
+                    ? "Try again!"
+                    : "Quick Review"
+                  : "Do a Full Review"}
               </Text>
             )}
           </AppPressable>
@@ -313,7 +319,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
                       text1Style: { fontSize: 20 * base },
                       text2Style: { fontSize: 17 * base },
                     })
-                : startFullReview
+                : dataEntry.level > 1 || feedback
+                ? startFullReview
+                : startQuickReview
             }
             style={[styles.buttonBase, styles.button2]}
           >
@@ -333,7 +341,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
                   styles.buttonText2,
                 ]}
               >
-                Do a Full Review
+                {dataEntry.level > 1 || feedback
+                  ? "Do a Full Review"
+                  : "Quick Review"}
               </Text>
             )}
           </AppPressable>
