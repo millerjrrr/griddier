@@ -1,4 +1,4 @@
-import RangeModal from "@src/componentes/RangeModal";
+import RangeModal from "@src/componentes/Modals/RangeModal";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeCard from "@src/componentes/RangeCard";
 import { selectUserDataState } from "@src/store/userData";
@@ -10,7 +10,7 @@ import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 import BGContainer from "@src/componentes/BGContainer";
 import colors from "@src/utils/colors";
 import { setFeedback } from "@src/store/trainer";
-import DeleteModal from "@src/componentes/DeleteModal";
+import DeleteModal from "@src/componentes/Modals/DeleteModal";
 import screenDimensions from "@src/utils/screenDimensions";
 const { base } = screenDimensions();
 
@@ -100,7 +100,7 @@ const RangesList = () => {
         <FadeBackgroundView
           height={30 * base}
           position={"bottom"}
-          color={colors.TERTIARY as `#{string}`}
+          color={colors.TERTIARY as `#${string}`}
         />
       </View>
     </BGContainer>

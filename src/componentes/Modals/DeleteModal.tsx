@@ -8,10 +8,10 @@ import {
 import { useDispatch } from "react-redux";
 
 import { DataEntry, GridName } from "@src/types";
-import LevelStars from "./LevelStars";
+import LevelStars from "../LevelStars";
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
-import { AppPressable } from "./AppPressables";
+import { AppPressable } from "../AppPressables";
 import { FontAwesome } from "@expo/vector-icons";
 import { updateDataEntry } from "@src/store/userData";
 import { GridData } from "@assets/data/GridData";

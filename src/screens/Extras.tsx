@@ -1,7 +1,7 @@
-import AboutModal from "@src/componentes/AboutModal";
+import AboutModal from "@src/componentes/Modals/AboutModal";
 import BGContainer from "@src/componentes/BGContainer";
-import ContactModal from "@src/componentes/ContactModal";
-import MethodologyModal from "@src/componentes/MethodologyModal";
+import ContactModal from "@src/componentes/Modals/ContactModal";
+import MethodologyModal from "@src/componentes/Modals/MethodologyModal";
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";

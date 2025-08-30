@@ -8,8 +8,16 @@ import {
   Text,
   View,
 } from "react-native";
-import { AppPressable } from "./AppPressables";
+import { AppPressable } from "../AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
+import {
+  Container,
+  ModalSmallText,
+  ModalText,
+  ModalTitle,
+  Overlay,
+} from "./ModalComponents";
+import { ModalButton } from "./ModalButtons";
 
 interface ModalProps {
   visible: boolean;
@@ -27,36 +35,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
       transparent
       animationType="slide"
     >
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "transparent",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View
-          style={{
-            borderRadius: 12 * base,
-            padding: 15 * base,
-            width: 0.9 * screenDimensions().width,
-            height: 0.9 * screenDimensions().height,
-            backgroundColor: colors.PRIMARY,
-            alignItems: "center",
-            ...appShadow(colors.CONTRAST),
-          }}
-        >
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 35 * base,
-              color: colors.CONTRAST,
-              paddingBottom: 5 * base,
-              textAlign: "center",
-            }}
-          >
-            Methodology
-          </Text>
+      <Overlay>
+        <Container color={colors.PRIMARY}>
+          <ModalTitle>Methodology</ModalTitle>
           <View
             style={{
               borderRadius: 15 * base,
@@ -77,40 +58,22 @@ const MethodologyModal: React.FC<ModalProps> = ({
           <ScrollView
             style={{ height: "50%", width: "95%" }}
           >
-            <Text
-              style={{
-                fontSize: 20 * base,
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            <ModalSmallText>
               Range memorization isn't about blindly
               following ranges but about having a good
               understanding about what we should be doing in
               theory so that we can deviate precisely in
               practice.
-            </Text>
-            <Text
-              style={{
-                fontSize: 20 * base,
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            </ModalSmallText>
+            <ModalSmallText>
               Griddier provides a roadmap to range mastery!
-            </Text>
+            </ModalSmallText>
 
-            <Text
-              style={{
-                fontSize: 20 * base,
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            <ModalSmallText>
               Ranges are carefully designed and prioritized
               in order of importance.
-            </Text>
-            <Text
+            </ModalSmallText>
+            <ModalSmallText
               style={{
                 fontSize: 25 * base,
                 width: "100%",
@@ -119,19 +82,12 @@ const MethodologyModal: React.FC<ModalProps> = ({
               }}
             >
               1. Opening Ranges
-            </Text>
-            <Text
-              style={{
-                fontSize: 20 * base,
-                width: "100%",
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            </ModalSmallText>
+            <ModalSmallText>
               Playing standard mid-stakes sizes for
               100-1kNL. In SB we play raise or fold.
-            </Text>
-            <Text
+            </ModalSmallText>
+            <ModalSmallText
               style={{
                 fontSize: 25 * base,
                 width: "100%",
@@ -140,15 +96,8 @@ const MethodologyModal: React.FC<ModalProps> = ({
               }}
             >
               2. SB 3bet
-            </Text>
-            <Text
-              style={{
-                fontSize: 20 * base,
-                width: "100%",
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            </ModalSmallText>
+            <ModalSmallText>
               Starting out, I recommend using SB 3bet ranges
               from BB aswell, its a reasonable starting
               point. We'll learn BB 3betting later as its
@@ -157,9 +106,9 @@ const MethodologyModal: React.FC<ModalProps> = ({
               a good exploit to 3bet a slightly tighter SB
               3betting range from BB. Its an important intro
               to linear 3betting OOP.
-            </Text>
+            </ModalSmallText>
 
-            <Text
+            <ModalSmallText
               style={{
                 fontSize: 25 * base,
                 width: "100%",
@@ -168,20 +117,13 @@ const MethodologyModal: React.FC<ModalProps> = ({
               }}
             >
               3. HJ,CO 3bet
-            </Text>
-            <Text
-              style={{
-                fontSize: 20 * base,
-                width: "100%",
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            </ModalSmallText>
+            <ModalSmallText>
               Next logical step, linear 3bettig IP. We don't
               play flats here.
-            </Text>
+            </ModalSmallText>
 
-            <Text
+            <ModalSmallText
               style={{
                 fontSize: 25 * base,
                 width: "100%",
@@ -190,43 +132,20 @@ const MethodologyModal: React.FC<ModalProps> = ({
               }}
             >
               4. And so on...
-            </Text>
-            <Text
-              style={{
-                fontSize: 20 * base,
-                width: "100%",
-                color: colors.CONTRAST,
-                paddingBottom: 15 * base,
-              }}
-            >
+            </ModalSmallText>
+            <ModalSmallText>
               I intend to update this at a later date but
               suffice it to say, the progression continues
               logically
-            </Text>
+            </ModalSmallText>
           </ScrollView>
-          <AppPressable
+          <ModalButton
+            text="Close"
             onPress={onClose}
-            style={{
-              backgroundColor: colors.SECONDARY,
-              marginTop: 20 * base,
-              paddingVertical: 12 * base,
-              paddingHorizontal: 20 * base,
-              borderRadius: 8 * base,
-              width: "100%",
-              ...appShadow(colors.CONTRAST),
-            }}
-          >
-            <Text
-              style={{
-                color: colors.CONTRAST,
-                textAlign: "center",
-              }}
-            >
-              Close
-            </Text>
-          </AppPressable>
-        </View>
-      </View>
+            shadow={colors.CONTRAST}
+          />
+        </Container>
+      </Overlay>
     </Modal>
   );
 };

@@ -1,4 +1,4 @@
-const colors = {
+const colors: Record<string, `#${string}`> = {
   ALLIN: "#a56641ff", // Red
   RAISE: "#ea9b6d", // Orange
   CALL: "#b6d7a8", // Green
