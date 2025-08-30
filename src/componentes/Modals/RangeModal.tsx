@@ -204,20 +204,44 @@ const RangeModal: React.FC<RangeModalProps> = ({
               ? "Ready to revise this grid?"
               : "Memorize this grid. When you are ready..."}
           </InstructionText>
-          <ModalButton
-            text={feedback ? "Try again!" : "Quick Review"}
-            onPress={startQuickReview}
-            scale={1}
-            color={GREEN}
-            locked={dataEntry.locked}
-          />
-          <ModalButton
-            text="Do a Full Review"
-            onPress={startFullReview}
-            scale={0.9}
-            color={TURQ}
-            locked={dataEntry.locked}
-          />
+          {feedback || dataEntry.level > 1 ? (
+            <>
+              <ModalButton
+                text={
+                  feedback ? "Try again!" : "Quick Review"
+                }
+                onPress={startQuickReview}
+                scale={1}
+                color={GREEN}
+                locked={dataEntry.locked}
+              />
+              <ModalButton
+                text="Do a Full Review"
+                onPress={startFullReview}
+                scale={0.9}
+                color={TURQ}
+                locked={dataEntry.locked}
+              />
+            </>
+          ) : (
+            <>
+              <ModalButton
+                text="Do a Full Review"
+                onPress={startFullReview}
+                scale={1}
+                color={GREEN}
+                locked={dataEntry.locked}
+              />
+              <ModalButton
+                text="Quick Review"
+                onPress={startQuickReview}
+                scale={0.9}
+                color={TURQ}
+                locked={dataEntry.locked}
+              />
+            </>
+          )}
+
           <ModalButton
             text="Review Tomorrow"
             onPress={reviewTomorrow}
