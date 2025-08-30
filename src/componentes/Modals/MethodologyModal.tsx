@@ -4,6 +4,7 @@ const icon = require("@assets/icon.png");
 import {
   Image,
   Modal,
+  Platform,
   ScrollView,
   View,
 } from "react-native";
@@ -11,6 +12,7 @@ import screenDimensions from "@src/utils/screenDimensions";
 import { Container, Overlay } from "./ModalComponents";
 import { ModalButton } from "./ModalButtons";
 import { ModalSmallText, ModalTitle } from "../AppText";
+const { height, width } = screenDimensions();
 
 interface ModalProps {
   visible: boolean;
@@ -49,7 +51,17 @@ const MethodologyModal: React.FC<ModalProps> = ({
             />
           </View>
           <ScrollView
-            style={{ height: "50%", width: "95%" }}
+            style={
+              Platform.OS === "web"
+                ? {
+                    height: 0.5 * height,
+                    width: 0.8 * width,
+                  }
+                : {
+                    height: "50%",
+                    width: "95%",
+                  }
+            }
           >
             <ModalSmallText>
               Range memorization isn't about blindly
