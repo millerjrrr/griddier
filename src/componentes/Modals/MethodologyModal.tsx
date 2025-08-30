@@ -5,19 +5,12 @@ import {
   Image,
   Modal,
   ScrollView,
-  Text,
   View,
 } from "react-native";
-import { AppPressable } from "../AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
-import {
-  Container,
-  ModalSmallText,
-  ModalText,
-  ModalTitle,
-  Overlay,
-} from "./ModalComponents";
+import { Container, Overlay } from "./ModalComponents";
 import { ModalButton } from "./ModalButtons";
+import { ModalSmallText, ModalTitle } from "../AppText";
 
 interface ModalProps {
   visible: boolean;

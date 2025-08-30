@@ -1,19 +1,13 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 const myPic = require("@assets/img/myPic.jpg");
-
-import { Image, Modal, Text, View } from "react-native";
-import { AppPressable } from "../AppPressables";
+import { Image, Modal, View } from "react-native";
 import screenDimensions from "@src/utils/screenDimensions";
-import {
-  Container,
-  ModalText,
-  ModalTitle,
-  Overlay,
-} from "./ModalComponents";
+import { Container, Overlay } from "./ModalComponents";
 import { ModalButton } from "./ModalButtons";
+import { ModalText, ModalTitle } from "../AppText";
 
-const { base, width } = screenDimensions();
+const { base } = screenDimensions();
 
 interface ModalProps {
   visible: boolean;

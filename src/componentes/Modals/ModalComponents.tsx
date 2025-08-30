@@ -71,24 +71,3 @@ export const RangeModalTitle: React.FC<{
     </View>
   );
 };
-
-export const ModalTitle = styled(Text)`
-  font-weight: bold;
-  font-size: ${35 * base};
-  color: ${colors.CONTRAST};
-  padding-bottom: ${5 * base};
-  text-align: center;
-`;
-
-export const ModalText = styled(Text)`
-  font-size: ${25 * base};
-  color: ${colors.CONTRAST};
-  padding-bottom: ${5 * base};
-  text-align: center;
-`;
-
-export const ModalSmallText = styled(Text)`
-  font-size: ${20 * base};
-  color: ${colors.CONTRAST};
-  padding-bottom: ${15 * base};
-`;
