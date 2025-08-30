@@ -1,10 +1,8 @@
 import screenDimensions from "@src/utils/screenDimensions";
 import { ReactNode } from "react";
-import { Text, TextProps, View } from "react-native";
+import { Text, View } from "react-native";
 import { DataEntry } from "@src/types";
 import LevelStars from "../LevelStars";
-import styled from "styled-components";
-import colors from "@src/utils/colors";
 const { base, width } = screenDimensions();
 
 export const Overlay: React.FC<{ children: ReactNode }> = ({
@@ -57,8 +55,10 @@ export const RangeModalTitle: React.FC<{
         style={{
           fontWeight: "bold",
           fontSize:
-            dataEntry.gridName.length < 35 * base
+            dataEntry.gridName.length < 25
               ? 25 * base
+              : dataEntry.gridName.length < 30
+              ? 23 * base
               : 20 * base,
           paddingBottom: 5 * base,
         }}
