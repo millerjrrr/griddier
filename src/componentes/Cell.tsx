@@ -1,5 +1,10 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  Platform,
+} from "react-native";
 import colors from "../utils/colors";
 import {
   HandActions,
@@ -111,7 +116,7 @@ const Cell: React.FC<GridCellProps> = ({
           ...(size ? { width: size } : { flex: 1 }),
           borderRadius: red ? 3 : borderRadius!! || 0,
           aspectRatio: 1,
-          // position: "relative",
+          position: "relative",
           backgroundColor: PRIOR,
           borderColor: red ? "red" : "black",
           borderWidth: size ? size / 100 : red ? 3 : 1,
@@ -150,6 +155,30 @@ const Cell: React.FC<GridCellProps> = ({
             {hand}
           </Text>
         </View>
+        {clearActionsOnTouch && (
+          <View
+            style={{
+              width: "100%",
+              alignItems: "center",
+              padding: 5,
+              position: "absolute",
+            }}
+          >
+            <Text
+              style={{
+                color: "gray",
+                fontWeight: "bold",
+                fontSize: 10 * base,
+              }}
+            >
+              {`[${
+                Platform.OS === "web"
+                  ? "BACKSPACE"
+                  : "TOUCH"
+              } TO CLEAR ACTIONS]}`}
+            </Text>
+          </View>
+        )}
       </View>
     </Container>
   );

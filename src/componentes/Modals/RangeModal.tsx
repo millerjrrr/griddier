@@ -214,6 +214,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 scale={1}
                 color={GREEN}
                 locked={dataEntry.locked}
+                shortcutKey=" "
               />
               <ModalButton
                 text="Do a Full Review"
@@ -221,6 +222,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 scale={0.9}
                 color={TURQ}
                 locked={dataEntry.locked}
+                shortcutKey="r"
               />
             </>
           ) : (
@@ -231,6 +233,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 scale={1}
                 color={GREEN}
                 locked={dataEntry.locked}
+                shortcutKey=" "
               />
               <ModalButton
                 text="Quick Review"
@@ -238,6 +241,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 scale={0.9}
                 color={TURQ}
                 locked={dataEntry.locked}
+                shortcutKey="r"
               />
             </>
           )}
@@ -248,6 +252,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
             scale={0.8}
             color={DARKRED}
             locked={dataEntry.locked}
+            shortcutKey="t"
           />
           <CloseButton onClose={onClose} />
         </Container>

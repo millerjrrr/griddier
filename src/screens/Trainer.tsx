@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   resetActions,
@@ -19,6 +19,7 @@ import { GridData } from "@assets/data/GridData";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import screenDimensions from "@src/utils/screenDimensions";
+import usePlaySound from "@src/hooks/usePlaySound";
 const { width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -56,6 +57,28 @@ const Trainer: React.FC = () => {
       };
     }, [])
   );
+
+  const playSound = usePlaySound();
+
+  // Keyboard listener for web only
+  useEffect(() => {
+    if (Platform.OS !== "web") return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // compare the key pressed with the shortcutKey prop
+      if (
+        e.key.toLowerCase() === "backspace" &&
+        e.key === "Backspace"
+      ) {
+        e.preventDefault();
+        playSound();
+        dispatch(resetActions());
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () =>
+      window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <BGContainer>

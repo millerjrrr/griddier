@@ -115,6 +115,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             scale={1}
             color={GREEN}
             locked={false}
+            shortcutKey=" "
           />
           <ModalButton
             text="Repeat Grid"
@@ -122,6 +123,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             scale={0.9}
             color={DARKRED}
             locked={false}
+            shortcutKey="r"
           />
           <CloseButton onClose={onClose} />
         </Container>
