@@ -172,10 +172,8 @@ const Cell: React.FC<GridCellProps> = ({
               }}
             >
               {`[${
-                Platform.OS === "web"
-                  ? "BACKSPACE"
-                  : "TOUCH"
-              } TO CLEAR]}`}
+                Platform.OS === "web" ? "<-" : "TOUCH"
+              } TO CLEAR]`}
             </Text>
           </View>
         )}
