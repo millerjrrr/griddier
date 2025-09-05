@@ -23,6 +23,7 @@ import usePlaySound from "@src/hooks/usePlaySound";
 import { AppTouchable } from "./AppPressables";
 import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 import screenDimensions from "@src/utils/screenDimensions";
+import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -45,6 +46,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
 }) => {
   const dispatch = useDispatch();
   const {
+    gridName,
     actions: { allin, raise, call },
   } = useSelector(selectTrainerState);
   const { submitAnswer } = useSubmitAnswer();
@@ -161,17 +163,22 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       onLongPress={handleLongPress}
       delayLongPress={300}
     >
-      {Platform.OS === "web" && (
-        <Text
-          style={{
-            fontSize: 25 * base,
-            fontWeight: "bold",
-            color: "gray",
-          }}
-        >
-          {shortcutMap[name]}
-        </Text>
-      )}
+      <Text
+        style={{
+          fontSize: 25 * base,
+          fontWeight: "bold",
+          color: "gray",
+          textAlign: "center",
+        }}
+      >
+        {`${
+          Platform.OS === "web"
+            ? shortcutMap[name]
+            : name === "Raise"
+            ? SpotDescriptionMap[gridName].raiseSize + "x"
+            : name
+        }`}
+      </Text>
     </AppTouchable>
   );
 };

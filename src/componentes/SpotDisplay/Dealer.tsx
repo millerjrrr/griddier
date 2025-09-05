@@ -24,11 +24,11 @@ const Dealer: React.FC<DealerProps> = ({
       left: -rel / 2,
     },
     "left-top": {
-      top: -rel / 2,
+      bottom: -rel / 2,
       left: rel * 0.75,
     },
     "left-bottom": {
-      top: -rel / 2,
+      bottom: -rel / 2,
       left: rel * 0.75,
     },
     "right-top": {
