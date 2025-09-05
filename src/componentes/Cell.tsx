@@ -114,7 +114,7 @@ const Cell: React.FC<GridCellProps> = ({
       <View
         style={{
           ...(size ? { width: size } : { flex: 1 }),
-          borderRadius: red ? 3 : borderRadius!! || 0,
+          borderRadius: red ? 3 : borderRadius || 0,
           aspectRatio: 1,
           position: "relative",
           backgroundColor: PRIOR,
@@ -175,7 +175,7 @@ const Cell: React.FC<GridCellProps> = ({
                 Platform.OS === "web"
                   ? "BACKSPACE"
                   : "TOUCH"
-              } TO CLEAR ACTIONS]}`}
+              } TO CLEAR]}`}
             </Text>
           </View>
         )}

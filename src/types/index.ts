@@ -116,3 +116,31 @@ type Day =
   | "31";
 
 export type StrictDateString = `${Year}-${Month}-${Day}`;
+
+export type PositionName =
+  | "LJ"
+  | "HJ"
+  | "CO"
+  | "BU"
+  | "SB"
+  | "BB";
+
+export type Pos =
+  | "top"
+  | "bottom"
+  | "left-top"
+  | "left-bottom"
+  | "right-top"
+  | "right-bottom";
+
+export type SpotInfo = {
+  hero: PositionName;
+  stacks: 50 | 100 | 150 | 200;
+  raiseSize: number;
+  LJ?: { bet: number; cards: boolean };
+  HJ?: { bet: number; cards: boolean };
+  CO?: { bet: number; cards: boolean };
+  BU?: { bet: number; cards: boolean };
+  SB?: { bet: number; cards: boolean };
+  BB?: { bet: number; cards: boolean };
+};

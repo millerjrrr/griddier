@@ -20,7 +20,9 @@ import useGetDataEntries from "@src/hooks/useGetDataEntries";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import screenDimensions from "@src/utils/screenDimensions";
 import usePlaySound from "@src/hooks/usePlaySound";
-const { width, base } = screenDimensions();
+import SpotDisplay from "@src/componentes/SpotDisplay";
+import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
+const { height, width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
   const {
@@ -80,47 +82,62 @@ const Trainer: React.FC = () => {
       window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const showSpotDisplay = Object.keys(
+    SpotDescriptionMap
+  ).find((key) => key === gridName);
+
   return (
     <BGContainer>
-      <View style={styles.outerContainer}>
-        <View style={styles.container}>
-          <RangeModal
-            visible={showRangeModal}
-            dataEntry={getDataEntries(gridName)}
-            onClose={() =>
-              dispatch(setShowRangeModal(false))
-            }
-          />
-          <SuccessModal
-            visible={showSuccessModal}
-            dataEntry={getDataEntries(gridName)}
-          />
-          <SpotName name={gridName} />
-          <Cell
-            actions={{ ...actions, prior }}
-            hand={filteredHandsArray[index]}
-            size={0.85 * width}
-            shadow
-            borderRadius={5 * base}
-            clearActionsOnTouch
-          />
-          <ButtonContainer gridName={gridName} />
-        </View>
+      <View style={styles.container}>
+        <RangeModal
+          visible={showRangeModal}
+          dataEntry={getDataEntries(gridName)}
+          onClose={() => dispatch(setShowRangeModal(false))}
+        />
+        <SuccessModal
+          visible={showSuccessModal}
+          dataEntry={getDataEntries(gridName)}
+        />
+        <SpotName name={gridName} />
+        {showSpotDisplay ? (
+          <SpotDisplay gridName={gridName}>
+            <Cell
+              actions={{ ...actions, prior }}
+              hand={filteredHandsArray[index]}
+              size={0.4 * width}
+              shadow
+              borderRadius={40 * base}
+              clearActionsOnTouch
+            />
+          </SpotDisplay>
+        ) : (
+          <View
+            style={{
+              height: 0.5 * height,
+              justifyContent: "center",
+            }}
+          >
+            <Cell
+              actions={{ ...actions, prior }}
+              hand={filteredHandsArray[index]}
+              size={0.85 * width}
+              shadow
+              borderRadius={10 * base}
+              clearActionsOnTouch
+            />
+          </View>
+        )}
+        <ButtonContainer gridName={gridName} />
       </View>
     </BGContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  outerContainer: {
+  container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     backgroundColor: "transparent",
-  },
-  container: {
-    alignItems: "center",
-    padding: 20 * base,
   },
 });
 

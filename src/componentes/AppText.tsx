@@ -8,13 +8,14 @@ const { WHITE } = colors;
 
 export const WhiteTextBold: React.FC<{
   s: number;
+  color?: `#${string}`;
   children: ReactNode;
-}> = ({ s, children }) => {
+}> = ({ s, color, children }) => {
   return (
     <Text
       style={{
         fontSize: s * base,
-        color: WHITE,
+        color: color || WHITE,
         fontWeight: "bold",
         textAlign: "center",
       }}
@@ -57,4 +58,10 @@ export const ModalSmallText = styled.Text`
   font-size: ${20 * base}px;
   color: ${colors.CONTRAST};
   padding-bottom: ${15 * base}px;
+`;
+
+export const BetTag = styled.Text`
+  font-size: ${20 * base}px;
+  color: ${colors.CONTRAST};
+  padding-right: ${5 * base}px;
 `;
