@@ -1,9 +1,16 @@
 export default function formatTime(milliseconds: number) {
-  const milliInSeconds = Math.round(milliseconds / 1000);
-  const minutes = Math.floor(milliInSeconds / 60);
-  const seconds = milliInSeconds % 60;
+  if (milliseconds === 0) return "-:--";
 
-  return milliseconds !== 0
-    ? `${minutes}:${seconds.toString().padStart(2, "0")}`
-    : "-:--";
+  const totalSeconds = Math.round(milliseconds / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return hours > 0
+    ? `${hours}:${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`
+    : `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }

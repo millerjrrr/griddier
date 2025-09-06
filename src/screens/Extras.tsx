@@ -9,6 +9,7 @@ import { importUserDataFromCsv } from "@src/utils/importUserData";
 import { useState } from "react";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
 
 const Extras = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -21,6 +22,7 @@ const Extras = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modal2Visible, setModal2Visible] = useState(false);
   const [modal3Visible, setModal3Visible] = useState(false);
+  const [modal4Visible, setModal4Visible] = useState(false);
 
   const exportUserData = () =>
     exportUserDataAsCsv(dataEntries);
@@ -55,6 +57,10 @@ const Extras = () => {
           onPress={() => setModal3Visible(true)}
           title={"Methodology"}
         />
+        <SettingsCard
+          onPress={() => setModal4Visible(true)}
+          title={"Your Study Data"}
+        />
       </View>
       <AboutModal
         visible={modalVisible}
@@ -67,6 +73,10 @@ const Extras = () => {
       <MethodologyModal
         visible={modal3Visible}
         onClose={() => setModal3Visible(false)}
+      />
+      <StudyDataModal
+        visible={modal4Visible}
+        onClose={() => setModal4Visible(false)}
       />
     </BGContainer>
   );
