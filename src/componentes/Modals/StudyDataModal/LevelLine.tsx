@@ -50,7 +50,7 @@ const LevelLine: React.FC<Props> = ({
             : null
         }
       >
-        {level}
+        {level - 1}
       </ModalText>
     </TouchableOpacity>
   );

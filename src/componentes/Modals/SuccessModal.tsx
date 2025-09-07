@@ -14,7 +14,10 @@ import {
   setShowRangeModal,
   setSuccessModal,
 } from "@src/store/trainer";
-import { selectUserDataState } from "@src/store/userData";
+import {
+  selectUserDataState,
+  updateDataEntry,
+} from "@src/store/userData";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import colors from "@src/utils/colors";
@@ -30,8 +33,9 @@ import RangeInfoSummary from "./RangeInfoSummary";
 import { InstructionText } from "../AppText";
 import screenDimensions from "@src/utils/screenDimensions";
 import { CloseButton, ModalButton } from "./ModalButtons";
+import formatDate from "@src/utils/formatDate";
 const { base } = screenDimensions();
-const { GREEN, DARKRED } = colors;
+const { GREEN, TURQ, DARKRED } = colors;
 
 interface RangeModalProps {
   visible: boolean;
@@ -54,7 +58,14 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   if (!dataEntry) return null;
 
-  const newGridName = sort(dataEntries)[0].gridName;
+  const newDataEntry = sort(dataEntries)[0];
+  const newGridName = newDataEntry.gridName;
+
+  console.log(
+    newDataEntry.gridName,
+    newDataEntry.timeDrilling
+  );
+  const standardButtons = newDataEntry.timeDrilling !== 0;
 
   const reset = (soft?: boolean) => {
     dispatch(resetStartTime());
@@ -68,6 +79,24 @@ const SuccessModal: React.FC<RangeModalProps> = ({
   const moveToNextGrid = () => {
     dispatch(setGridName(newGridName));
     initializeTrainerState(newGridName);
+    reset();
+  };
+
+  const reviseLowLevelGrids = () => {
+    const L1s = dataEntries.filter(
+      (entry) => entry.level === 1
+    );
+    L1s.forEach((entry) => {
+      dispatch(
+        updateDataEntry({
+          gridName: entry.gridName,
+          level: 0,
+          dueDate: formatDate(new Date()),
+        })
+      );
+    });
+    const gridNameForRevision = sort(L1s)[0].gridName;
+    initializeTrainerState(gridNameForRevision);
     reset();
   };
 
@@ -109,22 +138,53 @@ const SuccessModal: React.FC<RangeModalProps> = ({
             size={25 * base}
           />
 
-          <ModalButton
-            text="Next Grid"
-            onPress={moveToNextGrid}
-            scale={1}
-            color={GREEN}
-            locked={false}
-            shortcutKey=" "
-          />
-          <ModalButton
-            text="Repeat Grid"
-            onPress={repeatThisGrid}
-            scale={0.9}
-            color={DARKRED}
-            locked={false}
-            shortcutKey="r"
-          />
+          {standardButtons ? (
+            <>
+              <ModalButton
+                text="Next Grid"
+                onPress={moveToNextGrid}
+                scale={1}
+                color={GREEN}
+                locked={false}
+                shortcutKey=" "
+              />
+              <ModalButton
+                text="Repeat Grid"
+                onPress={repeatThisGrid}
+                scale={0.9}
+                color={DARKRED}
+                locked={false}
+                shortcutKey="r"
+              />
+            </>
+          ) : (
+            <>
+              <ModalButton
+                text="Revise Low Level Grids"
+                onPress={reviseLowLevelGrids}
+                scale={1}
+                color={GREEN}
+                locked={false}
+                shortcutKey=" "
+              />
+              <ModalButton
+                text="Unlock a new Grid"
+                onPress={moveToNextGrid}
+                scale={0.9}
+                color={TURQ}
+                locked={false}
+                shortcutKey="r"
+              />
+              <ModalButton
+                text="Repeat Grid"
+                onPress={repeatThisGrid}
+                scale={0.8}
+                color={DARKRED}
+                locked={false}
+                shortcutKey="r"
+              />
+            </>
+          )}
           <CloseButton onClose={onClose} />
         </Container>
       </Overlay>
