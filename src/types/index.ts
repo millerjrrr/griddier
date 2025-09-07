@@ -42,6 +42,7 @@ export interface DataEntry {
   level: number;
   drilled: number;
   timeDrilling: number;
+  handsPlayed: number;
   lastStudied: StrictDateString | "";
   priority: number;
   locked: boolean;

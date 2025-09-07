@@ -1,5 +1,6 @@
 import {
   selectTrainerState,
+  setHandsPlayed,
   setTimePlaying,
 } from "@src/store/trainer";
 import { updateDataEntry } from "@src/store/userData";
@@ -16,9 +17,8 @@ const { base } = screenDimensions();
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
-  const { filteredHandsData, timePlaying } = useSelector(
-    selectTrainerState
-  );
+  const { filteredHandsData, timePlaying, handsPlayed } =
+    useSelector(selectTrainerState);
 
   const updateDatabase = (
     gridName: GridName,
@@ -79,6 +79,7 @@ const useUpdateDatabase = () => {
           drilled: entry.drilled + 1,
           dueDate,
           timeDrilling: entry.timeDrilling + timePlaying,
+          handsPlayed: entry.handsPlayed + handsPlayed + 1,
           lastStudied: today,
           individualHandDrillingData,
         })
@@ -90,6 +91,7 @@ const useUpdateDatabase = () => {
           gridName,
           level: 0,
           timeDrilling: entry.timeDrilling + timePlaying,
+          handsPlayed: entry.handsPlayed + handsPlayed + 1,
           dueDate: today,
           lastStudied: today,
           individualHandDrillingData,
@@ -98,6 +100,7 @@ const useUpdateDatabase = () => {
     }
 
     dispatch(setTimePlaying(0));
+    dispatch(setHandsPlayed(0));
   };
 
   return updateDatabase;

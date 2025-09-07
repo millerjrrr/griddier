@@ -46,6 +46,7 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         level: 0,
         drilled: 0,
         timeDrilling: 0,
+        handsPlayed: 0,
         lastStudied: "",
         priority: priority + 100,
         locked: true,

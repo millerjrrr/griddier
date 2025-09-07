@@ -2,6 +2,7 @@ import { GridData } from "@assets/data/GridData";
 import {
   setFilteredHandsArray,
   setFilteredHandsData,
+  setHandsPlayed,
   setRepeatsArray,
   setTimePlaying,
 } from "@src/store/trainer";
@@ -70,11 +71,12 @@ const useInitializeTrainerState = () => {
         : sortHands(handsForReview);
 
     if (process.env.NODE_ENV === "development") {
-      handsForReview = handsForReview.slice(0, 1);
+      handsForReview = handsForReview.slice(0, 5);
     }
 
     dispatch(setRepeatsArray([]));
     dispatch(setTimePlaying(0));
+    dispatch(setHandsPlayed(0));
     dispatch(setFilteredHandsArray(handsForReview));
     dispatch(setFilteredHandsData({}));
     return handsForReview;

@@ -1,4 +1,5 @@
 import {
+  incHandsPlayed,
   incIndex,
   incTimePlaying,
   resetActions,
@@ -102,6 +103,7 @@ const useSubmitAnswer = () => {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     dispatch(incTimePlaying(timeInc));
+    dispatch(incHandsPlayed());
     dispatch(resetStartTime());
 
     if (index === 0) dispatch(resetStartTime());

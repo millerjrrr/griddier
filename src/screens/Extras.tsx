@@ -38,14 +38,6 @@ const Extras = () => {
         }}
       >
         <SettingsCard
-          onPress={importUserData}
-          title={"Import user data"}
-        />
-        <SettingsCard
-          onPress={exportUserData}
-          title={"Export user data"}
-        />
-        <SettingsCard
           onPress={() => setModalVisible(true)}
           title={"About"}
         />
@@ -60,6 +52,14 @@ const Extras = () => {
         <SettingsCard
           onPress={() => setModal4Visible(true)}
           title={"Your Study Data"}
+        />
+        <SettingsCard
+          onPress={importUserData}
+          title={"Import user data"}
+        />
+        <SettingsCard
+          onPress={exportUserData}
+          title={"Export user data"}
         />
       </View>
       <AboutModal

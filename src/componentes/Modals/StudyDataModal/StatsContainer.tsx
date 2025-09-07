@@ -20,6 +20,10 @@ const StatsContainer = ({ size = 22 }) => {
     .map((entry) => entry.drilled)
     .reduce((a, b) => a + b, 0);
 
+  const handsPlayed = dataEntries
+    .map((entry) => entry.handsPlayed)
+    .reduce((a, b) => a + b, 0);
+
   return (
     <View
       style={[
@@ -45,10 +49,19 @@ const StatsContainer = ({ size = 22 }) => {
             size,
           }}
         />
+      </View>
+      <View style={styles.rowContainer}>
+        <StatsIcon
+          {...{
+            name: "grid-large",
+            text: drillsCompleted,
+            size,
+          }}
+        />
         <StatsIcon
           {...{
             name: "foot-print",
-            text: drillsCompleted,
+            text: handsPlayed,
             size,
           }}
         />

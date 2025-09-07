@@ -26,6 +26,7 @@ interface TrainerState {
   filteredHandsData: Record<PokerHand, DueLevelPair>;
   startedPlaying: string;
   timePlaying: number;
+  handsPlayed: number;
   showRangeModal: boolean;
   showSuccessModal: boolean;
   feedback: boolean;
@@ -46,6 +47,7 @@ const initialState: TrainerState = {
   filteredHandsData: {},
   startedPlaying: new Date().toISOString(),
   timePlaying: 0,
+  handsPlayed: 0,
   showRangeModal: false,
   showSuccessModal: false,
   feedback: false,
@@ -137,6 +139,12 @@ const slice = createSlice({
     incTimePlaying(state, action) {
       state.timePlaying += action.payload;
     },
+    setHandsPlayed(state, action) {
+      state.handsPlayed = action.payload;
+    },
+    incHandsPlayed(state) {
+      state.handsPlayed += 1;
+    },
     toggleShowCombos(state) {
       state.showCombos = !state.showCombos;
     },
@@ -165,6 +173,8 @@ export const {
   setFeedback,
   setTimePlaying,
   incTimePlaying,
+  setHandsPlayed,
+  incHandsPlayed,
   toggleShowCombos,
 } = slice.actions;
 
