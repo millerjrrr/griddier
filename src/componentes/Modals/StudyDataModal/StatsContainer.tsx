@@ -13,7 +13,7 @@ const StatsContainer = ({ size = 22 }) => {
     .map((entry) => entry.timeDrilling)
     .reduce((a, b) => a + b, 0);
   const unlocked = dataEntries
-    .map((entry) => (entry.locked ? 0 : 1))
+    .map((entry) => (entry.dueDate === "" ? 0 : 1))
     .reduce((a: number, b: number) => a + b, 0);
 
   const drillsCompleted = dataEntries

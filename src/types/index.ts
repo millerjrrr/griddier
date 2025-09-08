@@ -45,7 +45,7 @@ export interface DataEntry {
   handsPlayed: number;
   lastStudied: StrictDateString | "";
   priority: number;
-  locked: boolean;
+  locked?: boolean; //remove on next update
   individualHandDrillingData: IndividualHandDrillingData;
 }
 

@@ -23,6 +23,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
   showDeleteModal,
 }) => {
   const onPress = selectFunction;
+  const locked = dataEntry.dueDate === "";
 
   return (
     <AppTouchable
@@ -62,7 +63,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
         >
           {dataEntry.gridName}
         </Text>
-        {dataEntry.locked ? (
+        {locked ? (
           <Image
             source={lockIcon}
             resizeMode="contain"
@@ -76,7 +77,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
           <DateWithIcon date={dataEntry.dueDate} />
         )}
       </View>
-      {!dataEntry.locked && (
+      {!locked && (
         <View
           style={{
             width: "100%",

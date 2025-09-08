@@ -12,14 +12,9 @@ import {
   setSuccessModal,
   updateFilteredHand,
 } from "@src/store/trainer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ActionCombo } from "@src/types";
 import store from "@src/store";
-import {
-  selectUserDataState,
-  updateDataEntry,
-} from "@src/store/userData";
-import sort from "@src/utils/sortDataEntries";
 import useUpdateDatabase from "./useUpdateDatabase";
 import { moveToFront } from "@src/utils/moveToFront";
 import { GridData } from "@assets/data/GridData";
@@ -33,7 +28,6 @@ import usePlaySound from "./usePlaySound";
 import screenDimensions from "@src/utils/screenDimensions";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
-const pop = require("assets/sounds/pop.wav");
 const { base } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
@@ -43,7 +37,6 @@ const isMatch = (x: ActionCombo, y: ActionCombo) =>
 
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
-  const { dataEntries } = useSelector(selectUserDataState);
   const getDataEntries = useGetDataEntries();
 
   const updateDatabase = useUpdateDatabase();
@@ -133,24 +126,11 @@ const useSubmitAnswer = () => {
         dispatch(incIndex());
       } else {
         // console.log("🎉 Test completed");
-        const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
 
         dispatch(resetIndex());
         dispatch(setFeedback(false));
 
         updateDatabase(gridName, true);
-        dispatch(
-          updateDataEntry({
-            gridName: newGridName,
-            locked: false,
-          })
-        );
-        dispatch(
-          updateDataEntry({
-            gridName: sort(dataEntries)[0].gridName,
-            locked: false,
-          })
-        );
         dispatch(setSuccessModal(true));
         playSound(success);
       }

@@ -1,5 +1,5 @@
-import { Image, Platform, StyleSheet } from "react-native";
-import { AppPressable } from "../AppPressables";
+import { Image, Platform } from "react-native";
+import { AppTouchable } from "../AppPressables";
 import { WhiteTextBold } from "../AppText";
 import appShadow from "@src/utils/appShadow";
 import screenDimensions from "@src/utils/screenDimensions";
@@ -7,6 +7,10 @@ import colors from "@src/utils/colors";
 import Toast from "react-native-toast-message";
 import { useEffect } from "react";
 import usePlaySound from "@src/hooks/usePlaySound";
+import { GridName } from "@src/types";
+import { useDispatch } from "react-redux";
+import { updateDataEntry } from "@src/store/userData";
+import formatDate from "@src/utils/formatDate";
 const lockIcon = require("@assets/img/lock.png");
 const { base } = screenDimensions();
 const { BLUE, PRIMARY, SECONDARY } = colors;
@@ -19,6 +23,7 @@ interface ModalButtonProps {
   locked?: boolean;
   shadow?: `#${string}`;
   shortcutKey?: string;
+  gridName?: GridName;
 }
 
 export const ModalButton: React.FC<ModalButtonProps> = ({
@@ -29,6 +34,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
   locked,
   shadow = PRIMARY,
   shortcutKey,
+  gridName,
 }) => {
   const hasShortcut =
     Platform.OS === "web" && !!shortcutKey;
@@ -36,13 +42,24 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
     ? () =>
         Toast.show({
           type: "success",
-          text1: "Locked",
-          text2: "Complete previous levels!",
-          visibilityTime: 2000,
+          text1: "Locked: Complete previous levels",
+          text2: "Press & hold to unlock",
+          visibilityTime: 2500,
           text1Style: { fontSize: 20 * base },
           text2Style: { fontSize: 17 * base },
         })
     : onPress;
+
+  const dispatch = useDispatch();
+  const today = formatDate(new Date());
+  const onLongPressFunction =
+    locked && !!gridName
+      ? () => {
+          dispatch(
+            updateDataEntry({ gridName, dueDate: today })
+          );
+        }
+      : onPress;
 
   const playSound = usePlaySound();
 
@@ -67,7 +84,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
   }, [shortcutKey, onPressFunction]);
 
   return (
-    <AppPressable
+    <AppTouchable
       style={{
         alignItems: "center",
         borderRadius: 8 * base,
@@ -78,6 +95,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
         width: "100%",
       }}
       onPress={onPressFunction}
+      onLongPress={onLongPressFunction}
     >
       {locked ? (
         <Image
@@ -99,7 +117,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
             }]`}
         </WhiteTextBold>
       )}
-    </AppPressable>
+    </AppTouchable>
   );
 };
 

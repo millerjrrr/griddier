@@ -134,7 +134,6 @@ export const parseAndValidateCsv = (
           | StrictDateString
           | "",
         priority: parseInt(row.priority) || 0,
-        locked: normalizeDate(row.dueDate) === "",
         individualHandDrillingData,
       };
     }

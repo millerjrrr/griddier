@@ -38,6 +38,7 @@ import {
   Overlay,
   RangeModalTitle,
 } from "./ModalComponents";
+import useGetDataEntries from "@src/hooks/useGetDataEntries";
 
 const { GREEN, TURQ, RED, CONTRAST, DARKRED } = colors;
 
@@ -54,7 +55,11 @@ const RangeModal: React.FC<RangeModalProps> = ({
   dataEntry,
   onClose,
 }) => {
+  const getDataEntries = useGetDataEntries();
   const { dataEntries } = useSelector(selectUserDataState);
+  const locked =
+    !!dataEntry &&
+    getDataEntries(dataEntry.gridName).dueDate === "";
   const navigation =
     useNavigation<
       MaterialTopTabNavigationProp<NavigationParamList>
@@ -124,12 +129,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
     dispatch(resetActions());
     dispatch(resetIndex());
     dispatch(setFeedback(false));
-    dispatch(
-      updateDataEntry({
-        gridName: newGridName,
-        locked: false,
-      })
-    );
 
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -213,7 +212,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startQuickReview}
                 scale={1}
                 color={GREEN}
-                locked={dataEntry.locked}
+                locked={locked}
+                gridName={dataEntry.gridName}
                 shortcutKey=" "
               />
               <ModalButton
@@ -221,7 +221,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startFullReview}
                 scale={0.9}
                 color={TURQ}
-                locked={dataEntry.locked}
+                locked={locked}
+                gridName={dataEntry.gridName}
                 shortcutKey="r"
               />
             </>
@@ -232,7 +233,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startFullReview}
                 scale={1}
                 color={GREEN}
-                locked={dataEntry.locked}
+                locked={locked}
+                gridName={dataEntry.gridName}
                 shortcutKey=" "
               />
               <ModalButton
@@ -240,7 +242,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startQuickReview}
                 scale={0.9}
                 color={TURQ}
-                locked={dataEntry.locked}
+                locked={locked}
+                gridName={dataEntry.gridName}
                 shortcutKey="r"
               />
             </>
@@ -251,7 +254,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
             onPress={reviewTomorrow}
             scale={0.8}
             color={DARKRED}
-            locked={dataEntry.locked}
+            locked={locked}
+            gridName={dataEntry.gridName}
             shortcutKey="t"
           />
           <CloseButton onClose={onClose} />

@@ -20,14 +20,13 @@ export const addUserData = (
     if (!existingNames.includes(gridName))
       updatedData.push({
         gridName,
-        dueDate: today,
+        dueDate: priority === 1 ? today : "",
         level: 0,
         drilled: 0,
         timeDrilling: 0,
         handsPlayed: 0,
         lastStudied: "",
         priority,
-        locked: priority !== 1,
         individualHandDrillingData,
       });
   });
