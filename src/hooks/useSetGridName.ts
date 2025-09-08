@@ -2,7 +2,10 @@ import { AppState, AppStateStatus } from "react-native";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setGridName } from "@src/store/trainer";
-import { selectUserDataState } from "@src/store/userData";
+import {
+  reSortDataEntries,
+  selectUserDataState,
+} from "@src/store/userData";
 import sort from "@src/utils/sortDataEntries";
 
 const useAppFocusSetGridName = () => {
@@ -15,6 +18,7 @@ const useAppFocusSetGridName = () => {
     if (sorted.length > 0) {
       dispatch(setGridName(sorted[0].gridName));
     }
+    dispatch(reSortDataEntries());
   };
 
   // ✅ Run on app startup

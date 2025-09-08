@@ -40,11 +40,17 @@ const slice = createSlice({
       }
       state.dataEntries = sort(state.dataEntries);
     },
+    reSortDataEntries: (state) => {
+      state.dataEntries = sort(state.dataEntries);
+    },
   },
 });
 
-export const { setUserData, updateDataEntry } =
-  slice.actions;
+export const {
+  setUserData,
+  updateDataEntry,
+  reSortDataEntries,
+} = slice.actions;
 
 export const selectUserDataState = (state: RootState) =>
   state.userData;

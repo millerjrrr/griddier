@@ -60,11 +60,6 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   const newDataEntry = sort(dataEntries)[0];
   const newGridName = newDataEntry.gridName;
-
-  console.log(
-    newDataEntry.gridName,
-    newDataEntry.timeDrilling
-  );
   const standardButtons = newDataEntry.timeDrilling !== 0;
 
   const reset = (soft?: boolean) => {
