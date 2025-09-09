@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 10 * base,
     backgroundColor: colors.PRIMARY,
-    marginBottom: 40 * base,
     width,
   },
   text: {

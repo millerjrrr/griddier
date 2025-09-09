@@ -22,6 +22,7 @@ import screenDimensions from "@src/utils/screenDimensions";
 import usePlaySound from "@src/hooks/usePlaySound";
 import SpotDisplay from "@src/componentes/SpotDisplay";
 import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
+import Timer from "@src/componentes/Timer";
 const { height, width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -99,6 +100,7 @@ const Trainer: React.FC = () => {
           dataEntry={getDataEntries(gridName)}
         />
         <SpotName name={gridName} />
+        <Timer time={25000} />
         {showSpotDisplay ? (
           <SpotDisplay gridName={gridName}>
             <Cell

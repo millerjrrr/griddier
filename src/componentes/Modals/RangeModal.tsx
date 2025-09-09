@@ -203,7 +203,10 @@ const RangeModal: React.FC<RangeModalProps> = ({
               ? "Ready to revise this grid?"
               : "Memorize this grid. When you are ready..."}
           </InstructionText>
-          {feedback || dataEntry.level > 1 ? (
+          {feedback ||
+          dataEntry.level > 1 ||
+          dataEntry.lastStudied ===
+            formatDate(new Date()) ? (
             <>
               <ModalButton
                 text={

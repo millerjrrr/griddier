@@ -73,6 +73,7 @@ const SpotDisplay: React.FC<{
         borderColor: colors.CONTRAST,
         position: "relative",
         marginVertical: 10 * base,
+        marginTop: 40 * base,
         justifyContent: "center",
         alignItems: "center",
       }}

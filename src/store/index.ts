@@ -5,6 +5,7 @@ import {
 import { persistStore } from "redux-persist";
 import { combineReducers, Reducer } from "redux";
 import trainerReducer from "./trainer";
+import timerReducer from "./timer";
 import userDataReducer, { setUserData } from "./userData";
 import persistReducer from "redux-persist/es/persistReducer";
 import { fileBackedStorage } from "@src/utils/asyncStorage";
@@ -25,6 +26,7 @@ export const resetStore = createAction("RESET_STORE");
 const appReducers = combineReducers({
   trainer: trainerReducer,
   userData: userDataReducer,
+  timer: timerReducer,
 });
 
 const rootReducer: Reducer<RootState, any> = (
@@ -40,7 +42,7 @@ const rootReducer: Reducer<RootState, any> = (
 const persistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ["userData"], // ✅ only persist this slice
+  whitelist: ["userData", "timer"], // ✅ persist these slices
 };
 
 const persistedReducer = persistReducer(
