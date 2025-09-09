@@ -60,7 +60,10 @@ const SuccessModal: React.FC<RangeModalProps> = ({
 
   const newDataEntry = sort(dataEntries)[0];
   const newGridName = newDataEntry.gridName;
-  const standardButtons = newDataEntry.timeDrilling !== 0;
+  const standardButtons =
+    newDataEntry.timeDrilling !== 0 ||
+    dataEntries.filter((entry) => entry.level <= 1)
+      .length === 0;
 
   const reset = (soft?: boolean) => {
     dispatch(resetStartTime());
@@ -72,6 +75,18 @@ const SuccessModal: React.FC<RangeModalProps> = ({
   };
 
   const moveToNextGrid = () => {
+    dispatch(setGridName(newGridName));
+    initializeTrainerState(newGridName);
+    reset();
+  };
+
+  const unlockAndMoveToNextGrid = () => {
+    dispatch(
+      updateDataEntry({
+        gridName: newGridName,
+        dueDate: formatDate(new Date()),
+      })
+    );
     dispatch(setGridName(newGridName));
     initializeTrainerState(newGridName);
     reset();
@@ -165,7 +180,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
               />
               <ModalButton
                 text="Unlock a new Grid"
-                onPress={moveToNextGrid}
+                onPress={unlockAndMoveToNextGrid}
                 scale={0.9}
                 color={TURQ}
                 locked={false}
