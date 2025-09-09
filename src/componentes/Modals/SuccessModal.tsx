@@ -91,6 +91,7 @@ const SuccessModal: React.FC<RangeModalProps> = ({
       );
     });
     const gridNameForRevision = sort(L1s)[0].gridName;
+    dispatch(setGridName(gridNameForRevision));
     initializeTrainerState(gridNameForRevision);
     reset();
   };

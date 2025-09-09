@@ -71,7 +71,7 @@ const useInitializeTrainerState = () => {
         : sortHands(handsForReview);
 
     if (process.env.NODE_ENV === "development") {
-      handsForReview = handsForReview.slice(0, 2);
+      handsForReview = handsForReview.slice(0, 1);
     }
 
     dispatch(setRepeatsArray([]));
