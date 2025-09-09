@@ -100,7 +100,7 @@ const Trainer: React.FC = () => {
           dataEntry={getDataEntries(gridName)}
         />
         <SpotName name={gridName} />
-        <Timer time={25000} />
+        <Timer />
         {showSpotDisplay ? (
           <SpotDisplay gridName={gridName}>
             <Cell
