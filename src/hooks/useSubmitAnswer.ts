@@ -92,9 +92,6 @@ const useSubmitAnswer = () => {
       nextDate.getDate() + Math.pow(2, handData.level)
     );
 
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
     dispatch(incTimePlaying(timeInc));
     dispatch(incHandsPlayed());
     dispatch(resetStartTime());
@@ -138,7 +135,7 @@ const useSubmitAnswer = () => {
       // for a wrong answer
       // console.log("❌ Incorrect answer");
 
-      const newDueDate = formatDate(tomorrow);
+      const newDueDate = formatDate(today);
       if (index >= repeatsArray.length)
         dispatch(
           updateFilteredHand({
