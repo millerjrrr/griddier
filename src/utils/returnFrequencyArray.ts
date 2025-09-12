@@ -8,7 +8,7 @@ const returnFrequencyArray = (arr: number[]) => {
     freq[num]++;
   }
 
-  return freq;
+  return freq.slice(1);
 };
 
 export default returnFrequencyArray;

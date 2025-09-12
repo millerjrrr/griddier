@@ -21,7 +21,9 @@ const StatsContainer = ({ size = 22 }) => {
     .reduce((a, b) => a + b, 0);
 
   const handsPlayed = dataEntries
-    .map((entry) => entry.handsPlayed)
+    .map((entry) =>
+      !entry.handsPlayed ? 0 : entry.handsPlayed
+    )
     .reduce((a, b) => a + b, 0);
 
   return (
