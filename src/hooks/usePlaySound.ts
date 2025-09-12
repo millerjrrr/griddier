@@ -1,4 +1,4 @@
-import { Audio, InterruptionModeIOS } from "expo-av";
+import { Audio, InterruptionModeIOS } from "expo-audio";
 
 const pop = require("assets/sounds/pop.wav");
 

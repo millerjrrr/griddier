@@ -7,8 +7,8 @@ import useSetGridName from "@src/hooks/useSetGridName";
 import { NavigationParamList } from "@src/types";
 import Extras from "@src/screens/Extras";
 import colors from "@src/utils/colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import screenDimensions from "@src/utils/screenDimensions";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const { base } = screenDimensions();
 
 const Tab =
@@ -47,7 +47,7 @@ const RootNavigator: React.FC = () => {
           options={{
             tabBarIcon: ({ color, focused }) => (
               <MaterialCommunityIcons
-                name="google-controller"
+                name="controller-classic"
                 size={40 * base}
                 color={colors.CONTRAST}
               />

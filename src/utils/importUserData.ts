@@ -1,8 +1,7 @@
 import * as DocumentPicker from "expo-document-picker";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import Papa from "papaparse";
 import { DataEntry, StrictDateString } from "@src/types";
-import { Alert, Platform } from "react-native";
 import { setUserData } from "@src/store/userData";
 import { normalizeDate } from "./normalizeDate";
 import { setGridName } from "@src/store/trainer";
@@ -12,6 +11,7 @@ import {
   confirmOverwrite,
   showAlert,
 } from "./platformBasedAlerts";
+import { Platform } from "react-native";
 
 const removeSize100ForShoveRanges = (string: string) =>
   string.replace("->100", "");

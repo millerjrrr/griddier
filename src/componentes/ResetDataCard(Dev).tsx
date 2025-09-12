@@ -1,9 +1,9 @@
 import appShadow from "@src/utils/appShadow";
-import { Platform, Text, View } from "react-native";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
+import { Platform, Text, View } from "react-native";
 
 const { base } = screenDimensions();
 

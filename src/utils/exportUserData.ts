@@ -1,7 +1,7 @@
-import { Platform } from "react-native";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 import { DataEntry } from "@src/types";
+import { Platform } from "react-native";
 
 const generateCSVContent = (data: DataEntry[]): string => {
   const header = [
