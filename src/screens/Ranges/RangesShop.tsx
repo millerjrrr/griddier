@@ -2,27 +2,44 @@ import RangeModal from "@src/componentes/Modals/RangeModal";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeCard from "@src/componentes/RangeCard";
 import { selectUserDataState } from "@src/store/userData";
-import { DataEntry } from "@src/types";
+import {
+  DataEntry,
+  RangesStackParamsList,
+} from "@src/types";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 import BGContainer from "@src/componentes/BGContainer";
 import colors from "@src/utils/colors";
-import { setFeedback } from "@src/store/trainer";
-import DeleteModal from "@src/componentes/Modals/DeleteModal";
+import {
+  selectFilter,
+  setFeedback,
+  updateFilter,
+} from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
+import BackNavigationButton from "@src/componentes/BackNavigationButton";
+import FilterButton from "./components/FilterButton";
+import FilterOptions from "./components/FilterOptions";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 const { base } = screenDimensions();
 
-const RangesList = () => {
+const RangesShop = () => {
   const { dataEntries } = useSelector(selectUserDataState);
+  const filter = useSelector(selectFilter);
+  let data = dataEntries.filter(
+    (entry) => entry.dueDate === ""
+  );
+
+  if (filter.activated && filter.pos !== "")
+    data = data.filter(
+      (entry) => entry.gridName.slice(0, 2) === filter.pos
+    );
   const dispatch = useDispatch();
 
   const [selectedEntry, setSelectedEntry] =
     useState<DataEntry | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const [deleteModalVisible, setDeleteModalVisible] =
-    useState(false);
 
   const openModal = (entry: DataEntry) => {
     dispatch(setFeedback(false));
@@ -30,23 +47,34 @@ const RangesList = () => {
     setModalVisible(true);
   };
 
+  const navigation =
+    useNavigation<
+      StackNavigationProp<RangesStackParamsList>
+    >();
+
   const closeModal = () => {
+    navigation.goBack();
+    dispatch(updateFilter({ activated: false }));
     setSelectedEntry(null);
     setModalVisible(false);
   };
 
-  const openDeleteModal = (entry: DataEntry) => {
-    setSelectedEntry(entry);
-    setDeleteModalVisible(true);
-  };
-
-  const closeDeleteModal = () => {
-    setSelectedEntry(null);
-    setDeleteModalVisible(false);
-  };
-
   return (
     <BGContainer>
+      <BackNavigationButton />
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: colors.PRIMARY,
+          paddingBottom: 5,
+        }}
+      >
+        <FilterButton />
+        {filter.activated && <FilterOptions />}
+      </View>
       <View
         style={{
           flex: 1,
@@ -55,22 +83,14 @@ const RangesList = () => {
           width: "100%",
         }}
       >
-        {process.env.NODE_ENV === "development" && (
-          <ResetDataCard />
-        )}
         <RangeModal
           visible={modalVisible}
           dataEntry={selectedEntry}
           onClose={closeModal}
         />
-        <DeleteModal
-          visible={deleteModalVisible}
-          dataEntry={selectedEntry}
-          onClose={closeDeleteModal}
-        />
         <FadeBackgroundView height={20 * base} />
         <FlatList
-          data={dataEntries}
+          data={data}
           extraData={dataEntries}
           renderItem={({ item }) => {
             // must be called item for FlatList to work
@@ -78,9 +98,6 @@ const RangesList = () => {
               <RangeCard
                 dataEntry={item}
                 selectFunction={() => openModal(item)}
-                showDeleteModal={() =>
-                  openDeleteModal(item)
-                }
               />
             );
           }}
@@ -107,4 +124,4 @@ const RangesList = () => {
   );
 };
 
-export default RangesList;
+export default RangesShop;

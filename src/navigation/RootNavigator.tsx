@@ -1,6 +1,6 @@
 import React from "react";
 import Trainer from "@src/screens/Trainer";
-import RangesList from "@src/screens/RangesList";
+import RangesList from "@src/screens/Ranges/MyRanges";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import useSetGridName from "@src/hooks/useSetGridName";
@@ -9,6 +9,7 @@ import Extras from "@src/screens/Extras";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import RangesNavigator from "./RangesStack";
 const { base } = screenDimensions();
 
 const Tab =
@@ -56,7 +57,7 @@ const RootNavigator: React.FC = () => {
         />
         <Tab.Screen
           name="Ranges List"
-          component={RangesList}
+          component={RangesNavigator}
           options={{
             tabBarIcon: ({ color, focused }) => (
               <MaterialCommunityIcons

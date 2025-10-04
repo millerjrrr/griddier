@@ -8,13 +8,14 @@ const lockIcon = require("@assets/img/lock.png");
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
+import { Entypo } from "@expo/vector-icons";
 
 const { base } = screenDimensions();
 
 interface RangeCardProps {
   dataEntry: DataEntry;
   selectFunction: () => void;
-  showDeleteModal: () => void;
+  showDeleteModal?: () => void;
 }
 
 const RangeCard: React.FC<RangeCardProps> = ({
@@ -64,14 +65,10 @@ const RangeCard: React.FC<RangeCardProps> = ({
           {dataEntry.gridName}
         </Text>
         {locked ? (
-          <Image
-            source={lockIcon}
-            resizeMode="contain"
-            style={{
-              height: 30 * base,
-              width: 30 * base,
-              aspectRatio: 1,
-            }}
+          <Entypo
+            name="plus"
+            size={24}
+            color={colors.CONTRAST}
           />
         ) : (
           <DateWithIcon date={dataEntry.dueDate} />

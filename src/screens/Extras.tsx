@@ -10,6 +10,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
+import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 
 const Extras = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -61,6 +62,9 @@ const Extras = () => {
           onPress={exportUserData}
           title={"Export user data"}
         />
+        {process.env.NODE_ENV === "development" && (
+          <ResetDataCard />
+        )}
       </View>
       <AboutModal
         visible={modalVisible}

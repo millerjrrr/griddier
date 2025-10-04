@@ -215,7 +215,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startQuickReview}
                 scale={1}
                 color={GREEN}
-                locked={locked}
                 gridName={dataEntry.gridName}
                 shortcutKey=" "
               />
@@ -224,7 +223,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startFullReview}
                 scale={0.9}
                 color={TURQ}
-                locked={locked}
                 gridName={dataEntry.gridName}
                 shortcutKey="r"
               />
@@ -236,7 +234,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startFullReview}
                 scale={1}
                 color={GREEN}
-                locked={locked}
                 gridName={dataEntry.gridName}
                 shortcutKey=" "
               />
@@ -245,7 +242,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 onPress={startQuickReview}
                 scale={0.9}
                 color={TURQ}
-                locked={locked}
                 gridName={dataEntry.gridName}
                 shortcutKey="r"
               />
@@ -257,7 +253,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
             onPress={reviewTomorrow}
             scale={0.8}
             color={DARKRED}
-            locked={locked}
             gridName={dataEntry.gridName}
             shortcutKey="t"
           />

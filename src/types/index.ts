@@ -59,6 +59,24 @@ export type IndividualHandDrillingData = Record<
   DueLevelPair
 >;
 
+export const positions = [
+  "LJ",
+  "HJ",
+  "CO",
+  "BU",
+  "SB",
+  "BB",
+] as const;
+export type PositionName = (typeof positions)[number];
+export const vsActions = ["R", "3B", "4B", "R+3B"];
+export type VsActionFilter = (typeof vsActions)[number];
+
+export type Filter = {
+  activated: boolean;
+  pos: PositionName | "";
+  action: VsActionFilter | "";
+};
+
 export interface UserDataState {
   dataEntries: DataEntry[];
 }
@@ -118,14 +136,6 @@ type Day =
 
 export type StrictDateString = `${Year}-${Month}-${Day}`;
 
-export type PositionName =
-  | "LJ"
-  | "HJ"
-  | "CO"
-  | "BU"
-  | "SB"
-  | "BB";
-
 export type Pos =
   | "top"
   | "bottom"
@@ -144,4 +154,9 @@ export type SpotInfo = {
   BU?: { bet: number; cards: boolean };
   SB?: { bet: number; cards: boolean };
   BB?: { bet: number; cards: boolean };
+};
+
+export type RangesStackParamsList = {
+  MyRanges: undefined;
+  RangesShop: undefined;
 };

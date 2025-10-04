@@ -6,6 +6,7 @@ import {
 import { RootState } from "@src/store";
 import {
   DueLevelPair,
+  Filter,
   GridName,
   PokerHand,
   StrictDateString,
@@ -31,6 +32,7 @@ interface TrainerState {
   showSuccessModal: boolean;
   feedback: boolean;
   showCombos: boolean;
+  filter: Filter;
 }
 
 const gridName =
@@ -52,6 +54,7 @@ const initialState: TrainerState = {
   showSuccessModal: false,
   feedback: false,
   showCombos: false,
+  filter: { activated: false, pos: "", action: "" },
 };
 
 const slice = createSlice({
@@ -148,6 +151,12 @@ const slice = createSlice({
     toggleShowCombos(state) {
       state.showCombos = !state.showCombos;
     },
+    updateFilter: (
+      state,
+      action: PayloadAction<Partial<Filter>>
+    ) => {
+      state.filter = { ...state.filter, ...action.payload };
+    },
   },
 });
 
@@ -176,9 +185,13 @@ export const {
   setHandsPlayed,
   incHandsPlayed,
   toggleShowCombos,
+  updateFilter,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>
   state.trainer;
+
+export const selectFilter = (state: RootState) =>
+  state.trainer.filter;
 
 export default slice.reducer;
