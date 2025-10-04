@@ -157,6 +157,6 @@ export type SpotInfo = {
 };
 
 export type RangesStackParamsList = {
-  MyRanges: undefined;
-  RangesShop: undefined;
+  "My Ranges": undefined;
+  "Ranges Shop": undefined;
 };

@@ -2,6 +2,8 @@ import colors from "@src/utils/colors";
 import appShadow from "@src/utils/appShadow";
 import { AppTouchable } from "@src/componentes/AppPressables";
 import { ReactNode } from "react";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const ControlButton: React.FC<{
   children: ReactNode;
@@ -11,10 +13,10 @@ const ControlButton: React.FC<{
     <AppTouchable
       style={{
         backgroundColor: colors.PRIMARY,
-        borderRadius: 5,
-        padding: 2,
-        marginHorizontal: 5,
-        marginTop: 4,
+        borderRadius: 5 * base,
+        padding: 2 * base,
+        marginHorizontal: 5 * base,
+        marginTop: 4 * base,
         ...appShadow(colors.CONTRAST),
       }}
       onPress={onPress}

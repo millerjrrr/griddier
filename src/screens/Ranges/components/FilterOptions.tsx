@@ -15,6 +15,8 @@ import {
   selectFilter,
   updateFilter,
 } from "@src/store/trainer";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const SetFilterButton: React.FC<{
   name: PositionName | VsActionFilter;
@@ -49,18 +51,18 @@ const SetFilterButton: React.FC<{
     <AppTouchable
       style={{
         backgroundColor: colors.PRIMARY,
-        borderRadius: 100,
-        padding: 3,
-        width: name !== "R+3B" ? 30 : undefined,
-        height: 30,
+        borderRadius: 100 * base,
+        padding: 3 * base,
+        width: name !== "R+3B" ? 30 * base : undefined,
+        height: 30 * base,
         alignItems: "center",
         justifyContent: "center",
-        marginHorizontal: 5,
+        marginHorizontal: 5 * base,
         ...appShadow(colors.CONTRAST),
       }}
       onPress={onPress}
     >
-      <WhiteTextBold s={20} color={tintColor}>
+      <WhiteTextBold s={20 * base} color={tintColor}>
         {name}
       </WhiteTextBold>
     </AppTouchable>
@@ -75,8 +77,8 @@ const FilterOptions = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          padding: 8,
-          paddingBottom: 3,
+          padding: 8 * base,
+          paddingBottom: 3 * base,
           backgroundColor: colors.PRIMARY,
         }}
       >

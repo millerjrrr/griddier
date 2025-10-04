@@ -7,6 +7,7 @@ import {
 import { RangesStackParamsList } from "@src/types";
 import MyRanges from "@src/screens/Ranges/MyRanges";
 import RangesShop from "@src/screens/Ranges/RangesShop";
+import { Platform } from "react-native";
 
 const RangesStack =
   createStackNavigator<RangesStackParamsList>();
@@ -14,16 +15,18 @@ const RangesStack =
 const RangesNavigator = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
-    ...TransitionPresets.ModalPresentationIOS,
+    ...(Platform.OS === "ios"
+      ? TransitionPresets.ModalPresentationIOS
+      : {}),
   };
   return (
     <RangesStack.Navigator screenOptions={screenOptions}>
       <RangesStack.Screen
-        name="MyRanges"
+        name="My Ranges"
         component={MyRanges}
       />
       <RangesStack.Screen
-        name="RangesShop"
+        name="Ranges Shop"
         component={RangesShop}
       />
     </RangesStack.Navigator>

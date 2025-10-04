@@ -111,8 +111,8 @@ const MyRanges = () => {
             }}
           />
         ) : (
-          <View style={{ flex: 1, paddingTop: 50 }}>
-            <WhiteTextBold s={24}>
+          <View style={{ flex: 1, paddingTop: 50 * base }}>
+            <WhiteTextBold s={24 * base}>
               No ranges to display
             </WhiteTextBold>
           </View>

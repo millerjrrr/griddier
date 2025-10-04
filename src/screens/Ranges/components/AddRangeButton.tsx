@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import { RangesStackParamsList } from "@src/types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import ControlButton from "./ControlButton";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const AddRangeButton = () => {
   const navigation =
@@ -14,14 +16,14 @@ const AddRangeButton = () => {
     >();
 
   const goToRangesShop = () => {
-    navigation.navigate("RangesShop");
+    navigation.navigate("Ranges Shop");
   };
 
   return (
     <ControlButton onPress={goToRangesShop}>
       <Entypo
         name="plus"
-        size={24}
+        size={24 * base}
         color={colors.CONTRAST}
       />
     </ControlButton>

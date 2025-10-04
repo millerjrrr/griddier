@@ -1,6 +1,7 @@
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, View } from "react-native";
+import FadeBackgroundView from "./FadeBackgroundView";
 const { width, base } = screenDimensions();
 
 interface SpotNameProps {
@@ -12,32 +13,39 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
   const fontSize = name.length > 25 ? 25 * base : 30 * base;
 
   return (
-    <View style={[styles.container]}>
-      <Text
-        style={[
-          styles.text,
-          {
-            fontSize,
-          },
-        ]}
+    <View
+      style={{
+        width,
+      }}
+    >
+      <View style={{ width: "100%", height: 10 * base }}>
+        <FadeBackgroundView
+          height={10 * base}
+          position="bottom"
+        />
+      </View>
+      <View
+        style={{
+          backgroundColor: colors.PRIMARY,
+          width,
+        }}
       >
-        {name}
-      </Text>
+        <Text
+          style={{
+            color: colors.CONTRAST,
+            fontWeight: "bold",
+            textAlign: "center",
+            fontSize,
+          }}
+        >
+          {name}
+        </Text>
+      </View>
+      <View style={{ width: "100%", height: 10 * base }}>
+        <FadeBackgroundView height={10 * base} />
+      </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 10 * base,
-    backgroundColor: colors.PRIMARY,
-    width,
-  },
-  text: {
-    color: colors.CONTRAST,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
 
 export default SpotName;

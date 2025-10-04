@@ -2,10 +2,7 @@ import RangeModal from "@src/componentes/Modals/RangeModal";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeCard from "@src/componentes/RangeCard";
 import { selectUserDataState } from "@src/store/userData";
-import {
-  DataEntry,
-  RangesStackParamsList,
-} from "@src/types";
+import { DataEntry } from "@src/types";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,14 +11,11 @@ import colors from "@src/utils/colors";
 import {
   selectFilter,
   setFeedback,
-  updateFilter,
 } from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
 import BackNavigationButton from "@src/componentes/BackNavigationButton";
 import FilterButton from "./components/FilterButton";
 import FilterOptions from "./components/FilterOptions";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
@@ -47,14 +41,7 @@ const RangesShop = () => {
     setModalVisible(true);
   };
 
-  const navigation =
-    useNavigation<
-      StackNavigationProp<RangesStackParamsList>
-    >();
-
   const closeModal = () => {
-    navigation.goBack();
-    dispatch(updateFilter({ activated: false }));
     setSelectedEntry(null);
     setModalVisible(false);
   };
@@ -69,7 +56,7 @@ const RangesShop = () => {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: colors.PRIMARY,
-          paddingBottom: 5,
+          paddingBottom: 5 * base,
         }}
       >
         <FilterButton />

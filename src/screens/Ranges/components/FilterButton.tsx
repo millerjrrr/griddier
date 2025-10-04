@@ -6,6 +6,8 @@ import {
   selectFilter,
   updateFilter,
 } from "@src/store/trainer";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const FilterButton = () => {
   const filter = useSelector(selectFilter);
@@ -21,7 +23,7 @@ const FilterButton = () => {
     <ControlButton onPress={toggleFilter}>
       <Feather
         name="filter"
-        size={24}
+        size={24 * base}
         color={colors.CONTRAST}
       />
     </ControlButton>

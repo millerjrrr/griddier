@@ -10,11 +10,13 @@ import {
   selectTrainerState,
   setFeedback,
   setGridName,
+  updateFilter,
 } from "@src/store/trainer";
 import {
   DataEntry,
   HandsObject,
   NavigationParamList,
+  RangesStackParamsList,
 } from "@src/types";
 import Grid from "../Grid";
 import colors from "@src/utils/colors";
@@ -39,6 +41,7 @@ import {
   RangeModalTitle,
 } from "./ModalComponents";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 const { GREEN, TURQ, RED, CONTRAST, DARKRED } = colors;
 
@@ -102,6 +105,11 @@ const RangeModal: React.FC<RangeModalProps> = ({
 
   const newDrill = gridName !== dataEntry.gridName;
 
+  const rangesNavigation =
+    useNavigation<
+      StackNavigationProp<RangesStackParamsList>
+    >();
+
   const startQuickReview = () => {
     dispatch(resetStartTime());
     dispatch(resetActions());
@@ -109,6 +117,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
     dispatch(setGridName(dataEntry.gridName));
     if (newDrill)
       initializeTrainerState(dataEntry.gridName);
+    rangesNavigation.goBack();
+    dispatch(updateFilter({ activated: false }));
     onClose();
     navigation.navigate("Trainer" as never);
   };
@@ -119,6 +129,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
     dispatch(resetIndex());
     dispatch(setGridName(dataEntry.gridName));
     initializeTrainerState(dataEntry.gridName, false, true);
+    rangesNavigation.goBack();
+    dispatch(updateFilter({ activated: false }));
     onClose();
     navigation.navigate("Trainer" as never);
   };

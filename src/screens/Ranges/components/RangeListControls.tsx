@@ -5,6 +5,8 @@ import FilterButton from "./FilterButton";
 import FilterOptions from "./FilterOptions";
 import { useSelector } from "react-redux";
 import { selectFilter } from "@src/store/trainer";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const RangeListControls = () => {
   const filter = useSelector(selectFilter);
@@ -17,8 +19,8 @@ const RangeListControls = () => {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: 16,
-          paddingBottom: 3,
+          paddingTop: 16 * base,
+          paddingBottom: 3 * base,
           backgroundColor: colors.PRIMARY,
         }}
       >
