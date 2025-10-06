@@ -37453,8 +37453,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "CO vs LJ4 (19)": {
@@ -38503,8 +38502,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "CO vs HJ4 (19)": {
@@ -39558,8 +39556,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "54s",
       "AKo",
       "AQo",
-      "AJo",
-      "KQo"
+      "AJo"
     ]
   },
   "BU vs LJ4 (20)": {
@@ -41665,8 +41662,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "T9s",
       "65s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "BU vs CO4 (21)": {
@@ -42720,8 +42716,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "SB vs LJ4 (19->40)": {
@@ -43771,8 +43766,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "SB vs HJ4 (22->40)": {
@@ -44823,8 +44817,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "SB vs CO4 (25)": {
@@ -45878,9 +45871,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "54s",
       "AKo",
       "AQo",
-      "AJo",
-      "KQo",
-      "KJo"
+      "AJo"
     ]
   },
   "SB vs BU4 (26)": {
@@ -46939,8 +46930,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "AKo",
       "AQo",
-      "AJo",
-      "KQo"
+      "AJo"
     ]
   },
   "BB vs LJ4 (22->40)": {
@@ -47978,22 +47968,16 @@ export const GridData:Record<string, GridDataEntry> = {
       "KJs",
       "KTs",
       "K5s",
-      "K4s",
       "QJs",
       "QTs",
-      "Q9s",
       "JTs",
-      "J9s",
       "T9s",
       "98s",
       "87s",
       "76s",
       "65s",
       "54s",
-      "AKo",
-      "ATo",
-      "A5o",
-      "KQo"
+      "AKo"
     ]
   },
   "BB vs HJ4 (24.9)": {
@@ -49028,15 +49012,11 @@ export const GridData:Record<string, GridDataEntry> = {
       "A4s",
       "A2s",
       "K9s",
-      "K7s",
       "K6s",
       "K5s",
-      "K4s",
-      "K3s",
       "QJs",
       "QTs",
       "Q9s",
-      "Q8s",
       "JTs",
       "J9s",
       "T9s",
@@ -49046,11 +49026,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "ATo",
-      "A5o",
-      "A4o",
-      "KQo",
-      "KJo"
+      "ATo"
     ]
   },
   "BB vs CO4 (28)": {
@@ -50089,40 +50065,17 @@ export const GridData:Record<string, GridDataEntry> = {
       "KJs",
       "KTs",
       "K9s",
-      "K7s",
-      "K6s",
-      "K5s",
-      "K4s",
-      "K3s",
       "QJs",
       "QTs",
-      "Q8s",
-      "Q6s",
-      "Q5s",
-      "Q4s",
-      "Q3s",
-      "Q2s",
       "JTs",
-      "J9s",
-      "J8s",
-      "J7s",
-      "J6s",
       "T9s",
-      "T7s",
       "98s",
       "87s",
       "76s",
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "AJo",
-      "ATo",
-      "A5o",
-      "A4o",
-      "KQo",
-      "KJo",
-      "QJo"
+      "AQo"
     ]
   },
   "BB vs BU4 (27)": {
@@ -51170,18 +51123,10 @@ export const GridData:Record<string, GridDataEntry> = {
       "QJs",
       "QTs",
       "Q6s",
-      "Q5s",
-      "Q4s",
       "JTs",
       "J9s",
-      "J7s",
-      "J6s",
-      "J5s",
-      "J4s",
       "T9s",
       "T8s",
-      "T7s",
-      "T6s",
       "98s",
       "97s",
       "87s",
@@ -51191,18 +51136,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "54s",
       "AKo",
       "AQo",
-      "AJo",
-      "ATo",
-      "A9o",
-      "A5o",
-      "KQo",
-      "KJo",
-      "KTo",
-      "K9o",
-      "QJo",
-      "QTo",
-      "JTo",
-      "Q9o"
+      "AJo"
     ]
   },
   "BB vs SB4 (25)": {
@@ -52251,17 +52185,9 @@ export const GridData:Record<string, GridDataEntry> = {
       "J9s",
       "J7s",
       "J6s",
-      "J5s",
-      "J4s",
-      "J3s",
       "T9s",
       "T6s",
-      "T5s",
-      "T4s",
-      "T3s",
-      "T2s",
       "98s",
-      "95s",
       "87s",
       "76s",
       "65s",
@@ -52269,32 +52195,9 @@ export const GridData:Record<string, GridDataEntry> = {
       "AKo",
       "AQo",
       "AJo",
-      "A8o",
-      "A7o",
-      "A6o",
-      "A5o",
-      "A4o",
-      "A2o",
       "KQo",
       "KJo",
-      "K9o",
-      "K8o",
-      "K7o",
-      "K6o",
-      "K5o",
-      "QJo",
-      "QTo",
-      "JTo",
-      "J9o",
-      "T9o",
-      "Q9o",
-      "J8o",
-      "T8o",
-      "98o",
-      "Q8o",
-      "97o",
-      "J7o",
-      "T7o"
+      "K9o"
     ]
   },
   "BU4 vs CO3 vs LJO (2->6.5->13)": {
@@ -53316,9 +53219,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 38,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -54356,9 +54256,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 39,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -55396,9 +55293,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 40,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "AKs",
@@ -56434,9 +56328,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 41,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -56448,14 +56339,11 @@ export const GridData:Record<string, GridDataEntry> = {
       "A9s",
       "A8s",
       "A5s",
-      "A4s",
-      "A3s",
       "KQs",
       "KJs",
       "KTs",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "SB4 vs BU3 vs COO (2.3->7.5->21)": {
@@ -57477,9 +57365,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 42,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -57490,10 +57375,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "ATs",
       "A9s",
       "A8s",
-      "A7s",
-      "A6s",
       "A5s",
-      "A4s",
       "A3s",
       "A2s",
       "KQs",
@@ -57512,8 +57394,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "BB4 vs SB3 vs LJO (2->10->20)": {
@@ -58535,9 +58416,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 43,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -58548,10 +58426,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "ATs",
       "A9s",
       "A8s",
-      "A7s",
-      "A6s",
       "A5s",
-      "A4s",
       "KQs",
       "KJs",
       "KTs",
@@ -59579,9 +59454,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 44,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -59591,10 +59463,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "ATs",
       "A9s",
       "A8s",
-      "A7s",
-      "A6s",
       "A5s",
-      "A4s",
       "KQs",
       "KJs",
       "KTs",
@@ -60623,9 +60492,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 45,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -60636,10 +60502,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "ATs",
       "A9s",
       "A8s",
-      "A7s",
-      "A6s",
       "A5s",
-      "A4s",
       "KQs",
       "KJs",
       "KTs",
@@ -60647,8 +60510,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "QTs",
       "JTs",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   },
   "BB4 vs SB3 vs BUO (2.5->12->23)": {
@@ -61670,9 +61532,6 @@ export const GridData:Record<string, GridDataEntry> = {
     },
     "priority": 46,
     "featured": [
-      "AA",
-      "KK",
-      "QQ",
       "JJ",
       "TT",
       "99",
@@ -61683,10 +61542,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "ATs",
       "A9s",
       "A8s",
-      "A7s",
-      "A6s",
       "A5s",
-      "A4s",
       "KQs",
       "KJs",
       "KTs",
@@ -61694,8 +61550,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "QTs",
       "JTs",
       "AKo",
-      "AQo",
-      "KQo"
+      "AQo"
     ]
   }
 };

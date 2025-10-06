@@ -35,6 +35,11 @@
         "projectId": "455eebb6-dbc0-443d-80e0-cb60c5c5f6ec"
       }
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

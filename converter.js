@@ -322,7 +322,7 @@ function buildCombinedData() {
     )
   ) {
     throw new Error(
-      `Mismatch between gridNames row count and matrix columns count: \n Matrix Columns Count = ${allInCols.length} \n GridNames rows count = ${gridNames.length}`
+      `Mismatch between gridNames row count and matrix columns count: \n Matrix Columns Count = ${allInCols.length} \n GridNames rows count = ${gridTrio.length}`
     );
   }
 
