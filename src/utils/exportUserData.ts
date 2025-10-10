@@ -19,7 +19,11 @@ const generateCSVContent = (data: DataEntry[]): string => {
   const escapeCsvField = (field: string) =>
     `"${field.replace(/"/g, '""')}"`;
 
-  const rows = data.map((entry) =>
+  const filteredData = data.filter(
+    (point) => point.dueDate !== ""
+  );
+
+  const rows = filteredData.map((entry) =>
     [
       entry.gridName,
       entry.dueDate,

@@ -4548,7 +4548,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "J3s": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "J2s": {
@@ -4614,7 +4614,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "T5s": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "T4s": {
@@ -4686,7 +4686,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "95s": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "94s": {
@@ -4716,7 +4716,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "K8o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 2,
         "prior": 4
       },
       "Q8o": {
@@ -4728,19 +4728,19 @@ export const GridData:Record<string, GridDataEntry> = {
       "J8o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 1,
         "prior": 4
       },
       "T8o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 3,
         "prior": 4
       },
       "98o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 2,
         "prior": 4
       },
       "87s": {
@@ -4788,7 +4788,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "K7o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "Q7o": {
@@ -4818,7 +4818,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "87o": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 2,
         "prior": 4
       },
       "76s": {
@@ -4836,7 +4836,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "74s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 2,
         "prior": 4
       },
       "73s": {
@@ -4896,7 +4896,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "76o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "65s": {
@@ -4986,7 +4986,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "53s": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 3,
         "prior": 4
       },
       "52s": {
@@ -5070,7 +5070,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "A3o": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 0,
         "prior": 4
       },
       "K3o": {
@@ -9799,7 +9799,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "54o"
     ]
   },
-  "BB vs SB RFI 3 (9)": {
+  "BB vs SB RFI 3 (10)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -9827,14 +9827,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "66": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "77": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "88": {
@@ -9875,8 +9875,8 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "ATs": {
         "allin": 0,
-        "call": 0,
-        "raise": 4,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "A9s": {
@@ -9887,14 +9887,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "A8s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "A7s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "A6s": {
@@ -9911,14 +9911,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "A4s": {
         "allin": 0,
-        "call": 1,
-        "raise": 3,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "A3s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "A2s": {
@@ -9947,32 +9947,32 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "KJs": {
         "allin": 0,
-        "call": 0,
-        "raise": 4,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "KTs": {
         "allin": 0,
-        "call": 0,
-        "raise": 4,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "K9s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "K8s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "K7s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "K6s": {
@@ -10025,20 +10025,20 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "QJs": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "QTs": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 1,
+        "raise": 3,
         "prior": 4
       },
       "Q9s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 3,
+        "raise": 1,
         "prior": 4
       },
       "Q8s": {
@@ -10055,8 +10055,8 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "Q6s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "Q5s": {
@@ -10085,8 +10085,8 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "AJo": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "KJo": {
@@ -10097,8 +10097,8 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "QJo": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "JJ": {
@@ -10109,14 +10109,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "JTs": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 1,
+        "raise": 3,
         "prior": 4
       },
       "J9s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 1,
+        "raise": 3,
         "prior": 4
       },
       "J8s": {
@@ -10127,32 +10127,32 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "J7s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "J6s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "J5s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "J4s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "J3s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "J2s": {
@@ -10163,26 +10163,26 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "ATo": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 3,
+        "raise": 1,
         "prior": 4
       },
       "KTo": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 3,
+        "raise": 1,
         "prior": 4
       },
       "QTo": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "JTo": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "TT": {
@@ -10193,14 +10193,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "T9s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 0,
+        "raise": 4,
         "prior": 4
       },
       "T8s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "T7s": {
@@ -10211,26 +10211,26 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "T6s": {
         "allin": 0,
-        "call": 1,
-        "raise": 3,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "T5s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "T4s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "T3s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "T2s": {
@@ -10271,14 +10271,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "98s": {
         "allin": 0,
-        "call": 1,
-        "raise": 3,
+        "call": 0,
+        "raise": 4,
         "prior": 4
       },
       "97s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 2,
+        "raise": 2,
         "prior": 4
       },
       "96s": {
@@ -10289,32 +10289,32 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "95s": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "94s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 1,
+        "raise": 1,
         "prior": 4
       },
       "93s": {
         "allin": 0,
-        "call": 4,
-        "raise": 0,
+        "call": 3,
+        "raise": 1,
         "prior": 4
       },
       "92s": {
         "allin": 0,
-        "call": 4,
+        "call": 0,
         "raise": 0,
         "prior": 4
       },
       "A8o": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "K8o": {
@@ -10343,14 +10343,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "98o": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 4,
+        "raise": 0,
         "prior": 4
       },
       "87s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 0,
+        "raise": 4,
         "prior": 4
       },
       "86s": {
@@ -10397,26 +10397,26 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "Q7o": {
         "allin": 0,
-        "call": 1,
+        "call": 0,
         "raise": 0,
         "prior": 4
       },
       "J7o": {
         "allin": 0,
-        "call": 1,
-        "raise": 1,
+        "call": 0,
+        "raise": 2,
         "prior": 4
       },
       "T7o": {
         "allin": 0,
-        "call": 2,
+        "call": 0,
         "raise": 2,
         "prior": 4
       },
       "97o": {
         "allin": 0,
-        "call": 3,
-        "raise": 1,
+        "call": 2,
+        "raise": 0,
         "prior": 4
       },
       "87o": {
@@ -10427,8 +10427,8 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "76s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 0,
+        "raise": 4,
         "prior": 4
       },
       "75s": {
@@ -10470,7 +10470,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "Q6o": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "J6o": {
@@ -10493,20 +10493,20 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "86o": {
         "allin": 0,
-        "call": 1,
+        "call": 0,
         "raise": 0,
         "prior": 4
       },
       "76o": {
         "allin": 0,
-        "call": 4,
+        "call": 3,
         "raise": 0,
         "prior": 4
       },
       "65s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 1,
+        "raise": 3,
         "prior": 4
       },
       "64s": {
@@ -10523,7 +10523,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "62s": {
         "allin": 0,
-        "call": 4,
+        "call": 3,
         "raise": 0,
         "prior": 4
       },
@@ -10535,7 +10535,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "K5o": {
         "allin": 0,
-        "call": 2,
+        "call": 0,
         "raise": 1,
         "prior": 4
       },
@@ -10577,14 +10577,14 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "65o": {
         "allin": 0,
-        "call": 4,
+        "call": 2,
         "raise": 0,
         "prior": 4
       },
       "54s": {
         "allin": 0,
-        "call": 2,
-        "raise": 2,
+        "call": 1,
+        "raise": 3,
         "prior": 4
       },
       "53s": {
@@ -10655,7 +10655,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "54o": {
         "allin": 0,
-        "call": 3,
+        "call": 2,
         "raise": 0,
         "prior": 4
       },
@@ -18350,25 +18350,25 @@ export const GridData:Record<string, GridDataEntry> = {
       "33": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "44": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "55": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "66": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "77": {
@@ -18386,7 +18386,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "99": {
         "allin": 0,
         "call": 0,
-        "raise": 3,
+        "raise": 4,
         "prior": 4
       },
       "AA": {
@@ -18422,7 +18422,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "A9s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 2,
         "prior": 4
       },
       "A8s": {
@@ -18452,13 +18452,13 @@ export const GridData:Record<string, GridDataEntry> = {
       "A4s": {
         "allin": 0,
         "call": 0,
-        "raise": 2,
+        "raise": 4,
         "prior": 4
       },
       "A3s": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 2,
         "prior": 4
       },
       "A2s": {
@@ -18572,7 +18572,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "QTs": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 2,
         "prior": 4
       },
       "Q9s": {
@@ -18626,7 +18626,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "AJo": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "KJo": {
@@ -18650,7 +18650,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "JTs": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 2,
         "prior": 4
       },
       "J9s": {
@@ -18734,7 +18734,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "T9s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "T8s": {
@@ -18890,7 +18890,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "87s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "86s": {
@@ -18968,7 +18968,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "76s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "75s": {
@@ -19364,8 +19364,6 @@ export const GridData:Record<string, GridDataEntry> = {
       "66",
       "55",
       "44",
-      "33",
-      "22",
       "ATs",
       "A9s",
       "A5s",
@@ -19398,19 +19396,19 @@ export const GridData:Record<string, GridDataEntry> = {
       "33": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "44": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "55": {
         "allin": 0,
         "call": 0,
-        "raise": 1,
+        "raise": 0,
         "prior": 4
       },
       "66": {
@@ -19422,13 +19420,13 @@ export const GridData:Record<string, GridDataEntry> = {
       "77": {
         "allin": 0,
         "call": 0,
-        "raise": 2,
+        "raise": 1,
         "prior": 4
       },
       "88": {
         "allin": 0,
         "call": 0,
-        "raise": 4,
+        "raise": 2,
         "prior": 4
       },
       "99": {
@@ -19470,19 +19468,19 @@ export const GridData:Record<string, GridDataEntry> = {
       "A9s": {
         "allin": 0,
         "call": 0,
-        "raise": 2,
+        "raise": 4,
         "prior": 4
       },
       "A8s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 2,
         "prior": 4
       },
       "A7s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "A6s": {
@@ -19620,7 +19618,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "QTs": {
         "allin": 0,
         "call": 0,
-        "raise": 2,
+        "raise": 4,
         "prior": 4
       },
       "Q9s": {
@@ -19674,7 +19672,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "AJo": {
         "allin": 0,
         "call": 0,
-        "raise": 3,
+        "raise": 2,
         "prior": 4
       },
       "KJo": {
@@ -19938,7 +19936,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "87s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "86s": {
@@ -20016,7 +20014,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "76s": {
         "allin": 0,
         "call": 0,
-        "raise": 0,
+        "raise": 1,
         "prior": 4
       },
       "75s": {
@@ -20410,9 +20408,6 @@ export const GridData:Record<string, GridDataEntry> = {
       "77",
       "66",
       "55",
-      "44",
-      "33",
-      "22",
       "A9s",
       "A8s",
       "A4s",
@@ -36407,1055 +36402,6 @@ export const GridData:Record<string, GridDataEntry> = {
       "JTo"
     ]
   },
-  "HJ vs LJ4 (19)": {
-    "hands": {
-      "22": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 0
-      },
-      "33": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "44": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "55": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "66": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "77": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "88": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 2
-      },
-      "99": {
-        "allin": 0,
-        "call": 2,
-        "raise": 0,
-        "prior": 3
-      },
-      "AA": {
-        "allin": 2,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "AKs": {
-        "allin": 4,
-        "call": 0,
-        "raise": 0,
-        "prior": 4
-      },
-      "AQs": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 4
-      },
-      "AJs": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 4
-      },
-      "ATs": {
-        "allin": 0,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "A9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A8s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A7s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A6s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A5s": {
-        "allin": 0,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "A4s": {
-        "allin": 0,
-        "call": 1,
-        "raise": 0,
-        "prior": 2
-      },
-      "A3s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 1
-      },
-      "A2s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "AKo": {
-        "allin": 2,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "KK": {
-        "allin": 2,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "KQs": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 4
-      },
-      "KJs": {
-        "allin": 0,
-        "call": 1,
-        "raise": 0,
-        "prior": 4
-      },
-      "KTs": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 4
-      },
-      "K9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K8s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K7s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K6s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K5s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K4s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K3s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K2s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "AQo": {
-        "allin": 0,
-        "call": 1,
-        "raise": 0,
-        "prior": 4
-      },
-      "KQo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 2
-      },
-      "QQ": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 4
-      },
-      "QJs": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 4
-      },
-      "QTs": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q8s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q7s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q6s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q5s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q4s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q3s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q2s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "AJo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "KJo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "QJo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "JJ": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 4
-      },
-      "JTs": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 1
-      },
-      "J9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J8s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J7s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J6s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J5s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J4s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J3s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J2s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "ATo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "KTo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "QTo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "JTo": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "TT": {
-        "allin": 0,
-        "call": 2,
-        "raise": 0,
-        "prior": 4
-      },
-      "T9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T8s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T7s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T6s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T5s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T4s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T3s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T2s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A9o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K9o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q9o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J9o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T9o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "98s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "97s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "96s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "95s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "94s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "93s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "92s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A8o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K8o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q8o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J8o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T8o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "98o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "87s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "86s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "85s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "84s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "83s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "82s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A7o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K7o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q7o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J7o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T7o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "97o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "87o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "76s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "75s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "74s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "73s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "72s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A6o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K6o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q6o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J6o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T6o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "96o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "86o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "76o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "65s": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 2
-      },
-      "64s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "63s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "62s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A5o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K5o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q5o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J5o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T5o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "95o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "85o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "75o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "65o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "54s": {
-        "allin": 0,
-        "call": 4,
-        "raise": 0,
-        "prior": 1
-      },
-      "53s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "52s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A4o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K4o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q4o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J4o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T4o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "94o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "84o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "74o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "64o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "54o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "43s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "42s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A3o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K3o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q3o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J3o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T3o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "93o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "83o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "73o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "63o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "53o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "43o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "32s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "A2o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "K2o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q2o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "J2o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "T2o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "92o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "82o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "72o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "62o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "52o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "42o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "32o": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      }
-    },
-    "priority": 54,
-    "featured": [
-      "AA",
-      "KK",
-      "QQ",
-      "JJ",
-      "TT",
-      "99",
-      "88",
-      "77",
-      "66",
-      "55",
-      "44",
-      "33",
-      "AKs",
-      "AQs",
-      "AJs",
-      "ATs",
-      "A5s",
-      "A4s",
-      "A3s",
-      "KQs",
-      "KJs",
-      "KTs",
-      "QJs",
-      "JTs",
-      "65s",
-      "54s",
-      "AKo",
-      "AQo"
-    ]
-  },
   "CO vs LJ4 (19)": {
     "hands": {
       "22": {
@@ -37468,25 +36414,25 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "44": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "55": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "66": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "77": {
         "allin": 0,
@@ -37496,7 +36442,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "88": {
         "allin": 0,
-        "call": 4,
+        "call": 2,
         "raise": 0,
         "prior": 2
       },
@@ -37504,7 +36450,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 2,
         "raise": 0,
-        "prior": 3
+        "prior": 4
       },
       "AA": {
         "allin": 2,
@@ -37540,7 +36486,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "A8s": {
         "allin": 0,
@@ -37570,13 +36516,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 1,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "A3s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "A2s": {
         "allin": 0,
@@ -37690,7 +36636,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "Q9s": {
         "allin": 0,
@@ -37744,7 +36690,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "KJo": {
         "allin": 0,
@@ -37768,7 +36714,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "J9s": {
         "allin": 0,
@@ -37852,7 +36798,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "T8s": {
         "allin": 0,
@@ -38006,9 +36952,9 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "87s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "86s": {
         "allin": 0,
@@ -38084,9 +37030,9 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "76s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "75s": {
         "allin": 0,
@@ -38484,9 +37430,6 @@ export const GridData:Record<string, GridDataEntry> = {
       "88",
       "77",
       "66",
-      "55",
-      "44",
-      "33",
       "AKs",
       "AQs",
       "AJs",
@@ -38499,6 +37442,8 @@ export const GridData:Record<string, GridDataEntry> = {
       "KTs",
       "QJs",
       "JTs",
+      "87s",
+      "76s",
       "65s",
       "54s",
       "AKo",
@@ -38517,19 +37462,19 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "44": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "55": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "66": {
         "allin": 0,
@@ -38541,13 +37486,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 3,
         "raise": 0,
-        "prior": 2
+        "prior": 1
       },
       "88": {
         "allin": 0,
         "call": 2,
         "raise": 0,
-        "prior": 4
+        "prior": 2
       },
       "99": {
         "allin": 0,
@@ -38589,19 +37534,19 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "A8s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "A7s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "A6s": {
         "allin": 0,
@@ -38739,7 +37684,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "Q9s": {
         "allin": 0,
@@ -38793,7 +37738,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 3
+        "prior": 2
       },
       "KJo": {
         "allin": 0,
@@ -39055,9 +38000,9 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "87s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "86s": {
         "allin": 0,
@@ -39133,9 +38078,9 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "76s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "75s": {
         "allin": 0,
@@ -39533,9 +38478,6 @@ export const GridData:Record<string, GridDataEntry> = {
       "88",
       "77",
       "66",
-      "55",
-      "44",
-      "33",
       "AKs",
       "AQs",
       "AJs",
@@ -39552,11 +38494,12 @@ export const GridData:Record<string, GridDataEntry> = {
       "QTs",
       "JTs",
       "T9s",
+      "87s",
+      "76s",
       "65s",
       "54s",
       "AKo",
-      "AQo",
-      "AJo"
+      "AQo"
     ]
   },
   "BU vs LJ4 (20)": {
@@ -47950,7 +46893,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       }
     },
-    "priority": 55,
+    "priority": 54,
     "featured": [
       "AA",
       "KK",
@@ -48997,7 +47940,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       }
     },
-    "priority": 56,
+    "priority": 55,
     "featured": [
       "AA",
       "KK",
@@ -50046,7 +48989,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       }
     },
-    "priority": 57,
+    "priority": 56,
     "featured": [
       "AA",
       "KK",
@@ -51095,7 +50038,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       }
     },
-    "priority": 58,
+    "priority": 57,
     "featured": [
       "AA",
       "KK",
@@ -51139,7 +50082,7 @@ export const GridData:Record<string, GridDataEntry> = {
       "AJo"
     ]
   },
-  "BB vs SB4 (25)": {
+  "BB vs SB4 (21)": {
     "hands": {
       "22": {
         "allin": 0,
@@ -51169,13 +50112,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "77": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 0
       },
       "88": {
         "allin": 0,
@@ -51196,8 +50139,8 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "AKs": {
-        "allin": 4,
-        "call": 0,
+        "allin": 2,
+        "call": 2,
         "raise": 0,
         "prior": 4
       },
@@ -51217,7 +50160,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 4
+        "prior": 0
       },
       "A9s": {
         "allin": 0,
@@ -51226,16 +50169,16 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "A8s": {
-        "allin": 0,
+        "allin": 4,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "A7s": {
-        "allin": 0,
-        "call": 0,
+        "allin": 2,
+        "call": 2,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "A6s": {
         "allin": 0,
@@ -51253,13 +50196,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 2,
         "call": 2,
         "raise": 0,
-        "prior": 3
+        "prior": 0
       },
       "A3s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 0
       },
       "A2s": {
         "allin": 0,
@@ -51289,31 +50232,31 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 4
+        "prior": 0
       },
       "KTs": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 4
+        "prior": 0
       },
       "K9s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "K8s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "K7s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "K6s": {
         "allin": 0,
@@ -51346,8 +50289,8 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 0
       },
       "AQo": {
-        "allin": 0,
-        "call": 4,
+        "allin": 1,
+        "call": 3,
         "raise": 0,
         "prior": 3
       },
@@ -51364,22 +50307,22 @@ export const GridData:Record<string, GridDataEntry> = {
         "prior": 4
       },
       "QJs": {
+        "allin": 4,
+        "call": 0,
+        "raise": 0,
+        "prior": 2
+      },
+      "QTs": {
+        "allin": 0,
+        "call": 4,
+        "raise": 0,
+        "prior": 3
+      },
+      "Q9s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
         "prior": 1
-      },
-      "QTs": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
-      },
-      "Q9s": {
-        "allin": 0,
-        "call": 0,
-        "raise": 0,
-        "prior": 0
       },
       "Q8s": {
         "allin": 0,
@@ -51397,7 +50340,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "Q5s": {
         "allin": 0,
@@ -51427,11 +50370,11 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "KJo": {
         "allin": 0,
-        "call": 1,
+        "call": 4,
         "raise": 0,
         "prior": 1
       },
@@ -51439,11 +50382,11 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "JJ": {
-        "allin": 3,
-        "call": 1,
+        "allin": 2,
+        "call": 2,
         "raise": 0,
         "prior": 4
       },
@@ -51451,13 +50394,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 3
       },
       "J9s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 1
+        "prior": 3
       },
       "J8s": {
         "allin": 0,
@@ -51469,31 +50412,31 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "J6s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 2
+        "prior": 0
       },
       "J5s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "J4s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "J3s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "J2s": {
         "allin": 0,
@@ -51503,27 +50446,27 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "ATo": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "KTo": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "QTo": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "JTo": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "TT": {
         "allin": 1,
@@ -51535,13 +50478,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "T8s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "T7s": {
         "allin": 0,
@@ -51553,25 +50496,25 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 3
+        "prior": 2
       },
       "T5s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "T4s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "T3s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "T2s": {
         "allin": 0,
@@ -51613,13 +50556,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 3
+        "prior": 4
       },
       "97s": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
-        "prior": 0
+        "prior": 2
       },
       "96s": {
         "allin": 0,
@@ -51631,19 +50574,19 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "94s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "93s": {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "92s": {
         "allin": 0,
@@ -51655,7 +50598,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "K8o": {
         "allin": 0,
@@ -51685,13 +50628,13 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "87s": {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "86s": {
         "allin": 0,
@@ -51745,7 +50688,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 2
       },
       "T7o": {
         "allin": 0,
@@ -51757,7 +50700,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 1
+        "prior": 0
       },
       "87o": {
         "allin": 0,
@@ -51769,7 +50712,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 4
       },
       "75s": {
         "allin": 0,
@@ -51811,7 +50754,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 0,
         "raise": 0,
-        "prior": 0
+        "prior": 1
       },
       "J6o": {
         "allin": 0,
@@ -51847,7 +50790,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 3
       },
       "64s": {
         "allin": 0,
@@ -51869,7 +50812,7 @@ export const GridData:Record<string, GridDataEntry> = {
       },
       "A5o": {
         "allin": 0,
-        "call": 0,
+        "call": 4,
         "raise": 0,
         "prior": 1
       },
@@ -51925,7 +50868,7 @@ export const GridData:Record<string, GridDataEntry> = {
         "allin": 0,
         "call": 4,
         "raise": 0,
-        "prior": 2
+        "prior": 3
       },
       "53s": {
         "allin": 0,
@@ -52166,28 +51109,27 @@ export const GridData:Record<string, GridDataEntry> = {
       "99",
       "88",
       "77",
-      "66",
       "AKs",
       "AQs",
       "AJs",
-      "ATs",
+      "A8s",
+      "A7s",
       "A5s",
-      "A4s",
-      "A3s",
       "KQs",
-      "KJs",
-      "KTs",
       "K9s",
+      "K8s",
+      "K7s",
       "K6s",
       "QJs",
-      "Q6s",
+      "QTs",
+      "Q9s",
       "JTs",
       "J9s",
-      "J7s",
-      "J6s",
       "T9s",
+      "T8s",
       "T6s",
       "98s",
+      "97s",
       "87s",
       "76s",
       "65s",
@@ -52195,8 +51137,12 @@ export const GridData:Record<string, GridDataEntry> = {
       "AKo",
       "AQo",
       "AJo",
+      "ATo",
+      "A5o",
+      "A4o",
       "KQo",
       "KJo",
+      "KTo",
       "K9o"
     ]
   },
@@ -61551,6 +60497,2122 @@ export const GridData:Record<string, GridDataEntry> = {
       "JTs",
       "AKo",
       "AQo"
+    ]
+  },
+  "SB vs LJ RFI 2 (10) with flats": {
+    "hands": {
+      "22": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "33": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "44": {
+        "allin": 0,
+        "call": 3,
+        "raise": 0,
+        "prior": 4
+      },
+      "55": {
+        "allin": 0,
+        "call": 3,
+        "raise": 0,
+        "prior": 4
+      },
+      "66": {
+        "allin": 0,
+        "call": 4,
+        "raise": 0,
+        "prior": 4
+      },
+      "77": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "88": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "99": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "AA": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AKs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AQs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AJs": {
+        "allin": 0,
+        "call": 1,
+        "raise": 3,
+        "prior": 4
+      },
+      "ATs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A9s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "A8s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "A7s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 1,
+        "prior": 4
+      },
+      "A6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A5s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A4s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A3s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 1,
+        "prior": 4
+      },
+      "A2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "AKo": {
+        "allin": 0,
+        "call": 1,
+        "raise": 3,
+        "prior": 4
+      },
+      "KK": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "KQs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "KJs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "KTs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "K9s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "K8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "AQo": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "KQo": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "QQ": {
+        "allin": 0,
+        "call": 1,
+        "raise": 3,
+        "prior": 4
+      },
+      "QJs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "QTs": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "Q9s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "AJo": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "KJo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "QJo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "JJ": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "JTs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "J9s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "J8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "ATo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "KTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "QTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "JTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "TT": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "T9s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "T8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "98s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "97s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "96s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "95s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "94s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "93s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "92s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "98o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "87s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "86s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "85s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "84s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "83s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "82s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "97o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "87o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "76s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "75s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "74s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "73s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "72s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "96o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "86o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "76o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "65s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 2,
+        "prior": 4
+      },
+      "64s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "63s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "62s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "95o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "85o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "75o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "65o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "54s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "53s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "52s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "94o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "84o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "74o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "64o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "54o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "43s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "42s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "93o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "83o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "73o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "63o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "53o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "43o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "32s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "92o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "82o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "72o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "62o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "52o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "42o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "32o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      }
+    },
+    "priority": 58,
+    "featured": [
+      "QQ",
+      "JJ",
+      "TT",
+      "99",
+      "88",
+      "77",
+      "66",
+      "AKs",
+      "AQs",
+      "AJs",
+      "ATs",
+      "A9s",
+      "A8s",
+      "A7s",
+      "A6s",
+      "A5s",
+      "A4s",
+      "A3s",
+      "A2s",
+      "KQs",
+      "KJs",
+      "KTs",
+      "K9s",
+      "QJs",
+      "QTs",
+      "Q9s",
+      "JTs",
+      "J9s",
+      "T9s",
+      "98s",
+      "87s",
+      "76s",
+      "65s",
+      "54s",
+      "AKo",
+      "AQo",
+      "AJo"
+    ]
+  },
+  "SB vs HJ RFI 2 (11) with flats": {
+    "hands": {
+      "22": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "33": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "44": {
+        "allin": 0,
+        "call": 3,
+        "raise": 0,
+        "prior": 4
+      },
+      "55": {
+        "allin": 0,
+        "call": 4,
+        "raise": 0,
+        "prior": 4
+      },
+      "66": {
+        "allin": 0,
+        "call": 4,
+        "raise": 0,
+        "prior": 4
+      },
+      "77": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "88": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "99": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "AA": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AKs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AQs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "AJs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "ATs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A9s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "A8s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "A7s": {
+        "allin": 0,
+        "call": 3,
+        "raise": 1,
+        "prior": 4
+      },
+      "A6s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 0,
+        "prior": 4
+      },
+      "A5s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A4s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A3s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "A2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 1,
+        "prior": 4
+      },
+      "AKo": {
+        "allin": 0,
+        "call": 1,
+        "raise": 3,
+        "prior": 4
+      },
+      "KK": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "KQs": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "KJs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "KTs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "K9s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "K8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K6s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "K5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "AQo": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "KQo": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "QQ": {
+        "allin": 0,
+        "call": 0,
+        "raise": 4,
+        "prior": 4
+      },
+      "QJs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "QTs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "Q9s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "AJo": {
+        "allin": 0,
+        "call": 2,
+        "raise": 1,
+        "prior": 4
+      },
+      "KJo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "QJo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "JJ": {
+        "allin": 0,
+        "call": 1,
+        "raise": 3,
+        "prior": 4
+      },
+      "JTs": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "J9s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "ATo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "KTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "QTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "JTo": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "TT": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "T9s": {
+        "allin": 0,
+        "call": 2,
+        "raise": 2,
+        "prior": 4
+      },
+      "T8s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T7s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T6s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T5s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T4s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T3s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T2s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T9o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "98s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "97s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "96s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "95s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "94s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "93s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "92s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T8o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "98o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "87s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "86s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "85s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "84s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "83s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "82s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T7o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "97o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "87o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "76s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 0,
+        "prior": 4
+      },
+      "75s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "74s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "73s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "72s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T6o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "96o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "86o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "76o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "65s": {
+        "allin": 0,
+        "call": 1,
+        "raise": 1,
+        "prior": 4
+      },
+      "64s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "63s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "62s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T5o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "95o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "85o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "75o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "65o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "54s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "53s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "52s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T4o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "94o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "84o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "74o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "64o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "54o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "43s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "42s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T3o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "93o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "83o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "73o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "63o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "53o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "43o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "32s": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "A2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "K2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "Q2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "J2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "T2o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "92o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "82o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "72o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "62o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "52o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "42o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      },
+      "32o": {
+        "allin": 0,
+        "call": 0,
+        "raise": 0,
+        "prior": 4
+      }
+    },
+    "priority": 59,
+    "featured": [
+      "QQ",
+      "JJ",
+      "TT",
+      "99",
+      "88",
+      "77",
+      "66",
+      "AKs",
+      "AQs",
+      "AJs",
+      "ATs",
+      "A9s",
+      "A8s",
+      "A7s",
+      "A6s",
+      "A5s",
+      "A4s",
+      "A3s",
+      "A2s",
+      "KQs",
+      "KJs",
+      "KTs",
+      "K9s",
+      "QJs",
+      "QTs",
+      "Q9s",
+      "JTs",
+      "J9s",
+      "T9s",
+      "98s",
+      "87s",
+      "76s",
+      "65s",
+      "54s",
+      "AKo",
+      "AQo",
+      "AJo"
     ]
   }
 };

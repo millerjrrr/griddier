@@ -12,6 +12,7 @@ import {
   showAlert,
 } from "./platformBasedAlerts";
 import { Platform } from "react-native";
+import { addUserData } from "./addUserData";
 
 const removeSize100ForShoveRanges = (string: string) =>
   string.replace("->100", "");
@@ -139,32 +140,31 @@ export const parseAndValidateCsv = (
     }
   );
 
+  const trimmedCSVData = parsedData.filter(
+    (point) => point.dueDate !== ""
+  );
   const gridNames = Object.keys(GridData);
   const gridNamesSet = new Set(gridNames);
-  const missing = [...gridNamesSet].filter(
-    (g) => !csvGridNames.has(g)
+
+  const filteredCSVData = trimmedCSVData.filter((point) =>
+    gridNamesSet.has(point.gridName)
   );
-  const extra = [...csvGridNames].filter(
+
+  const missing = [...csvGridNames].filter(
     (g) => !gridNamesSet.has(g)
   );
 
   if (missing.length > 0) {
     showAlert(
       "Error",
-      `Missing grids in file: ${missing.join(", ")}`
+      `These grids have been updated or replaced and are no longer supported: ${missing.join(
+        ", "
+      )}`
     );
-    return null;
   }
 
-  if (extra.length > 0) {
-    showAlert(
-      "Error",
-      `Unexpected grid names in file: ${extra.join(", ")}`
-    );
-    return null;
-  }
-
-  return parsedData;
+  const fullData = addUserData(filteredCSVData);
+  return fullData;
 };
 
 export const importUserDataFromCsv = async (
