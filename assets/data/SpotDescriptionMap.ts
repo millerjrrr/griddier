@@ -487,7 +487,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
-    SB: { bet: 25, cards: true },
+    SB: { bet: 21, cards: true },
     BB: { bet: 10, cards: true },
   },
   "BU4 vs CO3 vs LJO (2->6.5->13)": {

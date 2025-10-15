@@ -3,6 +3,7 @@ import { RootState } from "@src/store";
 import { DataEntry, UserDataState } from "@src/types";
 import getInitialUserData from "@src/utils/getInitialUserData";
 import sort from "@src/utils/sortDataEntries";
+import { GridData } from "@assets/data/GridData";
 
 const initialState: UserDataState = {
   dataEntries: getInitialUserData(),
@@ -43,6 +44,12 @@ const slice = createSlice({
     reSortDataEntries: (state) => {
       state.dataEntries = sort(state.dataEntries);
     },
+    cleanDataEntries: (state) => {
+      state.dataEntries = state.dataEntries.filter(
+        (entry) =>
+          Object.keys(GridData).includes(entry.gridName)
+      );
+    },
   },
 });
 
@@ -50,6 +57,7 @@ export const {
   setUserData,
   updateDataEntry,
   reSortDataEntries,
+  cleanDataEntries,
 } = slice.actions;
 
 export const selectUserDataState = (state: RootState) =>

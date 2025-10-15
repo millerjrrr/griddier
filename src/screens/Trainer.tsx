@@ -23,6 +23,7 @@ import usePlaySound from "@src/hooks/usePlaySound";
 import SpotDisplay from "@src/componentes/SpotDisplay";
 import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 import Timer from "@src/componentes/Timer";
+import { cleanDataEntries } from "@src/store/userData";
 const { height, width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -37,17 +38,28 @@ const Trainer: React.FC = () => {
 
   const initializeTrainerState =
     useInitializeTrainerState();
-
   const getDataEntries = useGetDataEntries();
 
+  const dispatch = useDispatch();
+
+  // Validate GridName
   useEffect(() => {
-    initializeTrainerState(gridName, false);
+    const validGridNames = Object.keys(GridData);
+    const isValidGrid = validGridNames.includes(gridName);
+
+    const safeGridName = isValidGrid
+      ? gridName
+      : validGridNames[0];
+
+    if (!isValidGrid) {
+      dispatch(cleanDataEntries());
+    }
+
+    initializeTrainerState(safeGridName, false);
   }, [gridName]);
 
   const { prior } =
     GridData[gridName].hands[filteredHandsArray[index]];
-
-  const dispatch = useDispatch();
 
   useFocusEffect(
     useCallback(() => {
