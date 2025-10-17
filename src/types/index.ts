@@ -146,6 +146,7 @@ export type Pos =
 
 export type SpotInfo = {
   hero: PositionName;
+  vsAction: VsActionFilter;
   stacks: 50 | 100 | 150 | 200;
   raiseSize: number;
   LJ?: { bet: number; cards: boolean };

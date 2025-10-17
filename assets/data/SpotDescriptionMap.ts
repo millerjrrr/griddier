@@ -4,15 +4,22 @@ export const SpotDescriptionMap: Record<
   GridName,
   SpotInfo
 > = {
-  "LJ RFI 2": { hero: "LJ", stacks: 100, raiseSize: 2 },
+  "LJ RFI 2": {
+    hero: "LJ",
+    vsAction: "",
+    stacks: 100,
+    raiseSize: 2,
+  },
   "HJ RFI 2": {
     hero: "HJ",
+    vsAction: "",
     stacks: 100,
     raiseSize: 2,
     LJ: { bet: 0, cards: false },
   },
   "CO RFI 2.3": {
     hero: "CO",
+    vsAction: "",
     stacks: 100,
     raiseSize: 2.3,
     LJ: { bet: 0, cards: false },
@@ -20,6 +27,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU RFI 2.5": {
     hero: "BU",
+    vsAction: "",
     stacks: 100,
     raiseSize: 2.5,
     LJ: { bet: 0, cards: false },
@@ -28,6 +36,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB RFI 3": {
     hero: "SB",
+    vsAction: "",
     stacks: 100,
     raiseSize: 3,
     LJ: { bet: 0, cards: false },
@@ -37,6 +46,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs LJ RFI 2 (12)": {
     hero: "BB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 12,
     LJ: { bet: 2, cards: true },
@@ -47,6 +57,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs HJ RFI 2 (12.3)": {
     hero: "BB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 12.3,
     LJ: { bet: 0, cards: false },
@@ -57,6 +68,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs CO RFI 2.3 (13.5)": {
     hero: "BB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 13.5,
     LJ: { bet: 0, cards: false },
@@ -67,6 +79,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs BU RFI 2.5 (13)": {
     hero: "BB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 13,
     LJ: { bet: 0, cards: false },
@@ -77,6 +90,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs SB RFI 3 (10)": {
     hero: "BB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 10,
     LJ: { bet: 0, cards: false },
@@ -87,6 +101,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs LJ RFI 2 (10)": {
     hero: "SB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 10,
     LJ: { bet: 2, cards: true },
@@ -96,6 +111,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs HJ RFI 2 (11)": {
     hero: "SB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 11,
     LJ: { bet: 0, cards: false },
@@ -105,6 +121,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs CO RFI 2.3 (11.5)": {
     hero: "SB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 11.5,
     LJ: { bet: 0, cards: false },
@@ -114,6 +131,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs BU RFI 2.5 (12)": {
     hero: "SB",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 12,
     LJ: { bet: 0, cards: false },
@@ -123,6 +141,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs LJ RFI 2 (7.5)": {
     hero: "BU",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 7.5,
     LJ: { bet: 2, cards: true },
@@ -131,6 +150,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs HJ RFI 2 (7.5)": {
     hero: "BU",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 7.5,
     LJ: { bet: 0, cards: false },
@@ -139,6 +159,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs CO RFI 2.3 (7.5)": {
     hero: "BU",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 7.5,
     LJ: { bet: 0, cards: false },
@@ -147,6 +168,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO vs LJ RFI 2 (6.5)": {
     hero: "CO",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 6.5,
     LJ: { bet: 2, cards: true },
@@ -154,6 +176,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO vs HJ RFI 2 (6.5)": {
     hero: "CO",
+    vsAction: "R",
     stacks: 100,
     raiseSize: 6.5,
     LJ: { bet: 0, cards: false },
@@ -161,6 +184,7 @@ export const SpotDescriptionMap: Record<
   },
   "LJ RFI vs HJ/CO3 (6.5->19)": {
     hero: "LJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 19,
     LJ: { bet: 2, cards: true },
@@ -172,6 +196,7 @@ export const SpotDescriptionMap: Record<
   },
   "LJ RFI vs BU3 (7.5->20)": {
     hero: "LJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 20,
     LJ: { bet: 2, cards: true },
@@ -183,6 +208,7 @@ export const SpotDescriptionMap: Record<
   },
   "LJ RFI vs SB3 (10->19)": {
     hero: "LJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 19,
     LJ: { bet: 2, cards: true },
@@ -194,6 +220,7 @@ export const SpotDescriptionMap: Record<
   },
   "LJ RFI vs BB3 (12->22)": {
     hero: "LJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 22,
     LJ: { bet: 2, cards: true },
@@ -205,6 +232,7 @@ export const SpotDescriptionMap: Record<
   },
   "HJ RFI vs CO3 (6.5->19)": {
     hero: "HJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 19,
     LJ: { bet: 0, cards: false },
@@ -216,6 +244,7 @@ export const SpotDescriptionMap: Record<
   },
   "HJ RFI vs BU3 (7.5->20)": {
     hero: "HJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 20,
     LJ: { bet: 0, cards: false },
@@ -227,6 +256,7 @@ export const SpotDescriptionMap: Record<
   },
   "HJ RFI vs SB3 (11->22)": {
     hero: "HJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 22,
     LJ: { bet: 0, cards: false },
@@ -238,6 +268,7 @@ export const SpotDescriptionMap: Record<
   },
   "HJ RFI vs BB3 (12.3->24.9)": {
     hero: "HJ",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 24.9,
     LJ: { bet: 0, cards: false },
@@ -249,6 +280,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO RFI vs BU3 (7.5->21)": {
     hero: "CO",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 21,
     LJ: { bet: 0, cards: false },
@@ -260,6 +292,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO RFI vs SB3 (11.5->25)": {
     hero: "CO",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 25,
     LJ: { bet: 0, cards: false },
@@ -271,6 +304,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO RFI vs BB3 (13.5->28)": {
     hero: "CO",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 28,
     LJ: { bet: 0, cards: false },
@@ -282,6 +316,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU RFI vs SB3 (12->26)": {
     hero: "BU",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 26,
     LJ: { bet: 0, cards: false },
@@ -293,6 +328,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU RFI vs BB3 (13->27)": {
     hero: "BU",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 27,
     LJ: { bet: 0, cards: false },
@@ -304,6 +340,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB RFI vs BB3 (9->25)": {
     hero: "SB",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 25,
     SB: { bet: 3, cards: true },
@@ -315,6 +352,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB RFI vs BB3 (10->21)": {
     hero: "SB",
+    vsAction: "3B",
     stacks: 100,
     raiseSize: 21,
     SB: { bet: 3, cards: true },
@@ -326,6 +364,7 @@ export const SpotDescriptionMap: Record<
   },
   "HJ vs LJ4 (19)": {
     hero: "HJ",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 19, cards: true },
@@ -337,6 +376,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO vs LJ4 (19)": {
     hero: "CO",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 19, cards: true },
@@ -348,6 +388,7 @@ export const SpotDescriptionMap: Record<
   },
   "CO vs HJ4 (19)": {
     hero: "CO",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -359,6 +400,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs LJ4 (20)": {
     hero: "BU",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 20, cards: true },
@@ -370,6 +412,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs HJ4 (20)": {
     hero: "BU",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -381,6 +424,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU vs CO4 (21)": {
     hero: "BU",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -393,6 +437,7 @@ export const SpotDescriptionMap: Record<
 
   "SB vs LJ4 (19->40)": {
     hero: "SB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 40,
     LJ: { bet: 19, cards: true },
@@ -404,6 +449,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs HJ4 (22->40)": {
     hero: "SB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 40,
     LJ: { bet: 0, cards: false },
@@ -415,6 +461,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs CO4 (25)": {
     hero: "SB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -426,6 +473,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB vs BU4 (26)": {
     hero: "SB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -437,6 +485,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs LJ4 (22->40)": {
     hero: "BB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 40,
     LJ: { bet: 22, cards: true },
@@ -448,6 +497,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs HJ4 (24.9)": {
     hero: "BB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -459,6 +509,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs CO4 (28)": {
     hero: "BB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -470,6 +521,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs BU4 (27)": {
     hero: "BB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -481,6 +533,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB vs SB4 (21)": {
     hero: "BB",
+    vsAction: "4B",
     stacks: 100,
     raiseSize: 100,
     LJ: { bet: 0, cards: false },
@@ -492,6 +545,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU4 vs CO3 vs LJO (2->6.5->13)": {
     hero: "BU",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 13,
     LJ: { bet: 2, cards: true },
@@ -503,6 +557,7 @@ export const SpotDescriptionMap: Record<
   },
   "BU4 vs CO3 vs HJO (2->6.5->13)": {
     hero: "BU",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 13,
     LJ: { bet: 0, cards: false },
@@ -514,6 +569,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB4 vs BU3 vs LJO (2->7.5->20)": {
     hero: "SB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 20,
     LJ: { bet: 2, cards: true },
@@ -525,6 +581,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB4 vs BU3 vs HJO (2->7.5->21)": {
     hero: "SB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 21,
     LJ: { bet: 0, cards: false },
@@ -536,6 +593,7 @@ export const SpotDescriptionMap: Record<
   },
   "SB4 vs BU3 vs COO (2.3->7.5->21)": {
     hero: "SB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 21,
     LJ: { bet: 0, cards: false },
@@ -547,6 +605,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB4 vs SB3 vs LJO (2->10->20)": {
     hero: "BB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 20,
     LJ: { bet: 2, cards: true },
@@ -558,6 +617,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB4 vs SB3 vs HJO (2->11->23)": {
     hero: "BB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 23,
     LJ: { bet: 0, cards: false },
@@ -569,6 +629,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB4 vs SB3 vs COO (2.3->11.5->25)": {
     hero: "BB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 25,
     LJ: { bet: 0, cards: false },
@@ -580,6 +641,7 @@ export const SpotDescriptionMap: Record<
   },
   "BB4 vs SB3 vs BUO (2.5->12->23)": {
     hero: "BB",
+    vsAction: "R+3B",
     stacks: 100,
     raiseSize: 23,
     LJ: { bet: 0, cards: false },
@@ -588,5 +650,41 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 2.5, cards: true },
     SB: { bet: 12, cards: true },
     BB: { bet: 1, cards: true },
+  },
+  "SB vs LJ RFI 2 (10) with flats": {
+    hero: "SB",
+    vsAction: "R",
+    stacks: 100,
+    raiseSize: 10,
+    LJ: { bet: 2, cards: true },
+    HJ: { bet: 0, cards: false },
+    CO: { bet: 0, cards: false },
+    BU: { bet: 0, cards: false },
+  },
+  "SB vs HJ RFI 2 (11) with flats": {
+    hero: "SB",
+    vsAction: "R",
+    stacks: 100,
+    raiseSize: 10,
+    LJ: { bet: 2, cards: true },
+    HJ: { bet: 0, cards: false },
+    CO: { bet: 0, cards: false },
+    BU: { bet: 0, cards: false },
+  },
+  "CO vs LJ RFI 2 (6.5) with flats": {
+    hero: "CO",
+    vsAction: "R",
+    stacks: 100,
+    raiseSize: 6.5,
+    LJ: { bet: 2, cards: true },
+    HJ: { bet: 0, cards: false },
+  },
+  "CO vs HJ RFI 2 (6.5) with flats": {
+    hero: "CO",
+    vsAction: "R",
+    stacks: 100,
+    raiseSize: 6.5,
+    LJ: { bet: 0, cards: false },
+    HJ: { bet: 2, cards: true },
   },
 };

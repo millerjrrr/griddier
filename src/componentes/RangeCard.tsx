@@ -55,9 +55,10 @@ const RangeCard: React.FC<RangeCardProps> = ({
         <Text
           style={{
             fontSize:
-              dataEntry.gridName.length < 25 * base
+              dataEntry.gridName.length <
+              (!locked ? 28 : 35)
                 ? 20 * base
-                : 15 * base,
+                : 17 * base,
             fontWeight: "bold",
             color: colors.CONTRAST,
           }}

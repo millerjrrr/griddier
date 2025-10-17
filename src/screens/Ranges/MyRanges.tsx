@@ -16,6 +16,7 @@ import DeleteModal from "@src/componentes/Modals/DeleteModal";
 import screenDimensions from "@src/utils/screenDimensions";
 import RangeListControls from "./components/RangeListControls";
 import { WhiteTextBold } from "@src/componentes/AppText";
+import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 const { base } = screenDimensions();
 
 const MyRanges = () => {
@@ -27,7 +28,16 @@ const MyRanges = () => {
 
   if (filter.activated && filter.pos !== "")
     data = data.filter(
-      (entry) => entry.gridName.slice(0, 2) === filter.pos
+      (entry) =>
+        SpotDescriptionMap[entry.gridName]?.hero ===
+        filter.pos
+    );
+
+  if (filter.activated && filter.action !== "")
+    data = data.filter(
+      (entry) =>
+        SpotDescriptionMap[entry.gridName]?.vsAction ===
+        filter.action
     );
 
   const dispatch = useDispatch();

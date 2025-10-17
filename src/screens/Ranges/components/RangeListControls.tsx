@@ -8,7 +8,9 @@ import { selectFilter } from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
 const { base } = screenDimensions();
 
-const RangeListControls = () => {
+const RangeListControls: React.FC<{ noPlus?: boolean }> = ({
+  noPlus,
+}) => {
   const filter = useSelector(selectFilter);
 
   return (
@@ -24,7 +26,7 @@ const RangeListControls = () => {
           backgroundColor: colors.PRIMARY,
         }}
       >
-        <AddRangeButton />
+        {!noPlus && <AddRangeButton />}
         <FilterButton />
       </View>
       {filter.activated && <FilterOptions />}

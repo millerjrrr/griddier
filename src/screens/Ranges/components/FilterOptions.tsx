@@ -77,8 +77,8 @@ const FilterOptions = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          padding: 8 * base,
-          paddingBottom: 3 * base,
+          paddingTop: 12 * base,
+          padding: 4 * base,
           backgroundColor: colors.PRIMARY,
         }}
       >
@@ -86,19 +86,21 @@ const FilterOptions = () => {
           <SetFilterButton key={position} name={position} />
         ))}
       </View>
-      {/* <View
+      <View
         style={{
           flexDirection: "row",
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
+          padding: 4 * base,
+          paddingBottom: 3 * base,
           backgroundColor: colors.PRIMARY,
         }}
       >
         {vsActions.map((position) => (
           <SetFilterButton key={position} name={position} />
         ))}
-      </View> */}
+      </View>
     </View>
   );
 };

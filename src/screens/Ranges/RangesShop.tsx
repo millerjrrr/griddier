@@ -14,8 +14,9 @@ import {
 } from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
 import BackNavigationButton from "@src/componentes/BackNavigationButton";
-import FilterButton from "./components/FilterButton";
-import FilterOptions from "./components/FilterOptions";
+import RangeListControls from "./components/RangeListControls";
+import { WhiteTextBold } from "@src/componentes/AppText";
+import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
@@ -27,8 +28,18 @@ const RangesShop = () => {
 
   if (filter.activated && filter.pos !== "")
     data = data.filter(
-      (entry) => entry.gridName.slice(0, 2) === filter.pos
+      (entry) =>
+        SpotDescriptionMap[entry.gridName]?.hero ===
+        filter.pos
     );
+
+  if (filter.activated && filter.action !== "")
+    data = data.filter(
+      (entry) =>
+        SpotDescriptionMap[entry.gridName]?.vsAction ===
+        filter.action
+    );
+
   const dispatch = useDispatch();
 
   const [selectedEntry, setSelectedEntry] =
@@ -49,19 +60,7 @@ const RangesShop = () => {
   return (
     <BGContainer>
       <BackNavigationButton />
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: colors.PRIMARY,
-          paddingBottom: 5 * base,
-        }}
-      >
-        <FilterButton />
-        {filter.activated && <FilterOptions />}
-      </View>
+      <RangeListControls noPlus />
       <View
         style={{
           flex: 1,
@@ -76,31 +75,39 @@ const RangesShop = () => {
           onClose={closeModal}
         />
         <FadeBackgroundView height={20 * base} />
-        <FlatList
-          data={data}
-          extraData={dataEntries}
-          renderItem={({ item }) => {
-            // must be called item for FlatList to work
-            return (
-              <RangeCard
-                dataEntry={item}
-                selectFunction={() => openModal(item)}
-              />
-            );
-          }}
-          keyExtractor={(item) => item.gridName}
-          style={{
-            flex: 1,
-            width: "100%",
-            paddingVertical: 20 * base,
-            paddingHorizontal: 15 * base,
-            backgroundColor: "transparent",
-          }}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            paddingBottom: 80 * base,
-          }}
-        />
+        {data.length > 0 ? (
+          <FlatList
+            data={data}
+            extraData={dataEntries}
+            renderItem={({ item }) => {
+              // must be called item for FlatList to work
+              return (
+                <RangeCard
+                  dataEntry={item}
+                  selectFunction={() => openModal(item)}
+                />
+              );
+            }}
+            keyExtractor={(item) => item.gridName}
+            style={{
+              flex: 1,
+              width: "100%",
+              paddingVertical: 20 * base,
+              paddingHorizontal: 15 * base,
+              backgroundColor: "transparent",
+            }}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingBottom: 80 * base,
+            }}
+          />
+        ) : (
+          <View style={{ flex: 1, paddingTop: 50 * base }}>
+            <WhiteTextBold s={24 * base}>
+              No ranges to display for this filter
+            </WhiteTextBold>
+          </View>
+        )}
         <FadeBackgroundView
           height={30 * base}
           position={"bottom"}

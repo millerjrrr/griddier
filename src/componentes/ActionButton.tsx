@@ -146,6 +146,12 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     Fold: "F",
   };
 
+  const raiseSize = Object.keys(
+    SpotDescriptionMap
+  ).includes(gridName)
+    ? SpotDescriptionMap[gridName].raiseSize + "x"
+    : "Raise";
+
   return (
     <AppTouchable
       style={[
@@ -175,7 +181,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           Platform.OS === "web"
             ? shortcutMap[name]
             : name === "Raise"
-            ? SpotDescriptionMap[gridName].raiseSize + "x"
+            ? raiseSize
             : name
         }`}
       </Text>

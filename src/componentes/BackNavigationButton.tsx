@@ -6,6 +6,9 @@ import React from "react";
 import { AppTouchable } from "./AppPressables";
 import { useDispatch } from "react-redux";
 import { updateFilter } from "@src/store/trainer";
+import screenDimensions from "@src/utils/screenDimensions";
+
+const { base } = screenDimensions();
 
 const BackNavigationButton = () => {
   const navigation = useNavigation();
@@ -19,12 +22,14 @@ const BackNavigationButton = () => {
   return (
     <View
       style={{
-        width: "100%",
+        width: 100 * base,
         padding: 5,
         paddingHorizontal: 15,
         alignItems: "flex-start",
         justifyContent: "center",
-        backgroundColor: colors.PRIMARY,
+        position: "absolute",
+        top: 0,
+        zIndex: 1000,
       }}
     >
       <AppTouchable onPress={onPress}>
