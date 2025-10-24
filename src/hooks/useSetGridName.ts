@@ -14,7 +14,9 @@ const useAppFocusSetGridName = () => {
   const appState = useRef(AppState.currentState);
 
   const setInitialGrid = () => {
-    const sorted = sort(dataEntries);
+    const sorted = sort(
+      dataEntries.filter((entry) => entry.dueDate !== "")
+    );
     if (sorted.length > 0) {
       dispatch(setGridName(sorted[0].gridName));
     }

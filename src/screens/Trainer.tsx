@@ -111,7 +111,9 @@ const Trainer: React.FC = () => {
           visible={showSuccessModal}
           dataEntry={getDataEntries(gridName)}
         />
-        <SpotName name={gridName} />
+        <SpotName
+          name={gridName.slice(gridName.indexOf(" ") + 1)}
+        />
         <Timer />
         {showSpotDisplay ? (
           <SpotDisplay gridName={gridName}>

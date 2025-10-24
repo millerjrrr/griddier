@@ -18,7 +18,6 @@ const Tab =
 
 const RootNavigator: React.FC = () => {
   useSetGridName();
-  useCleanData();
   return (
     <NavigationContainer>
       <Tab.Navigator
