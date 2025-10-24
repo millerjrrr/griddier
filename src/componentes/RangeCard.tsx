@@ -1,10 +1,9 @@
 import { DataEntry } from "@src/types";
 import appShadow from "@src/utils/appShadow";
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import LevelStars from "./LevelStars";
 import Clock from "./Clock";
 import DateWithIcon from "./DateWithIcon";
-const lockIcon = require("@assets/img/lock.png");
 import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
@@ -16,12 +15,14 @@ interface RangeCardProps {
   dataEntry: DataEntry;
   selectFunction: () => void;
   showDeleteModal?: () => void;
+  showStackSize?: boolean;
 }
 
 const RangeCard: React.FC<RangeCardProps> = ({
   dataEntry,
   selectFunction,
   showDeleteModal,
+  showStackSize,
 }) => {
   const onPress = selectFunction;
   const locked = dataEntry.dueDate === "";
@@ -31,6 +32,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
       style={{
         marginVertical: 8 * base,
         padding: 5 * base,
+        paddingLeft: showStackSize ? 20 * base : 5 * base,
         width: "100%",
         ...appShadow(colors.CONTRAST),
         borderWidth: 2 * base,
@@ -39,10 +41,35 @@ const RangeCard: React.FC<RangeCardProps> = ({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.PRIMARY,
+        position: "relative",
       }}
       onPress={onPress}
       onLongPress={showDeleteModal}
     >
+      {showStackSize && (
+        <View
+          style={{
+            transform: [{ rotate: "-45deg" }],
+            position: "absolute",
+            left: 0,
+            top: 5 * base,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 15 * base,
+              fontWeight: "bold",
+              color: colors.CONTRAST,
+              textAlign: "center",
+            }}
+          >
+            {dataEntry.gridName.slice(
+              0,
+              dataEntry.gridName.indexOf(" ")
+            )}
+          </Text>
+        </View>
+      )}
       <View
         style={{
           width: "100%",
@@ -63,8 +90,11 @@ const RangeCard: React.FC<RangeCardProps> = ({
             color: colors.CONTRAST,
           }}
         >
-          {dataEntry.gridName}
+          {dataEntry.gridName.slice(
+            dataEntry.gridName.indexOf(" ") + 1
+          )}
         </Text>
+
         {locked ? (
           <Entypo
             name="plus"

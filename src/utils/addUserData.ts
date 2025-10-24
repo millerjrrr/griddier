@@ -1,6 +1,7 @@
 import { DataEntry } from "@src/types";
 import { GridData } from "@assets/data/GridData";
 import formatDate from "./formatDate";
+import { OrderedKeys } from "@assets/data/OrderedKeys";
 
 export const addUserData = (
   existingData: DataEntry[]
@@ -13,7 +14,10 @@ export const addUserData = (
 
   gridNames.forEach((gridName) => {
     const individualHandDrillingData = {};
-    const priority = GridData[gridName].priority;
+    const priority =
+      OrderedKeys.indexOf(gridName) === -1
+        ? 1000
+        : OrderedKeys.indexOf(gridName) + 1;
 
     const today = formatDate(new Date());
 

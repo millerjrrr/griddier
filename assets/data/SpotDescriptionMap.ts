@@ -4,20 +4,20 @@ export const SpotDescriptionMap: Record<
   GridName,
   SpotInfo
 > = {
-  "LJ RFI 2": {
+  "100 LJ RFI 2": {
     hero: "LJ",
     vsAction: "",
     stacks: 100,
     raiseSize: 2,
   },
-  "HJ RFI 2": {
+  "100 HJ RFI 2": {
     hero: "HJ",
     vsAction: "",
     stacks: 100,
     raiseSize: 2,
     LJ: { bet: 0, cards: false },
   },
-  "CO RFI 2.3": {
+  "100 CO RFI 2.3": {
     hero: "CO",
     vsAction: "",
     stacks: 100,
@@ -25,7 +25,7 @@ export const SpotDescriptionMap: Record<
     LJ: { bet: 0, cards: false },
     HJ: { bet: 0, cards: false },
   },
-  "BU RFI 2.5": {
+  "100 BU RFI 2.5": {
     hero: "BU",
     vsAction: "",
     stacks: 100,
@@ -34,7 +34,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     CO: { bet: 0, cards: false },
   },
-  "SB RFI 3": {
+  "100 SB RFI 3": {
     hero: "SB",
     vsAction: "",
     stacks: 100,
@@ -44,7 +44,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
   },
-  "BB vs LJ RFI 2 (12)": {
+  "100 BB vs LJ RFI 2 (12)": {
     hero: "BB",
     vsAction: "R",
     stacks: 100,
@@ -55,7 +55,7 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 0, cards: false },
     SB: { bet: 0.5, cards: false },
   },
-  "BB vs HJ RFI 2 (12.3)": {
+  "100 BB vs HJ RFI 2 (12.3)": {
     hero: "BB",
     vsAction: "R",
     stacks: 100,
@@ -66,7 +66,7 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 0, cards: false },
     SB: { bet: 0.5, cards: false },
   },
-  "BB vs CO RFI 2.3 (13.5)": {
+  "100 BB vs CO RFI 2.3 (13.5)": {
     hero: "BB",
     vsAction: "R",
     stacks: 100,
@@ -77,7 +77,7 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 0, cards: false },
     SB: { bet: 0.5, cards: false },
   },
-  "BB vs BU RFI 2.5 (13)": {
+  "100 BB vs BU RFI 2.5 (13)": {
     hero: "BB",
     vsAction: "R",
     stacks: 100,
@@ -88,7 +88,7 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 2.5, cards: true },
     SB: { bet: 0.5, cards: false },
   },
-  "BB vs SB RFI 3 (10)": {
+  "100 BB vs SB RFI 3 (10)": {
     hero: "BB",
     vsAction: "R",
     stacks: 100,
@@ -99,7 +99,7 @@ export const SpotDescriptionMap: Record<
     BU: { bet: 0, cards: false },
     SB: { bet: 3, cards: true },
   },
-  "SB vs LJ RFI 2 (10)": {
+  "100 SB vs LJ RFI 2 (10)": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -109,7 +109,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
   },
-  "SB vs HJ RFI 2 (11)": {
+  "100 SB vs HJ RFI 2 (11)": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -119,7 +119,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
   },
-  "SB vs CO RFI 2.3 (11.5)": {
+  "100 SB vs CO RFI 2.3 (11.5)": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -129,7 +129,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 2.3, cards: true },
     BU: { bet: 0, cards: false },
   },
-  "SB vs BU RFI 2.5 (12)": {
+  "100 SB vs BU RFI 2.5 (12)": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -139,7 +139,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 2.5, cards: true },
   },
-  "BU vs LJ RFI 2 (7.5)": {
+  "100 BU vs LJ RFI 2 (7.5)": {
     hero: "BU",
     vsAction: "R",
     stacks: 100,
@@ -148,7 +148,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     CO: { bet: 0, cards: false },
   },
-  "BU vs HJ RFI 2 (7.5)": {
+  "100 BU vs HJ RFI 2 (7.5)": {
     hero: "BU",
     vsAction: "R",
     stacks: 100,
@@ -157,7 +157,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 2, cards: true },
     CO: { bet: 0, cards: false },
   },
-  "BU vs CO RFI 2.3 (7.5)": {
+  "100 BU vs CO RFI 2.3 (7.5)": {
     hero: "BU",
     vsAction: "R",
     stacks: 100,
@@ -166,7 +166,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     CO: { bet: 2.3, cards: true },
   },
-  "CO vs LJ RFI 2 (6.5)": {
+  "100 CO vs LJ RFI 2 (6.5)": {
     hero: "CO",
     vsAction: "R",
     stacks: 100,
@@ -174,7 +174,7 @@ export const SpotDescriptionMap: Record<
     LJ: { bet: 2, cards: true },
     HJ: { bet: 0, cards: false },
   },
-  "CO vs HJ RFI 2 (6.5)": {
+  "100 CO vs HJ RFI 2 (6.5)": {
     hero: "CO",
     vsAction: "R",
     stacks: 100,
@@ -182,7 +182,7 @@ export const SpotDescriptionMap: Record<
     LJ: { bet: 0, cards: false },
     HJ: { bet: 2, cards: true },
   },
-  "LJ RFI vs HJ/CO3 (6.5->19)": {
+  "100 LJ RFI vs HJ/CO3 (6.5->19)": {
     hero: "LJ",
     vsAction: "3B",
     stacks: 100,
@@ -194,7 +194,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "LJ RFI vs BU3 (7.5->20)": {
+  "100 LJ RFI vs BU3 (7.5->20)": {
     hero: "LJ",
     vsAction: "3B",
     stacks: 100,
@@ -206,7 +206,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "LJ RFI vs SB3 (10->19)": {
+  "100 LJ RFI vs SB3 (10->19)": {
     hero: "LJ",
     vsAction: "3B",
     stacks: 100,
@@ -218,7 +218,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 10, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "LJ RFI vs BB3 (12->22)": {
+  "100 LJ RFI vs BB3 (12->22)": {
     hero: "LJ",
     vsAction: "3B",
     stacks: 100,
@@ -230,7 +230,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 12, cards: true },
   },
-  "HJ RFI vs CO3 (6.5->19)": {
+  "100 HJ RFI vs CO3 (6.5->19)": {
     hero: "HJ",
     vsAction: "3B",
     stacks: 100,
@@ -242,7 +242,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "HJ RFI vs BU3 (7.5->20)": {
+  "100 HJ RFI vs BU3 (7.5->20)": {
     hero: "HJ",
     vsAction: "3B",
     stacks: 100,
@@ -254,7 +254,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "HJ RFI vs SB3 (11->22)": {
+  "100 HJ RFI vs SB3 (11->22)": {
     hero: "HJ",
     vsAction: "3B",
     stacks: 100,
@@ -266,7 +266,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "HJ RFI vs BB3 (12.3->24.9)": {
+  "100 HJ RFI vs BB3 (12.3->24.9)": {
     hero: "HJ",
     vsAction: "3B",
     stacks: 100,
@@ -278,7 +278,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 12.3, cards: true },
   },
-  "CO RFI vs BU3 (7.5->21)": {
+  "100 CO RFI vs BU3 (7.5->21)": {
     hero: "CO",
     vsAction: "3B",
     stacks: 100,
@@ -290,7 +290,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "CO RFI vs SB3 (11.5->25)": {
+  "100 CO RFI vs SB3 (11.5->25)": {
     hero: "CO",
     vsAction: "3B",
     stacks: 100,
@@ -302,7 +302,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11.5, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "CO RFI vs BB3 (13.5->28)": {
+  "100 CO RFI vs BB3 (13.5->28)": {
     hero: "CO",
     vsAction: "3B",
     stacks: 100,
@@ -314,7 +314,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 13.5, cards: true },
   },
-  "BU RFI vs SB3 (12->26)": {
+  "100 BU RFI vs SB3 (12->26)": {
     hero: "BU",
     vsAction: "3B",
     stacks: 100,
@@ -326,7 +326,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 12, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "BU RFI vs BB3 (13->27)": {
+  "100 BU RFI vs BB3 (13->27)": {
     hero: "BU",
     vsAction: "3B",
     stacks: 100,
@@ -338,7 +338,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 13, cards: true },
   },
-  "SB RFI vs BB3 (9->25)": {
+  "100 SB RFI vs BB3 (9->25)": {
     hero: "SB",
     vsAction: "3B",
     stacks: 100,
@@ -350,7 +350,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     LJ: { bet: 0, cards: false },
   },
-  "SB RFI vs BB3 (10->21)": {
+  "100 SB RFI vs BB3 (10->21)": {
     hero: "SB",
     vsAction: "3B",
     stacks: 100,
@@ -362,7 +362,7 @@ export const SpotDescriptionMap: Record<
     HJ: { bet: 0, cards: false },
     LJ: { bet: 0, cards: false },
   },
-  "HJ vs LJ4 (19)": {
+  "100 HJ vs LJ4 (19)": {
     hero: "HJ",
     vsAction: "4B",
     stacks: 100,
@@ -374,7 +374,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "CO vs LJ4 (19)": {
+  "100 CO vs LJ4 (19)": {
     hero: "CO",
     vsAction: "4B",
     stacks: 100,
@@ -386,7 +386,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "CO vs HJ4 (19)": {
+  "100 CO vs HJ4 (19)": {
     hero: "CO",
     vsAction: "4B",
     stacks: 100,
@@ -398,7 +398,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "BU vs LJ4 (20)": {
+  "100 BU vs LJ4 (20)": {
     hero: "BU",
     vsAction: "4B",
     stacks: 100,
@@ -410,7 +410,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "BU vs HJ4 (20)": {
+  "100 BU vs HJ4 (20)": {
     hero: "BU",
     vsAction: "4B",
     stacks: 100,
@@ -422,7 +422,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 1, cards: false },
   },
-  "BU vs CO4 (21)": {
+  "100 BU vs CO4 (21)": {
     hero: "BU",
     vsAction: "4B",
     stacks: 100,
@@ -447,7 +447,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 10, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "SB vs HJ4 (22->40)": {
+  "100 SB vs HJ4 (22->40)": {
     hero: "SB",
     vsAction: "4B",
     stacks: 100,
@@ -459,7 +459,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "SB vs CO4 (25)": {
+  "100 SB vs CO4 (25)": {
     hero: "SB",
     vsAction: "4B",
     stacks: 100,
@@ -471,7 +471,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11.5, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "SB vs BU4 (26)": {
+  "100 SB vs BU4 (26)": {
     hero: "SB",
     vsAction: "4B",
     stacks: 100,
@@ -483,7 +483,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 12, cards: true },
     BB: { bet: 1, cards: false },
   },
-  "BB vs LJ4 (22->40)": {
+  "100 BB vs LJ4 (22->40)": {
     hero: "BB",
     vsAction: "4B",
     stacks: 100,
@@ -495,7 +495,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 12, cards: true },
   },
-  "BB vs HJ4 (24.9)": {
+  "100 BB vs HJ4 (24.9)": {
     hero: "BB",
     vsAction: "4B",
     stacks: 100,
@@ -507,7 +507,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 12.3, cards: true },
   },
-  "BB vs CO4 (28)": {
+  "100 BB vs CO4 (28)": {
     hero: "BB",
     vsAction: "4B",
     stacks: 100,
@@ -519,7 +519,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 13.5, cards: true },
   },
-  "BB vs BU4 (27)": {
+  "100 BB vs BU4 (27)": {
     hero: "BB",
     vsAction: "4B",
     stacks: 100,
@@ -531,7 +531,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: false },
     BB: { bet: 13, cards: true },
   },
-  "BB vs SB4 (21)": {
+  "100 BB vs SB4 (21)": {
     hero: "BB",
     vsAction: "4B",
     stacks: 100,
@@ -543,7 +543,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 21, cards: true },
     BB: { bet: 10, cards: true },
   },
-  "BU4 vs CO3 vs LJO (2->6.5->13)": {
+  "100 BU4 vs CO3 vs LJO (2->6.5->13)": {
     hero: "BU",
     vsAction: "R+3B",
     stacks: 100,
@@ -555,7 +555,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "BU4 vs CO3 vs HJO (2->6.5->13)": {
+  "100 BU4 vs CO3 vs HJO (2->6.5->13)": {
     hero: "BU",
     vsAction: "R+3B",
     stacks: 100,
@@ -567,7 +567,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "SB4 vs BU3 vs LJO (2->7.5->20)": {
+  "100 SB4 vs BU3 vs LJO (2->7.5->20)": {
     hero: "SB",
     vsAction: "R+3B",
     stacks: 100,
@@ -579,7 +579,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "SB4 vs BU3 vs HJO (2->7.5->21)": {
+  "100 SB4 vs BU3 vs HJO (2->7.5->21)": {
     hero: "SB",
     vsAction: "R+3B",
     stacks: 100,
@@ -591,7 +591,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "SB4 vs BU3 vs COO (2.3->7.5->21)": {
+  "100 SB4 vs BU3 vs COO (2.3->7.5->21)": {
     hero: "SB",
     vsAction: "R+3B",
     stacks: 100,
@@ -603,7 +603,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 0.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "BB4 vs SB3 vs LJO (2->10->20)": {
+  "100 BB4 vs SB3 vs LJO (2->10->20)": {
     hero: "BB",
     vsAction: "R+3B",
     stacks: 100,
@@ -615,7 +615,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 10, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "BB4 vs SB3 vs HJO (2->11->23)": {
+  "100 BB4 vs SB3 vs HJO (2->11->23)": {
     hero: "BB",
     vsAction: "R+3B",
     stacks: 100,
@@ -627,7 +627,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "BB4 vs SB3 vs COO (2.3->11.5->25)": {
+  "100 BB4 vs SB3 vs COO (2.3->11.5->25)": {
     hero: "BB",
     vsAction: "R+3B",
     stacks: 100,
@@ -639,7 +639,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 11.5, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "BB4 vs SB3 vs BUO (2.5->12->23)": {
+  "100 BB4 vs SB3 vs BUO (2.5->12->23)": {
     hero: "BB",
     vsAction: "R+3B",
     stacks: 100,
@@ -651,7 +651,7 @@ export const SpotDescriptionMap: Record<
     SB: { bet: 12, cards: true },
     BB: { bet: 1, cards: true },
   },
-  "SB vs LJ RFI 2 (10) with flats": {
+  "100 SB vs LJ RFI 2 (10) with flats": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -661,7 +661,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
   },
-  "SB vs HJ RFI 2 (11) with flats": {
+  "100 SB vs HJ RFI 2 (11) with flats": {
     hero: "SB",
     vsAction: "R",
     stacks: 100,
@@ -671,7 +671,7 @@ export const SpotDescriptionMap: Record<
     CO: { bet: 0, cards: false },
     BU: { bet: 0, cards: false },
   },
-  "CO vs LJ RFI 2 (6.5) with flats": {
+  "100 CO vs LJ RFI 2 (6.5) with flats": {
     hero: "CO",
     vsAction: "R",
     stacks: 100,
@@ -679,12 +679,18 @@ export const SpotDescriptionMap: Record<
     LJ: { bet: 2, cards: true },
     HJ: { bet: 0, cards: false },
   },
-  "CO vs HJ RFI 2 (6.5) with flats": {
+  "100 CO vs HJ RFI 2 (6.5) with flats": {
     hero: "CO",
     vsAction: "R",
     stacks: 100,
     raiseSize: 6.5,
     LJ: { bet: 0, cards: false },
     HJ: { bet: 2, cards: true },
+  },
+  "50 LJ RFI 2": {
+    hero: "LJ",
+    vsAction: "",
+    stacks: 50,
+    raiseSize: 2,
   },
 };

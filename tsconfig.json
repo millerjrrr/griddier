@@ -20,6 +20,10 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src/**/*", "assets/**/*"],
+  "include": [
+    "src/**/*",
+    "assets/**/*",
+    "GTOWRangeFormatExample.tsx"
+  ],
   "exclude": ["node_modules"]
 }

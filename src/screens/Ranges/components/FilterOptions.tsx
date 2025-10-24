@@ -4,6 +4,8 @@ import {
   Filter,
   PositionName,
   positions,
+  StackSize,
+  stackSizes,
   VsActionFilter,
   vsActions,
 } from "@src/types";
@@ -19,7 +21,7 @@ import screenDimensions from "@src/utils/screenDimensions";
 const { base } = screenDimensions();
 
 const SetFilterButton: React.FC<{
-  name: PositionName | VsActionFilter;
+  name: PositionName | VsActionFilter | StackSize;
 }> = ({ name }) => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
@@ -38,9 +40,19 @@ const SetFilterButton: React.FC<{
     dispatch(updateFilter(update));
   };
 
-  const onPress = vsActions.includes(name)
-    ? () => setVsAction(name)
-    : () => setUserPosition(name as PositionName | "");
+  const setStackSize = (stack: StackSize | "") => {
+    const update: Partial<Filter> = {
+      stack: filter.stack === stack ? "" : stack,
+    };
+    dispatch(updateFilter(update));
+  };
+
+  const onPress =
+    typeof name === "number"
+      ? () => setStackSize(name)
+      : vsActions.includes(name)
+      ? () => setVsAction(name)
+      : () => setUserPosition(name as PositionName | "");
 
   const selected = Object.values(filter).includes(name);
   const tintColor = selected
@@ -53,12 +65,16 @@ const SetFilterButton: React.FC<{
         backgroundColor: colors.PRIMARY,
         borderRadius: 100 * base,
         padding: 3 * base,
-        width: name !== "R+3B" ? 30 * base : undefined,
+        width: ![100, 150, 200, "R+3B"].includes(name)
+          ? 30 * base
+          : undefined,
         height: 30 * base,
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 5 * base,
-        ...appShadow(colors.CONTRAST),
+        ...(![50, 100, 150, 200].includes(name as any)
+          ? appShadow(colors.CONTRAST)
+          : {}),
       }}
       onPress={onPress}
     >
@@ -97,8 +113,23 @@ const FilterOptions = () => {
           backgroundColor: colors.PRIMARY,
         }}
       >
-        {vsActions.map((position) => (
-          <SetFilterButton key={position} name={position} />
+        {vsActions.map((action) => (
+          <SetFilterButton key={action} name={action} />
+        ))}
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 4 * base,
+          paddingBottom: 3 * base,
+          backgroundColor: colors.PRIMARY,
+        }}
+      >
+        {stackSizes.map((stack) => (
+          <SetFilterButton key={stack} name={stack} />
         ))}
       </View>
     </View>

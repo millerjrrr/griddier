@@ -1,7 +1,12 @@
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system/legacy";
 import Papa from "papaparse";
-import { DataEntry, StrictDateString } from "@src/types";
+import {
+  DataEntry,
+  positions,
+  stackSizes,
+  StrictDateString,
+} from "@src/types";
 import { setUserData } from "@src/store/userData";
 import { normalizeDate } from "./normalizeDate";
 import { setGridName } from "@src/store/trainer";
@@ -14,8 +19,19 @@ import {
 import { Platform } from "react-native";
 import { addUserData } from "./addUserData";
 
-const removeSize100ForShoveRanges = (string: string) =>
-  string.replace("->100", "");
+const fixAnyGridNameIssues = (string: string) => {
+  let newString = string.replace("->100", "");
+  if (
+    !stackSizes.includes(
+      Number(
+        newString.slice(0, newString.indexOf(" "))
+      ) as any
+    ) &&
+    positions.includes(newString.slice(0, 2) as any)
+  )
+    newString = "100 " + newString;
+  return newString;
+};
 
 export const pickCsvFile = async (): Promise<
   string | null
@@ -95,9 +111,7 @@ export const parseAndValidateCsv = (
           `Duplicate gridName: ${row.gridName}`
         );
       }
-      csvGridNames.add(
-        removeSize100ForShoveRanges(row.gridName)
-      );
+      csvGridNames.add(fixAnyGridNameIssues(row.gridName));
 
       let individualHandDrillingData = {};
       if (row.individualHandDrillingData) {
@@ -123,7 +137,7 @@ export const parseAndValidateCsv = (
       }
 
       return {
-        gridName: removeSize100ForShoveRanges(row.gridName),
+        gridName: fixAnyGridNameIssues(row.gridName),
         dueDate: normalizeDate(
           row.dueDate
         ) as StrictDateString,

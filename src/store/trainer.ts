@@ -1,9 +1,10 @@
-import { GridData } from "@assets/data/GridData";
 import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
+
+import { OrderedKeys } from "@assets/data/OrderedKeys";
 import {
   DueLevelPair,
   Filter,
@@ -35,10 +36,7 @@ interface TrainerState {
   filter: Filter;
 }
 
-const gridName =
-  Object.entries(GridData).find(
-    ([_, value]) => value.priority === 1
-  )?.[0] || Object.keys(GridData)[0];
+const gridName = OrderedKeys[0];
 
 const initialState: TrainerState = {
   index: 0,
@@ -54,7 +52,12 @@ const initialState: TrainerState = {
   showSuccessModal: false,
   feedback: false,
   showCombos: false,
-  filter: { activated: false, pos: "", action: "" },
+  filter: {
+    activated: false,
+    pos: "",
+    action: "",
+    stack: "",
+  },
 };
 
 const slice = createSlice({

@@ -18,7 +18,6 @@ export type GridName = keyof typeof GridData;
 
 export type GridDataEntry = {
   hands: HandsObject;
-  priority: number;
   featured: PokerHand[];
 };
 
@@ -75,6 +74,7 @@ export type Filter = {
   activated: boolean;
   pos: PositionName | "";
   action: VsActionFilter | "";
+  stack: StackSize | "";
 };
 
 export interface UserDataState {
@@ -144,10 +144,13 @@ export type Pos =
   | "right-top"
   | "right-bottom";
 
+export const stackSizes = [50, 100] as const;
+export type StackSize = (typeof stackSizes)[number];
+
 export type SpotInfo = {
   hero: PositionName;
   vsAction: VsActionFilter;
-  stacks: 50 | 100 | 150 | 200;
+  stacks: StackSize;
   raiseSize: number;
   LJ?: { bet: number; cards: boolean };
   HJ?: { bet: number; cards: boolean };

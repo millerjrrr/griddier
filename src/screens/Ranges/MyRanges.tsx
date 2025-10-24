@@ -26,19 +26,26 @@ const MyRanges = () => {
     (entry) => entry.dueDate !== ""
   );
 
-  if (filter.activated && filter.pos !== "")
-    data = data.filter(
-      (entry) =>
-        SpotDescriptionMap[entry.gridName]?.hero ===
-        filter.pos
-    );
+  const showStackSize = !data.every(
+    (entry) =>
+      entry.gridName.slice(0, 3) ===
+      data[0].gridName.slice(0, 3)
+  );
 
-  if (filter.activated && filter.action !== "")
-    data = data.filter(
-      (entry) =>
-        SpotDescriptionMap[entry.gridName]?.vsAction ===
-        filter.action
-    );
+  if (filter.activated) {
+    data = data.filter((entry) => {
+      const spot = SpotDescriptionMap[entry.gridName];
+      if (!spot) return false;
+
+      return (
+        (filter.pos === "" || spot.hero === filter.pos) &&
+        (filter.action === "" ||
+          spot.vsAction === filter.action) &&
+        (filter.stack === "" ||
+          spot.stacks === filter.stack)
+      );
+    });
+  }
 
   const dispatch = useDispatch();
 
@@ -104,6 +111,7 @@ const MyRanges = () => {
                   showDeleteModal={() =>
                     openDeleteModal(item)
                   }
+                  showStackSize={showStackSize}
                 />
               );
             }}

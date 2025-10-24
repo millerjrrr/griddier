@@ -26,19 +26,20 @@ const RangesShop = () => {
     (entry) => entry.dueDate === ""
   );
 
-  if (filter.activated && filter.pos !== "")
-    data = data.filter(
-      (entry) =>
-        SpotDescriptionMap[entry.gridName]?.hero ===
-        filter.pos
-    );
+  if (filter.activated) {
+    data = data.filter((entry) => {
+      const spot = SpotDescriptionMap[entry.gridName];
+      if (!spot) return false;
 
-  if (filter.activated && filter.action !== "")
-    data = data.filter(
-      (entry) =>
-        SpotDescriptionMap[entry.gridName]?.vsAction ===
-        filter.action
-    );
+      return (
+        (filter.pos === "" || spot.hero === filter.pos) &&
+        (filter.action === "" ||
+          spot.vsAction === filter.action) &&
+        (filter.stack === "" ||
+          spot.stacks === filter.stack)
+      );
+    });
+  }
 
   const dispatch = useDispatch();
 
@@ -85,6 +86,7 @@ const RangesShop = () => {
                 <RangeCard
                   dataEntry={item}
                   selectFunction={() => openModal(item)}
+                  showStackSize
                 />
               );
             }}
