@@ -177,14 +177,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
               <Animated.View
                 style={{
                   position: "absolute",
-                  top: "50%",
                   left: 0,
-                  transform: [
-                    {
-                      translateY: "-50%",
-                    },
-                    { scale: feedbackScale },
-                  ],
+                  transform: [{ scale: feedbackScale }],
                   zIndex: 500,
                   padding: 15 * base,
                 }}

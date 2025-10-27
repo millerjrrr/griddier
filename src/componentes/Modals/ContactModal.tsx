@@ -56,7 +56,7 @@ const ContactModal: React.FC<ModalProps> = ({
             this product
           </ModalText>
           <ModalText>
-            {"jacob@link-king.com \n +353 86 089 7326"}
+            {"millerjr@tcd.ie \n +353 86 089 7326"}
           </ModalText>
           <ModalButton
             text="Close"
