@@ -24,6 +24,7 @@ import SpotDisplay from "@src/componentes/SpotDisplay";
 import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 import Timer from "@src/componentes/Timer";
 import { cleanDataEntries } from "@src/store/userData";
+import { OrderedKeys } from "@assets/data/OrderedKeys";
 const { height, width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -44,7 +45,7 @@ const Trainer: React.FC = () => {
 
   // Validate GridName
   useEffect(() => {
-    const validGridNames = Object.keys(GridData);
+    const validGridNames = OrderedKeys;
     const isValidGrid = validGridNames.includes(gridName);
 
     const safeGridName = isValidGrid

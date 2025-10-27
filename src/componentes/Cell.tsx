@@ -18,6 +18,7 @@ import {
   selectTrainerState,
 } from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
+import { AppPressable } from "./AppPressables";
 const { base } = screenDimensions();
 
 export interface GridCellProps {
@@ -98,7 +99,9 @@ const Cell: React.FC<GridCellProps> = ({
     dispatch(resetActions());
   };
 
-  const Container = !clearActionsOnTouch ? View : Pressable;
+  const Container = !clearActionsOnTouch
+    ? View
+    : AppPressable;
 
   return (
     <Container
@@ -106,9 +109,11 @@ const Cell: React.FC<GridCellProps> = ({
         onPress: clearActions,
       })}
       style={{
-        ...(shadow && appShadow("white", 10)),
         ...(size ? { width: size } : { flex: 1 }),
         aspectRatio: 1,
+        ...(Platform.OS !== "android" &&
+          shadow &&
+          appShadow("white", 10)),
       }}
     >
       <View
@@ -118,6 +123,9 @@ const Cell: React.FC<GridCellProps> = ({
           aspectRatio: 1,
           position: "relative",
           backgroundColor: PRIOR,
+          ...(Platform.OS === "android" &&
+            shadow &&
+            appShadow("white", 10)),
           borderColor: red ? "red" : "black",
           borderWidth: size ? size / 100 : red ? 3 : 1,
           overflow: "hidden",

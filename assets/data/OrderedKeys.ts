@@ -1,5 +1,3 @@
-// Here Grid names are sorted in order of importance
-
 export const OrderedKeys = [
   "100 LJ RFI 2",
   "100 HJ RFI 2",
@@ -63,4 +61,26 @@ export const OrderedKeys = [
   "100 CO vs LJ RFI 2 (6.5) with flats",
   "100 CO vs HJ RFI 2 (6.5) with flats",
   "50 LJ RFI 2",
-];
+  "50 HJ RFI 2",
+  "50 CO RFI 2.2",
+  "50 BU RFI 2.5",
+  "50 SB RFI 3",
+  "50 CO vs LJ RFI 2 (6)",
+  "50 CO vs HJ RFI 2 (6)",
+  "50 BU vs LJ RFI 2 (6)",
+  "50 BU vs HJ RFI 2 (6)",
+  "50 BU vs CO RFI 2.2 (6)",
+  "50 SB vs LJ RFI 2 (8)",
+  "50 SB vs HJ RFI 2 (7.5)",
+  "50 SB vs CO RFI 2.2 (8)",
+  "50 SB vs BU RFI 2.5 (8.5)",
+  "50 BB vs LJ RFI 2 (8)",
+  "50 BB vs HJ RFI 2 (8)",
+  "50 BB vs CO RFI 2.2 (8)",
+  "50 BB vs BU RFI 2.5 (10)",
+  "50 BB vs SB RFI 3 (8)",
+  "50 LJ RFI vs CO3 (6->13)",
+  "50 HJ RFI vs CO3 (6->13)",
+] as const;
+
+export type OrderedKey = (typeof OrderedKeys)[number];

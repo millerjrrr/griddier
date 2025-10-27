@@ -12,7 +12,6 @@ const SettingsCard: React.FC<{
   return (
     <AppTouchable
       style={{
-        height: 60 * base,
         width: "95%",
         borderBottomWidth: 2 * base,
         borderColor: "gray",
