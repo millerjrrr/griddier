@@ -62,7 +62,7 @@ export const pickCsvFile = async (): Promise<
     } else {
       // ✅ mobile path
       const result = await DocumentPicker.getDocumentAsync({
-        type: "text/csv",
+        type: Platform.OS === "ios" ? "text/csv" : "*/*",
         copyToCacheDirectory: true,
       });
       if (result.canceled || !result.assets?.[0].uri) {
