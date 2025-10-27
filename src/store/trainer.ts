@@ -34,6 +34,7 @@ interface TrainerState {
   feedback: boolean;
   showCombos: boolean;
   filter: Filter;
+  appLoading: boolean;
 }
 
 const gridName = OrderedKeys[0];
@@ -58,6 +59,7 @@ const initialState: TrainerState = {
     action: "",
     stack: "",
   },
+  appLoading: true,
 };
 
 const slice = createSlice({
@@ -160,6 +162,12 @@ const slice = createSlice({
     ) => {
       state.filter = { ...state.filter, ...action.payload };
     },
+    updateAppLoading: (
+      state,
+      action: PayloadAction<boolean>
+    ) => {
+      state.appLoading = action.payload;
+    },
   },
 });
 
@@ -189,6 +197,7 @@ export const {
   incHandsPlayed,
   toggleShowCombos,
   updateFilter,
+  updateAppLoading,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

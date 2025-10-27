@@ -3,6 +3,7 @@ import * as FileSystem from "expo-file-system/legacy";
 import Papa from "papaparse";
 import {
   DataEntry,
+  GridName,
   positions,
   stackSizes,
   StrictDateString,
@@ -137,7 +138,9 @@ export const parseAndValidateCsv = (
       }
 
       return {
-        gridName: fixAnyGridNameIssues(row.gridName),
+        gridName: fixAnyGridNameIssues(
+          row.gridName
+        ) as GridName,
         dueDate: normalizeDate(
           row.dueDate
         ) as StrictDateString,

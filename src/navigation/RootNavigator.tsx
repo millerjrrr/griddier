@@ -1,6 +1,5 @@
 import React from "react";
 import Trainer from "@src/screens/Trainer";
-import RangesList from "@src/screens/Ranges/MyRanges";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import useSetGridName from "@src/hooks/useSetGridName";
@@ -10,7 +9,6 @@ import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import RangesNavigator from "./RangesStack";
-import useCleanData from "@src/hooks/useCleanData";
 const { base } = screenDimensions();
 
 const Tab =
@@ -18,6 +16,7 @@ const Tab =
 
 const RootNavigator: React.FC = () => {
   useSetGridName();
+
   return (
     <NavigationContainer>
       <Tab.Navigator

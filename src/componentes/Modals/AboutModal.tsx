@@ -1,13 +1,11 @@
-import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
-const icon = require("@assets/icon.png");
-import { Image, Modal, View } from "react-native";
-import screenDimensions from "@src/utils/screenDimensions";
+
+import { Modal } from "react-native";
+
 import { Container, Overlay } from "./ModalComponents";
 import { ModalButton } from "./ModalButtons";
 import { ModalText, ModalTitle } from "../AppText";
-
-const { base } = screenDimensions();
+import AppIcon from "./AppIcon";
 
 interface ModalProps {
   visible: boolean;
@@ -27,23 +25,7 @@ const AboutModal: React.FC<ModalProps> = ({
       <Overlay>
         <Container color={colors.PRIMARY}>
           <ModalTitle>About</ModalTitle>
-          <View
-            style={{
-              borderRadius: 15 * base,
-              ...appShadow(colors.CONTRAST, 20 * base),
-              margin: 8 * base,
-            }}
-          >
-            <Image
-              source={icon}
-              resizeMode="contain"
-              style={{
-                width: 100 * base,
-                height: 100 * base,
-                borderRadius: 15 * base,
-              }}
-            />
-          </View>
+          <AppIcon />
           <ModalText>
             Griddier is an app designed to make range
             memorization easy. It uses advanced, systematic,

@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
-import { DataEntry, UserDataState } from "@src/types";
+import {
+  DataEntry,
+  GridName,
+  UserDataState,
+} from "@src/types";
 import getInitialUserData from "@src/utils/getInitialUserData";
 import sort from "@src/utils/sortDataEntries";
 import { GridData } from "@assets/data/GridData";
@@ -25,22 +29,30 @@ const slice = createSlice({
     updateDataEntry: (
       state,
       action: {
-        payload: Partial<DataEntry> & { gridName: string };
+        payload: Partial<DataEntry> & {
+          gridName: string;
+          newGridName?: string;
+        };
       }
     ) => {
+      const { gridName, newGridName, ...updates } =
+        action.payload;
+
       const index = state.dataEntries.findIndex(
-        (entry) =>
-          entry.gridName === action.payload.gridName
+        (entry) => entry.gridName === gridName
       );
 
       if (index !== -1) {
         state.dataEntries[index] = {
           ...state.dataEntries[index],
-          ...action.payload,
+          ...updates,
+          gridName: (newGridName ?? gridName) as GridName,
         };
       }
+
       state.dataEntries = sort(state.dataEntries);
     },
+
     reSortDataEntries: (state) => {
       state.dataEntries = sort(state.dataEntries);
     },
