@@ -8,10 +8,12 @@ const { base } = screenDimensions();
 const AppIcon: React.FC<{ size?: number }> = ({
   size = 100,
 }) => {
+  const borderRadius = 0.15 * size * base;
+
   return (
     <View
       style={{
-        borderRadius: 15 * base,
+        borderRadius,
         ...appShadow(colors.CONTRAST, 20 * base),
         margin: 8 * base,
       }}
@@ -22,7 +24,7 @@ const AppIcon: React.FC<{ size?: number }> = ({
         style={{
           width: size * base,
           height: size * base,
-          borderRadius: 15 * base,
+          borderRadius,
         }}
       />
     </View>

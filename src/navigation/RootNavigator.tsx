@@ -2,7 +2,6 @@ import React from "react";
 import Trainer from "@src/screens/Trainer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import useSetGridName from "@src/hooks/useSetGridName";
 import { NavigationParamList } from "@src/types";
 import Extras from "@src/screens/Extras";
 import colors from "@src/utils/colors";
@@ -15,8 +14,6 @@ const Tab =
   createMaterialTopTabNavigator<NavigationParamList>();
 
 const RootNavigator: React.FC = () => {
-  useSetGridName();
-
   return (
     <NavigationContainer>
       <Tab.Navigator

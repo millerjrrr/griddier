@@ -8,6 +8,7 @@ import { AppState, Platform, View } from "react-native";
 import BGContainer from "./src/componentes/BGContainer";
 import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
 import { useEffect, useRef, useState } from "react";
+import AppContainer from "./src/navigation/AppContainer";
 
 export default function App() {
   // Force app to reload when focused
@@ -38,7 +39,7 @@ export default function App() {
             {Platform.OS !== "web" && (
               <View style={{ height: 30 }} />
             )}
-            <RootNavigator />
+            <AppContainer />
             <Toast />
             <StatusBar
               style="light"
