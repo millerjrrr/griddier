@@ -4,7 +4,7 @@ import screenDimensions from "./screenDimensions";
 const { base } = screenDimensions();
 
 const appShadow = (
-  color: string,
+  color: `#${string}`,
   width: number = 5 * base
 ): ViewStyle =>
   Platform.select({
@@ -28,7 +28,7 @@ const appShadow = (
   }) || {};
 
 export const appShadowForStyledComponents = (
-  color: string,
+  color: `#${string}`,
   width: number = 5 * base
 ) =>
   Platform.select({
