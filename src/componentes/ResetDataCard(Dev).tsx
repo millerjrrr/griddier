@@ -43,7 +43,7 @@ const ResetDataCard = () => {
         marginTop: 30 * base,
         padding: 5 * base,
         width: "95%",
-        ...appShadow("black"),
+        ...appShadow("#000000"),
         borderRadius: 10 * base,
         alignItems: "center",
         justifyContent: "center",

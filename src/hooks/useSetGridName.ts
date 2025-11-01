@@ -46,7 +46,6 @@ const useAppFocusSetGridName = () => {
     const sorted = sort(
       newDataEntries.filter((entry) => entry.dueDate !== "")
     );
-    console.log(sorted);
     if (sorted.length > 0) {
       dispatch(setGridName(sorted[0].gridName));
     }
