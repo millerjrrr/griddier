@@ -63,7 +63,7 @@ const Cell: React.FC<GridCellProps> = ({
     );
   }
 
-  const { ALLIN, RAISE, CALL, PRIOR, FOLD } = colors;
+  const { ALLIN, RAISE, CALL, PRIOR, FOLD, WHITE } = colors;
 
   const segments = [
     {
@@ -113,7 +113,7 @@ const Cell: React.FC<GridCellProps> = ({
         aspectRatio: 1,
         ...(Platform.OS !== "android" &&
           shadow &&
-          appShadow("white", 10)),
+          appShadow(WHITE, 10)),
       }}
     >
       <View
@@ -125,7 +125,7 @@ const Cell: React.FC<GridCellProps> = ({
           backgroundColor: PRIOR,
           ...(Platform.OS === "android" &&
             shadow &&
-            appShadow("white", 10)),
+            appShadow(WHITE, 10)),
           borderColor: red ? "red" : "black",
           borderWidth: size ? size / 100 : red ? 3 : 1,
           overflow: "hidden",

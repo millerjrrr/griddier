@@ -76,6 +76,7 @@ const SpotDisplay: React.FC<{
         marginTop: 40 * base,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: colors.SECONDARY,
       }}
     >
       {heroPositionArray.map((name, index) => (

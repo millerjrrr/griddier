@@ -24,6 +24,7 @@ import { AppTouchable } from "./AppPressables";
 import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 import screenDimensions from "@src/utils/screenDimensions";
 import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
+import Toast from "react-native-toast-message";
 const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -63,18 +64,45 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       switch (action) {
         case "AllIn":
           if (allin < 4) {
+            if (allin === 3)
+              Toast.show({
+                type: "info",
+                text1: "Press & Hold Button",
+                text2: "to immediately fill grid",
+                visibilityTime: 5000,
+                text1Style: { fontSize: 20 * base },
+                text2Style: { fontSize: 17 * base },
+              });
             answer.a = (allin + 1) as ValidFraction;
             dispatch(incAllIn());
           }
           break;
         case "Raise":
           if (raise < 4) {
+            if (raise === 3)
+              Toast.show({
+                type: "info",
+                text1: "Press & Hold Button",
+                text2: "to immediately fill grid",
+                visibilityTime: 5000,
+                text1Style: { fontSize: 20 * base },
+                text2Style: { fontSize: 17 * base },
+              });
             answer.r = (raise + 1) as ValidFraction;
             dispatch(incRaise());
           }
           break;
         case "Call":
           if (call < 4) {
+            if (call === 3)
+              Toast.show({
+                type: "info",
+                text1: "Press & Hold Button",
+                text2: "to immediately fill grid",
+                visibilityTime: 5000,
+                text1Style: { fontSize: 20 * base },
+                text2Style: { fontSize: 17 * base },
+              });
             answer.c = (call + 1) as ValidFraction;
             dispatch(incCall());
           }
@@ -105,7 +133,6 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           raise -
           call) as ValidFraction;
         dispatch(setAllIn(4 - raise - call));
-
         break;
       case "Raise":
         answer.r = (raise +

@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
 import store, { persistor } from "./src/store";
-import RootNavigator from "./src/navigation/RootNavigator";
 import { PersistGate } from "redux-persist/integration/react";
 import Toast from "react-native-toast-message";
 import { AppState, Platform, View } from "react-native";
@@ -9,6 +8,8 @@ import BGContainer from "./src/componentes/BGContainer";
 import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
 import { useEffect, useRef, useState } from "react";
 import AppContainer from "./src/navigation/AppContainer";
+import screenDimensions from "./src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 export default function App() {
   // Force app to reload when focused
@@ -37,7 +38,7 @@ export default function App() {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             {Platform.OS !== "web" && (
-              <View style={{ height: 30 }} />
+              <View style={{ height: 30 * base }} />
             )}
             <AppContainer />
             <Toast />

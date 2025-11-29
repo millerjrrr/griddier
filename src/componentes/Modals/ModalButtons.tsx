@@ -41,7 +41,6 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
   const onPressFunction = locked
     ? () =>
         Toast.show({
-          type: "success",
           text1: "Locked: Complete previous levels",
           text2: "Press & hold to unlock",
           visibilityTime: 2500,

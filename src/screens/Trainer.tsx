@@ -123,7 +123,7 @@ const Trainer: React.FC = () => {
               hand={filteredHandsArray[index]}
               size={0.4 * width}
               shadow
-              borderRadius={40 * base}
+              borderRadius={20 * base}
               clearActionsOnTouch
             />
           </SpotDisplay>
