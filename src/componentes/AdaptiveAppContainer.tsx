@@ -1,27 +1,24 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import { LinearGradient } from "expo-linear-gradient";
+const { base, height, width } = screenDimensions();
 import { ReactNode } from "react";
-import { Platform, View } from "react-native";
+import { Dimensions, Platform, View } from "react-native";
 
 const AdaptiveAppContainer = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  const { CONTRAST, PRIMARY } = colors;
-  const { height, width, base } = screenDimensions();
+  const { CONTRAST, TERTIARY } = colors;
   const borderRadius = height * 0.0542;
 
   //run npx expo export --platform web to export
+  const { width: vw, height: vh } =
+    Dimensions.get("window");
 
-  return Platform.OS === "web" ? (
-    <LinearGradient
-      colors={[PRIMARY, "grey", "black"]}
-      locations={[0, 0.5, 1]}
-      start={{ x: 0.0, y: 0.0 }}
-      end={{ x: 1, y: 1 }}
+  return Platform.OS === "web" && vh < 1.5 * vw ? (
+    <View
       style={{
         flex: 1,
         justifyContent: "center",
@@ -30,10 +27,10 @@ const AdaptiveAppContainer = ({
     >
       <View
         style={{
-          borderColor: PRIMARY,
-          borderWidth: 3 * base,
+          borderColor: TERTIARY,
+          borderWidth: base * 3,
           borderRadius,
-          ...appShadow(CONTRAST, 15 * base),
+          ...appShadow(CONTRAST, 15),
         }}
       >
         <View
@@ -42,14 +39,27 @@ const AdaptiveAppContainer = ({
             width,
             borderRadius,
             overflow: "hidden",
-            borderWidth: 10 * base,
+            borderWidth: base * 10,
             backgroundColor: "black",
           }}
         >
+          <View
+            style={{
+              width: 0.3 * width,
+              height: 0.085 * width,
+              top: 0.033 * width,
+              left: "50%",
+              transform: [{ translateX: -0.15 * width }],
+              backgroundColor: "black",
+              position: "absolute",
+              zIndex: 1000,
+              borderRadius: height,
+            }}
+          />
           {children}
         </View>
       </View>
-    </LinearGradient>
+    </View>
   ) : (
     <View style={{ flex: 1, backgroundColor: "black" }}>
       {children}

@@ -111,6 +111,7 @@ const Cell: React.FC<GridCellProps> = ({
       style={{
         ...(size ? { width: size } : { flex: 1 }),
         aspectRatio: 1,
+        borderRadius: red ? 3 : borderRadius || 0,
         ...(Platform.OS !== "android" &&
           shadow &&
           appShadow(WHITE, 10)),
