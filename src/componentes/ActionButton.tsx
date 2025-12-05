@@ -64,7 +64,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       switch (action) {
         case "AllIn":
           if (allin < 4) {
-            if (allin === 3)
+            if (allin === 3 && Platform.OS !== "web")
               Toast.show({
                 type: "info",
                 text1: "Press & Hold Button",
@@ -79,7 +79,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           break;
         case "Raise":
           if (raise < 4) {
-            if (raise === 3)
+            if (raise === 3 && Platform.OS !== "web")
               Toast.show({
                 type: "info",
                 text1: "Press & Hold Button",
@@ -94,7 +94,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           break;
         case "Call":
           if (call < 4) {
-            if (call === 3)
+            if (call === 3 && Platform.OS !== "web")
               Toast.show({
                 type: "info",
                 text1: "Press & Hold Button",
