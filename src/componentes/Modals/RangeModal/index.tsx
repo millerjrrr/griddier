@@ -78,7 +78,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
           <RangeModalTitle
             dataEntry={dataEntry}
             toggleEdit={toggleEdit}
-            editModeOn={editModeOn}
           />
           <View style={{ position: "relative" }}>
             {feedback && showFeedbackView && (
@@ -104,7 +103,9 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <Grid
               name={dataEntry.gridName}
               hidden={
-                !feedback && dataEntry.lastStudied !== ""
+                !editModeOn &&
+                !feedback &&
+                dataEntry.lastStudied !== ""
               }
             />
           </View>

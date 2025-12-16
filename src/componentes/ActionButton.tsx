@@ -23,8 +23,8 @@ import usePlaySound from "@src/hooks/usePlaySound";
 import { AppTouchable } from "./AppPressables";
 import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 import screenDimensions from "@src/utils/screenDimensions";
-import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 import Toast from "react-native-toast-message";
+import { GridData } from "@assets/data/GridData";
 const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -173,10 +173,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     Fold: "F",
   };
 
-  const raiseSize = Object.keys(
-    SpotDescriptionMap
-  ).includes(gridName)
-    ? SpotDescriptionMap[gridName].raiseSize + "x"
+  const raiseSize = Object.keys(GridData).includes(gridName)
+    ? GridData[gridName].spotDescription.raiseSize + "x"
     : "Raise";
 
   return (

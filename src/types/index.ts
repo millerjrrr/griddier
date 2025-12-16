@@ -19,6 +19,7 @@ export type GridName = keyof typeof GridData;
 export type GridDataEntry = {
   hands: HandsObject;
   featured: PokerHand[];
+  spotDescription: SpotInfo;
 };
 
 export type ColorName =

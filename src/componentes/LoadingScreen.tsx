@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import AppIcon from "./Modals/AppIcon";
 import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const LoadingScreen = () => {
   const [dotCount, setDotCount] = useState(0);
@@ -24,8 +26,8 @@ const LoadingScreen = () => {
         alignItems: "center",
       }}
     >
-      <AppIcon size={250} />
-      <View style={{ height: 30 }} />
+      <AppIcon size={250 * base} />
+      <View style={{ height: 30 * base }} />
       <ModalTitle style={{ color: colors.CONTRAST_A }}>
         Configuring updates {dots}
       </ModalTitle>

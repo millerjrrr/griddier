@@ -9,7 +9,7 @@ import {
 } from "@src/types";
 import PositionRepresentation from "./PositionRepresentation";
 import { ReactNode } from "react";
-import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
+import { GridData } from "@assets/data/GridData";
 const { width: vw, base } = screenDimensions();
 
 const SpotDisplay: React.FC<{
@@ -19,9 +19,8 @@ const SpotDisplay: React.FC<{
   const tableWidth = 0.8 * vw;
   const bw = 5 * base;
 
-  const spotInfo: SpotInfo = SpotDescriptionMap[
-    gridName
-  ] || {
+  const spotInfo: SpotInfo = GridData[gridName]
+    .spotDescription || {
     hero: "BU",
     stacks: 100,
     LJ: { bet: 2, cards: true },

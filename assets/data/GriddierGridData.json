@@ -1045,7 +1045,13 @@
       "QJo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "",
+      "stacks": 100,
+      "raiseSize": 2
+    }
   },
   "100 HJ RFI 2": {
     "hands": {
@@ -2091,7 +2097,17 @@
       "QJo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "",
+      "stacks": 100,
+      "raiseSize": 2,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 CO RFI 2.3": {
     "hands": {
@@ -3142,7 +3158,21 @@
       "J9o",
       "T9o",
       "Q9o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "",
+      "stacks": 100,
+      "raiseSize": 2.3,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 BU RFI 2.5": {
     "hands": {
@@ -4187,7 +4217,25 @@
       "T8o",
       "98o",
       "87o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "",
+      "stacks": 100,
+      "raiseSize": 2.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB RFI 3": {
     "hands": {
@@ -5226,7 +5274,29 @@
       "98o",
       "87o",
       "76o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "",
+      "stacks": 100,
+      "raiseSize": 3,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 BB vs LJ RFI 2 (12)": {
     "hands": {
@@ -6366,7 +6436,33 @@
       "86o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 12,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "100 BB vs HJ RFI 2 (12.3)": {
     "hands": {
@@ -7506,7 +7602,33 @@
       "86o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 12.3,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "100 BB vs CO RFI 2.3 (13.5)": {
     "hands": {
@@ -8646,7 +8768,33 @@
       "86o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 13.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "100 BB vs BU RFI 2.5 (13)": {
     "hands": {
@@ -9786,7 +9934,33 @@
       "86o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 13,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "100 BB vs SB RFI 3 (10)": {
     "hands": {
@@ -10916,7 +11090,33 @@
       "86o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 10,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 3,
+        "cards": true
+      }
+    }
   },
   "100 SB vs LJ RFI 2 (10)": {
     "hands": {
@@ -11959,7 +12159,29 @@
       "54s",
       "AQo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 10,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB vs HJ RFI 2 (11)": {
     "hands": {
@@ -13002,7 +13224,29 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 11,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB vs CO RFI 2.3 (11.5)": {
     "hands": {
@@ -14045,7 +14289,29 @@
       "AJo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 11.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB vs BU RFI 2.5 (12)": {
     "hands": {
@@ -15094,7 +15360,29 @@
       "KJo",
       "KTo",
       "QJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 12,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      }
+    }
   },
   "100 BU vs LJ RFI 2 (7.5)": {
     "hands": {
@@ -16165,7 +16453,25 @@
       "KQo",
       "KJo",
       "KTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 7.5,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 BU vs HJ RFI 2 (7.5)": {
     "hands": {
@@ -17236,7 +17542,25 @@
       "KQo",
       "KJo",
       "KTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 7.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 BU vs CO RFI 2.3 (7.5)": {
     "hands": {
@@ -18308,7 +18632,25 @@
       "KJo",
       "KTo",
       "QJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 7.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      }
+    }
   },
   "100 CO vs LJ RFI 2 (6.5)": {
     "hands": {
@@ -19353,7 +19695,21 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 6.5,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 CO vs HJ RFI 2 (6.5)": {
     "hands": {
@@ -20394,7 +20750,21 @@
       "AJo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 6.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      }
+    }
   },
   "100 LJ RFI vs HJ/CO3 (6.5->19)": {
     "hands": {
@@ -21450,7 +21820,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 19,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 LJ RFI vs BU3 (7.5->20)": {
     "hands": {
@@ -22506,7 +22906,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 20,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 LJ RFI vs SB3 (10->19)": {
     "hands": {
@@ -23562,7 +23992,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 19,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 10,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 LJ RFI vs BB3 (12->22)": {
     "hands": {
@@ -24619,7 +25079,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 22,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 12,
+        "cards": true
+      }
+    }
   },
   "100 HJ RFI vs CO3 (6.5->19)": {
     "hands": {
@@ -25676,7 +26166,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 19,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 HJ RFI vs BU3 (7.5->20)": {
     "hands": {
@@ -26733,7 +27253,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 20,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 HJ RFI vs SB3 (11->22)": {
     "hands": {
@@ -27790,7 +28340,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 22,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 HJ RFI vs BB3 (12.3->24.9)": {
     "hands": {
@@ -28849,7 +29429,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 24.9,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 12.3,
+        "cards": true
+      }
+    }
   },
   "100 CO RFI vs BU3 (7.5->21)": {
     "hands": {
@@ -29915,7 +30525,37 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 21,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 CO RFI vs SB3 (11.5->25)": {
     "hands": {
@@ -30975,7 +31615,37 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 25,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 CO RFI vs BB3 (13.5->28)": {
     "hands": {
@@ -32035,7 +32705,37 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 28,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 13.5,
+        "cards": true
+      }
+    }
   },
   "100 BU RFI vs SB3 (12->26)": {
     "hands": {
@@ -33106,7 +33806,37 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 26,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 12,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 BU RFI vs BB3 (13->27)": {
     "hands": {
@@ -34179,7 +34909,37 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 27,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 13,
+        "cards": true
+      }
+    }
   },
   "100 SB RFI vs BB3 (9->25)": {
     "hands": {
@@ -35262,7 +36022,37 @@
       "QJo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 25,
+      "SB": {
+        "bet": 3,
+        "cards": true
+      },
+      "BB": {
+        "bet": 9,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB RFI vs BB3 (10->21)": {
     "hands": {
@@ -36345,7 +37135,37 @@
       "QJo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "3B",
+      "stacks": 100,
+      "raiseSize": 21,
+      "SB": {
+        "bet": 3,
+        "cards": true
+      },
+      "BB": {
+        "bet": 10,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 CO vs LJ4 (19)": {
     "hands": {
@@ -37391,7 +38211,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 19,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 CO vs HJ4 (19)": {
     "hands": {
@@ -38442,7 +39292,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 19,
+        "cards": true
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 BU vs LJ4 (20)": {
     "hands": {
@@ -39494,7 +40374,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 20,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 BU vs HJ4 (20)": {
     "hands": {
@@ -40546,7 +41456,37 @@
       "65s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 20,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 BU vs CO4 (21)": {
     "hands": {
@@ -41599,7 +42539,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 21,
+        "cards": true
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 SB vs LJ4 (19->40)": {
     "hands": {
@@ -42648,7 +43618,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 40,
+      "LJ": {
+        "bet": 19,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 10,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 SB vs HJ4 (22->40)": {
     "hands": {
@@ -43698,7 +44698,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 40,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 22,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 SB vs CO4 (25)": {
     "hands": {
@@ -44751,7 +45781,37 @@
       "AKo",
       "AQo",
       "AJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 25,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 SB vs BU4 (26)": {
     "hands": {
@@ -45809,7 +46869,37 @@
       "AKo",
       "AQo",
       "AJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 26,
+        "cards": true
+      },
+      "SB": {
+        "bet": 12,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "100 BB vs LJ4 (22->40)": {
     "hands": {
@@ -46855,7 +47945,37 @@
       "65s",
       "54s",
       "AKo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 40,
+      "LJ": {
+        "bet": 22,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 12,
+        "cards": true
+      }
+    }
   },
   "100 BB vs HJ4 (24.9)": {
     "hands": {
@@ -47903,7 +49023,37 @@
       "54s",
       "AKo",
       "ATo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 24.9,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 12.3,
+        "cards": true
+      }
+    }
   },
   "100 BB vs CO4 (28)": {
     "hands": {
@@ -48951,7 +50101,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 28,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 13.5,
+        "cards": true
+      }
+    }
   },
   "100 BB vs BU4 (27)": {
     "hands": {
@@ -50011,7 +51191,37 @@
       "AKo",
       "AQo",
       "AJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 27,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 13,
+        "cards": true
+      }
+    }
   },
   "100 BB vs SB4 (21)": {
     "hands": {
@@ -51073,7 +52283,37 @@
       "KJo",
       "KTo",
       "K9o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "4B",
+      "stacks": 100,
+      "raiseSize": 100,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 21,
+        "cards": true
+      },
+      "BB": {
+        "bet": 10,
+        "cards": true
+      }
+    }
   },
   "100 BU4 vs CO3 vs LJO (2->6.5->13)": {
     "hands": {
@@ -52109,7 +53349,37 @@
       "KTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 13,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 BU4 vs CO3 vs HJO (2->6.5->13)": {
     "hands": {
@@ -53145,7 +54415,37 @@
       "KTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 13,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 6.5,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 SB4 vs BU3 vs LJO (2->7.5->20)": {
     "hands": {
@@ -54179,7 +55479,37 @@
       "KJs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 20,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 SB4 vs BU3 vs HJO (2->7.5->21)": {
     "hands": {
@@ -55215,7 +56545,37 @@
       "KTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 21,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 SB4 vs BU3 vs COO (2.3->7.5->21)": {
     "hands": {
@@ -56265,7 +57625,37 @@
       "54s",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 21,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 7.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 BB4 vs SB3 vs LJO (2->10->20)": {
     "hands": {
@@ -57302,7 +58692,37 @@
       "QJs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 20,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 10,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 BB4 vs SB3 vs HJO (2->11->23)": {
     "hands": {
@@ -58339,7 +59759,37 @@
       "QTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 23,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 BB4 vs SB3 vs COO (2.3->11.5->25)": {
     "hands": {
@@ -59378,7 +60828,37 @@
       "JTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 25,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.3,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 11.5,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 BB4 vs SB3 vs BUO (2.5->12->23)": {
     "hands": {
@@ -60417,7 +61897,37 @@
       "JTs",
       "AKo",
       "AQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R+3B",
+      "stacks": 100,
+      "raiseSize": 23,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 12,
+        "cards": true
+      },
+      "BB": {
+        "bet": 1,
+        "cards": true
+      }
+    }
   },
   "100 SB vs LJ RFI 2 (10) with flats": {
     "hands": {
@@ -61479,7 +62989,29 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 10,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 SB vs HJ RFI 2 (11) with flats": {
     "hands": {
@@ -62540,7 +64072,29 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 10,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 CO vs LJ RFI 2 (6.5) with flats": {
     "hands": {
@@ -63600,7 +65154,21 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 6.5,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "100 CO vs HJ RFI 2 (6.5) with flats": {
     "hands": {
@@ -64660,7 +66228,21 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 6.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      }
+    }
   },
   "50 LJ RFI 2": {
     "hands": {
@@ -65705,7 +67287,13 @@
       "QJo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "",
+      "stacks": 50,
+      "raiseSize": 2
+    }
   },
   "50 HJ RFI 2": {
     "hands": {
@@ -66746,7 +68334,17 @@
       "KTo",
       "QTo",
       "JTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "",
+      "stacks": 50,
+      "raiseSize": 2,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 CO RFI 2.2": {
     "hands": {
@@ -67790,7 +69388,21 @@
       "J9o",
       "T9o",
       "Q9o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "",
+      "stacks": 50,
+      "raiseSize": 2.2,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 BU RFI 2.5": {
     "hands": {
@@ -68837,7 +70449,25 @@
       "98o",
       "Q8o",
       "87o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "",
+      "stacks": 50,
+      "raiseSize": 2.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 SB RFI 3": {
     "hands": {
@@ -69879,7 +71509,29 @@
       "T8o",
       "98o",
       "Q8o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "",
+      "stacks": 50,
+      "raiseSize": 3,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 CO vs LJ RFI 2 (6)": {
     "hands": {
@@ -70917,7 +72569,21 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 6,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 CO vs HJ RFI 2 (6)": {
     "hands": {
@@ -71956,7 +73622,21 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "CO",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 6,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      }
+    }
   },
   "50 BU vs LJ RFI 2 (6)": {
     "hands": {
@@ -72997,7 +74677,25 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 6,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 BU vs HJ RFI 2 (6)": {
     "hands": {
@@ -74042,7 +75740,25 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 6,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 BU vs CO RFI 2.2 (6)": {
     "hands": {
@@ -75083,7 +76799,25 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BU",
+      "vsAction": "R",
+      "stacks": 100,
+      "raiseSize": 6,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.2,
+        "cards": true
+      }
+    }
   },
   "50 SB vs LJ RFI 2 (8)": {
     "hands": {
@@ -76124,7 +77858,29 @@
       "ATo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 SB vs HJ RFI 2 (7.5)": {
     "hands": {
@@ -77165,7 +78921,29 @@
       "AJo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 7.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 SB vs CO RFI 2.2 (8)": {
     "hands": {
@@ -78206,7 +79984,29 @@
       "AJo",
       "KQo",
       "KJo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.2,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      }
+    }
   },
   "50 SB vs BU RFI 2.5 (8.5)": {
     "hands": {
@@ -79246,7 +81046,29 @@
       "ATo",
       "KJo",
       "KTo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "SB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8.5,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      }
+    }
   },
   "50 BB vs LJ RFI 2 (8)": {
     "hands": {
@@ -80369,7 +82191,33 @@
       "76o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "50 BB vs HJ RFI 2 (8)": {
     "hands": {
@@ -81494,7 +83342,33 @@
       "76o",
       "65o",
       "54o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "50 BB vs CO RFI 2.2 (8)": {
     "hands": {
@@ -82618,7 +84492,33 @@
       "Q8o",
       "87o",
       "76o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 2.2,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "50 BB vs BU RFI 2.5 (10)": {
     "hands": {
@@ -83742,7 +85642,33 @@
       "Q8o",
       "87o",
       "76o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 10,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 2.5,
+        "cards": true
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      }
+    }
   },
   "50 BB vs SB RFI 3 (8)": {
     "hands": {
@@ -84880,7 +86806,33 @@
       "Q6o",
       "J7o",
       "T7o"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "BB",
+      "vsAction": "R",
+      "stacks": 50,
+      "raiseSize": 8,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 0,
+        "cards": false
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 3,
+        "cards": true
+      }
+    }
   },
   "50 LJ RFI vs CO3 (6->13)": {
     "hands": {
@@ -85930,7 +87882,37 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "LJ",
+      "vsAction": "3B",
+      "stacks": 50,
+      "raiseSize": 13,
+      "LJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "HJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "CO": {
+        "bet": 6,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   },
   "50 HJ RFI vs CO3 (6->13)": {
     "hands": {
@@ -86985,6 +88967,36 @@
       "AQo",
       "AJo",
       "KQo"
-    ]
+    ],
+    "spotDescription": {
+      "hero": "HJ",
+      "vsAction": "3B",
+      "stacks": 50,
+      "raiseSize": 13,
+      "LJ": {
+        "bet": 0,
+        "cards": false
+      },
+      "HJ": {
+        "bet": 2,
+        "cards": true
+      },
+      "CO": {
+        "bet": 6,
+        "cards": true
+      },
+      "BU": {
+        "bet": 0,
+        "cards": false
+      },
+      "SB": {
+        "bet": 0.5,
+        "cards": false
+      },
+      "BB": {
+        "bet": 1,
+        "cards": false
+      }
+    }
   }
 }

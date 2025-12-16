@@ -49,14 +49,14 @@ export const ModalTitle = styled.Text`
 
 export const ModalText = styled.Text`
   font-size: ${25 * base}px;
-  color: ${colors.CONTRAST_A};
+  color: ${colors.CONTRAST_B};
   padding-bottom: ${5 * base}px;
   text-align: center;
 `;
 
 export const ModalSmallText = styled.Text`
   font-size: ${20 * base}px;
-  color: ${colors.CONTRAST_A};
+  color: ${colors.CONTRAST_B};
   padding-bottom: ${15 * base}px;
 `;
 

@@ -48,8 +48,7 @@ export const Container: React.FC<{
 export const RangeModalTitle: React.FC<{
   dataEntry: DataEntry;
   toggleEdit: () => void;
-  editModeOn: boolean;
-}> = ({ dataEntry }) => {
+}> = ({ dataEntry, toggleEdit }) => {
   return (
     <View
       style={{
@@ -84,6 +83,7 @@ export const RangeModalTitle: React.FC<{
         )}
       </View>
       <AppTouchable
+        onPress={toggleEdit}
         style={{
           borderColor: colors.CONTRAST_B,
           borderWidth: 2,

@@ -21,11 +21,10 @@ import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import screenDimensions from "@src/utils/screenDimensions";
 import usePlaySound from "@src/hooks/usePlaySound";
 import SpotDisplay from "@src/componentes/SpotDisplay";
-import { SpotDescriptionMap } from "@assets/data/SpotDescriptionMap";
 import Timer from "@src/componentes/Timer";
 import { cleanDataEntries } from "@src/store/userData";
 import { OrderedKeys } from "@assets/data/OrderedKeys";
-const { height, width, base } = screenDimensions();
+const { width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
   const {
@@ -96,10 +95,6 @@ const Trainer: React.FC = () => {
       window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const showSpotDisplay = Object.keys(
-    SpotDescriptionMap
-  ).find((key) => key === gridName);
-
   return (
     <BGContainer>
       <View style={styles.container}>
@@ -116,34 +111,17 @@ const Trainer: React.FC = () => {
           name={gridName.slice(gridName.indexOf(" ") + 1)}
         />
         <Timer />
-        {showSpotDisplay ? (
-          <SpotDisplay gridName={gridName}>
-            <Cell
-              actions={{ ...actions, prior }}
-              hand={filteredHandsArray[index]}
-              size={0.4 * width}
-              shadow
-              borderRadius={20 * base}
-              clearActionsOnTouch
-            />
-          </SpotDisplay>
-        ) : (
-          <View
-            style={{
-              height: 0.5 * height,
-              justifyContent: "center",
-            }}
-          >
-            <Cell
-              actions={{ ...actions, prior }}
-              hand={filteredHandsArray[index]}
-              size={0.85 * width}
-              shadow
-              borderRadius={10 * base}
-              clearActionsOnTouch
-            />
-          </View>
-        )}
+        <SpotDisplay gridName={gridName}>
+          <Cell
+            actions={{ ...actions, prior }}
+            hand={filteredHandsArray[index]}
+            size={0.4 * width}
+            shadow
+            borderRadius={20 * base}
+            clearActionsOnTouch
+          />
+        </SpotDisplay>
+
         <ButtonContainer gridName={gridName} />
       </View>
     </BGContainer>

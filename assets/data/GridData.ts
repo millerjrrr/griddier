@@ -1,5 +1,5 @@
 import { GridDataEntry } from "@src/types";
-import gridDataJson from "./GridData.json";
+import gridDataJson from "./GriddierGridData.json";
 import { OrderedKey } from "./OrderedKeys";
 
 type GridDataMap<GridDataEntry> = {
