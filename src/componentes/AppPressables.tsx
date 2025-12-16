@@ -9,7 +9,8 @@ import {
 import usePlaySound from "../hooks/usePlaySound";
 
 export const AppPressable: React.FC<PressableProps> = ({
-  onPress,
+  onPress = () =>
+    console.log("AppPressable with undefined onPress"),
   children,
   ...rest
 }) => {
@@ -29,7 +30,12 @@ export const AppPressable: React.FC<PressableProps> = ({
 
 export const AppTouchable: React.FC<
   TouchableOpacityProps
-> = ({ onPress, children, ...rest }) => {
+> = ({
+  onPress = () =>
+    console.log("AppTouchable with undefined onPress"),
+  children,
+  ...rest
+}) => {
   const playSound = usePlaySound();
 
   const handlePress = (event: any) => {

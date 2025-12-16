@@ -50,11 +50,11 @@ const Dealer: React.FC<DealerProps> = ({
         borderRadius: size,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.CONTRAST,
+        backgroundColor: colors.CONTRAST_A,
         ...posMap[pos],
       }}
     >
-      <WhiteTextBold s={size / 2} color={colors.PRIMARY}>
+      <WhiteTextBold s={size / 2} color={colors.BG1}>
         D
       </WhiteTextBold>
     </View>

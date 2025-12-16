@@ -26,13 +26,13 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
       </View>
       <View
         style={{
-          backgroundColor: colors.PRIMARY,
+          backgroundColor: colors.BG1,
           width,
         }}
       >
         <Text
           style={{
-            color: colors.CONTRAST,
+            color: colors.CONTRAST_A,
             fontWeight: "bold",
             textAlign: "center",
             fontSize,

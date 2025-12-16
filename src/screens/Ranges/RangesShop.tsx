@@ -113,7 +113,7 @@ const RangesShop = () => {
         <FadeBackgroundView
           height={30 * base}
           position={"bottom"}
-          color={colors.TERTIARY as `#${string}`}
+          color={colors.BG3 as `#${string}`}
         />
       </View>
     </BGContainer>

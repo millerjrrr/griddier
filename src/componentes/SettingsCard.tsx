@@ -22,7 +22,7 @@ const SettingsCard: React.FC<{
       <Text
         style={{
           fontSize: 25 * base,
-          color: colors.CONTRAST,
+          color: colors.CONTRAST_A,
         }}
       >
         {title}

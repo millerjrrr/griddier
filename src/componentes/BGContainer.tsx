@@ -11,12 +11,12 @@ interface PinkGradientBackgroundProps {
 export default function BGContainer({
   children,
 }: PinkGradientBackgroundProps) {
-  const { PRIMARY, SECONDARY, TERTIARY } = colors;
+  const { BG1, BG2, BG3 } = colors;
 
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={[PRIMARY, SECONDARY, TERTIARY]}
+        colors={[BG1, BG2, BG3]}
         locations={[0, 0.5, 1]}
         style={StyleSheet.absoluteFill}
         start={{ x: 0.0, y: 0.0 }}

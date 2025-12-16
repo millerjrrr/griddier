@@ -164,3 +164,9 @@ export type RangesStackParamsList = {
   "My Ranges": undefined;
   "Ranges Shop": undefined;
 };
+
+export interface RangeModalProps {
+  visible: boolean;
+  dataEntry: DataEntry | null;
+  onClose: () => void;
+}

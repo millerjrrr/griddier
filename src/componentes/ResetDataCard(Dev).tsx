@@ -47,7 +47,7 @@ const ResetDataCard = () => {
         borderRadius: 10 * base,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: colors.TERTIARY,
+        backgroundColor: colors.BG3,
       }}
       onPress={onPress}
     >

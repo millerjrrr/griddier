@@ -14,7 +14,7 @@ const AppIcon: React.FC<{ size?: number }> = ({
     <View
       style={{
         borderRadius,
-        ...appShadow(colors.CONTRAST, 20 * base),
+        ...appShadow(colors.CONTRAST_A, 20 * base),
         margin: 8 * base,
       }}
     >

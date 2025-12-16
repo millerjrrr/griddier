@@ -26,7 +26,7 @@ const Clock: React.FC<{ record: number }> = ({
         style={{
           fontSize: 20 * base,
           paddingLeft: 5 * base,
-          color: colors.CONTRAST,
+          color: colors.CONTRAST_A,
         }}
       >
         {formatTime(record)}

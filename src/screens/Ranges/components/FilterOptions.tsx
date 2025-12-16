@@ -56,13 +56,13 @@ const SetFilterButton: React.FC<{
 
   const selected = Object.values(filter).includes(name);
   const tintColor = selected
-    ? colors.CONTRAST
-    : colors.TERTIARY;
+    ? colors.CONTRAST_A
+    : colors.BG3;
 
   return (
     <AppTouchable
       style={{
-        backgroundColor: colors.PRIMARY,
+        backgroundColor: colors.BG1,
         borderRadius: 100 * base,
         padding: 3 * base,
         width: ![100, 150, 200, "R+3B"].includes(name)
@@ -73,7 +73,7 @@ const SetFilterButton: React.FC<{
         justifyContent: "center",
         marginHorizontal: 5 * base,
         ...(![50, 100, 150, 200].includes(name as any)
-          ? appShadow(colors.CONTRAST)
+          ? appShadow(colors.CONTRAST_A)
           : {}),
       }}
       onPress={onPress}
@@ -95,7 +95,7 @@ const FilterOptions = () => {
           justifyContent: "center",
           paddingTop: 12 * base,
           padding: 4 * base,
-          backgroundColor: colors.PRIMARY,
+          backgroundColor: colors.BG1,
         }}
       >
         {positions.map((position) => (
@@ -110,7 +110,7 @@ const FilterOptions = () => {
           justifyContent: "center",
           padding: 4 * base,
           paddingBottom: 3 * base,
-          backgroundColor: colors.PRIMARY,
+          backgroundColor: colors.BG1,
         }}
       >
         {vsActions.map((action) => (
@@ -125,7 +125,7 @@ const FilterOptions = () => {
           justifyContent: "center",
           padding: 4 * base,
           paddingBottom: 3 * base,
-          backgroundColor: colors.PRIMARY,
+          backgroundColor: colors.BG1,
         }}
       >
         {stackSizes.map((stack) => (

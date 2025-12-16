@@ -5,17 +5,18 @@ const colors: Record<string, `#${string}`> = {
   PRIOR: "#a6a6a6", // Gray
   FOLD: "#b9e7f0", // Blue
   // theme colors
-  PRIMARY: "#34004d",
-  SECONDARY: "#640092",
-  TERTIARY: "#ae00ff",
-  CONTRAST: "#efccff",
+  BG1: "#34004d",
+  BG2: "#640092",
+  BG3: "#ae00ff",
+  BG4: "#efccff",
+  CONTRAST_A: "#ffffff",
+  CONTRAST_B: "#000000",
   RED: "#ffb9a8ff",
   GREEN: "#76cf70",
   TURQ: "#65B9A9",
   BLUE: "#54a2e2ff",
   GOLD: "#f5e6a4",
   DARKRED: "#f87979ff",
-  WHITE: "#ffffff",
 };
 
 export default colors;

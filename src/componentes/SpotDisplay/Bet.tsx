@@ -61,7 +61,7 @@ const Bet: React.FC<BetProps> = ({
           height: size,
           width: size,
           borderRadius: size / 2,
-          backgroundColor: colors.PRIMARY,
+          backgroundColor: colors.BG1,
         }}
       />
     </View>

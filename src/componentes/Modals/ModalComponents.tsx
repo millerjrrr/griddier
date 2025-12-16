@@ -3,6 +3,10 @@ import { ReactNode } from "react";
 import { Text, View } from "react-native";
 import { DataEntry } from "@src/types";
 import LevelStars from "../LevelStars";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import colors from "./../../utils/colors";
+import { ModalTitle } from "../AppText";
+import { AppTouchable } from "../AppPressables";
 const { base, width } = screenDimensions();
 
 export const Overlay: React.FC<{ children: ReactNode }> = ({
@@ -43,31 +47,55 @@ export const Container: React.FC<{
 
 export const RangeModalTitle: React.FC<{
   dataEntry: DataEntry;
+  toggleEdit: () => void;
+  editModeOn: boolean;
 }> = ({ dataEntry }) => {
   return (
     <View
       style={{
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "space-between",
+        flexDirection: "row",
+        width: "100%",
+        padding: 3 * base,
       }}
     >
-      <Text
+      <View
         style={{
-          fontWeight: "bold",
-          fontSize:
-            dataEntry.gridName.length < 25
-              ? 25 * base
-              : dataEntry.gridName.length < 30
-              ? 23 * base
-              : 20 * base,
-          paddingBottom: 5 * base,
+          alignItems: "flex-start",
         }}
       >
-        {dataEntry.gridName}
-      </Text>
-      {dataEntry.level > 0 && (
-        <LevelStars stars={dataEntry.level} />
-      )}
+        <ModalTitle
+          style={{
+            fontWeight: "bold",
+            fontSize:
+              dataEntry.gridName.length < 25
+                ? 25 * base
+                : dataEntry.gridName.length < 30
+                ? 23 * base
+                : 20 * base,
+            paddingBottom: 5 * base,
+          }}
+        >
+          {dataEntry.gridName}
+        </ModalTitle>
+        {dataEntry.level > 0 && (
+          <LevelStars stars={dataEntry.level} />
+        )}
+      </View>
+      <AppTouchable
+        style={{
+          borderColor: colors.CONTRAST_B,
+          borderWidth: 2,
+          borderRadius: 5,
+        }}
+      >
+        <AntDesign
+          name="edit"
+          size={24}
+          color={colors.CONTRAST_B}
+        />
+      </AppTouchable>
     </View>
   );
 };

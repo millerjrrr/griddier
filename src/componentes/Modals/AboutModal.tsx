@@ -23,7 +23,7 @@ const AboutModal: React.FC<ModalProps> = ({
       animationType="slide"
     >
       <Overlay>
-        <Container color={colors.PRIMARY}>
+        <Container color={colors.BG1}>
           <ModalTitle>About</ModalTitle>
           <AppIcon />
           <ModalText>
@@ -37,7 +37,7 @@ const AboutModal: React.FC<ModalProps> = ({
           <ModalButton
             text="Close"
             onPress={onClose}
-            shadow={colors.CONTRAST}
+            shadow={colors.CONTRAST_A}
           />
         </Container>
       </Overlay>

@@ -27,7 +27,7 @@ const Grid: React.FC<GridProps> = ({
 
   const hands: HandsObject = GridData[name].hands;
 
-  const { SECONDARY, TERTIARY } = colors;
+  const { BG2, BG3 } = colors;
 
   return (
     <View
@@ -48,19 +48,15 @@ const Grid: React.FC<GridProps> = ({
             borderColor: "black",
             borderWidth: 2 * base,
             position: "relative",
-            backgroundColor: TERTIARY,
+            backgroundColor: BG3,
           }}
           onPress={() => setHidden(false)}
         >
-          <FontAwesome
-            name="eye"
-            size={100}
-            color={SECONDARY}
-          />
+          <FontAwesome name="eye" size={100} color={BG2} />
           <Text
             style={{
               fontSize: 20 * base,
-              color: SECONDARY,
+              color: BG2,
             }}
           >
             Touch to reveal grid

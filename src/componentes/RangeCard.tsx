@@ -34,13 +34,13 @@ const RangeCard: React.FC<RangeCardProps> = ({
         padding: 5 * base,
         paddingLeft: showStackSize ? 20 * base : 5 * base,
         width: "100%",
-        ...appShadow(colors.CONTRAST),
+        ...appShadow(colors.CONTRAST_A),
         borderWidth: 2 * base,
-        borderColor: colors.TERTIARY,
+        borderColor: colors.BG3,
         borderRadius: 10 * base,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: colors.PRIMARY,
+        backgroundColor: colors.BG1,
         position: "relative",
       }}
       onPress={onPress}
@@ -59,7 +59,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
             style={{
               fontSize: 15 * base,
               fontWeight: "bold",
-              color: colors.CONTRAST,
+              color: colors.CONTRAST_A,
               textAlign: "center",
             }}
           >
@@ -87,7 +87,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
                 ? 20 * base
                 : 17 * base,
             fontWeight: "bold",
-            color: colors.CONTRAST,
+            color: colors.CONTRAST_A,
           }}
         >
           {dataEntry.gridName.slice(
@@ -99,7 +99,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
           <Entypo
             name="plus"
             size={24}
-            color={colors.CONTRAST}
+            color={colors.CONTRAST_A}
           />
         ) : (
           <DateWithIcon date={dataEntry.dueDate} />

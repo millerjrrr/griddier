@@ -37,7 +37,7 @@ const BackNavigationButton = () => {
           {...{
             name: "chevron-small-left",
             size: 36,
-            color: colors.CONTRAST,
+            color: colors.CONTRAST_A,
           }}
         />
       </AppTouchable>

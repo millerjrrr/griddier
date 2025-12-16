@@ -17,7 +17,7 @@ import { updateDataEntry } from "@src/store/userData";
 import { GridData } from "@assets/data/GridData";
 import screenDimensions from "@src/utils/screenDimensions";
 
-const { BLUE, WHITE, PRIMARY, DARKRED, CONTRAST } = colors;
+const { BLUE, BG1, DARKRED, CONTRAST_A } = colors;
 
 const { base } = screenDimensions();
 
@@ -65,7 +65,7 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         <View
           style={[
             styles.content,
-            { backgroundColor: CONTRAST },
+            { backgroundColor: CONTRAST_A },
           ]}
         >
           <View style={styles.header}>
@@ -89,7 +89,7 @@ const DeleteModal: React.FC<RangeModalProps> = ({
             <FontAwesome
               name="trash"
               size={150 * base}
-              color={PRIMARY}
+              color={BG1}
             />
             <Text
               style={{
@@ -147,11 +147,11 @@ const styles = StyleSheet.create({
     paddingVertical: 12 * base,
     paddingHorizontal: 20 * base,
     borderRadius: 8 * base,
-    ...appShadow(PRIMARY),
+    ...appShadow(BG1),
   },
 
   buttonText: {
-    color: WHITE,
+    color: CONTRAST_A,
     fontWeight: "bold",
     fontSize: 20 * base,
     textAlign: "center",
@@ -162,10 +162,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10 * base,
     paddingHorizontal: 20 * base,
     borderRadius: 8 * base,
-    ...appShadow(PRIMARY),
+    ...appShadow(BG1),
   },
   buttonText3: {
-    color: WHITE,
+    color: CONTRAST_A,
     fontWeight: "bold",
     fontSize: 16 * base,
     textAlign: "center",

@@ -185,7 +185,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         styles.button,
         {
           backgroundColor: colors[colorMap[name]],
-          ...appShadow(colors.CONTRAST),
+          ...appShadow(colors.CONTRAST_A),
           maxWidth,
           margin: maxWidth / 20,
           alignItems: "center",

@@ -70,13 +70,13 @@ const SpotDisplay: React.FC<{
         height: 1.5 * tableWidth,
         borderRadius: tableWidth,
         borderWidth: bw,
-        borderColor: colors.CONTRAST,
+        borderColor: colors.CONTRAST_A,
         position: "relative",
         marginVertical: 10 * base,
         marginTop: 40 * base,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.SECONDARY,
+        backgroundColor: colors.BG2,
       }}
     >
       {heroPositionArray.map((name, index) => (

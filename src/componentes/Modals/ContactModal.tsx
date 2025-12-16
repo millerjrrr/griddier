@@ -25,13 +25,13 @@ const ContactModal: React.FC<ModalProps> = ({
       animationType="slide"
     >
       <Overlay>
-        <Container color={colors.PRIMARY}>
+        <Container color={colors.BG1}>
           <ModalTitle>Contact</ModalTitle>
           <ModalText>Hi, I'm Jacob</ModalText>
           <View
             style={{
               borderRadius: 100 * base,
-              ...appShadow(colors.CONTRAST, 20 * base),
+              ...appShadow(colors.CONTRAST_A, 20 * base),
               margin: 8 * base,
             }}
           >
@@ -43,7 +43,7 @@ const ContactModal: React.FC<ModalProps> = ({
                 height: 100 * base,
                 borderRadius: 100 * base,
                 borderWidth: 2 * base,
-                borderColor: colors.CONTRAST,
+                borderColor: colors.CONTRAST_A,
               }}
             />
           </View>
@@ -61,7 +61,7 @@ const ContactModal: React.FC<ModalProps> = ({
           <ModalButton
             text="Close"
             onPress={onClose}
-            shadow={colors.CONTRAST}
+            shadow={colors.CONTRAST_A}
           />
         </Container>
       </Overlay>

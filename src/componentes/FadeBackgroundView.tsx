@@ -30,7 +30,7 @@ const applyAlpha = (
 const FadeBackgroundView: React.FC<
   FadeBackgroundViewProps
 > = ({
-  color = colors.PRIMARY,
+  color = colors.BG1,
   position = "top",
   height,
   style,

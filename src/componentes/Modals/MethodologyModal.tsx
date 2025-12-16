@@ -31,12 +31,12 @@ const MethodologyModal: React.FC<ModalProps> = ({
       animationType="slide"
     >
       <Overlay>
-        <Container color={colors.PRIMARY}>
+        <Container color={colors.BG1}>
           <ModalTitle>Methodology</ModalTitle>
           <View
             style={{
               borderRadius: 15 * base,
-              ...appShadow(colors.CONTRAST, 20 * base),
+              ...appShadow(colors.CONTRAST_A, 20 * base),
             }}
           >
             <Image
@@ -82,7 +82,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
               style={{
                 fontSize: 25 * base,
                 width: "100%",
-                color: colors.CONTRAST,
+                color: colors.CONTRAST_A,
                 paddingBottom: 5 * base,
               }}
             >
@@ -96,7 +96,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
               style={{
                 fontSize: 25 * base,
                 width: "100%",
-                color: colors.CONTRAST,
+                color: colors.CONTRAST_A,
                 paddingBottom: 5 * base,
               }}
             >
@@ -117,7 +117,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
               style={{
                 fontSize: 25 * base,
                 width: "100%",
-                color: colors.CONTRAST,
+                color: colors.CONTRAST_A,
                 paddingBottom: 5 * base,
               }}
             >
@@ -132,7 +132,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
               style={{
                 fontSize: 25 * base,
                 width: "100%",
-                color: colors.CONTRAST,
+                color: colors.CONTRAST_A,
                 paddingBottom: 5 * base,
               }}
             >
@@ -147,7 +147,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
           <ModalButton
             text="Close"
             onPress={onClose}
-            shadow={colors.CONTRAST}
+            shadow={colors.CONTRAST_A}
           />
         </Container>
       </Overlay>
