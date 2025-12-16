@@ -2,6 +2,7 @@ import { ModalTitle } from "./AppText";
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import AppIcon from "./Modals/AppIcon";
+import colors from "@src/utils/colors";
 
 const LoadingScreen = () => {
   const [dotCount, setDotCount] = useState(0);
@@ -25,7 +26,9 @@ const LoadingScreen = () => {
     >
       <AppIcon size={250} />
       <View style={{ height: 30 }} />
-      <ModalTitle>Configuring updates {dots}</ModalTitle>
+      <ModalTitle style={{ color: colors.CONTRAST_A }}>
+        Configuring updates {dots}
+      </ModalTitle>
     </View>
   );
 };

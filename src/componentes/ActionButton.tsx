@@ -206,20 +206,18 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       >
         {`${name === "Raise" ? raiseSize : name}`}
       </Text>
-      <Text
-        style={{
-          fontSize: 15 * base,
-          fontWeight: "bold",
-          color: "gray",
-          textAlign: "center",
-        }}
-      >
-        {`${
-          Platform.OS === "web"
-            ? "[" + shortcutMap[name] + "]"
-            : ""
-        }`}
-      </Text>
+      {Platform.OS === "web" && (
+        <Text
+          style={{
+            fontSize: 15 * base,
+            fontWeight: "bold",
+            color: "gray",
+            textAlign: "center",
+          }}
+        >
+          {"[" + shortcutMap[name] + "]"}
+        </Text>
+      )}
     </AppTouchable>
   );
 };
