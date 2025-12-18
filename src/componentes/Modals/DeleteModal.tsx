@@ -1,21 +1,20 @@
+import { FontAwesome } from "@expo/vector-icons";
+import { updateDataEntry } from "@src/store/userData";
+import { deleteRange } from "@src/store/userRanges";
+import { DataEntry, GridName } from "@src/types";
+import appShadow from "@src/utils/appShadow";
+import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
 import React from "react";
 import {
   Modal,
-  View,
-  Text,
   StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import { useDispatch } from "react-redux";
-
-import { DataEntry, GridName } from "@src/types";
-import LevelStars from "../LevelStars";
-import appShadow from "@src/utils/appShadow";
-import colors from "@src/utils/colors";
 import { AppPressable } from "../AppPressables";
-import { FontAwesome } from "@expo/vector-icons";
-import { updateDataEntry } from "@src/store/userData";
-import { GridData } from "@assets/data/GridData";
-import screenDimensions from "@src/utils/screenDimensions";
+import LevelStars from "../LevelStars";
 
 const { BLUE, BG1, DARKRED, CONTRAST_A } = colors;
 
@@ -36,7 +35,6 @@ const DeleteModal: React.FC<RangeModalProps> = ({
   if (!dataEntry) return null;
 
   const deleteLearningData = (gridName: GridName) => {
-    const priority = GridData[gridName].priority;
     const individualHandDrillingData = {};
 
     dispatch(
@@ -48,10 +46,12 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         timeDrilling: 0,
         handsPlayed: 0,
         lastStudied: "",
-        priority: priority + 100,
         individualHandDrillingData,
       })
     );
+
+    dispatch(deleteRange(gridName));
+
     onClose();
   };
 

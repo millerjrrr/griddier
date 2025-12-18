@@ -14,7 +14,8 @@ export type HandActions = {
 
 export type HandsObject = Record<PokerHand, HandActions>;
 
-export type GridName = keyof typeof GridData;
+export type GridName = `${number} ${string}` &
+  `${string}${PositionName}${string}`;
 
 export type GridDataEntry = {
   hands: HandsObject;
@@ -80,6 +81,9 @@ export type Filter = {
 
 export interface UserDataState {
   dataEntries: DataEntry[];
+}
+export interface UserRanges {
+  userRanges: Record<GridName, GridDataEntry>;
 }
 
 export type NavigationParamList = {

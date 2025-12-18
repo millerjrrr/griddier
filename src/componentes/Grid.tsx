@@ -1,14 +1,14 @@
+import { FontAwesome } from "@expo/vector-icons";
+import useGetUserRange from "@src/hooks/useGetUsersRange";
+import appShadow from "@src/utils/appShadow";
+import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
 import React, { useState } from "react";
 import { Platform, Text, View } from "react-native";
-import Cell from "./Cell";
-import { handsArray } from "../utils/handsArrayLogic";
 import { GridName, HandsObject } from "../types";
-import appShadow from "@src/utils/appShadow";
-import { FontAwesome } from "@expo/vector-icons";
-import colors from "@src/utils/colors";
-import { GridData } from "@assets/data/GridData";
+import { handsArray } from "../utils/handsArrayLogic";
 import { AppPressable } from "./AppPressables";
-import screenDimensions from "@src/utils/screenDimensions";
+import Cell from "./Cell";
 
 interface GridProps {
   name: GridName;
@@ -25,14 +25,17 @@ const Grid: React.FC<GridProps> = ({
 }) => {
   const [isHidden, setHidden] = useState(hidden);
 
-  const hands: HandsObject = GridData[name].hands;
+  const getUserRange = useGetUserRange();
+  const range = getUserRange(name);
+
+  const hands: HandsObject = range.hands;
 
   const { BG2, BG3 } = colors;
 
   return (
     <View
       style={{
-        ...appShadow("black"),
+        ...appShadow("#000000"),
         justifyContent: "center",
         alignItems: "center",
         width: 0.85 * width,
