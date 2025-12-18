@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { InfoText, InstructionText } from "../AppText";
+import { InfoText, InstructionText } from "../../AppText";
 import screenDimensions from "@src/utils/screenDimensions";
 import { DataEntry } from "@src/types";
 import formatTime from "@src/utils/formatTime";

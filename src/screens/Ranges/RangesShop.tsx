@@ -28,7 +28,8 @@ const RangesShop = () => {
 
   if (filter.activated) {
     data = data.filter((entry) => {
-      const spot = GridData[entry.gridName].spotDescription;
+      const spot =
+        GridData[entry.gridName]?.spotDescription;
       if (!spot) return false;
 
       return (

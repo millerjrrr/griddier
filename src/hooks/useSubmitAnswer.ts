@@ -26,6 +26,7 @@ import { timePassedSince } from "@src/utils/timePassedSince";
 import Toast from "react-native-toast-message";
 import usePlaySound from "./usePlaySound";
 import screenDimensions from "@src/utils/screenDimensions";
+import useGetUserRange from "./useGetUsersRange";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
 const { base } = screenDimensions();
@@ -38,6 +39,7 @@ const isMatch = (x: ActionCombo, y: ActionCombo) =>
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
+  const getUserRange = useGetUserRange();
 
   const updateDatabase = useUpdateDatabase();
 
@@ -78,7 +80,9 @@ const useSubmitAnswer = () => {
       currentHand
     ] || { due: formatDate(new Date()), level: 0 };
 
-    const target = GridData[gridName].hands[currentHand];
+    const range = getUserRange(gridName);
+
+    const target = range.hands[currentHand];
 
     // date management
     const today = zeroTime(new Date());

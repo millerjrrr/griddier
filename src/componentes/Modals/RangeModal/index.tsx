@@ -1,4 +1,3 @@
-import { GridData } from "@assets/data/GridData";
 import { selectTrainerState } from "@src/store/trainer";
 import { HandsObject, RangeModalProps } from "@src/types";
 import colors from "@src/utils/colors";
@@ -15,9 +14,12 @@ import {
   Overlay,
   RangeModalTitle,
 } from "../ModalComponents";
-import ReviewButtons from "./ReviewButtons";
+import RangeDisplayButtons from "./RangeDisplayButtons";
+import useGetUserRange from "@src/hooks/useGetUsersRange";
+import RangeInfoSummary from "./RangeInfoSummary";
+import SuccessDisplayButtons from "./SuccessDisplayButtons";
 
-const { RED, BG4 } = colors;
+const { GOLD, RED, BG4 } = colors;
 
 const { width, base } = screenDimensions();
 
@@ -25,13 +27,20 @@ const RangeModal: React.FC<RangeModalProps> = ({
   visible,
   dataEntry,
   onClose,
+  success,
 }) => {
   const [editModeOn, setEditMode] = useState(false);
   const toggleEdit = () => setEditMode(!editModeOn);
 
   const { gridName, feedback, filteredHandsArray } =
     useSelector(selectTrainerState);
-  const hands: HandsObject = GridData[gridName].hands;
+
+  const getUserRange = useGetUserRange();
+  const range = getUserRange(
+    dataEntry?.gridName || gridName
+  );
+
+  const hands: HandsObject = range.hands;
 
   // Animation state
   const [showFeedbackView, setShowFeedbackView] =
@@ -64,6 +73,12 @@ const RangeModal: React.FC<RangeModalProps> = ({
 
   const feedbackWidth = width * 0.8;
 
+  const backgroundColor = success
+    ? GOLD
+    : feedback
+    ? RED
+    : BG4;
+
   return (
     <Modal
       visible={visible}
@@ -71,7 +86,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
       animationType="slide"
     >
       <Overlay>
-        <Container color={feedback ? RED : BG4}>
+        <Container color={backgroundColor}>
           <View style={{ zIndex: 1000 }}>
             <Toast />
           </View>
@@ -103,21 +118,27 @@ const RangeModal: React.FC<RangeModalProps> = ({
             <Grid
               name={dataEntry.gridName}
               hidden={
+                !success &&
                 !editModeOn &&
                 !feedback &&
                 dataEntry.lastStudied !== ""
               }
             />
           </View>
-          <FrequencyBar
-            handsObject={GridData[dataEntry.gridName].hands}
-          />
-
-          <ReviewButtons
-            visible={visible}
-            dataEntry={dataEntry}
-            onClose={onClose}
-          />
+          <FrequencyBar handsObject={range.hands} />
+          <RangeInfoSummary dataEntry={dataEntry} />
+          {success ? (
+            <SuccessDisplayButtons
+              dataEntry={dataEntry}
+              onClose={onClose}
+            />
+          ) : (
+            <RangeDisplayButtons
+              visible={visible}
+              dataEntry={dataEntry}
+              onClose={onClose}
+            />
+          )}
         </Container>
       </Overlay>
     </Modal>

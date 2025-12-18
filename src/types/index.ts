@@ -171,7 +171,8 @@ export type RangesStackParamsList = {
 };
 
 export interface RangeModalProps {
-  visible: boolean;
+  visible?: boolean;
   dataEntry: DataEntry | null;
   onClose: () => void;
+  success?: boolean;
 }

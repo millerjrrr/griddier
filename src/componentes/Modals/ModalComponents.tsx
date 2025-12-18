@@ -33,9 +33,9 @@ export const Container: React.FC<{
   return (
     <View
       style={{
-        padding: 10 * base,
+        padding: 7 * base,
         borderRadius: 12 * base,
-        width: width * 0.9,
+        width: width * 0.95,
         backgroundColor: color,
         alignItems: "center",
       }}

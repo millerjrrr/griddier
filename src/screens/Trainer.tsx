@@ -13,7 +13,6 @@ import ButtonContainer from "../componentes/ButtonContainer";
 import SpotName from "../componentes/SpotName";
 import { useFocusEffect } from "@react-navigation/native";
 import RangeModal from "@src/componentes/Modals/RangeModal";
-import SuccessModal from "@src/componentes/Modals/SuccessModal";
 import BGContainer from "@src/componentes/BGContainer";
 import { GridData } from "@assets/data/GridData";
 import useGetDataEntries from "@src/hooks/useGetDataEntries";
@@ -103,9 +102,11 @@ const Trainer: React.FC = () => {
           dataEntry={getDataEntries(gridName)}
           onClose={() => dispatch(setShowRangeModal(false))}
         />
-        <SuccessModal
+        <RangeModal
+          success
           visible={showSuccessModal}
           dataEntry={getDataEntries(gridName)}
+          onClose={() => {}}
         />
         <SpotName
           name={gridName.slice(gridName.indexOf(" ") + 1)}

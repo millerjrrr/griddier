@@ -27,13 +27,11 @@ import useInitializeTrainerState from "../../../hooks/useInitializeTrainerState"
 import { CloseButton, ModalButton } from "../ModalButtons";
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import RangeInfoSummary from "../RangeInfoSummary";
 import { InstructionText } from "@src/componentes/AppText";
 
 const { GREEN, TURQ, DARKRED } = colors;
 
-const ReviewButtons: React.FC<RangeModalProps> = ({
-  visible,
+const RangeDisplayButtons: React.FC<RangeModalProps> = ({
   dataEntry,
   onClose,
 }) => {
@@ -107,7 +105,6 @@ const ReviewButtons: React.FC<RangeModalProps> = ({
 
   return (
     <>
-      <RangeInfoSummary dataEntry={dataEntry} />
       <InstructionText>
         {!feedback && dataEntry.lastStudied !== ""
           ? "Ready to revise this grid?"
@@ -168,4 +165,4 @@ const ReviewButtons: React.FC<RangeModalProps> = ({
   );
 };
 
-export default ReviewButtons;
+export default RangeDisplayButtons;
