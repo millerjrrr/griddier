@@ -14,16 +14,13 @@ const generateCSVContent = (data: DataEntry[]): string => {
     "lastStudied",
     "priority",
     "individualHandDrillingData",
+    "rangeDetails",
   ].join(",");
 
   const escapeCsvField = (field: string) =>
     `"${field.replace(/"/g, '""')}"`;
 
-  const filteredData = data.filter(
-    (point) => point.dueDate !== ""
-  );
-
-  const rows = filteredData.map((entry) =>
+  const rows = data.map((entry) =>
     [
       entry.gridName,
       entry.dueDate,
@@ -36,6 +33,7 @@ const generateCSVContent = (data: DataEntry[]): string => {
       escapeCsvField(
         JSON.stringify(entry.individualHandDrillingData)
       ),
+      entry.rangeDetails || "",
     ].join(",")
   );
 

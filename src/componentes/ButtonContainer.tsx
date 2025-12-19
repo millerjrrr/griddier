@@ -3,7 +3,7 @@ import { View, StyleSheet, Platform } from "react-native";
 import ActionButton from "./ActionButton";
 import { ActionName, GridName } from "../types";
 import screenDimensions from "@src/utils/screenDimensions";
-import useGetUserRange from "./../hooks/useGetUsersRange";
+import { getUserRange } from "@src/utils/getUsersRange";
 const { base } = screenDimensions();
 
 interface ButtonsRowProps {
@@ -13,7 +13,6 @@ interface ButtonsRowProps {
 const ButtonContainer: React.FC<ButtonsRowProps> = ({
   gridName,
 }) => {
-  const getUserRange = useGetUserRange();
   const Range = getUserRange(gridName);
   const handsEntries = Object.values(Range.hands);
 

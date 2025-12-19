@@ -1,5 +1,4 @@
 import { FontAwesome } from "@expo/vector-icons";
-import useGetUserRange from "@src/hooks/useGetUsersRange";
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
@@ -9,6 +8,7 @@ import { GridName, HandsObject } from "../types";
 import { handsArray } from "../utils/handsArrayLogic";
 import { AppPressable } from "./AppPressables";
 import Cell from "./Cell";
+import { getUserRange } from "@src/utils/getUsersRange";
 
 interface GridProps {
   name: GridName;
@@ -25,7 +25,6 @@ const Grid: React.FC<GridProps> = ({
 }) => {
   const [isHidden, setHidden] = useState(hidden);
 
-  const getUserRange = useGetUserRange();
   const range = getUserRange(name);
 
   const hands: HandsObject = range.hands;

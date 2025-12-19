@@ -11,7 +11,10 @@ import {
   updateDataEntry,
 } from "@src/store/userData";
 import sort from "@src/utils/sortDataEntries";
-import { OrderedKeys } from "@assets/data/OrderedKeys";
+import {
+  OrderedKey,
+  OrderedKeys,
+} from "@assets/data/OrderedKeys";
 import { DataEntry, GridName } from "@src/types";
 
 const useAppFocusSetGridName = () => {
@@ -24,9 +27,11 @@ const useAppFocusSetGridName = () => {
     const newDataEntries = [] as DataEntry[];
     dataEntries.forEach((entry) => {
       if (
-        !OrderedKeys.includes(entry.gridName) &&
+        !OrderedKeys.includes(
+          entry.gridName as OrderedKey
+        ) &&
         OrderedKeys.includes(
-          ("100 " + entry.gridName) as GridName
+          ("100 " + entry.gridName) as OrderedKey
         )
       ) {
         newDataEntries.push({

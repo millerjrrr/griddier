@@ -15,9 +15,9 @@ import {
   RangeModalTitle,
 } from "../ModalComponents";
 import RangeDisplayButtons from "./RangeDisplayButtons";
-import useGetUserRange from "@src/hooks/useGetUsersRange";
 import RangeInfoSummary from "./RangeInfoSummary";
 import SuccessDisplayButtons from "./SuccessDisplayButtons";
+import { getUserRange } from "@src/utils/getUsersRange";
 
 const { GOLD, RED, BG4 } = colors;
 
@@ -35,7 +35,6 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const { gridName, feedback, filteredHandsArray } =
     useSelector(selectTrainerState);
 
-  const getUserRange = useGetUserRange();
   const range = getUserRange(
     dataEntry?.gridName || gridName
   );

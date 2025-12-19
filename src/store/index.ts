@@ -6,11 +6,9 @@ import { persistStore } from "redux-persist";
 import { combineReducers, Reducer } from "redux";
 import trainerReducer from "./trainer";
 import timerReducer from "./timer";
-import userRangesReducer from "./userRanges";
-import userDataReducer, { setUserData } from "./userData";
+import userDataReducer from "./userData";
 import persistReducer from "redux-persist/es/persistReducer";
 import { fileBackedStorage } from "@src/utils/asyncStorage";
-import { addUserData } from "@src/utils/addUserData";
 import { Platform } from "react-native";
 
 let storage: any;
@@ -27,7 +25,6 @@ export const resetStore = createAction("RESET_STORE");
 const appReducers = combineReducers({
   trainer: trainerReducer,
   userData: userDataReducer,
-  userRanges: userRangesReducer,
   timer: timerReducer,
 });
 
@@ -44,7 +41,7 @@ const rootReducer: Reducer<RootState, any> = (
 const persistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ["userData", "timer", "userRanges"], // ✅ persist these slices
+  whitelist: ["userData", "timer"], // ✅ persist these slices
 };
 
 const persistedReducer = persistReducer(
@@ -65,9 +62,4 @@ export type AppDispatch = typeof store.dispatch;
 
 export default store;
 
-export const persistor = persistStore(store, null, () => {
-  const state = store.getState();
-  const userData = state.userData.dataEntries; // Assuming your slice shape is `state.userData.data`
-  const merged = addUserData(userData);
-  store.dispatch(setUserData(merged));
-});
+export const persistor = persistStore(store);

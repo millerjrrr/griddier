@@ -1,4 +1,3 @@
-import { GridData } from "@assets/data/GridData";
 import {
   setFilteredHandsArray,
   setFilteredHandsData,
@@ -8,33 +7,39 @@ import {
 } from "@src/store/trainer";
 import { GridName } from "@src/types";
 import { fisherYatesShuffle } from "@src/utils/fisherYatesShuffle";
-import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
-import zeroTime from "@src/utils/zeroTime";
-import { useDispatch } from "react-redux";
-import useGetDataEntries from "./useGetDataEntries";
 import formatDate from "@src/utils/formatDate";
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import { sortHands } from "@src/utils/handsArrayLogic";
+import zeroTime from "@src/utils/zeroTime";
+import { useDispatch, useStore } from "react-redux";
+import type { RootState } from "@src/store";
+import { getUserRange } from "@src/utils/getUsersRange";
 
 const useInitializeTrainerState = () => {
   const dispatch = useDispatch();
-  const getDataEntries = useGetDataEntries();
+  const store = useStore<RootState>();
 
   const initializeTrainerState = (
     gridName: GridName,
     shuffled: boolean = true,
     fullReview: boolean = false
   ) => {
+    const state = store.getState();
+    const dataEntry = state.userData.dataEntries.find(
+      (e) => e.gridName === gridName
+    );
     const individualHandDrillingData =
-      getDataEntries(gridName)?.individualHandDrillingData;
+      dataEntry?.individualHandDrillingData || {};
 
     const today = zeroTime(new Date());
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const featured = GridData[gridName].featured;
+    const range = getUserRange(gridName);
+
+    const featured = range.featured;
 
     const repeating =
-      getDataEntries(gridName).dueDate ===
-      formatDate(tomorrow);
+      dataEntry?.dueDate === formatDate(tomorrow);
 
     let handsForReview = fullReview
       ? [...featured]
@@ -66,7 +71,7 @@ const useInitializeTrainerState = () => {
     }
 
     handsForReview =
-      shuffled && getDataEntries(gridName)?.level > 0
+      shuffled && dataEntry?.level && dataEntry?.level > 0
         ? fisherYatesShuffle(handsForReview)
         : sortHands(handsForReview);
 

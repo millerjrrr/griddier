@@ -81,7 +81,9 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
   };
 
   const reviewTomorrow = () => {
-    const newGridName = sort(dataEntries)[1].gridName; //skip the first as that's the one we just did
+    const newGridName =
+      sort(dataEntries)[1]?.gridName ||
+      dataEntries[0].gridName; //skip the first as that's the one we just did
     dispatch(resetStartTime());
     dispatch(resetActions());
     dispatch(resetIndex());

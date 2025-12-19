@@ -24,7 +24,7 @@ import { AppTouchable } from "./AppPressables";
 import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 import screenDimensions from "@src/utils/screenDimensions";
 import Toast from "react-native-toast-message";
-import useGetUserRange from "@src/hooks/useGetUsersRange";
+import { getUserRange } from "@src/utils/getUsersRange";
 const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -50,7 +50,6 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     gridName,
     actions: { allin, raise, call },
   } = useSelector(selectTrainerState);
-  const getUserRange = useGetUserRange();
   const Range = getUserRange(gridName);
 
   const { submitAnswer } = useSubmitAnswer();

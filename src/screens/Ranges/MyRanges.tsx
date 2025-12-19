@@ -1,22 +1,22 @@
-import RangeModal from "@src/componentes/Modals/RangeModal";
-import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
-import RangeCard from "@src/componentes/RangeCard";
-import { selectUserDataState } from "@src/store/userData";
-import { DataEntry } from "@src/types";
-import { useState } from "react";
-import { FlatList, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { WhiteTextBold } from "@src/componentes/AppText";
 import BGContainer from "@src/componentes/BGContainer";
-import colors from "@src/utils/colors";
+import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
+import DeleteModal from "@src/componentes/Modals/DeleteModal";
+import RangeModal from "@src/componentes/Modals/RangeModal";
+import RangeCard from "@src/componentes/RangeCard";
 import {
   selectFilter,
   setFeedback,
 } from "@src/store/trainer";
-import DeleteModal from "@src/componentes/Modals/DeleteModal";
+import { selectUserDataState } from "@src/store/userData";
+import { DataEntry } from "@src/types";
+import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
+import { useState } from "react";
+import { FlatList, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { WhiteTextBold } from "@src/componentes/AppText";
-import { GridData } from "@assets/data/GridData";
+import { getUserRange } from "@src/utils/getUsersRange";
 const { base } = screenDimensions();
 
 const MyRanges = () => {
@@ -34,7 +34,9 @@ const MyRanges = () => {
 
   if (filter.activated) {
     data = data.filter((entry) => {
-      const spot = GridData[entry.gridName].spotDescription;
+      const spot = getUserRange(
+        entry.gridName
+      ).spotDescription;
       if (!spot) return false;
 
       return (

@@ -1,35 +1,62 @@
-import RangeModal from "@src/componentes/Modals/RangeModal";
-import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
-import RangeCard from "@src/componentes/RangeCard";
-import { selectUserDataState } from "@src/store/userData";
-import { DataEntry } from "@src/types";
-import { useState } from "react";
-import { FlatList, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { WhiteTextBold } from "@src/componentes/AppText";
+import BackNavigationButton from "@src/componentes/BackNavigationButton";
 import BGContainer from "@src/componentes/BGContainer";
-import colors from "@src/utils/colors";
+import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
+import RangeModal from "@src/componentes/Modals/RangeModal";
+import RangeCard from "@src/componentes/RangeCard";
 import {
   selectFilter,
   setFeedback,
 } from "@src/store/trainer";
+import { selectUserDataState } from "@src/store/userData";
+import { DataEntry, GridName } from "@src/types";
+import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import BackNavigationButton from "@src/componentes/BackNavigationButton";
+import { useState } from "react";
+import { FlatList, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { WhiteTextBold } from "@src/componentes/AppText";
-import { GridData } from "@assets/data/GridData";
+import { getUserRange } from "@src/utils/getUsersRange";
+import { OrderedKeys } from "@assets/data/OrderedKeys";
+import formatDate from "@src/utils/formatDate";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
   const { dataEntries } = useSelector(selectUserDataState);
   const filter = useSelector(selectFilter);
-  let data = dataEntries.filter(
-    (entry) => entry.dueDate === ""
+  const existingGridNames = new Set(
+    dataEntries
+      .filter((entry) => entry.dueDate !== "")
+      .map((entry) => entry.gridName)
   );
+
+  const individualHandDrillingData = {};
+
+  let data: DataEntry[] = OrderedKeys.filter(
+    (gridName) =>
+      !existingGridNames.has(gridName as GridName)
+  ).map((gridName) => ({
+    gridName,
+    dueDate: "",
+    level: 0,
+    drilled: 0,
+    timeDrilling: 0,
+    handsPlayed: 0,
+    lastStudied: "",
+    priority: OrderedKeys.indexOf(gridName) + 1,
+    individualHandDrillingData,
+  }));
+
+  data = [
+    ...data,
+    ...dataEntries.filter((entry) => entry.dueDate === ""),
+  ];
 
   if (filter.activated) {
     data = data.filter((entry) => {
-      const spot =
-        GridData[entry.gridName]?.spotDescription;
+      const spot = getUserRange(
+        entry.gridName
+      )?.spotDescription;
       if (!spot) return false;
 
       return (

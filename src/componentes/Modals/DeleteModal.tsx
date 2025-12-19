@@ -1,6 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { updateDataEntry } from "@src/store/userData";
-import { deleteRange } from "@src/store/userRanges";
 import { DataEntry, GridName } from "@src/types";
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
@@ -47,10 +46,9 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         handsPlayed: 0,
         lastStudied: "",
         individualHandDrillingData,
+        rangeDetails: undefined,
       })
     );
-
-    dispatch(deleteRange(gridName));
 
     onClose();
   };

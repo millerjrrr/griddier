@@ -1,38 +1,25 @@
-import * as DocumentPicker from "expo-document-picker";
-import * as FileSystem from "expo-file-system/legacy";
-import Papa from "papaparse";
+import { GridData } from "@assets/data/GridData";
+import { setGridName } from "@src/store/trainer";
+import { setUserData } from "@src/store/userData";
 import {
   DataEntry,
+  GridDataEntry,
   GridName,
   positions,
   stackSizes,
   StrictDateString,
 } from "@src/types";
-import { setUserData } from "@src/store/userData";
+import * as DocumentPicker from "expo-document-picker";
+import * as FileSystem from "expo-file-system/legacy";
+import Papa from "papaparse";
+import { Platform } from "react-native";
 import { normalizeDate } from "./normalizeDate";
-import { setGridName } from "@src/store/trainer";
-import sort from "./sortDataEntries";
-import { GridData } from "@assets/data/GridData";
 import {
   confirmOverwrite,
   showAlert,
 } from "./platformBasedAlerts";
-import { Platform } from "react-native";
-import { addUserData } from "./addUserData";
-
-const fixAnyGridNameIssues = (string: string) => {
-  let newString = string.replace("->100", "");
-  if (
-    !stackSizes.includes(
-      Number(
-        newString.slice(0, newString.indexOf(" "))
-      ) as any
-    ) &&
-    positions.includes(newString.slice(0, 2) as any)
-  )
-    newString = "100 " + newString;
-  return newString;
-};
+import sort from "./sortDataEntries";
+import { isValidGridDataEntry } from "@src/types/validators";
 
 export const pickCsvFile = async (): Promise<
   string | null
@@ -112,7 +99,7 @@ export const parseAndValidateCsv = (
           `Duplicate gridName: ${row.gridName}`
         );
       }
-      csvGridNames.add(fixAnyGridNameIssues(row.gridName));
+      csvGridNames.add(row.gridName);
 
       let individualHandDrillingData = {};
       if (row.individualHandDrillingData) {
@@ -137,10 +124,38 @@ export const parseAndValidateCsv = (
         }
       }
 
+      let rangeDetails: GridDataEntry | undefined;
+
+      if (row.rangeDetails) {
+        try {
+          const parsed = JSON.parse(row.rangeDetails);
+
+          if (!isValidGridDataEntry(parsed)) {
+            throw new Error("Invalid GridDataEntry format");
+          }
+
+          rangeDetails = parsed;
+        } catch (e) {
+          console.error(
+            `Failed to parse or validate rangeDetails at row ${
+              index + 2
+            }`,
+            e
+          );
+
+          showAlert(
+            "Error",
+            `Invalid rangeDetails format at row ${
+              index + 2
+            }. The data does not match the expected grid schema.`
+          );
+
+          throw e;
+        }
+      }
+
       return {
-        gridName: fixAnyGridNameIssues(
-          row.gridName
-        ) as GridName,
+        gridName: row.gridName as GridName,
         dueDate: normalizeDate(
           row.dueDate
         ) as StrictDateString,
@@ -153,35 +168,44 @@ export const parseAndValidateCsv = (
           | "",
         priority: parseInt(row.priority) || 0,
         individualHandDrillingData,
+        rangeDetails,
       };
     }
   );
 
   const trimmedCSVData = parsedData.filter(
-    (point) => point.dueDate !== ""
+    (point) =>
+      point.dueDate !== "" ||
+      point.rangeDetails !== undefined
   );
+
   const gridNames = Object.keys(GridData);
   const gridNamesSet = new Set(gridNames);
 
-  const filteredCSVData = trimmedCSVData.filter((point) =>
-    gridNamesSet.has(point.gridName)
+  const filteredCSVData = trimmedCSVData.filter(
+    (point) =>
+      gridNamesSet.has(point.gridName) ||
+      point.rangeDetails !== undefined
   );
 
-  const missing = [...csvGridNames].filter(
-    (g) => !gridNamesSet.has(g)
-  );
+  const missing = trimmedCSVData
+    .filter(
+      (point) =>
+        !gridNamesSet.has(point.gridName) &&
+        point.rangeDetails === undefined
+    )
+    .map((point) => point.gridName);
 
   if (missing.length > 0) {
     showAlert(
       "Error",
-      `These grids have been updated or replaced and are no longer supported: ${missing.join(
+      `The following data entries were not imported. Data entries that are not part of our standard ranges must include rangeDetails: ${missing.join(
         ", "
       )}`
     );
   }
 
-  const fullData = addUserData(filteredCSVData);
-  return fullData;
+  return filteredCSVData;
 };
 
 export const importUserDataFromCsv = async (

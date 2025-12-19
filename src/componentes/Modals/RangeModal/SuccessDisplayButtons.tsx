@@ -1,5 +1,7 @@
+import { OrderedKeys } from "@assets/data/OrderedKeys";
 import { MaterialTopTabNavigationProp } from "@react-navigation/material-top-tabs";
 import { useNavigation } from "@react-navigation/native";
+import { InstructionText } from "@src/componentes/AppText";
 import useInitializeTrainerState from "@src/hooks/useInitializeTrainerState";
 import {
   resetActions,
@@ -20,14 +22,12 @@ import {
 } from "@src/types";
 import colors from "@src/utils/colors";
 import formatDate from "@src/utils/formatDate";
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import sort from "@src/utils/sortDataEntries";
+import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useSelector } from "react-redux";
 import { CloseButton, ModalButton } from "../ModalButtons";
-import { InstructionText } from "@src/componentes/AppText";
-import LevelStars from "@src/componentes/LevelStars";
-import screenDimensions from "@src/utils/screenDimensions";
 const { GREEN, TURQ, DARKRED } = colors;
-const { base } = screenDimensions();
 
 const SuccessDisplayButtons: React.FC<RangeModalProps> = ({
   dataEntry,
@@ -45,12 +45,25 @@ const SuccessDisplayButtons: React.FC<RangeModalProps> = ({
 
   if (!dataEntry) return null;
 
-  const newDataEntry = sort(dataEntries)[0];
-  const newGridName = newDataEntry.gridName;
-  const standardButtons =
-    newDataEntry.timeDrilling !== 0 ||
-    dataEntries.filter((entry) => entry.level <= 1)
-      .length === 0;
+  const nextDataEntry = sort(dataEntries)[0];
+
+  const today = zeroTime(new Date());
+
+  const nextDataEntryIsDue =
+    !!nextDataEntry.dueDate &&
+    getLocalDateFromYYYYMMDD(nextDataEntry.dueDate) <=
+      today;
+
+  const newGridName = nextDataEntryIsDue
+    ? nextDataEntry.gridName
+    : OrderedKeys.filter(
+        (key) =>
+          !dataEntries
+            .map((entry) => entry.gridName)
+            .includes(key)
+      )[0];
+
+  const standardButtons = nextDataEntryIsDue;
 
   const reset = (soft?: boolean) => {
     dispatch(resetStartTime());

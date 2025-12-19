@@ -1,5 +1,4 @@
 import { handsArray } from "@src/utils/handsArrayLogic";
-import { GridData } from "@assets/data/GridData";
 
 export type PokerHand = (typeof handsArray)[number];
 export type ValidFraction = 0 | 1 | 2 | 3 | 4;
@@ -12,16 +11,30 @@ export type HandActions = {
   fold?: ValidFraction;
 };
 
-export type HandsObject = Record<PokerHand, HandActions>;
-
-export type GridName = `${number} ${string}` &
-  `${string}${PositionName}${string}`;
+export type SpotInfo = {
+  hero: PositionName;
+  vsAction: VsActionFilter;
+  stacks: StackSize;
+  raiseSize: number;
+  LJ?: { bet: number; cards: boolean };
+  HJ?: { bet: number; cards: boolean };
+  CO?: { bet: number; cards: boolean };
+  BU?: { bet: number; cards: boolean };
+  SB?: { bet: number; cards: boolean };
+  BB?: { bet: number; cards: boolean };
+};
+export type HandsObject = {
+  [K in PokerHand]: HandActions;
+};
 
 export type GridDataEntry = {
   hands: HandsObject;
   featured: PokerHand[];
   spotDescription: SpotInfo;
 };
+
+export type GridName = `${number} ${string}` &
+  `${string}${PositionName}${string}`;
 
 export type ColorName =
   keyof typeof import("../utils/colors").default;
@@ -46,8 +59,8 @@ export interface DataEntry {
   handsPlayed: number;
   lastStudied: StrictDateString | "";
   priority: number;
-  locked?: boolean; //remove on next update
   individualHandDrillingData: IndividualHandDrillingData;
+  rangeDetails?: GridDataEntry;
 }
 
 export interface DueLevelPair {
@@ -151,19 +164,6 @@ export type Pos =
 
 export const stackSizes = [50, 100] as const;
 export type StackSize = (typeof stackSizes)[number];
-
-export type SpotInfo = {
-  hero: PositionName;
-  vsAction: VsActionFilter;
-  stacks: StackSize;
-  raiseSize: number;
-  LJ?: { bet: number; cards: boolean };
-  HJ?: { bet: number; cards: boolean };
-  CO?: { bet: number; cards: boolean };
-  BU?: { bet: number; cards: boolean };
-  SB?: { bet: number; cards: boolean };
-  BB?: { bet: number; cards: boolean };
-};
 
 export type RangesStackParamsList = {
   "My Ranges": undefined;

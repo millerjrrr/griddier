@@ -1,6 +1,14 @@
-import React, { useCallback, useEffect } from "react";
-import { View, StyleSheet, Platform } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  OrderedKey,
+  OrderedKeys,
+} from "@assets/data/OrderedKeys";
+import { useFocusEffect } from "@react-navigation/native";
+import BGContainer from "@src/componentes/BGContainer";
+import RangeModal from "@src/componentes/Modals/RangeModal";
+import SpotDisplay from "@src/componentes/SpotDisplay";
+import Timer from "@src/componentes/Timer";
+import useGetDataEntries from "@src/hooks/useGetDataEntries";
+import usePlaySound from "@src/hooks/usePlaySound";
 import {
   resetActions,
   resetIndex,
@@ -8,21 +16,17 @@ import {
   setFeedback,
   setShowRangeModal,
 } from "@src/store/trainer";
-import Cell from "../componentes/Cell";
-import ButtonContainer from "../componentes/ButtonContainer";
-import SpotName from "../componentes/SpotName";
-import { useFocusEffect } from "@react-navigation/native";
-import RangeModal from "@src/componentes/Modals/RangeModal";
-import BGContainer from "@src/componentes/BGContainer";
-import { GridData } from "@assets/data/GridData";
-import useGetDataEntries from "@src/hooks/useGetDataEntries";
-import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
-import screenDimensions from "@src/utils/screenDimensions";
-import usePlaySound from "@src/hooks/usePlaySound";
-import SpotDisplay from "@src/componentes/SpotDisplay";
-import Timer from "@src/componentes/Timer";
 import { cleanDataEntries } from "@src/store/userData";
-import { OrderedKeys } from "@assets/data/OrderedKeys";
+import { GridName } from "@src/types";
+import screenDimensions from "@src/utils/screenDimensions";
+import React, { useCallback, useEffect } from "react";
+import { Platform, StyleSheet, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import ButtonContainer from "../componentes/ButtonContainer";
+import Cell from "../componentes/Cell";
+import SpotName from "../componentes/SpotName";
+import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
+import { getUserRange } from "@src/utils/getUsersRange";
 const { width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -40,25 +44,26 @@ const Trainer: React.FC = () => {
   const getDataEntries = useGetDataEntries();
 
   const dispatch = useDispatch();
+  const range = getUserRange(gridName);
 
   // Validate GridName
   useEffect(() => {
-    const validGridNames = OrderedKeys;
-    const isValidGrid = validGridNames.includes(gridName);
+    const isValidGrid =
+      OrderedKeys.includes(gridName as OrderedKey) ||
+      getDataEntries(gridName)?.rangeDetails;
 
     const safeGridName = isValidGrid
       ? gridName
-      : validGridNames[0];
+      : OrderedKeys[0];
 
     if (!isValidGrid) {
       dispatch(cleanDataEntries());
     }
 
-    initializeTrainerState(safeGridName, false);
+    initializeTrainerState(safeGridName as GridName, false);
   }, [gridName]);
 
-  const { prior } =
-    GridData[gridName].hands[filteredHandsArray[index]];
+  const { prior } = range.hands[filteredHandsArray[index]];
 
   useFocusEffect(
     useCallback(() => {

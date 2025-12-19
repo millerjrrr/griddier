@@ -1,15 +1,15 @@
-import colors from "@src/utils/colors";
-import screenDimensions from "@src/utils/screenDimensions";
-import { View } from "react-native";
+import { getUserRange } from "@src/utils/getUsersRange";
 import {
   GridName,
   Pos,
   PositionName,
   SpotInfo,
 } from "@src/types";
-import PositionRepresentation from "./PositionRepresentation";
+import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
 import { ReactNode } from "react";
-import { GridData } from "@assets/data/GridData";
+import { View } from "react-native";
+import PositionRepresentation from "./PositionRepresentation";
 const { width: vw, base } = screenDimensions();
 
 const SpotDisplay: React.FC<{
@@ -19,8 +19,9 @@ const SpotDisplay: React.FC<{
   const tableWidth = 0.8 * vw;
   const bw = 5 * base;
 
-  const spotInfo: SpotInfo = GridData[gridName]
-    .spotDescription || {
+  const range = getUserRange(gridName);
+
+  const spotInfo: SpotInfo = range.spotDescription || {
     hero: "BU",
     stacks: 100,
     LJ: { bet: 2, cards: true },

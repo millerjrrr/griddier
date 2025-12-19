@@ -1,3 +1,4 @@
+import { GridData } from "@assets/data/GridData";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@src/store";
 import {
@@ -5,9 +6,11 @@ import {
   GridName,
   UserDataState,
 } from "@src/types";
+import { isValidGridDataEntry } from "@src/types/validators";
+import formatDate from "@src/utils/formatDate";
 import getInitialUserData from "@src/utils/getInitialUserData";
 import sort from "@src/utils/sortDataEntries";
-import { GridData } from "@assets/data/GridData";
+const gridNamesSet = new Set(Object.keys(GridData));
 
 const initialState: UserDataState = {
   dataEntries: getInitialUserData(),
@@ -38,16 +41,34 @@ const slice = createSlice({
       const { gridName, newGridName, ...updates } =
         action.payload;
 
+      const effectiveGridName = newGridName ?? gridName;
+
       const index = state.dataEntries.findIndex(
         (entry) => entry.gridName === gridName
       );
 
       if (index !== -1) {
+        // ✅ update existing
         state.dataEntries[index] = {
           ...state.dataEntries[index],
           ...updates,
-          gridName: (newGridName ?? gridName) as GridName,
+          gridName: effectiveGridName as GridName,
         };
+      } else {
+        state.dataEntries.push({
+          gridName: effectiveGridName as GridName,
+          dueDate:
+            updates.dueDate ?? formatDate(new Date()),
+          level: updates.level ?? 0,
+          drilled: updates.drilled ?? 0,
+          timeDrilling: updates.timeDrilling ?? 0,
+          handsPlayed: updates.handsPlayed ?? 0,
+          lastStudied: updates.lastStudied ?? "",
+          priority: updates.priority ?? 1,
+          individualHandDrillingData:
+            updates.individualHandDrillingData ?? {},
+          rangeDetails: updates.rangeDetails ?? undefined,
+        });
       }
 
       state.dataEntries = sort(state.dataEntries);
@@ -59,7 +80,9 @@ const slice = createSlice({
     cleanDataEntries: (state) => {
       state.dataEntries = state.dataEntries.filter(
         (entry) =>
-          Object.keys(GridData).includes(entry.gridName)
+          gridNamesSet.has(entry.gridName) ||
+          (entry.rangeDetails &&
+            isValidGridDataEntry(entry.rangeDetails))
       );
     },
   },

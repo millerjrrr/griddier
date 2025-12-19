@@ -1,3 +1,4 @@
+import store from "@src/store";
 import {
   incHandsPlayed,
   incIndex,
@@ -12,21 +13,19 @@ import {
   setSuccessModal,
   updateFilteredHand,
 } from "@src/store/trainer";
-import { useDispatch } from "react-redux";
 import { ActionCombo } from "@src/types";
-import store from "@src/store";
-import useUpdateDatabase from "./useUpdateDatabase";
-import { moveToFront } from "@src/utils/moveToFront";
-import { GridData } from "@assets/data/GridData";
-import zeroTime from "@src/utils/zeroTime";
-import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import formatDate from "@src/utils/formatDate";
-import useGetDataEntries from "./useGetDataEntries";
-import { timePassedSince } from "@src/utils/timePassedSince";
-import Toast from "react-native-toast-message";
-import usePlaySound from "./usePlaySound";
+import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
+import { moveToFront } from "@src/utils/moveToFront";
 import screenDimensions from "@src/utils/screenDimensions";
-import useGetUserRange from "./useGetUsersRange";
+import { timePassedSince } from "@src/utils/timePassedSince";
+import zeroTime from "@src/utils/zeroTime";
+import Toast from "react-native-toast-message";
+import { useDispatch } from "react-redux";
+import useGetDataEntries from "./useGetDataEntries";
+import usePlaySound from "./usePlaySound";
+import useUpdateDatabase from "./useUpdateDatabase";
+import { getUserRange } from "@src/utils/getUsersRange";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
 const { base } = screenDimensions();
@@ -39,7 +38,6 @@ const isMatch = (x: ActionCombo, y: ActionCombo) =>
 const useSubmitAnswer = () => {
   const dispatch = useDispatch();
   const getDataEntries = useGetDataEntries();
-  const getUserRange = useGetUserRange();
 
   const updateDatabase = useUpdateDatabase();
 
