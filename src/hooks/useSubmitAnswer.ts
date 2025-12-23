@@ -109,12 +109,16 @@ const useSubmitAnswer = () => {
           ? formatDate(nextDate)
           : handData.due;
 
+        const newLevel = isDueTodayOrPast
+          ? handData.level + 1
+          : handData.level;
+
         // updating hand review data
         if (index >= repeatsArray.length)
           dispatch(
             updateFilteredHand({
               [currentHand]: {
-                level: handData.level + 1,
+                level: newLevel,
                 due: newDueDate,
               },
             })

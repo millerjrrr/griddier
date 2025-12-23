@@ -33,7 +33,9 @@ const generateCSVContent = (data: DataEntry[]): string => {
       escapeCsvField(
         JSON.stringify(entry.individualHandDrillingData)
       ),
-      entry.rangeDetails || "",
+      entry.rangeDetails
+        ? escapeCsvField(JSON.stringify(entry.rangeDetails))
+        : "",
     ].join(",")
   );
 

@@ -1,8 +1,9 @@
+import { StrictDateString } from "@src/types";
 import formatDate from "./formatDate";
 import getLocalDateFromYYYYMMDD from "./getLocalDateFromYYYMMDD";
 
 export default function prettyDate(
-  stringDate: string
+  stringDate: StrictDateString
 ): string {
   const date = new Date();
   if (stringDate === formatDate(date)) return "Today";

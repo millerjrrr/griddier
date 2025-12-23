@@ -27,6 +27,7 @@ import Cell from "../componentes/Cell";
 import SpotName from "../componentes/SpotName";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
 import { getUserRange } from "@src/utils/getUsersRange";
+import RemoveModal from "@src/componentes/Modals/RemoveModal";
 const { width, base } = screenDimensions();
 
 const Trainer: React.FC = () => {
@@ -37,6 +38,7 @@ const Trainer: React.FC = () => {
     filteredHandsArray,
     showRangeModal,
     showSuccessModal,
+    showRemoveModal,
   } = useSelector(selectTrainerState);
 
   const initializeTrainerState =
@@ -113,6 +115,7 @@ const Trainer: React.FC = () => {
           dataEntry={getDataEntries(gridName)}
           onClose={() => {}}
         />
+        <RemoveModal visible={showRemoveModal} />
         <SpotName
           name={gridName.slice(gridName.indexOf(" ") + 1)}
         />

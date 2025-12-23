@@ -31,6 +31,7 @@ interface TrainerState {
   handsPlayed: number;
   showRangeModal: boolean;
   showSuccessModal: boolean;
+  showRemoveModal: boolean;
   feedback: boolean;
   showCombos: boolean;
   filter: Filter;
@@ -51,6 +52,7 @@ const initialState: TrainerState = {
   handsPlayed: 0,
   showRangeModal: false,
   showSuccessModal: false,
+  showRemoveModal: false,
   feedback: false,
   showCombos: false,
   filter: {
@@ -113,6 +115,12 @@ const slice = createSlice({
     },
     setSuccessModal(state, action: PayloadAction<boolean>) {
       state.showSuccessModal = action.payload;
+    },
+    setShowRemoveModal(
+      state,
+      action: PayloadAction<boolean>
+    ) {
+      state.showRemoveModal = action.payload;
     },
     setFeedback(state, action: PayloadAction<boolean>) {
       state.feedback = action.payload;
@@ -186,6 +194,7 @@ export const {
   resetStartTime,
   setShowRangeModal,
   setSuccessModal,
+  setShowRemoveModal,
   setFilteredHandsArray,
   setFilteredHandsData,
   updateFilteredHand,

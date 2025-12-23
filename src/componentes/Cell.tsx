@@ -16,9 +16,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   resetActions,
   selectTrainerState,
+  setShowRemoveModal,
 } from "@src/store/trainer";
 import screenDimensions from "@src/utils/screenDimensions";
-import { AppPressable } from "./AppPressables";
+import {
+  AppPressable,
+  AppTouchable,
+} from "./AppPressables";
+import { FontAwesome } from "@expo/vector-icons";
 const { base } = screenDimensions();
 
 export interface GridCellProps {
@@ -136,6 +141,25 @@ const Cell: React.FC<GridCellProps> = ({
           justifyContent: "flex-start",
         }}
       >
+        {clearActionsOnTouch && (
+          <AppTouchable
+            onPress={() =>
+              dispatch(setShowRemoveModal(true))
+            }
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              padding: 8 * base,
+            }}
+          >
+            <FontAwesome
+              name="trash"
+              size={20 * base}
+              color="gray"
+            />
+          </AppTouchable>
+        )}
         {segments.map((segment, index) => (
           <View
             key={index}
