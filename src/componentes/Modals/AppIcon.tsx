@@ -1,20 +1,21 @@
 import appShadow from "@src/utils/appShadow";
-import { Image, View } from "react-native";
-import screenDimensions from "@src/utils/screenDimensions";
 import colors from "@src/utils/colors";
+import screenDimensions from "@src/utils/screenDimensions";
+import { Image, View } from "react-native";
 const icon = require("@assets/icon.png");
 const { base } = screenDimensions();
 
-const AppIcon: React.FC<{ size?: number }> = ({
-  size = 100,
-}) => {
+const AppIcon: React.FC<{
+  size?: number;
+  shadowColor?: `#${string}`;
+}> = ({ size = 100, shadowColor = colors.CONTRAST_A }) => {
   const borderRadius = 0.15 * size * base;
 
   return (
     <View
       style={{
         borderRadius,
-        ...appShadow(colors.CONTRAST_A, 20 * base),
+        ...appShadow(shadowColor, 20 * base),
         margin: 8 * base,
       }}
     >

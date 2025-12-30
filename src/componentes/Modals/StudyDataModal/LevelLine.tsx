@@ -19,7 +19,7 @@ const LevelLine: React.FC<Props> = ({
   touched = false,
   onPress,
 }) => {
-  const color = colors.CONTRAST_A;
+  const color = colors.BG3;
 
   return (
     <TouchableOpacity

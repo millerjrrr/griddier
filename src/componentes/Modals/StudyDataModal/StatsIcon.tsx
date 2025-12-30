@@ -14,9 +14,9 @@ interface StatsIconProps {
 const StatsIcon: React.FC<StatsIconProps> = ({
   name = "clock-outline",
   text = "",
-  size = 18,
+  size = 18 * base,
 }) => {
-  const color = colors.CONTRAST_A;
+  const color = colors.CONTRAST_B;
 
   return (
     <View style={styles.container}>

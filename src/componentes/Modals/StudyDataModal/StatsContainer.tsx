@@ -8,7 +8,7 @@ import formatTime from "@src/utils/formatTime";
 
 const StatsContainer = ({ size = 22 }) => {
   const { dataEntries } = useSelector(selectUserDataState);
-  const { CONTRAST_A, BG2 } = colors;
+  const { CONTRAST_B, BG4 } = colors;
   const timeDrilling = dataEntries
     .map((entry) => entry.timeDrilling)
     .reduce((a, b) => a + b, 0);
@@ -31,41 +31,33 @@ const StatsContainer = ({ size = 22 }) => {
       style={[
         styles.container,
         {
-          backgroundColor: BG2,
-          ...appShadow(CONTRAST_A),
+          backgroundColor: BG4,
+          ...appShadow(CONTRAST_B),
         },
       ]}
     >
       <View style={styles.rowContainer}>
         <StatsIcon
-          {...{
-            name: "clock-outline",
-            text: formatTime(timeDrilling),
-            size,
-          }}
+          name="clock-outline"
+          text={formatTime(timeDrilling)}
+          size={size}
         />
         <StatsIcon
-          {...{
-            name: "basket-fill",
-            text: unlocked,
-            size,
-          }}
+          name="basket-fill"
+          text={unlocked}
+          size={size}
         />
       </View>
       <View style={styles.rowContainer}>
         <StatsIcon
-          {...{
-            name: "grid-large",
-            text: drillsCompleted,
-            size,
-          }}
+          name="grid-large"
+          text={drillsCompleted}
+          size={size}
         />
         <StatsIcon
-          {...{
-            name: "foot-print",
-            text: handsPlayed,
-            size,
-          }}
+          name="foot-print"
+          text={handsPlayed}
+          size={size}
         />
       </View>
     </View>

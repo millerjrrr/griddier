@@ -50,7 +50,7 @@ export const ModalTitle = styled.Text`
 export const ModalText = styled.Text`
   font-size: ${25 * base}px;
   color: ${colors.CONTRAST_B};
-  padding-bottom: ${5 * base}px;
+  padding: ${8 * base}px;
   text-align: center;
 `;
 
