@@ -4,7 +4,7 @@ import colors from "@src/utils/colors";
 import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, View } from "react-native";
+import { Animated, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
 import { useSelector } from "react-redux";
 import Cell from "../../Cell";
@@ -15,6 +15,7 @@ import { RangeModalTitle } from "../ModalComponents";
 import RangeDisplayButtons from "./RangeDisplayButtons";
 import RangeInfoSummary from "./RangeInfoSummary";
 import SuccessDisplayButtons from "./SuccessDisplayButtons";
+import FeaturedGrid from "@src/componentes/FeaturedGrid";
 
 const { GOLD, RED, BG4 } = colors;
 
@@ -85,52 +86,60 @@ const RangeModal: React.FC<RangeModalProps> = ({
         <Toast />
       </View>
       <RangeModalTitle
+        editModeIsOn={editModeOn}
         dataEntry={dataEntry}
         toggleEdit={toggleEdit}
       />
-      <View style={{ position: "relative" }}>
-        {feedback && showFeedbackView && (
-          <Animated.View
-            style={{
-              position: "absolute",
-              left: 0,
-              transform: [{ scale: feedbackScale }],
-              zIndex: 500,
-              padding: 15 * base,
-            }}
-          >
-            {filteredHandsArray.length > 0 && (
-              <Cell
-                hand={filteredHandsArray[0]}
-                actions={hands[filteredHandsArray[0]]}
-                size={feedbackWidth}
-              />
+      {!editModeOn ? (
+        <>
+          <View style={{ position: "relative" }}>
+            {feedback && showFeedbackView && (
+              <Animated.View
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  transform: [{ scale: feedbackScale }],
+                  zIndex: 500,
+                  padding: 15 * base,
+                }}
+              >
+                {filteredHandsArray.length > 0 && (
+                  <Cell
+                    hand={filteredHandsArray[0]}
+                    actions={hands[filteredHandsArray[0]]}
+                    size={feedbackWidth}
+                  />
+                )}
+              </Animated.View>
             )}
-          </Animated.View>
-        )}
-
-        <Grid
-          name={dataEntry.gridName}
-          hidden={
-            !success &&
-            !editModeOn &&
-            !feedback &&
-            dataEntry.lastStudied !== ""
-          }
-        />
-      </View>
-      <FrequencyBar handsObject={range.hands} />
-      <RangeInfoSummary dataEntry={dataEntry} />
-      {success ? (
-        <SuccessDisplayButtons
-          dataEntry={dataEntry}
-          onClose={onClose}
-        />
+            <Grid
+              name={dataEntry.gridName}
+              hidden={
+                !success &&
+                !feedback &&
+                dataEntry.lastStudied !== ""
+              }
+            />
+          </View>
+          <FrequencyBar handsObject={range.hands} />
+          <RangeInfoSummary dataEntry={dataEntry} />
+          {success ? (
+            <SuccessDisplayButtons
+              dataEntry={dataEntry}
+              onClose={onClose}
+            />
+          ) : (
+            <RangeDisplayButtons
+              visible={visible}
+              dataEntry={dataEntry}
+              onClose={onClose}
+            />
+          )}
+        </>
       ) : (
-        <RangeDisplayButtons
-          visible={visible}
-          dataEntry={dataEntry}
-          onClose={onClose}
+        <FeaturedGrid
+          gridName={gridName}
+          toggleEdit={toggleEdit}
         />
       )}
     </AppModal>

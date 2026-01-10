@@ -48,7 +48,8 @@ export const Container: React.FC<{
 export const RangeModalTitle: React.FC<{
   dataEntry: DataEntry;
   toggleEdit: () => void;
-}> = ({ dataEntry, toggleEdit }) => {
+  editModeIsOn: boolean;
+}> = ({ dataEntry, toggleEdit, editModeIsOn }) => {
   return (
     <View
       style={{
@@ -84,14 +85,16 @@ export const RangeModalTitle: React.FC<{
       </View>
       <AppTouchable
         onPress={toggleEdit}
-        style={{
-          borderColor: colors.CONTRAST_B,
-          borderWidth: 2,
-          borderRadius: 5,
-        }}
+        style={
+          {
+            // borderColor: colors.CONTRAST_B,
+            // borderWidth: 2,
+            // borderRadius: 5,
+          }
+        }
       >
         <AntDesign
-          name="edit"
+          name={editModeIsOn ? "close" : "edit"}
           size={24}
           color={colors.CONTRAST_B}
         />
