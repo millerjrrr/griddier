@@ -85,3 +85,15 @@ export const isValidGridDataEntry = (
     isValidSpotInfo(v.spotDescription)
   );
 };
+
+export const isPokerHandArray = (
+  value: unknown
+): value is PokerHand[] => {
+  if (!Array.isArray(value)) return false;
+
+  return value.every(
+    (h): h is PokerHand =>
+      typeof h === "string" &&
+      handsArray.includes(h as PokerHand)
+  );
+};

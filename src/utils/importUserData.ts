@@ -5,10 +5,13 @@ import {
   DataEntry,
   GridDataEntry,
   GridName,
-  positions,
-  stackSizes,
+  PokerHand,
   StrictDateString,
 } from "@src/types";
+import {
+  isPokerHandArray,
+  isValidGridDataEntry,
+} from "@src/types/validators";
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system/legacy";
 import Papa from "papaparse";
@@ -19,7 +22,6 @@ import {
   showAlert,
 } from "./platformBasedAlerts";
 import sort from "./sortDataEntries";
-import { isValidGridDataEntry } from "@src/types/validators";
 
 export const pickCsvFile = async (): Promise<
   string | null
@@ -124,20 +126,20 @@ export const parseAndValidateCsv = (
         }
       }
 
-      let rangeDetails: GridDataEntry | undefined;
+      let featuredHandsArray: PokerHand[] | undefined;
 
-      if (row.rangeDetails) {
+      if (row.featuredHandsArray) {
         try {
-          const parsed = JSON.parse(row.rangeDetails);
+          const parsed = JSON.parse(row.featuredHandsArray);
 
-          if (!isValidGridDataEntry(parsed)) {
+          if (!isPokerHandArray(parsed)) {
             throw new Error("Invalid GridDataEntry format");
           }
 
-          rangeDetails = parsed;
+          featuredHandsArray = parsed;
         } catch (e) {
           console.error(
-            `Failed to parse or validate rangeDetails at row ${
+            `Failed to parse or validate featuredHands at row ${
               index + 2
             }`,
             e
@@ -145,7 +147,7 @@ export const parseAndValidateCsv = (
 
           showAlert(
             "Error",
-            `Invalid rangeDetails format at row ${
+            `Invalid featured hands format at row ${
               index + 2
             }. The data does not match the expected grid schema.`
           );
@@ -168,7 +170,7 @@ export const parseAndValidateCsv = (
           | "",
         priority: parseInt(row.priority) || 0,
         individualHandDrillingData,
-        rangeDetails,
+        featuredHandsArray,
       };
     }
   );
@@ -176,30 +178,24 @@ export const parseAndValidateCsv = (
   const trimmedCSVData = parsedData.filter(
     (point) =>
       point.dueDate !== "" ||
-      point.rangeDetails !== undefined
+      point.featuredHandsArray !== undefined
   );
 
   const gridNames = Object.keys(GridData);
   const gridNamesSet = new Set(gridNames);
 
-  const filteredCSVData = trimmedCSVData.filter(
-    (point) =>
-      gridNamesSet.has(point.gridName) ||
-      point.rangeDetails !== undefined
+  const filteredCSVData = trimmedCSVData.filter((point) =>
+    gridNamesSet.has(point.gridName)
   );
 
   const missing = trimmedCSVData
-    .filter(
-      (point) =>
-        !gridNamesSet.has(point.gridName) &&
-        point.rangeDetails === undefined
-    )
+    .filter((point) => !gridNamesSet.has(point.gridName))
     .map((point) => point.gridName);
 
   if (missing.length > 0) {
     showAlert(
       "Error",
-      `The following data entries were not imported. Data entries that are not part of our standard ranges must include rangeDetails: ${missing.join(
+      `The following data entries were not imported as the data was corrupted: ${missing.join(
         ", "
       )}`
     );

@@ -1,7 +1,7 @@
 import { selectTrainerState } from "@src/store/trainer";
 import { HandsObject, RangeModalProps } from "@src/types";
 import colors from "@src/utils/colors";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, View } from "react-native";
@@ -27,14 +27,15 @@ const RangeModal: React.FC<RangeModalProps> = ({
   success,
 }) => {
   const [editModeOn, setEditMode] = useState(false);
-  const toggleEdit = () => setEditMode(!editModeOn);
+  const toggleEdit = () => {
+    console.log("reinitialize trainer state");
+    setEditMode(!editModeOn);
+  };
 
   const { gridName, feedback, filteredHandsArray } =
     useSelector(selectTrainerState);
 
-  const range = getUserRange(
-    dataEntry?.gridName || gridName
-  );
+  const range = getRange(dataEntry?.gridName || gridName);
 
   const hands: HandsObject = range.hands;
 

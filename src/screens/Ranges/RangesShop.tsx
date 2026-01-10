@@ -16,7 +16,7 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 import { OrderedKeys } from "@assets/data/OrderedKeys";
 import formatDate from "@src/utils/formatDate";
 const { base } = screenDimensions();
@@ -54,7 +54,7 @@ const RangesShop = () => {
 
   if (filter.activated) {
     data = data.filter((entry) => {
-      const spot = getUserRange(
+      const spot = getRange(
         entry.gridName
       )?.spotDescription;
       if (!spot) return false;

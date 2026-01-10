@@ -8,7 +8,7 @@ import { GridName, HandsObject } from "../types";
 import { handsArray } from "../utils/handsArrayLogic";
 import { AppPressable } from "./AppPressables";
 import Cell from "./Cell";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 
 interface GridProps {
   name: GridName;
@@ -25,7 +25,7 @@ const Grid: React.FC<GridProps> = ({
 }) => {
   const [isHidden, setHidden] = useState(hidden);
 
-  const range = getUserRange(name);
+  const range = getRange(name);
 
   const hands: HandsObject = range.hands;
 

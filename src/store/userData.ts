@@ -67,22 +67,19 @@ const slice = createSlice({
           priority: updates.priority ?? 1,
           individualHandDrillingData:
             updates.individualHandDrillingData ?? {},
-          rangeDetails: updates.rangeDetails ?? undefined,
+          featuredHandsArray:
+            updates.featuredHandsArray ?? undefined,
         });
       }
 
       state.dataEntries = sort(state.dataEntries);
     },
-
     reSortDataEntries: (state) => {
       state.dataEntries = sort(state.dataEntries);
     },
     cleanDataEntries: (state) => {
       state.dataEntries = state.dataEntries.filter(
-        (entry) =>
-          gridNamesSet.has(entry.gridName) ||
-          (entry.rangeDetails &&
-            isValidGridDataEntry(entry.rangeDetails))
+        (entry) => gridNamesSet.has(entry.gridName)
       );
     },
   },

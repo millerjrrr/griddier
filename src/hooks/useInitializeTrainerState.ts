@@ -13,7 +13,7 @@ import { sortHands } from "@src/utils/handsArrayLogic";
 import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useStore } from "react-redux";
 import type { RootState } from "@src/store";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 
 const useInitializeTrainerState = () => {
   const dispatch = useDispatch();
@@ -34,9 +34,10 @@ const useInitializeTrainerState = () => {
     const today = zeroTime(new Date());
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const range = getUserRange(gridName);
+    const range = getRange(gridName);
 
-    const featured = range.featured;
+    const featured =
+      dataEntry?.featuredHandsArray ?? range.featured;
 
     const repeating =
       dataEntry?.dueDate === formatDate(tomorrow);

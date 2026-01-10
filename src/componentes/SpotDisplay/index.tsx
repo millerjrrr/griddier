@@ -1,4 +1,4 @@
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 import {
   GridName,
   Pos,
@@ -19,7 +19,7 @@ const SpotDisplay: React.FC<{
   const tableWidth = 0.8 * vw;
   const bw = 5 * base;
 
-  const range = getUserRange(gridName);
+  const range = getRange(gridName);
 
   const spotInfo: SpotInfo = range.spotDescription || {
     hero: "BU",

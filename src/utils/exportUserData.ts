@@ -14,7 +14,7 @@ const generateCSVContent = (data: DataEntry[]): string => {
     "lastStudied",
     "priority",
     "individualHandDrillingData",
-    "rangeDetails",
+    "featuredHandArray",
   ].join(",");
 
   const escapeCsvField = (field: string) =>
@@ -33,8 +33,10 @@ const generateCSVContent = (data: DataEntry[]): string => {
       escapeCsvField(
         JSON.stringify(entry.individualHandDrillingData)
       ),
-      entry.rangeDetails
-        ? escapeCsvField(JSON.stringify(entry.rangeDetails))
+      entry.featuredHandsArray
+        ? escapeCsvField(
+            JSON.stringify(entry.featuredHandsArray)
+          )
         : "",
     ].join(",")
   );

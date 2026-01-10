@@ -25,7 +25,7 @@ import { useDispatch } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import usePlaySound from "./usePlaySound";
 import useUpdateDatabase from "./useUpdateDatabase";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 const cymbal = require("assets/sounds/cymbal.wav");
 const success = require("assets/sounds/success.wav");
 const { base } = screenDimensions();
@@ -78,7 +78,7 @@ const useSubmitAnswer = () => {
       currentHand
     ] || { due: formatDate(new Date()), level: 0 };
 
-    const range = getUserRange(gridName);
+    const range = getRange(gridName);
 
     const target = range.hands[currentHand];
 

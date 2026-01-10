@@ -16,7 +16,7 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 const { base } = screenDimensions();
 
 const MyRanges = () => {
@@ -34,9 +34,7 @@ const MyRanges = () => {
 
   if (filter.activated) {
     data = data.filter((entry) => {
-      const spot = getUserRange(
-        entry.gridName
-      ).spotDescription;
+      const spot = getRange(entry.gridName).spotDescription;
       if (!spot) return false;
 
       return (

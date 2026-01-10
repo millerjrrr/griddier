@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { InfoText, InstructionText } from "../../AppText";
 import screenDimensions from "@src/utils/screenDimensions";
-import { DataEntry } from "@src/types";
+import { DataEntry, StrictDateString } from "@src/types";
 import formatTime from "@src/utils/formatTime";
 import prettyDate from "@src/utils/prettyDate";
 const { base } = screenDimensions();
@@ -32,7 +32,9 @@ const RangeInfoSummary: React.FC<{
       <InfoText>
         {dataEntry.lastStudied === ""
           ? ""
-          : `Due: ${prettyDate(dataEntry.dueDate)}`}
+          : `Due: ${prettyDate(
+              dataEntry.dueDate as StrictDateString
+            )}`}
       </InfoText>
     </View>
   );

@@ -26,7 +26,7 @@ import ButtonContainer from "../componentes/ButtonContainer";
 import Cell from "../componentes/Cell";
 import SpotName from "../componentes/SpotName";
 import useInitializeTrainerState from "../hooks/useInitializeTrainerState";
-import { getUserRange } from "@src/utils/getUsersRange";
+import { getRange } from "@src/utils/getRange";
 import RemoveModal from "@src/componentes/Modals/RemoveModal";
 const { width, base } = screenDimensions();
 
@@ -46,13 +46,13 @@ const Trainer: React.FC = () => {
   const getDataEntries = useGetDataEntries();
 
   const dispatch = useDispatch();
-  const range = getUserRange(gridName);
+  const range = getRange(gridName);
 
   // Validate GridName
   useEffect(() => {
-    const isValidGrid =
-      OrderedKeys.includes(gridName as OrderedKey) ||
-      getDataEntries(gridName)?.rangeDetails;
+    const isValidGrid = OrderedKeys.includes(
+      gridName as OrderedKey
+    );
 
     const safeGridName = isValidGrid
       ? gridName

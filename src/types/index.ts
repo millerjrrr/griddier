@@ -60,7 +60,7 @@ export interface DataEntry {
   lastStudied: StrictDateString | "";
   priority: number;
   individualHandDrillingData: IndividualHandDrillingData;
-  rangeDetails?: GridDataEntry;
+  featuredHandsArray?: PokerHand[];
 }
 
 export interface DueLevelPair {

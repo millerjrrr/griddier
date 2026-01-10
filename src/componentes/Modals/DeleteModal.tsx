@@ -46,7 +46,7 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         handsPlayed: 0,
         lastStudied: "",
         individualHandDrillingData,
-        rangeDetails: undefined,
+        featuredHandsArray: undefined,
       })
     );
 
