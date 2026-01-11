@@ -17,10 +17,7 @@ const appShadow = (
       shadowRadius: width * 0.6,
       shadowColor: color,
     },
-    android: {
-      elevation: width, // proportional to your radius
-      shadowColor: color, // only affects some Android versions
-    },
+    android: {},
     web: {
       boxShadow: `0px 0px ${width}px ${color}80`,
     },
@@ -39,8 +36,6 @@ export const appShadowForStyledComponents = (
         shadow-color:${color};
       `,
     android: `
-        elevation: ${Math.max(1, width * 0.6)}px;
-        shadow-color: ${color};
         `,
     web: `
         box-shadow: 0px 0px ${width}px ${color}80; 

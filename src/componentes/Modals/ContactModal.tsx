@@ -1,7 +1,7 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import { Image, View } from "react-native";
+import { Image, Linking, View } from "react-native";
 import { ModalText, ModalTitle } from "../AppText";
 import AppModal from "./AppModal";
 import { ModalButton } from "./ModalButtons";
@@ -42,13 +42,18 @@ const ContactModal: React.FC<ModalProps> = ({
         />
       </View>
       <ModalText>
-        and this is Griddier. I created this app to help
-        students of the game memorize preflop ranges -
-        perfectly! If you would like to get in touch:
+        {
+          "and this is Griddier. I created this app to help students of the game memorize preflop ranges - perfectly! Visit our website to get in touch."
+        }
       </ModalText>
-      <ModalText>
-        {"jacob@griddier.com \n +353 86 089 7326"}
-      </ModalText>
+      <ModalButton
+        text="Visit Website"
+        onPress={() =>
+          Linking.openURL("https://griddier.com")
+        }
+        shadow={colors.CONTRAST_A}
+        scale={1}
+      />
       <ModalButton
         text="Close"
         onPress={onClose}
