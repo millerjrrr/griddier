@@ -1,4 +1,9 @@
-import { Image, Platform } from "react-native";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  View,
+} from "react-native";
 import { AppTouchable } from "../AppPressables";
 import { WhiteTextBold } from "../AppText";
 import appShadow from "@src/utils/appShadow";
@@ -13,7 +18,8 @@ import { updateDataEntry } from "@src/store/userData";
 import formatDate from "@src/utils/formatDate";
 const lockIcon = require("@assets/img/lock.png");
 const { base } = screenDimensions();
-const { BLUE, BG1, BG2 } = colors;
+const { BLUE, CONTRAST_B, BG2 } = colors;
+const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
 interface ModalButtonProps {
   text: string;
@@ -32,7 +38,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
   scale = 0.9,
   color = BG2,
   locked,
-  shadow = BG1,
+  shadow = CONTRAST_B,
   shortcutKey,
   gridName,
 }) => {
@@ -82,41 +88,63 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
       window.removeEventListener("keydown", handleKeyDown);
   }, [shortcutKey, onPressFunction]);
 
+  const height = 45 * base * scale;
+  const borderRadius = 8 * base;
+
   return (
-    <AppTouchable
+    <View
       style={{
-        alignItems: "center",
-        borderRadius: 8 * base,
-        marginTop: 10 * base,
-        ...appShadow(shadow),
-        paddingVertical: 12 * base * scale,
-        backgroundColor: color,
+        borderRadius,
         width: "100%",
+        ...appShadow(shadow),
       }}
-      onPress={onPressFunction}
-      onLongPress={onLongPressFunction}
     >
-      {locked ? (
+      <AppTouchable
+        style={{
+          alignItems: "center",
+          borderRadius,
+          marginTop: 10 * base,
+          paddingVertical: 12 * base * scale,
+          backgroundColor: color,
+          width: "100%",
+          height,
+          overflow: "hidden",
+        }}
+        onPress={onPressFunction}
+        onLongPress={onLongPressFunction}
+      >
         <Image
-          source={lockIcon}
-          resizeMode="contain"
+          source={Overlay}
           style={{
-            height: 21 * base * scale,
-            width: 21 * base * scale,
+            width: "100%",
+            height,
+            ...StyleSheet.absoluteFillObject,
+            opacity: 0.15,
           }}
+          resizeMode="cover"
         />
-      ) : (
-        <WhiteTextBold s={20 * scale}>
-          {text}
-          {hasShortcut &&
-            ` [${
-              shortcutKey === " "
-                ? "Space"
-                : shortcutKey.toUpperCase()
-            }]`}
-        </WhiteTextBold>
-      )}
-    </AppTouchable>
+        {locked ? (
+          <Image
+            source={lockIcon}
+            resizeMode="contain"
+            style={{
+              height: 21 * base * scale,
+              width: 21 * base * scale,
+            }}
+          />
+        ) : (
+          <WhiteTextBold s={20 * base * scale}>
+            {text}
+            {hasShortcut &&
+              ` [${
+                shortcutKey === " "
+                  ? "Space"
+                  : shortcutKey.toUpperCase()
+              }]`}
+          </WhiteTextBold>
+        )}
+      </AppTouchable>
+    </View>
   );
 };
 

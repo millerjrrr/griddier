@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30 * base,
+    paddingBottom: 30 * base,
   },
 });
 

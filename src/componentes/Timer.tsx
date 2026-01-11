@@ -11,6 +11,8 @@ import {
   updateLastPlayed,
 } from "@src/store/timer";
 import { timePassedSince } from "@src/utils/timePassedSince";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base } = screenDimensions();
 
 const Timer = () => {
   const { startedPlaying } = useSelector(
@@ -50,13 +52,13 @@ const Timer = () => {
         style={{
           position: "absolute",
           right: 0,
-          width: 60,
-          height: 40,
+          top: 0,
+          paddingHorizontal: 5,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <WhiteTextBold s={25}>{value}</WhiteTextBold>
+        <WhiteTextBold s={25 * base}>{value}</WhiteTextBold>
       </View>
     </View>
   );

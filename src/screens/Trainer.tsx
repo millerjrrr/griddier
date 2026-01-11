@@ -116,10 +116,10 @@ const Trainer: React.FC = () => {
           onClose={() => {}}
         />
         <RemoveModal visible={showRemoveModal} />
+        <Timer />
         <SpotName
           name={gridName.slice(gridName.indexOf(" ") + 1)}
         />
-        <Timer />
         <SpotDisplay gridName={gridName}>
           <Cell
             actions={{ ...actions, prior }}

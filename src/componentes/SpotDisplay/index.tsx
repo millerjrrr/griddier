@@ -66,32 +66,40 @@ const SpotDisplay: React.FC<{
   return (
     <View
       style={{
-        width: tableWidth,
-        height: 1.5 * tableWidth,
-        borderRadius: tableWidth,
-        borderWidth: bw,
-        borderColor: colors.CONTRAST_A,
-        position: "relative",
-        marginVertical: 10 * base,
-        marginTop: 40 * base,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.BG2,
       }}
     >
-      {heroPositionArray.map((name, index) => (
-        <PositionRepresentation
-          key={name}
-          name={name}
-          stack={spotDetails.stacks}
-          pos={positionsArray[index]}
-          tableWidth={tableWidth}
-          bw={bw}
-          bet={spotDetails[name].bet}
-          cards={spotDetails[name].cards}
-        />
-      ))}
-      {children}
+      <View
+        style={{
+          width: tableWidth,
+          height: 1.5 * tableWidth,
+          borderRadius: tableWidth,
+          borderWidth: bw,
+          borderColor: colors.CONTRAST_A,
+          position: "relative",
+          marginVertical: 10 * base,
+          marginTop: 40 * base,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: colors.BG2,
+        }}
+      >
+        {heroPositionArray.map((name, index) => (
+          <PositionRepresentation
+            key={name}
+            name={name}
+            stack={spotDetails.stacks}
+            pos={positionsArray[index]}
+            tableWidth={tableWidth}
+            bw={bw}
+            bet={spotDetails[name].bet}
+            cards={spotDetails[name].cards}
+          />
+        ))}
+        {children}
+      </View>
     </View>
   );
 };

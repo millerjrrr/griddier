@@ -1,3 +1,4 @@
+import { OrderedKeys } from "@assets/data/OrderedKeys";
 import { WhiteTextBold } from "@src/componentes/AppText";
 import BackNavigationButton from "@src/componentes/BackNavigationButton";
 import BGContainer from "@src/componentes/BGContainer";
@@ -11,14 +12,12 @@ import {
 import { selectUserDataState } from "@src/store/userData";
 import { DataEntry, GridName } from "@src/types";
 import colors from "@src/utils/colors";
+import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { getRange } from "@src/utils/getRange";
-import { OrderedKeys } from "@assets/data/OrderedKeys";
-import formatDate from "@src/utils/formatDate";
 const { base } = screenDimensions();
 
 const RangesShop = () => {

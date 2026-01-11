@@ -77,7 +77,11 @@ export const RangeModalTitle: React.FC<{
             paddingBottom: 5 * base,
           }}
         >
-          {dataEntry.gridName}
+          {dataEntry.gridName.slice(0, 3) === "100"
+            ? dataEntry.gridName.slice(
+                dataEntry.gridName.indexOf(" ") + 1
+              )
+            : dataEntry.gridName}
         </ModalTitle>
         {dataEntry.level > 0 && (
           <LevelStars stars={dataEntry.level} />

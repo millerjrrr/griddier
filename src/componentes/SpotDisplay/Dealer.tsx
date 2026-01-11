@@ -2,6 +2,7 @@ import { Pos } from "@src/types";
 import { View } from "react-native";
 import { WhiteTextBold } from "../AppText";
 import colors from "@src/utils/colors";
+import appShadow from "@src/utils/appShadow";
 
 interface DealerProps {
   pos: Pos;
@@ -51,6 +52,7 @@ const Dealer: React.FC<DealerProps> = ({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.CONTRAST_A,
+        ...appShadow(colors.CONTRAST_A),
         ...posMap[pos],
       }}
     >

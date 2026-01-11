@@ -2,6 +2,7 @@ import { Pos } from "@src/types";
 import { View } from "react-native";
 import { BetTag, ModalSmallText } from "../AppText";
 import colors from "@src/utils/colors";
+import appShadow from "@src/utils/appShadow";
 
 interface BetProps {
   bet: number;
@@ -62,6 +63,7 @@ const Bet: React.FC<BetProps> = ({
           width: size,
           borderRadius: size / 2,
           backgroundColor: colors.BG1,
+          ...appShadow(colors.CONTRAST_A),
         }}
       />
     </View>

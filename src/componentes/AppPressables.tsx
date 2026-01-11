@@ -44,7 +44,11 @@ export const AppTouchable: React.FC<
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} {...rest}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={handlePress}
+      {...rest}
+    >
       {children}
     </TouchableOpacity>
   );

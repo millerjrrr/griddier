@@ -1,9 +1,16 @@
 import React from "react";
-import { Platform, StyleSheet, Text } from "react-native";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../utils/colors";
 import appShadow from "../utils/appShadow";
 import { ColorName, ValidFraction } from "../types";
+const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
 const pop = require("assets/sounds/pop.wav");
 
@@ -176,56 +183,72 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   };
 
   const raiseSize = Range.spotDescription.raiseSize + "x";
+  const borderRadius = 10 * base;
 
   return (
-    <AppTouchable
-      style={[
-        styles.button,
-        {
-          backgroundColor: colors[colorMap[name]],
-          ...appShadow(colors.CONTRAST_A),
-          maxWidth,
-          margin: maxWidth / 20,
-          alignItems: "center",
-          justifyContent: "center",
-        },
-      ]}
-      onPress={() => handlePress(name)}
-      onLongPress={handleLongPress}
-      delayLongPress={300}
+    <View
+      style={{
+        borderRadius,
+        ...appShadow(colors.CONTRAST_A, 10),
+        maxWidth,
+        margin: maxWidth / 20,
+      }}
     >
-      <Text
-        style={{
-          fontSize: 25 * base,
-          fontWeight: "bold",
-          color: "gray",
-          textAlign: "center",
-        }}
+      <AppTouchable
+        style={[
+          styles.button,
+          {
+            borderRadius,
+            backgroundColor: colors[colorMap[name]],
+          },
+        ]}
+        onPress={() => handlePress(name)}
+        onLongPress={handleLongPress}
+        delayLongPress={300}
       >
-        {`${name === "Raise" ? raiseSize : name}`}
-      </Text>
-      {Platform.OS === "web" && (
+        <Image
+          source={Overlay}
+          style={{
+            width: "100%",
+            height: "100%",
+            ...StyleSheet.absoluteFillObject,
+            opacity: 0.25,
+          }}
+          resizeMode="cover"
+        />
         <Text
           style={{
-            fontSize: 15 * base,
+            fontSize: 25 * base,
             fontWeight: "bold",
             color: "gray",
             textAlign: "center",
           }}
         >
-          {"[" + shortcutMap[name] + "]"}
+          {`${name === "Raise" ? raiseSize : name}`}
         </Text>
-      )}
-    </AppTouchable>
+        {Platform.OS === "web" && (
+          <Text
+            style={{
+              fontSize: 15 * base,
+              fontWeight: "bold",
+              color: "gray",
+              textAlign: "center",
+            }}
+          >
+            {"[" + shortcutMap[name] + "]"}
+          </Text>
+        )}
+      </AppTouchable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
     aspectRatio: 1,
-    borderRadius: 10 * base,
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
     width: "100%",
   },
 });
