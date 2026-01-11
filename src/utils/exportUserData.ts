@@ -14,7 +14,7 @@ const generateCSVContent = (data: DataEntry[]): string => {
     "lastStudied",
     "priority",
     "individualHandDrillingData",
-    "featuredHandArray",
+    "featuredHandsArray",
   ].join(",");
 
   const escapeCsvField = (field: string) =>

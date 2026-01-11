@@ -151,6 +151,7 @@ const Cell: React.FC<GridCellProps> = ({
               top: 0,
               right: 0,
               padding: 8 * base,
+              zIndex: 10,
             }}
           >
             <FontAwesome

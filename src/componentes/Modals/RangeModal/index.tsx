@@ -16,6 +16,7 @@ import RangeDisplayButtons from "./RangeDisplayButtons";
 import RangeInfoSummary from "./RangeInfoSummary";
 import SuccessDisplayButtons from "./SuccessDisplayButtons";
 import FeaturedGrid from "@src/componentes/FeaturedGrid";
+import useInitializeTrainerState from "@src/hooks/useInitializeTrainerState";
 
 const { GOLD, RED, BG4 } = colors;
 
@@ -28,8 +29,11 @@ const RangeModal: React.FC<RangeModalProps> = ({
   success,
 }) => {
   const [editModeOn, setEditMode] = useState(false);
+  const initializeTrainerState =
+    useInitializeTrainerState();
+
   const toggleEdit = () => {
-    console.log("reinitialize trainer state");
+    if (editModeOn) initializeTrainerState;
     setEditMode(!editModeOn);
   };
 
