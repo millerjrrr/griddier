@@ -132,6 +132,9 @@ const Trainer: React.FC = () => {
         </SpotDisplay>
 
         <ButtonContainer gridName={gridName} />
+        {Platform.OS === "android" && (
+          <View style={{ height: 30 }} />
+        )}
       </View>
     </BGContainer>
   );
