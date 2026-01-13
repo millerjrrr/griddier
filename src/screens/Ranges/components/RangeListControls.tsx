@@ -23,7 +23,6 @@ const RangeListControls: React.FC<{ noPlus?: boolean }> = ({
           justifyContent: "center",
           paddingTop: 16 * base,
           paddingBottom: 3 * base,
-          backgroundColor: colors.BG1,
         }}
       >
         {!noPlus && <AddRangeButton />}

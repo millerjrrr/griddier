@@ -102,7 +102,6 @@ const RangesShop = () => {
           dataEntry={selectedEntry}
           onClose={closeModal}
         />
-        <FadeBackgroundView height={20 * base} />
         {data.length > 0 ? (
           <FlatList
             data={data}

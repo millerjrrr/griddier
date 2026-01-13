@@ -18,7 +18,7 @@ const RangeListsBackground: React.FC<{
       start={{ x: 0.0, y: 0.0 }}
       end={{ x: 1, y: 1 }}
       style={{
-        opacity: 0.8,
+        opacity: 0.9,
         flex: 1,
         borderRadius: 10 * base,
         ...appShadow(CONTRAST_A),

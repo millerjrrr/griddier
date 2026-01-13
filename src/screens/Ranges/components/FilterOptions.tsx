@@ -95,7 +95,6 @@ const FilterOptions = () => {
           justifyContent: "center",
           paddingTop: 12 * base,
           padding: 4 * base,
-          backgroundColor: colors.BG1,
         }}
       >
         {positions.map((position) => (
@@ -110,7 +109,6 @@ const FilterOptions = () => {
           justifyContent: "center",
           padding: 4 * base,
           paddingBottom: 3 * base,
-          backgroundColor: colors.BG1,
         }}
       >
         {vsActions.map((action) => (
@@ -125,7 +123,6 @@ const FilterOptions = () => {
           justifyContent: "center",
           padding: 4 * base,
           paddingBottom: 3 * base,
-          backgroundColor: colors.BG1,
         }}
       >
         {stackSizes.map((stack) => (

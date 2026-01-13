@@ -16,7 +16,6 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import RangeListsBackground from "./components/RangeListsBackground";
 const { base } = screenDimensions();
 
 const MyRanges = () => {
@@ -77,7 +76,7 @@ const MyRanges = () => {
   };
 
   return (
-    <RangeListsBackground>
+    <View style={{ flex: 1 }}>
       <RangeListControls />
       <View
         style={{
@@ -97,7 +96,6 @@ const MyRanges = () => {
           dataEntry={selectedEntry}
           onClose={closeDeleteModal}
         />
-        {/* <FadeBackgroundView height={20 * base} /> */}
         {data.length > 0 ? (
           <FlatList
             data={data}
@@ -135,13 +133,8 @@ const MyRanges = () => {
             </WhiteTextBold>
           </View>
         )}
-        {/* <FadeBackgroundView
-          height={30 * base}
-          position={"bottom"}
-          color={colors.BG3 as `#${string}`}
-        /> */}
       </View>
-    </RangeListsBackground>
+    </View>
   );
 };
 
