@@ -1,9 +1,9 @@
-import { View } from "react-native";
-import { InfoText, InstructionText } from "../../AppText";
-import screenDimensions from "@src/utils/screenDimensions";
 import { DataEntry, StrictDateString } from "@src/types";
 import formatTime from "@src/utils/formatTime";
 import prettyDate from "@src/utils/prettyDate";
+import screenDimensions from "@src/utils/screenDimensions";
+import { View } from "react-native";
+import { InfoText } from "../../AppText";
 const { base } = screenDimensions();
 
 const RangeInfoSummary: React.FC<{

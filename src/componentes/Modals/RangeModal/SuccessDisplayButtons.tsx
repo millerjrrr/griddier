@@ -117,7 +117,13 @@ const SuccessDisplayButtons: React.FC<RangeModalProps> = ({
   };
 
   const onClose = () => {
-    dispatch(setGridName(newGridName));
+    if (
+      dataEntries
+        .map((entry) => entry.gridName)
+        .includes(newGridName)
+    )
+      dispatch(setGridName(newGridName));
+    else dispatch(setGridName(nextDataEntry.gridName));
     initializeTrainerState(newGridName);
     reset(true);
     navigation.navigate("Ranges List");
