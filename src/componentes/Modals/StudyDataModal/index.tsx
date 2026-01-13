@@ -43,7 +43,10 @@ const StudyDataModal: React.FC<ModalProps> = ({
             />
           ) : (
             <View style={{ paddingBottom: 15 }}>
-              <WhiteTextBold s={20}>
+              <WhiteTextBold
+                s={20}
+                color={colors.CONTRAST_B}
+              >
                 After you have done a bit of study you can
                 track your progress here
               </WhiteTextBold>

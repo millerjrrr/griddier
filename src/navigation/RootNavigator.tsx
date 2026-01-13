@@ -26,16 +26,10 @@ const RootNavigator: React.FC = () => {
             shadowOpacity: 0,
             borderBottomWidth: 0,
           },
-          tabBarLabelStyle: {
-            fontSize: 18 * base, // <-- Increase this value to make text bigger
-            fontWeight: "bold", // Optional: make it bold
-            textTransform: "none", // Optional: prevent uppercase transformation
-            color: colors.CONTRAST_A,
-          },
           tabBarIndicatorStyle: {
-            backgroundColor: colors.CONTRAST_A, // Your pink glow color here
-            height: 3 * base, // Optional: make it thicker or thinner
-            borderRadius: 2 * base, // Optional: make the ends rounded
+            backgroundColor: colors.CONTRAST_A,
+            height: 3 * base,
+            borderRadius: 2 * base,
           },
           sceneStyle: {
             backgroundColor: "transparent",
@@ -50,7 +44,11 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="controller-classic"
                 size={40 * base}
-                color={colors.CONTRAST_A}
+                color={
+                  focused
+                    ? colors.CONTRAST_A
+                    : colors.CONTRAST_C
+                }
               />
             ),
           }}
@@ -63,7 +61,11 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="book-open-variant"
                 size={40 * base}
-                color={colors.CONTRAST_A}
+                color={
+                  focused
+                    ? colors.CONTRAST_A
+                    : colors.CONTRAST_C
+                }
               />
             ),
           }}
@@ -76,7 +78,11 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="help-circle-outline"
                 size={40 * base}
-                color={colors.CONTRAST_A}
+                color={
+                  focused
+                    ? colors.CONTRAST_A
+                    : colors.CONTRAST_C
+                }
               />
             ),
           }}

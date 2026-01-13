@@ -11,6 +11,7 @@ const colors: Record<string, `#${string}`> = {
   BG4: "#efccff",
   CONTRAST_A: "#ffffff",
   CONTRAST_B: "#000000",
+  CONTRAST_C: "#efccff",
   RED: "#ffb9a8ff",
   GREEN: "#76cf70",
   TURQ: "#65B9A9",

@@ -1,12 +1,12 @@
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { DataEntry } from "@src/types";
 import screenDimensions from "@src/utils/screenDimensions";
 import { ReactNode } from "react";
-import { Text, View } from "react-native";
-import { DataEntry } from "@src/types";
-import LevelStars from "../LevelStars";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import colors from "./../../utils/colors";
-import { ModalTitle } from "../AppText";
+import { View } from "react-native";
 import { AppTouchable } from "../AppPressables";
+import { ModalTitle } from "../AppText";
+import LevelStars from "../LevelStars";
+import colors from "./../../utils/colors";
 const { base, width } = screenDimensions();
 
 export const Overlay: React.FC<{ children: ReactNode }> = ({
@@ -33,6 +33,7 @@ export const Container: React.FC<{
   return (
     <View
       style={{
+        opacity: 0.95,
         padding: 7 * base,
         borderRadius: 12 * base,
         width: width * 0.95,
@@ -87,16 +88,7 @@ export const RangeModalTitle: React.FC<{
           <LevelStars stars={dataEntry.level} />
         )}
       </View>
-      <AppTouchable
-        onPress={toggleEdit}
-        style={
-          {
-            // borderColor: colors.CONTRAST_B,
-            // borderWidth: 2,
-            // borderRadius: 5,
-          }
-        }
-      >
+      <AppTouchable onPress={toggleEdit}>
         <AntDesign
           name={editModeIsOn ? "close" : "edit"}
           size={24}

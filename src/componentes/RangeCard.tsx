@@ -41,6 +41,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.BG1,
+        opacity: 0.8,
         position: "relative",
       }}
       onPress={onPress}
