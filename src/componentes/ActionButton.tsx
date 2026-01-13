@@ -220,7 +220,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           style={{
             fontSize: 25 * base,
             fontWeight: "bold",
-            color: "gray",
+            color: colors.CONTRAST_B,
             textAlign: "center",
           }}
         >
@@ -231,7 +231,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
             style={{
               fontSize: 15 * base,
               fontWeight: "bold",
-              color: "gray",
+              color: colors.CONTRAST_B,
               textAlign: "center",
             }}
           >
