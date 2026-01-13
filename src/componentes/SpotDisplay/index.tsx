@@ -8,9 +8,10 @@ import {
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import { ReactNode } from "react";
-import { View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import PositionRepresentation from "./PositionRepresentation";
 const { width: vw, base } = screenDimensions();
+const TableOverlay = require("@assets/img/TableOverlay.png");
 
 const SpotDisplay: React.FC<{
   gridName: GridName;
@@ -86,6 +87,17 @@ const SpotDisplay: React.FC<{
           backgroundColor: colors.BG2,
         }}
       >
+        <Image
+          source={TableOverlay}
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: tableWidth,
+            ...StyleSheet.absoluteFillObject,
+            opacity: 0.4,
+          }}
+          resizeMode="cover"
+        />
         {heroPositionArray.map((name, index) => (
           <PositionRepresentation
             key={name}

@@ -29,7 +29,7 @@ const Extras = () => {
     exportUserDataAsCsv(dataEntries);
 
   return (
-    <BGContainer>
+    <View style={{ flex: 1 }}>
       <View
         style={{
           flex: 1,
@@ -82,7 +82,7 @@ const Extras = () => {
         visible={modal4Visible}
         onClose={() => setModal4Visible(false)}
       />
-    </BGContainer>
+    </View>
   );
 };
 

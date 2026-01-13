@@ -13,9 +13,10 @@ const Card: React.FC<{
       style={{
         height: size * 0.66,
         width: size / 2,
-        borderWidth: 1 * base,
-        borderColor: colors.BG1,
+        borderWidth: 1,
+        borderColor: colors.CONTRAST_B,
         backgroundColor: colors.CONTRAST_A,
+        borderRadius: 2,
         transform: [
           {
             rotate:

@@ -1,8 +1,8 @@
 // components/PinkGradientBackground.tsx
 import React, { ReactNode } from "react";
-import { StyleSheet, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { Image, StyleSheet, View } from "react-native";
 import colors from "@src/utils/colors";
+const BackgroundOverlay = require("@assets/img/BGOverlay.png");
 
 interface PinkGradientBackgroundProps {
   children: ReactNode;
@@ -11,16 +11,17 @@ interface PinkGradientBackgroundProps {
 export default function BGContainer({
   children,
 }: PinkGradientBackgroundProps) {
-  const { BG1, BG2, BG3 } = colors;
-
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={[BG1, BG2, BG3]}
-        locations={[0, 0.5, 1]}
-        style={StyleSheet.absoluteFill}
-        start={{ x: 0.0, y: 0.0 }}
-        end={{ x: 1, y: 1 }}
+      <Image
+        source={BackgroundOverlay}
+        style={{
+          width: "100%",
+          height: "100%",
+          ...StyleSheet.absoluteFillObject,
+          opacity: 0.75,
+        }}
+        resizeMode="cover"
       />
       <View style={styles.content}>{children}</View>
     </View>
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: "relative",
+    backgroundColor: colors.BG2,
   },
   content: {
     flex: 1,

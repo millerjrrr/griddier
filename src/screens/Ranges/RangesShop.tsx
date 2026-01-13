@@ -1,7 +1,6 @@
 import { OrderedKeys } from "@assets/data/OrderedKeys";
 import { WhiteTextBold } from "@src/componentes/AppText";
 import BackNavigationButton from "@src/componentes/BackNavigationButton";
-import BGContainer from "@src/componentes/BGContainer";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeModal from "@src/componentes/Modals/RangeModal";
 import RangeCard from "@src/componentes/RangeCard";
@@ -18,6 +17,7 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
+import RangeListsBackground from "./components/RangeListsBackground";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
@@ -86,7 +86,7 @@ const RangesShop = () => {
   };
 
   return (
-    <BGContainer>
+    <RangeListsBackground>
       <BackNavigationButton />
       <RangeListControls noPlus />
       <View
@@ -143,7 +143,7 @@ const RangesShop = () => {
           color={colors.BG3 as `#${string}`}
         />
       </View>
-    </BGContainer>
+    </RangeListsBackground>
   );
 };
 

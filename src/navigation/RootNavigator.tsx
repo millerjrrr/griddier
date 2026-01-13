@@ -37,6 +37,9 @@ const RootNavigator: React.FC = () => {
             height: 3 * base, // Optional: make it thicker or thinner
             borderRadius: 2 * base, // Optional: make the ends rounded
           },
+          sceneStyle: {
+            backgroundColor: "transparent",
+          },
         }}
       >
         <Tab.Screen

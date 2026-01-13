@@ -15,6 +15,12 @@ const RangesStack =
 const RangesNavigator = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
+    cardStyle: {
+      backgroundColor: "transparent",
+    },
+    cardOverlayEnabled: false,
+    cardShadowEnabled: false,
+    presentation: "transparentModal",
     ...(Platform.OS === "ios"
       ? TransitionPresets.ModalPresentationIOS
       : {}),

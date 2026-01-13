@@ -1,5 +1,4 @@
 import { WhiteTextBold } from "@src/componentes/AppText";
-import BGContainer from "@src/componentes/BGContainer";
 import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import DeleteModal from "@src/componentes/Modals/DeleteModal";
 import RangeModal from "@src/componentes/Modals/RangeModal";
@@ -11,12 +10,13 @@ import {
 import { selectUserDataState } from "@src/store/userData";
 import { DataEntry } from "@src/types";
 import colors from "@src/utils/colors";
+import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
-import { getRange } from "@src/utils/getRange";
+import RangeListsBackground from "./components/RangeListsBackground";
 const { base } = screenDimensions();
 
 const MyRanges = () => {
@@ -77,7 +77,7 @@ const MyRanges = () => {
   };
 
   return (
-    <BGContainer>
+    <RangeListsBackground>
       <RangeListControls />
       <View
         style={{
@@ -97,7 +97,7 @@ const MyRanges = () => {
           dataEntry={selectedEntry}
           onClose={closeDeleteModal}
         />
-        <FadeBackgroundView height={20 * base} />
+        {/* <FadeBackgroundView height={20 * base} /> */}
         {data.length > 0 ? (
           <FlatList
             data={data}
@@ -135,13 +135,13 @@ const MyRanges = () => {
             </WhiteTextBold>
           </View>
         )}
-        <FadeBackgroundView
+        {/* <FadeBackgroundView
           height={30 * base}
           position={"bottom"}
           color={colors.BG3 as `#${string}`}
-        />
+        /> */}
       </View>
-    </BGContainer>
+    </RangeListsBackground>
   );
 };
 

@@ -102,41 +102,39 @@ const Trainer: React.FC = () => {
   }, []);
 
   return (
-    <BGContainer>
-      <View style={styles.container}>
-        <RangeModal
-          visible={showRangeModal}
-          dataEntry={getDataEntries(gridName)}
-          onClose={() => dispatch(setShowRangeModal(false))}
+    <View style={styles.container}>
+      <RangeModal
+        visible={showRangeModal}
+        dataEntry={getDataEntries(gridName)}
+        onClose={() => dispatch(setShowRangeModal(false))}
+      />
+      <RangeModal
+        success
+        visible={showSuccessModal}
+        dataEntry={getDataEntries(gridName)}
+        onClose={() => {}}
+      />
+      <RemoveModal visible={showRemoveModal} />
+      <Timer />
+      <SpotName
+        name={gridName.slice(gridName.indexOf(" ") + 1)}
+      />
+      <SpotDisplay gridName={gridName}>
+        <Cell
+          actions={{ ...actions, prior }}
+          hand={filteredHandsArray[index]}
+          size={0.4 * width}
+          shadow
+          borderRadius={20 * base}
+          clearActionsOnTouch
         />
-        <RangeModal
-          success
-          visible={showSuccessModal}
-          dataEntry={getDataEntries(gridName)}
-          onClose={() => {}}
-        />
-        <RemoveModal visible={showRemoveModal} />
-        <Timer />
-        <SpotName
-          name={gridName.slice(gridName.indexOf(" ") + 1)}
-        />
-        <SpotDisplay gridName={gridName}>
-          <Cell
-            actions={{ ...actions, prior }}
-            hand={filteredHandsArray[index]}
-            size={0.4 * width}
-            shadow
-            borderRadius={20 * base}
-            clearActionsOnTouch
-          />
-        </SpotDisplay>
+      </SpotDisplay>
 
-        <ButtonContainer gridName={gridName} />
-        {Platform.OS === "android" && (
-          <View style={{ height: 30 }} />
-        )}
-      </View>
-    </BGContainer>
+      <ButtonContainer gridName={gridName} />
+      {Platform.OS === "android" && (
+        <View style={{ height: 30 }} />
+      )}
+    </View>
   );
 };
 
