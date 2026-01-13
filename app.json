@@ -27,7 +27,7 @@
       "package": "com.griddier.app"
     },
     "androidNavigationBar": {
-      "visible": "sticky-imersive"
+      "visible": "sticky-immersive"
     },
     "web": {
       "favicon": "./assets/icon.png",
