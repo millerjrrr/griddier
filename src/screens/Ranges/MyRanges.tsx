@@ -123,6 +123,9 @@ const MyRanges = () => {
             }}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
+              paddingTop: filter.activated
+                ? 160 * base
+                : 50 * base,
               paddingBottom: 80 * base,
             }}
           />

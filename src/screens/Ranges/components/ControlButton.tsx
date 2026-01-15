@@ -12,12 +12,12 @@ const ControlButton: React.FC<{
   return (
     <AppTouchable
       style={{
-        backgroundColor: colors.BG1,
+        backgroundColor: `${colors.BG1}c0`,
         borderRadius: 5 * base,
         padding: 2 * base,
         marginHorizontal: 5 * base,
         marginTop: 4 * base,
-        ...appShadow(colors.C1),
+        ...appShadow(colors.C1, 10 * base),
       }}
       onPress={onPress}
     >

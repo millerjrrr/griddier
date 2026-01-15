@@ -66,20 +66,22 @@ const Cell: React.FC<GridCellProps> = ({
 
   const { ALLIN, RAISE, CALL, PRIOR, FOLD, C1 } = colors;
 
+  const opacity = "a0";
+
   const segments = [
     {
       width: `${(allin / 4) * 100}%` as `${number}%`,
-      color: ALLIN,
+      color: `${ALLIN}${opacity}`,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
       width: `${(raise / 4) * 100}%` as `${number}%`,
-      color: RAISE,
+      color: `${RAISE}${opacity}`,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
       width: `${(call / 4) * 100}%` as `${number}%`,
-      color: CALL,
+      color: `${CALL}${opacity}`,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
     {
@@ -91,7 +93,7 @@ const Cell: React.FC<GridCellProps> = ({
           4) *
         100
       }%` as `${number}%`,
-      color: FOLD,
+      color: `${FOLD}${opacity}`,
       height: `${(prior * 100) / 4}%` as `${number}%`,
     },
   ];
@@ -124,7 +126,7 @@ const Cell: React.FC<GridCellProps> = ({
           borderRadius: red ? 3 : borderRadius || 0,
           aspectRatio: 1,
           position: "relative",
-          backgroundColor: PRIOR,
+          backgroundColor: `${PRIOR}${opacity}`,
           ...(Platform.OS === "android" &&
             shadow &&
             appShadow(C1, 10)),

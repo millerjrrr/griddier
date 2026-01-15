@@ -14,7 +14,13 @@ const RangeListControls: React.FC<{ noPlus?: boolean }> = ({
   const filter = useSelector(selectFilter);
 
   return (
-    <View>
+    <View
+      style={{
+        position: "absolute",
+        width: "100%",
+        zIndex: 10,
+      }}
+    >
       <View
         style={{
           flexDirection: "row",
