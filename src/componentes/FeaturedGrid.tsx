@@ -9,8 +9,9 @@ import { AppPressable } from "./AppPressables";
 import { useDispatch } from "react-redux";
 import { updateDataEntry } from "@src/store/userData";
 import { ModalButton } from "./Modals/ModalButtons";
+import { FeaturedGridText } from "./AppText";
 const { base } = screenDimensions();
-const { CONTRAST_A, CONTRAST_B, BG2, BG3, BLUE } = colors;
+const { C1, C2, BG2, BG3, BLUE } = colors;
 
 const FeaturedCell: React.FC<{
   featured: boolean;
@@ -27,19 +28,11 @@ const FeaturedCell: React.FC<{
         backgroundColor: featured ? BG2 : BG3,
         borderRadius: 3,
         borderWidth: 0.5,
-        borderColor: CONTRAST_A,
+        borderColor: C1,
       }}
       onPress={() => toggleFeatured(hand)}
     >
-      <Text
-        style={{
-          color: CONTRAST_A,
-          fontWeight: "bold",
-          fontSize: 12 * base,
-        }}
-      >
-        {hand}
-      </Text>
+      <FeaturedGridText>{hand}</FeaturedGridText>
     </AppPressable>
   );
 };
@@ -106,14 +99,14 @@ const FeaturedGrid: React.FC<{
         onPress={resetToDefault}
         scale={1}
         color={BG2}
-        shadow={CONTRAST_B}
+        shadow={C2}
       />
       <ModalButton
         text="Close"
         onPress={toggleEdit}
         scale={0.7}
         color={BLUE}
-        shadow={CONTRAST_B}
+        shadow={C2}
       />
     </View>
   );

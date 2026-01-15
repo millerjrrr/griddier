@@ -24,7 +24,7 @@ const FilterButton = () => {
       <Feather
         name="filter"
         size={24 * base}
-        color={colors.CONTRAST_A}
+        color={colors.C1}
       />
     </ControlButton>
   );

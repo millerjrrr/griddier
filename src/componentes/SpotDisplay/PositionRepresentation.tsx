@@ -50,7 +50,7 @@ const PositionRepresentation: React.FC<Props> = ({
     },
   };
 
-  const tintColor = cards ? colors.CONTRAST_A : colors.BG2;
+  const tintColor = cards ? colors.C1 : colors.BG2;
 
   return (
     <>
@@ -63,7 +63,7 @@ const PositionRepresentation: React.FC<Props> = ({
           width: iconWidth,
           position: "absolute",
           borderWidth: 3 * base,
-          borderColor: colors.CONTRAST_A,
+          borderColor: colors.C1,
           borderRadius: iconWidth,
           justifyContent: "center",
           alignItems: "center",

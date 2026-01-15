@@ -2,6 +2,7 @@ import colors from "@src/utils/colors";
 import formatTime from "@src/utils/formatTime";
 import screenDimensions from "@src/utils/screenDimensions";
 import { Image, Text, View } from "react-native";
+import { ClockText } from "./AppText";
 const clock = require("@assets/img/clock.png");
 
 const { base } = screenDimensions();
@@ -22,15 +23,7 @@ const Clock: React.FC<{ record: number }> = ({
           marginHorizontal: 2 * base,
         }}
       />
-      <Text
-        style={{
-          fontSize: 20 * base,
-          paddingLeft: 5 * base,
-          color: colors.CONTRAST_A,
-        }}
-      >
-        {formatTime(record)}
-      </Text>
+      <ClockText>{formatTime(record)}</ClockText>
     </View>
   );
 };

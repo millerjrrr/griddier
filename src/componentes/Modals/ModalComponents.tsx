@@ -92,7 +92,7 @@ export const RangeModalTitle: React.FC<{
         <AntDesign
           name={editModeIsOn ? "close" : "edit"}
           size={24}
-          color={colors.CONTRAST_B}
+          color={colors.C2}
         />
       </AppTouchable>
     </View>

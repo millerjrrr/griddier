@@ -9,7 +9,7 @@ const { base } = screenDimensions();
 const RangeListsBackground: React.FC<{
   children: ReactNode;
 }> = ({ children }) => {
-  const { BG1, BG2, BG3, CONTRAST_A } = colors;
+  const { BG1, BG2, BG3, C1 } = colors;
 
   return (
     <LinearGradient
@@ -21,7 +21,7 @@ const RangeListsBackground: React.FC<{
         opacity: 0.9,
         flex: 1,
         borderRadius: 10 * base,
-        ...appShadow(CONTRAST_A),
+        ...appShadow(C1),
         overflow: "hidden",
         ...StyleSheet.absoluteFillObject,
       }}

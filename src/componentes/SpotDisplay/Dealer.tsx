@@ -51,8 +51,8 @@ const Dealer: React.FC<DealerProps> = ({
         borderRadius: size,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.CONTRAST_A,
-        ...appShadow(colors.CONTRAST_A),
+        backgroundColor: colors.C1,
+        ...appShadow(colors.C1),
         ...posMap[pos],
       }}
     >

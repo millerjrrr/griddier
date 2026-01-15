@@ -16,7 +16,7 @@ const StatsIcon: React.FC<StatsIconProps> = ({
   text = "",
   size = 18 * base,
 }) => {
-  const color = colors.CONTRAST_B;
+  const color = colors.C2;
 
   return (
     <View style={styles.container}>

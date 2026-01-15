@@ -23,7 +23,7 @@ const LevelHistogram: React.FC<Props> = ({
   const normalizedHeights = heights.map(
     (h) => (h * histHeight) / maxHeight
   );
-  const { CONTRAST_B, BG4 } = colors;
+  const { C2, BG4 } = colors;
 
   return (
     <View style={styles.container}>
@@ -32,8 +32,8 @@ const LevelHistogram: React.FC<Props> = ({
           styles.levelHistogram,
           {
             backgroundColor: BG4,
-            borderColor: CONTRAST_B,
-            ...appShadow(CONTRAST_B),
+            borderColor: C2,
+            ...appShadow(C2),
           },
         ]}
       >

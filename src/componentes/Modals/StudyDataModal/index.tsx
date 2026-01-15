@@ -43,10 +43,7 @@ const StudyDataModal: React.FC<ModalProps> = ({
             />
           ) : (
             <View style={{ paddingBottom: 15 }}>
-              <WhiteTextBold
-                s={20}
-                color={colors.CONTRAST_B}
-              >
+              <WhiteTextBold s={20} color={colors.C2}>
                 After you have done a bit of study you can
                 track your progress here
               </WhiteTextBold>
@@ -59,7 +56,7 @@ const StudyDataModal: React.FC<ModalProps> = ({
       <ModalButton
         text="Close"
         onPress={onClose}
-        shadow={colors.CONTRAST_A}
+        shadow={colors.C1}
       />
     </AppModal>
   );

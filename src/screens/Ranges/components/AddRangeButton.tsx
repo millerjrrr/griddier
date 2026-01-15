@@ -24,7 +24,7 @@ const AddRangeButton = () => {
       <Entypo
         name="plus"
         size={24 * base}
-        color={colors.CONTRAST_A}
+        color={colors.C1}
       />
     </ControlButton>
   );

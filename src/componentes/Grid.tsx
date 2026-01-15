@@ -9,6 +9,7 @@ import { handsArray } from "../utils/handsArrayLogic";
 import { AppPressable } from "./AppPressables";
 import Cell from "./Cell";
 import { getRange } from "@src/utils/getRange";
+import { WhiteTextBold } from "./AppText";
 
 interface GridProps {
   name: GridName;
@@ -29,7 +30,7 @@ const Grid: React.FC<GridProps> = ({
 
   const hands: HandsObject = range.hands;
 
-  const { BG2, BG3 } = colors;
+  const { BG3, C3 } = colors;
 
   return (
     <View
@@ -54,15 +55,10 @@ const Grid: React.FC<GridProps> = ({
           }}
           onPress={() => setHidden(false)}
         >
-          <FontAwesome name="eye" size={100} color={BG2} />
-          <Text
-            style={{
-              fontSize: 20 * base,
-              color: BG2,
-            }}
-          >
+          <FontAwesome name="eye" size={100} color={C3} />
+          <WhiteTextBold s={20 * base} color={C3}>
             Touch to reveal grid
-          </Text>
+          </WhiteTextBold>
         </AppPressable>
       ) : (
         [...Array(13)].map((_, rowIdx) => (

@@ -1,18 +1,16 @@
 import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
-const icon = require("@assets/icon.png");
+import screenDimensions from "@src/utils/screenDimensions";
 import {
   Image,
-  Modal,
   Platform,
   ScrollView,
   View,
 } from "react-native";
-import screenDimensions from "@src/utils/screenDimensions";
-import { Container, Overlay } from "./ModalComponents";
-import { ModalButton } from "./ModalButtons";
 import { ModalSmallText, ModalTitle } from "../AppText";
 import AppModal from "./AppModal";
+import { ModalButton } from "./ModalButtons";
+const icon = require("@assets/icon.png");
 const { height, width } = screenDimensions();
 
 interface ModalProps {
@@ -31,7 +29,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
       <View
         style={{
           borderRadius: 15 * base,
-          ...appShadow(colors.CONTRAST_A, 20 * base),
+          ...appShadow(colors.C1, 20 * base),
         }}
       >
         <Image
@@ -137,7 +135,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
       <ModalButton
         text="Close"
         onPress={onClose}
-        shadow={colors.CONTRAST_A}
+        shadow={colors.C1}
       />
     </AppModal>
   );

@@ -9,6 +9,10 @@ import screenDimensions from "@src/utils/screenDimensions";
 import { Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { AppPressable } from "./AppPressables";
+import {
+  FrequencyBarCombosText,
+  FrequencyBarText,
+} from "./AppText";
 
 interface FreqBarProps {
   handsObject: HandsObject;
@@ -41,18 +45,16 @@ const SubBar: React.FC<{
             flexDirection: "row",
           }}
         >
-          <Text style={{ fontSize: 18 * base }}>
+          <FrequencyBarText>
             {showCombos ? combos : Math.round(freq * 100)}
-          </Text>
+          </FrequencyBarText>
           {!showCombos && (
-            <Text style={{ fontSize: 10 * base }}>%</Text>
+            <FrequencyBarCombosText
+              style={{ fontSize: 10 * base }}
+            >
+              %
+            </FrequencyBarCombosText>
           )}
-
-          {/* {freq > 0 && (
-          <Text style={{ fontSize: 18*base }}>{`${Math.round(
-            combos
-          )}`}</Text>
-        )} */}
         </View>
       </AppPressable>
     )

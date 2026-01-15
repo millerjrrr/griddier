@@ -78,7 +78,7 @@ const SpotDisplay: React.FC<{
           height: 1.5 * tableWidth,
           borderRadius: tableWidth,
           borderWidth: bw,
-          borderColor: colors.CONTRAST_A,
+          borderColor: colors.C1,
           position: "relative",
           marginVertical: 10 * base,
           marginTop: 40 * base,

@@ -17,7 +17,7 @@ const ControlButton: React.FC<{
         padding: 2 * base,
         marginHorizontal: 5 * base,
         marginTop: 4 * base,
-        ...appShadow(colors.CONTRAST_A),
+        ...appShadow(colors.C1),
       }}
       onPress={onPress}
     >

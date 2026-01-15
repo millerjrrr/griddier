@@ -28,7 +28,7 @@ const LoadingScreen = () => {
     >
       <AppIcon size={250 * base} />
       <View style={{ height: 30 * base }} />
-      <ModalTitle style={{ color: colors.CONTRAST_A }}>
+      <ModalTitle style={{ color: colors.C1 }}>
         Configuring updates {dots}
       </ModalTitle>
     </View>

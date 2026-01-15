@@ -5,6 +5,7 @@ import formatDate from "./../utils/formatDate";
 import colors from "@src/utils/colors";
 import { StrictDateString } from "@src/types";
 import screenDimensions from "@src/utils/screenDimensions";
+import { ClockText } from "./AppText";
 const dateImage = require("@assets/img/date.png");
 
 const { base } = screenDimensions();
@@ -41,15 +42,7 @@ const DateWithIcon: React.FC<{
           marginHorizontal: 2 * base,
         }}
       />
-      <Text
-        style={{
-          fontSize: 20 * base,
-          paddingLeft: 5 * base,
-          color: colors.CONTRAST_A,
-        }}
-      >
-        {formattedDate}
-      </Text>
+      <ClockText>{formattedDate}</ClockText>
     </View>
   );
 };

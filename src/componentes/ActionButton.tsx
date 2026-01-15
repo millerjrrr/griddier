@@ -32,6 +32,10 @@ import { useKeyboardShortcuts } from "@src/hooks/keyboardShortcut";
 import screenDimensions from "@src/utils/screenDimensions";
 import Toast from "react-native-toast-message";
 import { getRange } from "@src/utils/getRange";
+import {
+  ActionButtonText,
+  ActionButtonTextSmall,
+} from "./AppText";
 const { base } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
@@ -189,7 +193,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     <View
       style={{
         borderRadius,
-        ...appShadow(colors.CONTRAST_A, 10),
+        ...appShadow(colors.C1, 10),
         maxWidth,
         margin: maxWidth / 20,
       }}
@@ -216,27 +220,13 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           }}
           resizeMode="cover"
         />
-        <Text
-          style={{
-            fontSize: 25 * base,
-            fontWeight: "bold",
-            color: colors.CONTRAST_B,
-            textAlign: "center",
-          }}
-        >
+        <ActionButtonText>
           {`${name === "Raise" ? raiseSize : name}`}
-        </Text>
+        </ActionButtonText>
         {Platform.OS === "web" && (
-          <Text
-            style={{
-              fontSize: 15 * base,
-              fontWeight: "bold",
-              color: colors.CONTRAST_B,
-              textAlign: "center",
-            }}
-          >
+          <ActionButtonTextSmall>
             {"[" + shortcutMap[name] + "]"}
-          </Text>
+          </ActionButtonTextSmall>
         )}
       </AppTouchable>
     </View>

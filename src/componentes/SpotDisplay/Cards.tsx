@@ -14,8 +14,8 @@ const Card: React.FC<{
         height: size * 0.66,
         width: size / 2,
         borderWidth: 1,
-        borderColor: colors.CONTRAST_B,
-        backgroundColor: colors.CONTRAST_A,
+        borderColor: colors.C2,
+        backgroundColor: colors.C1,
         borderRadius: 2,
         transform: [
           {

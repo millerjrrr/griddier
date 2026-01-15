@@ -25,7 +25,7 @@ const ContactModal: React.FC<ModalProps> = ({
       <View
         style={{
           borderRadius: 100 * base,
-          ...appShadow(colors.CONTRAST_B, 20 * base),
+          ...appShadow(colors.C2, 20 * base),
           margin: 8 * base,
         }}
       >
@@ -37,7 +37,7 @@ const ContactModal: React.FC<ModalProps> = ({
             height: 100 * base,
             borderRadius: 100 * base,
             borderWidth: 2 * base,
-            borderColor: colors.CONTRAST_A,
+            borderColor: colors.C1,
           }}
         />
       </View>
@@ -51,13 +51,13 @@ const ContactModal: React.FC<ModalProps> = ({
         onPress={() =>
           Linking.openURL("https://griddier.com")
         }
-        shadow={colors.CONTRAST_A}
+        shadow={colors.C1}
         scale={1}
       />
       <ModalButton
         text="Close"
         onPress={onClose}
-        shadow={colors.CONTRAST_A}
+        shadow={colors.C1}
       />
     </AppModal>
   );

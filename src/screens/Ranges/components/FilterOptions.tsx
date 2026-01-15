@@ -55,9 +55,7 @@ const SetFilterButton: React.FC<{
       : () => setUserPosition(name as PositionName | "");
 
   const selected = Object.values(filter).includes(name);
-  const tintColor = selected
-    ? colors.CONTRAST_A
-    : colors.BG3;
+  const tintColor = selected ? colors.C1 : colors.BG3;
 
   return (
     <AppTouchable
@@ -73,7 +71,7 @@ const SetFilterButton: React.FC<{
         justifyContent: "center",
         marginHorizontal: 5 * base,
         ...(![50, 100, 150, 200].includes(name as any)
-          ? appShadow(colors.CONTRAST_A)
+          ? appShadow(colors.C1)
           : {}),
       }}
       onPress={onPress}

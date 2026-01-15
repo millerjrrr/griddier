@@ -1,6 +1,7 @@
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import { Text, View } from "react-native";
+import { WhiteTextBold } from "./AppText";
 const { width, base } = screenDimensions();
 
 interface SpotNameProps {
@@ -25,16 +26,7 @@ const SpotName: React.FC<SpotNameProps> = ({ name }) => {
           paddingVertical: 3,
         }}
       >
-        <Text
-          style={{
-            color: colors.CONTRAST_A,
-            fontWeight: "bold",
-            textAlign: "center",
-            fontSize,
-          }}
-        >
-          {name}
-        </Text>
+        <WhiteTextBold s={fontSize}>{name}</WhiteTextBold>
       </View>
     </View>
   );

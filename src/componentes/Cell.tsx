@@ -1,29 +1,25 @@
-import React from "react";
-import {
-  View,
-  Text,
-  Pressable,
-  Platform,
-} from "react-native";
-import colors from "../utils/colors";
-import {
-  HandActions,
-  PokerHand,
-  ValidFraction,
-} from "../types";
-import appShadow from "@src/utils/appShadow";
-import { useDispatch, useSelector } from "react-redux";
+import { FontAwesome } from "@expo/vector-icons";
 import {
   resetActions,
   selectTrainerState,
   setShowRemoveModal,
 } from "@src/store/trainer";
+import appShadow from "@src/utils/appShadow";
 import screenDimensions from "@src/utils/screenDimensions";
+import React from "react";
+import { Platform, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  HandActions,
+  PokerHand,
+  ValidFraction,
+} from "../types";
+import colors from "../utils/colors";
 import {
   AppPressable,
   AppTouchable,
 } from "./AppPressables";
-import { FontAwesome } from "@expo/vector-icons";
+import { GridCellSubText, GridCellText } from "./AppText";
 const { base } = screenDimensions();
 
 export interface GridCellProps {
@@ -68,8 +64,7 @@ const Cell: React.FC<GridCellProps> = ({
     );
   }
 
-  const { ALLIN, RAISE, CALL, PRIOR, FOLD, CONTRAST_A } =
-    colors;
+  const { ALLIN, RAISE, CALL, PRIOR, FOLD, C1 } = colors;
 
   const segments = [
     {
@@ -120,7 +115,7 @@ const Cell: React.FC<GridCellProps> = ({
         borderRadius: red ? 3 : borderRadius || 0,
         ...(Platform.OS !== "android" &&
           shadow &&
-          appShadow(CONTRAST_A, 10)),
+          appShadow(C1, 10)),
       }}
     >
       <View
@@ -132,7 +127,7 @@ const Cell: React.FC<GridCellProps> = ({
           backgroundColor: PRIOR,
           ...(Platform.OS === "android" &&
             shadow &&
-            appShadow(CONTRAST_A, 10)),
+            appShadow(C1, 10)),
           borderColor: red ? "red" : "black",
           borderWidth: size ? size / 100 : red ? 3 : 1,
           overflow: "hidden",
@@ -157,7 +152,7 @@ const Cell: React.FC<GridCellProps> = ({
             <FontAwesome
               name="trash"
               size={20 * base}
-              color="gray"
+              color={colors.IC}
             />
           </AppTouchable>
         )}
@@ -180,15 +175,13 @@ const Cell: React.FC<GridCellProps> = ({
             aspectRatio: 1,
           }}
         >
-          <Text
+          <GridCellText
             style={{
-              color: "black",
-              fontWeight: "bold",
               fontSize: size ? size * 0.4 : 10 * base,
             }}
           >
             {hand}
-          </Text>
+          </GridCellText>
         </View>
         {clearActionsOnTouch && (
           <View
@@ -199,17 +192,11 @@ const Cell: React.FC<GridCellProps> = ({
               position: "absolute",
             }}
           >
-            <Text
-              style={{
-                color: "gray",
-                fontWeight: "bold",
-                fontSize: 10 * base,
-              }}
-            >
+            <GridCellSubText>
               {`[${
                 Platform.OS === "web" ? "<-" : "TOUCH"
               } TO CLEAR]`}
-            </Text>
+            </GridCellSubText>
           </View>
         )}
       </View>

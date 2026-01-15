@@ -8,7 +8,7 @@ const { base } = screenDimensions();
 const AppIcon: React.FC<{
   size?: number;
   shadowColor?: `#${string}`;
-}> = ({ size = 100, shadowColor = colors.CONTRAST_A }) => {
+}> = ({ size = 100, shadowColor = colors.C1 }) => {
   const borderRadius = 0.15 * size * base;
 
   return (

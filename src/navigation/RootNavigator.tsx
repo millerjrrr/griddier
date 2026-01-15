@@ -27,7 +27,7 @@ const RootNavigator: React.FC = () => {
             borderBottomWidth: 0,
           },
           tabBarIndicatorStyle: {
-            backgroundColor: colors.CONTRAST_A,
+            backgroundColor: colors.C1,
             height: 3 * base,
             borderRadius: 2 * base,
           },
@@ -44,11 +44,7 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="controller-classic"
                 size={40 * base}
-                color={
-                  focused
-                    ? colors.CONTRAST_A
-                    : colors.CONTRAST_C
-                }
+                color={focused ? colors.C1 : colors.C3}
               />
             ),
           }}
@@ -61,11 +57,7 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="book-open-variant"
                 size={40 * base}
-                color={
-                  focused
-                    ? colors.CONTRAST_A
-                    : colors.CONTRAST_C
-                }
+                color={focused ? colors.C1 : colors.C3}
               />
             ),
           }}
@@ -78,11 +70,7 @@ const RootNavigator: React.FC = () => {
               <MaterialCommunityIcons
                 name="help-circle-outline"
                 size={40 * base}
-                color={
-                  focused
-                    ? colors.CONTRAST_A
-                    : colors.CONTRAST_C
-                }
+                color={focused ? colors.C1 : colors.C3}
               />
             ),
           }}

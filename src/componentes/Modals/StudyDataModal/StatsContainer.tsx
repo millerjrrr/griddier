@@ -8,7 +8,7 @@ import formatTime from "@src/utils/formatTime";
 
 const StatsContainer = ({ size = 22 }) => {
   const { dataEntries } = useSelector(selectUserDataState);
-  const { CONTRAST_B, BG4 } = colors;
+  const { C2, BG4 } = colors;
   const timeDrilling = dataEntries
     .map((entry) => entry.timeDrilling)
     .reduce((a, b) => a + b, 0);
@@ -32,7 +32,7 @@ const StatsContainer = ({ size = 22 }) => {
         styles.container,
         {
           backgroundColor: BG4,
-          ...appShadow(CONTRAST_B),
+          ...appShadow(C2),
         },
       ]}
     >

@@ -1,7 +1,7 @@
-import colors from "@src/utils/colors";
-import { Text } from "react-native";
-import { AppTouchable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
+import { AppTouchable } from "./AppPressables";
+import { SettingsCardText } from "./AppText";
+import colors from "@src/utils/colors";
 
 const { base } = screenDimensions();
 
@@ -12,21 +12,14 @@ const SettingsCard: React.FC<{
   return (
     <AppTouchable
       style={{
-        width: "95%",
+        width: "90%",
         borderBottomWidth: 2 * base,
-        borderColor: "gray",
+        borderColor: colors.C3,
         padding: 15 * base,
       }}
       onPress={onPress}
     >
-      <Text
-        style={{
-          fontSize: 25 * base,
-          color: colors.CONTRAST_A,
-        }}
-      >
-        {title}
-      </Text>
+      <SettingsCardText>{title}</SettingsCardText>
     </AppTouchable>
   );
 };

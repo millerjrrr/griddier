@@ -17,7 +17,7 @@ const AboutModal: React.FC<ModalProps> = ({
   return (
     <AppModal visible={visible}>
       <ModalTitle>About</ModalTitle>
-      <AppIcon shadowColor={colors.CONTRAST_B} />
+      <AppIcon shadowColor={colors.C2} />
       <ModalText>
         Griddier is an app designed to make range
         memorization easy. It uses advanced, systematic,
@@ -29,7 +29,7 @@ const AboutModal: React.FC<ModalProps> = ({
       <ModalButton
         text="Close"
         onPress={onClose}
-        shadow={colors.CONTRAST_A}
+        shadow={colors.C1}
       />
     </AppModal>
   );

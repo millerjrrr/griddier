@@ -18,7 +18,7 @@ import { updateDataEntry } from "@src/store/userData";
 import formatDate from "@src/utils/formatDate";
 const lockIcon = require("@assets/img/lock.png");
 const { base } = screenDimensions();
-const { BLUE, CONTRAST_B, BG2 } = colors;
+const { BLUE, C2, BG2 } = colors;
 const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
 interface ModalButtonProps {
@@ -38,7 +38,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
   scale = 0.9,
   color = BG2,
   locked,
-  shadow = CONTRAST_B,
+  shadow = C2,
   shortcutKey,
   gridName,
 }) => {

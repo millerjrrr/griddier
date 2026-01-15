@@ -4,18 +4,14 @@ import {
   selectTrainerState,
   setShowRemoveModal,
 } from "@src/store/trainer";
-import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import React from "react";
-import {
-  Modal,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { View } from "react-native";
 import Toast from "react-native-toast-message";
 import { useDispatch, useSelector } from "react-redux";
+import { ModalText, ModalTitle } from "../AppText";
+import AppModal from "./AppModal";
 import { CloseButton, ModalButton } from "./ModalButtons";
 
 const { base } = screenDimensions();
@@ -49,72 +45,36 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
   };
 
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="slide"
-    >
-      <View style={styles.overlay}>
-        <View
-          style={[
-            styles.content,
-            { backgroundColor: colors.BG4 },
-          ]}
+    <AppModal visible={visible}>
+      <View style={{ width: "100%", alignItems: "center" }}>
+        <ModalTitle
+          style={{
+            fontSize: 120 * base,
+          }}
         >
-          <View
-            style={{ width: "100%", alignItems: "center" }}
-          >
-            <Text
-              style={{
-                fontSize: 150 * base,
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
-              {filteredHandsArray[index]}
-            </Text>
-            <FontAwesome
-              name="trash"
-              size={50 * base}
-              color={colors.CONTRAST_B}
-            />
-            <Text
-              style={{
-                fontSize: 18 * base,
-                textAlign: "center",
-                paddingVertical: 15 * base,
-              }}
-            >
-              Is this hand too easy? Want to stop reviewing
-              it? Press "Remove" to remove it from your
-              learning data.
-            </Text>
-          </View>
-          <ModalButton text="Remove" onPress={removeHand} />
-          <CloseButton onClose={onClose} />
-        </View>
+          {filteredHandsArray[index]}
+        </ModalTitle>
+        <FontAwesome
+          name="trash"
+          size={60 * base}
+          color={colors.C2}
+        />
+        <ModalText
+          style={{
+            fontSize: 18 * base,
+            textAlign: "center",
+            paddingVertical: 15 * base,
+          }}
+        >
+          Is this hand too easy? Want to stop reviewing it?
+          Press "Remove" to remove it from your learning
+          data.
+        </ModalText>
       </View>
-    </Modal>
+      <ModalButton text="Remove" onPress={removeHand} />
+      <CloseButton onClose={onClose} />
+    </AppModal>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: {
-    padding: 10 * base,
-    borderRadius: 12 * base,
-    width: "95%",
-  },
-  header: {
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 10 * base,
-  },
-});
 
 export default RemoveModal;

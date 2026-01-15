@@ -8,6 +8,10 @@ import colors from "@src/utils/colors";
 import { AppTouchable } from "./AppPressables";
 import screenDimensions from "@src/utils/screenDimensions";
 import { Entypo } from "@expo/vector-icons";
+import {
+  RangeCardTitleText,
+  StackSizeText,
+} from "./AppText";
 
 const { base } = screenDimensions();
 
@@ -34,7 +38,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
         padding: 5 * base,
         paddingLeft: showStackSize ? 20 * base : 5 * base,
         width: "100%",
-        ...appShadow(colors.CONTRAST_A),
+        ...appShadow(colors.C1),
         borderWidth: 2 * base,
         borderColor: colors.BG3,
         borderRadius: 10 * base,
@@ -56,19 +60,12 @@ const RangeCard: React.FC<RangeCardProps> = ({
             top: 5 * base,
           }}
         >
-          <Text
-            style={{
-              fontSize: 15 * base,
-              fontWeight: "bold",
-              color: colors.CONTRAST_A,
-              textAlign: "center",
-            }}
-          >
+          <StackSizeText>
             {dataEntry.gridName.slice(
               0,
               dataEntry.gridName.indexOf(" ")
             )}
-          </Text>
+          </StackSizeText>
         </View>
       )}
       <View
@@ -80,28 +77,22 @@ const RangeCard: React.FC<RangeCardProps> = ({
           padding: 5 * base,
         }}
       >
-        <Text
+        <RangeCardTitleText
           style={{
             fontSize:
               dataEntry.gridName.length <
               (!locked ? 28 : 35)
                 ? 20 * base
                 : 17 * base,
-            fontWeight: "bold",
-            color: colors.CONTRAST_A,
           }}
         >
           {dataEntry.gridName.slice(
             dataEntry.gridName.indexOf(" ") + 1
           )}
-        </Text>
+        </RangeCardTitleText>
 
         {locked ? (
-          <Entypo
-            name="plus"
-            size={24}
-            color={colors.CONTRAST_A}
-          />
+          <Entypo name="plus" size={24} color={colors.C1} />
         ) : (
           <DateWithIcon date={dataEntry.dueDate} />
         )}

@@ -1,16 +1,15 @@
 import AboutModal from "@src/componentes/Modals/AboutModal";
-import BGContainer from "@src/componentes/BGContainer";
 import ContactModal from "@src/componentes/Modals/ContactModal";
 import MethodologyModal from "@src/componentes/Modals/MethodologyModal";
+import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
 import { importUserDataFromCsv } from "@src/utils/importUserData";
+import * as FileSystem from "expo-file-system/legacy";
 import { useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
-import ResetDataCard from "@src/componentes/ResetDataCard(Dev)";
 
 const Extras = () => {
   const { dataEntries } = useSelector(selectUserDataState);
@@ -27,6 +26,34 @@ const Extras = () => {
 
   const exportUserData = () =>
     exportUserDataAsCsv(dataEntries);
+
+  const resetUserData = async () => {
+    if (Platform.OS === "web") {
+      try {
+        localStorage.clear();
+        window.location.reload();
+      } catch (err) {
+        console.error(
+          "❌ Failed to clear localStorage:",
+          err
+        );
+      }
+    } else {
+      const path =
+        FileSystem.documentDirectory + "AsyncStorage.json";
+      try {
+        await FileSystem.writeAsStringAsync(path, "{}");
+        console.log(
+          "🧹 Cleared file-backed AsyncStorage.json (native)"
+        );
+      } catch (err) {
+        console.error(
+          "❌ Failed to clear file-backed AsyncStorage:",
+          err
+        );
+      }
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -62,8 +89,15 @@ const Extras = () => {
           onPress={exportUserData}
           title={"Export user data"}
         />
+        <SettingsCard
+          onPress={exportUserData}
+          title={"Export user data"}
+        />
         {process.env.NODE_ENV === "development" && (
-          <ResetDataCard />
+          <SettingsCard
+            onPress={resetUserData}
+            title={"⚠️ Reset User Data"}
+          />
         )}
       </View>
       <AboutModal
