@@ -68,20 +68,21 @@ const PositionRepresentation: React.FC<Props> = ({
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: colors.BG2,
-          overflow: "hidden",
           ...posMap[pos],
         }}
       >
         <Image
           source={Overlay}
           style={{
-            width: "100%",
-            height: "100%",
+            height: iconWidth,
+            width: iconWidth,
+            borderRadius: iconWidth,
             ...StyleSheet.absoluteFillObject,
             opacity: 0.25,
           }}
           resizeMode="cover"
         />
+
         <WhiteTextBold
           s={iconWidth / 2.5}
           color={tintColor}
