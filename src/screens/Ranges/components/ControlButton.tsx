@@ -12,7 +12,7 @@ const ControlButton: React.FC<{
   return (
     <AppTouchable
       style={{
-        backgroundColor: `${colors.BG1}c0`,
+        backgroundColor: colors.BG1,
         borderRadius: 5 * base,
         padding: 2 * base,
         marginHorizontal: 5 * base,
