@@ -1,7 +1,7 @@
 import { OrderedKeys } from "@assets/data/OrderedKeys";
+import MaskedView from "@react-native-masked-view/masked-view";
 import { WhiteTextBold } from "@src/componentes/AppText";
 import BackNavigationButton from "@src/componentes/BackNavigationButton";
-import FadeBackgroundView from "@src/componentes/FadeBackgroundView";
 import RangeModal from "@src/componentes/Modals/RangeModal";
 import RangeCard from "@src/componentes/RangeCard";
 import {
@@ -10,16 +10,14 @@ import {
 } from "@src/store/trainer";
 import { selectUserDataState } from "@src/store/userData";
 import { DataEntry, GridName } from "@src/types";
-import colors from "@src/utils/colors";
 import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
+import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
 import RangeListsBackground from "./components/RangeListsBackground";
-import MaskedView from "@react-native-masked-view/masked-view";
-import { LinearGradient } from "expo-linear-gradient";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
