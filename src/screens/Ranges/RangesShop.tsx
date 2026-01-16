@@ -18,6 +18,8 @@ import { FlatList, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
 import RangeListsBackground from "./components/RangeListsBackground";
+import MaskedView from "@react-native-masked-view/masked-view";
+import { LinearGradient } from "expo-linear-gradient";
 const { base } = screenDimensions();
 
 const RangesShop = () => {
@@ -103,35 +105,51 @@ const RangesShop = () => {
           onClose={closeModal}
         />
         {data.length > 0 ? (
-          <FlatList
-            data={data}
-            extraData={dataEntries}
-            renderItem={({ item }) => {
-              // must be called item for FlatList to work
-              return (
-                <RangeCard
-                  dataEntry={item}
-                  selectFunction={() => openModal(item)}
-                  showStackSize
-                />
-              );
-            }}
-            keyExtractor={(item) => item.gridName}
-            style={{
-              flex: 1,
-              width: "100%",
-              paddingVertical: 20 * base,
-              paddingHorizontal: 15 * base,
-              backgroundColor: "transparent",
-            }}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              paddingTop: filter.activated
-                ? 160 * base
-                : 50 * base,
-              paddingBottom: 80 * base,
-            }}
-          />
+          <MaskedView
+            style={{ flex: 1 }}
+            maskElement={
+              <LinearGradient
+                colors={[
+                  "transparent",
+                  "black",
+                  "black",
+                  "transparent",
+                ]}
+                locations={[0, 0.15, 0.95, 1]}
+                style={{ flex: 1 }}
+              />
+            }
+          >
+            <FlatList
+              data={data}
+              extraData={dataEntries}
+              renderItem={({ item }) => {
+                // must be called item for FlatList to work
+                return (
+                  <RangeCard
+                    dataEntry={item}
+                    selectFunction={() => openModal(item)}
+                    showStackSize
+                  />
+                );
+              }}
+              keyExtractor={(item) => item.gridName}
+              style={{
+                flex: 1,
+                width: "100%",
+                paddingVertical: 20 * base,
+                paddingHorizontal: 15 * base,
+                backgroundColor: "transparent",
+              }}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{
+                paddingTop: filter.activated
+                  ? 160 * base
+                  : 50 * base,
+                paddingBottom: 80 * base,
+              }}
+            />
+          </MaskedView>
         ) : (
           <View style={{ flex: 1, paddingTop: 50 * base }}>
             <WhiteTextBold s={24 * base}>
@@ -139,11 +157,6 @@ const RangesShop = () => {
             </WhiteTextBold>
           </View>
         )}
-        <FadeBackgroundView
-          height={30 * base}
-          position={"bottom"}
-          color={colors.BG3 as `#${string}`}
-        />
       </View>
     </RangeListsBackground>
   );

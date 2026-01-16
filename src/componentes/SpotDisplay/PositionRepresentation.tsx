@@ -1,13 +1,13 @@
 import { Pos, PositionName } from "@src/types";
 import screenDimensions from "@src/utils/screenDimensions";
-import { View } from "react-native";
+import { Image, View, StyleSheet } from "react-native";
 import { WhiteTextBold } from "../AppText";
 import colors from "@src/utils/colors";
 import Dealer from "./Dealer";
 import Bet from "./Bet";
-import Card from "./Cards";
 import Cards from "./Cards";
 const { base } = screenDimensions();
+const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
 interface Props {
   name: PositionName;
@@ -68,9 +68,20 @@ const PositionRepresentation: React.FC<Props> = ({
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: colors.BG2,
+          overflow: "hidden",
           ...posMap[pos],
         }}
       >
+        <Image
+          source={Overlay}
+          style={{
+            width: "100%",
+            height: "100%",
+            ...StyleSheet.absoluteFillObject,
+            opacity: 0.25,
+          }}
+          resizeMode="cover"
+        />
         <WhiteTextBold
           s={iconWidth / 2.5}
           color={tintColor}

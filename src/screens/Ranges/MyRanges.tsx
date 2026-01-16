@@ -109,7 +109,7 @@ const MyRanges = () => {
                   "black",
                   "transparent",
                 ]}
-                locations={[0, 0.15, 0.95, 1]}
+                locations={[0, 0.12, 0.95, 1]}
                 style={{ flex: 1 }}
               />
             }
