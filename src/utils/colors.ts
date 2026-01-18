@@ -1,5 +1,5 @@
 const colors: Record<string, `#${string}`> = {
-  ALLIN: "#a56641ff", // Red
+  ALLIN: "#a56641", // Red
   RAISE: "#ea9b6d", // Orange
   CALL: "#b6d7a8", // Green
   PRIOR: "#a6a6a6", // Gray
@@ -14,12 +14,12 @@ const colors: Record<string, `#${string}`> = {
   C3: "#efccff",
   C4: "#444444",
   IC: "#808080",
-  RED: "#ffb9a8ff",
+  RED: "#ffb9a8",
   GREEN: "#76cf70",
   TURQ: "#65B9A9",
-  BLUE: "#54a2e2ff",
+  BLUE: "#54a2e2",
   GOLD: "#f5e6a4",
-  DARKRED: "#f87979ff",
+  DARKRED: "#f87979",
 };
 
 export default colors;

@@ -32,7 +32,7 @@ export interface GridCellProps {
 }
 
 function isValidFraction(
-  value: any
+  value: any,
 ): value is ValidFraction {
   return (
     typeof value === "number" && value >= 0 && value <= 1
@@ -50,7 +50,7 @@ const Cell: React.FC<GridCellProps> = ({
   const { allin, raise, call, prior } = actions;
   const dispatch = useDispatch();
   const { feedback, filteredHandsArray } = useSelector(
-    selectTrainerState
+    selectTrainerState,
   );
 
   const red =
@@ -60,7 +60,7 @@ const Cell: React.FC<GridCellProps> = ({
 
   if (allin + raise + call > 12) {
     throw new Error(
-      "Sum of allIn, raise, and call must be ≤ 1"
+      "Sum of allIn, raise, and call must be ≤ 1",
     );
   }
 
