@@ -68,7 +68,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   const playSound = usePlaySound();
 
   const handlePress = (
-    action: "AllIn" | "Raise" | "Call" | "Fold"
+    action: "AllIn" | "Raise" | "Call" | "Fold",
   ) => {
     if (action === name) {
       let answer = { a: allin, r: raise, c: call };
@@ -194,7 +194,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       style={{
         borderRadius,
         ...appShadow(colors.C1, 10),
-        maxWidth,
+        width: maxWidth,
         margin: maxWidth / 20,
       }}
     >

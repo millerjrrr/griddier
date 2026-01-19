@@ -63,7 +63,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
           <StackSizeText>
             {dataEntry.gridName.slice(
               0,
-              dataEntry.gridName.indexOf(" ")
+              dataEntry.gridName.indexOf(" "),
             )}
           </StackSizeText>
         </View>
@@ -87,7 +87,7 @@ const RangeCard: React.FC<RangeCardProps> = ({
           }}
         >
           {dataEntry.gridName.slice(
-            dataEntry.gridName.indexOf(" ") + 1
+            dataEntry.gridName.indexOf(" ") + 1,
           )}
         </RangeCardTitleText>
 

@@ -61,7 +61,7 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
     locked && !!gridName
       ? () => {
           dispatch(
-            updateDataEntry({ gridName, dueDate: today })
+            updateDataEntry({ gridName, dueDate: today }),
           );
         }
       : onPress;
@@ -96,14 +96,15 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
       style={{
         borderRadius,
         width: "100%",
+        marginTop: 10 * base,
         ...appShadow(shadow),
       }}
     >
       <AppTouchable
         style={{
           alignItems: "center",
+          justifyContent: "center",
           borderRadius,
-          marginTop: 10 * base,
           paddingVertical: 12 * base * scale,
           backgroundColor: color,
           width: "100%",

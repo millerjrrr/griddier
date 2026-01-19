@@ -83,13 +83,10 @@ const PositionRepresentation: React.FC<Props> = ({
           resizeMode="cover"
         />
 
-        <WhiteTextBold
-          s={iconWidth / 2.5}
-          color={tintColor}
-        >
+        <WhiteTextBold s={iconWidth / 3} color={tintColor}>
           {name}
         </WhiteTextBold>
-        <WhiteTextBold s={iconWidth / 3} color={tintColor}>
+        <WhiteTextBold s={iconWidth / 4} color={tintColor}>
           {stack - bet}
         </WhiteTextBold>
         {name === "BU" && (

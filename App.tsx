@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { Provider } from "react-redux";
-import store, { persistor } from "./src/store";
-import { PersistGate } from "redux-persist/integration/react";
-import Toast from "react-native-toast-message";
-import { AppState, Platform, View } from "react-native";
-import BGContainer from "./src/componentes/BGContainer";
-import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
 import { useEffect, useRef, useState } from "react";
+import { AppState, View } from "react-native";
+import Toast from "react-native-toast-message";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import AdaptiveAppContainer from "./src/componentes/AdaptiveAppContainer";
+import BGContainer from "./src/componentes/BGContainer";
 import AppContainer from "./src/navigation/AppContainer";
+import store, { persistor } from "./src/store";
 import screenDimensions from "./src/utils/screenDimensions";
 const { base } = screenDimensions();
 
@@ -27,7 +27,7 @@ export default function App() {
           setAppKey((k) => k + 1);
         }
         appState.current = next;
-      }
+      },
     );
     return () => sub.remove();
   }, []);
@@ -37,9 +37,11 @@ export default function App() {
       <BGContainer>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            {Platform.OS !== "web" && (
-              <View style={{ height: 30 * base }} />
-            )}
+            <View
+              style={{
+                height: 30 * base,
+              }}
+            />
             <AppContainer />
             <Toast />
             <StatusBar

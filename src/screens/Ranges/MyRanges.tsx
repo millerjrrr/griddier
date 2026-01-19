@@ -14,7 +14,12 @@ import colors from "@src/utils/colors";
 import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import { useState } from "react";
-import { FlatList, View } from "react-native";
+import {
+  FlatList,
+  Platform,
+  Text,
+  View,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
 const { base } = screenDimensions();
@@ -23,13 +28,13 @@ const MyRanges = () => {
   const { dataEntries } = useSelector(selectUserDataState);
   const filter = useSelector(selectFilter);
   let data = dataEntries.filter(
-    (entry) => entry.dueDate !== ""
+    (entry) => entry.dueDate !== "",
   );
 
   const showStackSize = !data.every(
     (entry) =>
       entry.gridName.slice(0, 3) ===
-      data[0].gridName.slice(0, 3)
+      data[0].gridName.slice(0, 3),
   );
 
   if (filter.activated) {
@@ -76,6 +81,39 @@ const MyRanges = () => {
     setDeleteModalVisible(false);
   };
 
+  const ListContent = (
+    <FlatList
+      data={data}
+      extraData={dataEntries}
+      renderItem={({ item }) => {
+        // must be called item for FlatList to work
+        return (
+          <RangeCard
+            dataEntry={item}
+            selectFunction={() => openModal(item)}
+            showDeleteModal={() => openDeleteModal(item)}
+            showStackSize={showStackSize}
+          />
+        );
+      }}
+      keyExtractor={(item) => item.gridName}
+      style={{
+        flex: 1,
+        width: "100%",
+        paddingVertical: 20 * base,
+        paddingHorizontal: 15 * base,
+        backgroundColor: "transparent",
+      }}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingTop: filter.activated
+          ? 160 * base
+          : 50 * base,
+        paddingBottom: 80 * base,
+      }}
+    />
+  );
+
   return (
     <View style={{ flex: 1 }}>
       <RangeListControls />
@@ -99,54 +137,27 @@ const MyRanges = () => {
         />
 
         {data.length > 0 ? (
-          <MaskedView
-            style={{ flex: 1 }}
-            maskElement={
-              <LinearGradient
-                colors={[
-                  "transparent",
-                  "black",
-                  "black",
-                  "transparent",
-                ]}
-                locations={[0, 0.12, 0.95, 1]}
-                style={{ flex: 1 }}
-              />
-            }
-          >
-            <FlatList
-              data={data}
-              extraData={dataEntries}
-              renderItem={({ item }) => {
-                // must be called item for FlatList to work
-                return (
-                  <RangeCard
-                    dataEntry={item}
-                    selectFunction={() => openModal(item)}
-                    showDeleteModal={() =>
-                      openDeleteModal(item)
-                    }
-                    showStackSize={showStackSize}
-                  />
-                );
-              }}
-              keyExtractor={(item) => item.gridName}
-              style={{
-                flex: 1,
-                width: "100%",
-                paddingVertical: 20 * base,
-                paddingHorizontal: 15 * base,
-                backgroundColor: "transparent",
-              }}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{
-                paddingTop: filter.activated
-                  ? 160 * base
-                  : 50 * base,
-                paddingBottom: 80 * base,
-              }}
-            />
-          </MaskedView>
+          Platform.OS === "web" ? (
+            ListContent
+          ) : (
+            <MaskedView
+              style={{ flex: 1 }}
+              maskElement={
+                <LinearGradient
+                  colors={[
+                    "transparent",
+                    "black",
+                    "black",
+                    "transparent",
+                  ]}
+                  locations={[0, 0.12, 0.95, 1]}
+                  style={{ flex: 1 }}
+                />
+              }
+            >
+              {ListContent}
+            </MaskedView>
+          )
         ) : (
           <View style={{ flex: 1, paddingTop: 50 * base }}>
             <WhiteTextBold s={24 * base}>
