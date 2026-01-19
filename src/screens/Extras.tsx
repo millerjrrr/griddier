@@ -35,7 +35,7 @@ const Extras = () => {
       } catch (err) {
         console.error(
           "❌ Failed to clear localStorage:",
-          err
+          err,
         );
       }
     } else {
@@ -44,12 +44,12 @@ const Extras = () => {
       try {
         await FileSystem.writeAsStringAsync(path, "{}");
         console.log(
-          "🧹 Cleared file-backed AsyncStorage.json (native)"
+          "🧹 Cleared file-backed AsyncStorage.json (native)",
         );
       } catch (err) {
         console.error(
           "❌ Failed to clear file-backed AsyncStorage:",
-          err
+          err,
         );
       }
     }
@@ -84,10 +84,6 @@ const Extras = () => {
         <SettingsCard
           onPress={importUserData}
           title={"Import user data"}
-        />
-        <SettingsCard
-          onPress={exportUserData}
-          title={"Export user data"}
         />
         <SettingsCard
           onPress={exportUserData}
