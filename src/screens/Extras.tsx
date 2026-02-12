@@ -1,9 +1,11 @@
 import AboutModal from "@src/componentes/Modals/AboutModal";
 import ContactModal from "@src/componentes/Modals/ContactModal";
 import MethodologyModal from "@src/componentes/Modals/MethodologyModal";
+import QRModal from "@src/componentes/Modals/QRModal";
 import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
 import SettingsCard from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
+import { MODAL_NAMES } from "@src/types";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
 import { importUserDataFromCsv } from "@src/utils/importUserData";
 import * as FileSystem from "expo-file-system/legacy";
@@ -19,10 +21,7 @@ const Extras = () => {
     importUserDataFromCsv(dispatch);
   };
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modal2Visible, setModal2Visible] = useState(false);
-  const [modal3Visible, setModal3Visible] = useState(false);
-  const [modal4Visible, setModal4Visible] = useState(false);
+  const [modalShowing, setModalShowing] = useState("");
 
   const exportUserData = () =>
     exportUserDataAsCsv(dataEntries);
@@ -65,29 +64,19 @@ const Extras = () => {
           paddingVertical: 40,
         }}
       >
+        {MODAL_NAMES.map((name) => (
+          <SettingsCard
+            onPress={() => setModalShowing(name)}
+            title={name}
+          />
+        ))}
         <SettingsCard
-          onPress={() => setModalVisible(true)}
-          title={"About"}
-        />
-        <SettingsCard
-          onPress={() => setModal2Visible(true)}
-          title={"Contact"}
-        />
-        <SettingsCard
-          onPress={() => setModal3Visible(true)}
-          title={"Methodology"}
-        />
-        <SettingsCard
-          onPress={() => setModal4Visible(true)}
-          title={"Your Study Data"}
+          onPress={exportUserData}
+          title={"Export user data"}
         />
         <SettingsCard
           onPress={importUserData}
           title={"Import user data"}
-        />
-        <SettingsCard
-          onPress={exportUserData}
-          title={"Export user data"}
         />
         {process.env.NODE_ENV === "development" && (
           <SettingsCard
@@ -97,20 +86,20 @@ const Extras = () => {
         )}
       </View>
       <AboutModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
+        visible={modalShowing === "About"}
+        onClose={() => setModalShowing("")}
       />
       <ContactModal
-        visible={modal2Visible}
-        onClose={() => setModal2Visible(false)}
+        visible={modalShowing === "Contact"}
+        onClose={() => setModalShowing("")}
       />
       <MethodologyModal
-        visible={modal3Visible}
-        onClose={() => setModal3Visible(false)}
+        visible={modalShowing === "Methodology"}
+        onClose={() => setModalShowing("")}
       />
-      <StudyDataModal
-        visible={modal4Visible}
-        onClose={() => setModal4Visible(false)}
+      <QRModal
+        visible={modalShowing === "Share"}
+        onClose={() => setModalShowing("")}
       />
     </View>
   );

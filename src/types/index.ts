@@ -176,3 +176,13 @@ export interface RangeModalProps {
   onClose: () => void;
   success?: boolean;
 }
+
+export const MODAL_NAMES = [
+  "About",
+  "Contact",
+  "Methodology",
+  "Your Study Data",
+  "Share",
+] as const;
+
+export type ModalName = (typeof MODAL_NAMES)[number];
