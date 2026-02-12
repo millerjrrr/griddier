@@ -36,6 +36,7 @@ interface TrainerState {
   showCombos: boolean;
   filter: Filter;
   appLoading: boolean;
+  allowQuickReview: boolean;
 }
 
 const gridName = OrderedKeys[0];
@@ -62,6 +63,7 @@ const initialState: TrainerState = {
     stack: "",
   },
   appLoading: true,
+  allowQuickReview: true,
 };
 
 const slice = createSlice({
@@ -109,7 +111,7 @@ const slice = createSlice({
     },
     setShowRangeModal(
       state,
-      action: PayloadAction<boolean>
+      action: PayloadAction<boolean>,
     ) {
       state.showRangeModal = action.payload;
     },
@@ -118,7 +120,7 @@ const slice = createSlice({
     },
     setShowRemoveModal(
       state,
-      action: PayloadAction<boolean>
+      action: PayloadAction<boolean>,
     ) {
       state.showRemoveModal = action.payload;
     },
@@ -138,12 +140,12 @@ const slice = createSlice({
           level: number;
           due: StrictDateString;
         };
-      }>
+      }>,
     ) {
       Object.entries(action.payload).forEach(
         ([key, value]) => {
           state.filteredHandsData[key] = value;
-        }
+        },
       );
     },
     setRepeatsArray(state, action) {
@@ -166,15 +168,18 @@ const slice = createSlice({
     },
     updateFilter: (
       state,
-      action: PayloadAction<Partial<Filter>>
+      action: PayloadAction<Partial<Filter>>,
     ) => {
       state.filter = { ...state.filter, ...action.payload };
     },
     updateAppLoading: (
       state,
-      action: PayloadAction<boolean>
+      action: PayloadAction<boolean>,
     ) => {
       state.appLoading = action.payload;
+    },
+    toggleAllowQuickReview(state) {
+      state.allowQuickReview = !state.allowQuickReview;
     },
   },
 });
@@ -207,6 +212,7 @@ export const {
   toggleShowCombos,
   updateFilter,
   updateAppLoading,
+  toggleAllowQuickReview,
 } = slice.actions;
 
 export const selectTrainerState = (state: RootState) =>

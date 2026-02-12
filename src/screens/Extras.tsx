@@ -3,7 +3,9 @@ import ContactModal from "@src/componentes/Modals/ContactModal";
 import MethodologyModal from "@src/componentes/Modals/MethodologyModal";
 import QRModal from "@src/componentes/Modals/QRModal";
 import StudyDataModal from "@src/componentes/Modals/StudyDataModal";
-import SettingsCard from "@src/componentes/SettingsCard";
+import SettingsCard, {
+  ToggleQuickReviewCard,
+} from "@src/componentes/SettingsCard";
 import { selectUserDataState } from "@src/store/userData";
 import { MODAL_NAMES } from "@src/types";
 import { exportUserDataAsCsv } from "@src/utils/exportUserData";
@@ -78,6 +80,7 @@ const Extras = () => {
           onPress={importUserData}
           title={"Import user data"}
         />
+        <ToggleQuickReviewCard />
         {process.env.NODE_ENV === "development" && (
           <SettingsCard
             onPress={resetUserData}

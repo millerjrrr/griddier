@@ -44,9 +44,8 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
   const dispatch = useDispatch();
   const initializeTrainerState =
     useInitializeTrainerState();
-  const { gridName, feedback } = useSelector(
-    selectTrainerState
-  );
+  const { gridName, feedback, allowQuickReview } =
+    useSelector(selectTrainerState);
 
   const newDrill = gridName !== dataEntry.gridName;
 
@@ -95,7 +94,7 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
       updateDataEntry({
         gridName: dataEntry.gridName,
         dueDate: formatDate(tomorrow),
-      })
+      }),
     );
 
     onClose();
@@ -116,19 +115,23 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
       dataEntry.level > 1 ||
       dataEntry.lastStudied === formatDate(new Date()) ? (
         <>
-          <ModalButton
-            text={feedback ? "Try again!" : "Quick Review"}
-            onPress={startQuickReview}
-            scale={1}
-            color={GREEN}
-            gridName={dataEntry.gridName}
-            shortcutKey=" "
-          />
+          {allowQuickReview && (
+            <ModalButton
+              text={
+                feedback ? "Try again!" : "Quick Review"
+              }
+              onPress={startQuickReview}
+              scale={1}
+              color={GREEN}
+              gridName={dataEntry.gridName}
+              shortcutKey=" "
+            />
+          )}
           <ModalButton
             text="Do a Full Review"
             onPress={startFullReview}
             scale={0.9}
-            color={TURQ}
+            color={allowQuickReview ? TURQ : GREEN}
             gridName={dataEntry.gridName}
             shortcutKey="r"
           />
@@ -143,14 +146,16 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
             gridName={dataEntry.gridName}
             shortcutKey=" "
           />
-          <ModalButton
-            text="Quick Review"
-            onPress={startQuickReview}
-            scale={0.9}
-            color={TURQ}
-            gridName={dataEntry.gridName}
-            shortcutKey="r"
-          />
+          {allowQuickReview && (
+            <ModalButton
+              text="Quick Review"
+              onPress={startQuickReview}
+              scale={0.9}
+              color={TURQ}
+              gridName={dataEntry.gridName}
+              shortcutKey="r"
+            />
+          )}
         </>
       )}
 
