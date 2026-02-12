@@ -68,6 +68,7 @@ const Extras = () => {
       >
         {MODAL_NAMES.map((name) => (
           <SettingsCard
+            key={name}
             onPress={() => setModalShowing(name)}
             title={name}
           />
@@ -98,6 +99,10 @@ const Extras = () => {
       />
       <MethodologyModal
         visible={modalShowing === "Methodology"}
+        onClose={() => setModalShowing("")}
+      />
+      <StudyDataModal
+        visible={modalShowing === "Your Study Data"}
         onClose={() => setModalShowing("")}
       />
       <QRModal

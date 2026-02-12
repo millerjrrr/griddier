@@ -7,13 +7,72 @@ import {
   selectTrainerState,
   toggleAllowQuickReview,
 } from "@src/store/trainer";
-import { Switch } from "react-native";
+import { Switch, View } from "react-native";
+import {
+  AntDesign,
+  Entypo,
+  FontAwesome5,
+  FontAwesome6,
+  Ionicons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { ModalName } from "@src/types";
 
 const { base } = screenDimensions();
+const size = 24,
+  color = colors.C1;
+
+const iconMap = {
+  About: <Entypo name="info" size={size} color={color} />,
+  Contact: (
+    <FontAwesome6
+      name="contact-card"
+      size={size}
+      color={color}
+    />
+  ),
+  Methodology: (
+    <Ionicons name="school" size={size} color={color} />
+  ),
+  "Your Study Data": (
+    <Ionicons
+      name="stats-chart"
+      size={size}
+      color={color}
+    />
+  ),
+  Share: (
+    <AntDesign name="qrcode" size={size} color={color} />
+  ),
+  "Export user data": (
+    <FontAwesome5
+      name="file-export"
+      size={size}
+      color={color}
+    />
+  ),
+  "Import user data": (
+    <FontAwesome5
+      name="file-import"
+      size={size}
+      color={color}
+    />
+  ),
+  "Allow Quick Reviews": (
+    <MaterialIcons
+      name="preview"
+      size={size}
+      color={color}
+    />
+  ),
+};
 
 const SettingsCard: React.FC<{
   onPress: () => void;
-  title: string;
+  title:
+    | ModalName
+    | "Export user data"
+    | "Import user data";
 }> = ({ onPress, title }) => {
   return (
     <AppTouchable
@@ -22,9 +81,12 @@ const SettingsCard: React.FC<{
         borderBottomWidth: 2 * base,
         borderColor: colors.C3,
         padding: 15 * base,
+        flexDirection: "row",
+        // justifyContent: "space-between",
       }}
       onPress={onPress}
     >
+      <View style={{ width: 40 }}>{iconMap[title]}</View>
       <SettingsCardText>{title}</SettingsCardText>
     </AppTouchable>
   );
@@ -53,14 +115,27 @@ export const ToggleQuickReviewCard = () => {
       }}
       onPress={toggle}
     >
-      <SettingsCardText>
-        Allow Quick Reviews
-      </SettingsCardText>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "flex-start",
+        }}
+      >
+        <View style={{ width: 40 }}>
+          {iconMap["Allow Quick Reviews"]}
+        </View>
+        <SettingsCardText>
+          Allow Quick Reviews
+        </SettingsCardText>
+      </View>
       <Switch
         value={allowQuickReview}
         onValueChange={toggle}
         trackColor={{ true: colors.GREEN }}
-        thumbColor="white"
+        thumbColor={colors.C1}
+        style={{
+          transform: [{ scaleX: 0.7 }, { scaleY: 0.8 }],
+        }}
       />
     </AppTouchable>
   );
