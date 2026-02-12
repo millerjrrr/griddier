@@ -1,6 +1,5 @@
-import { WhiteTextBold } from "@src/componentes/AppText";
 import MaskedView from "@react-native-masked-view/masked-view";
-import { LinearGradient } from "expo-linear-gradient";
+import { WhiteTextBold } from "@src/componentes/AppText";
 import DeleteModal from "@src/componentes/Modals/DeleteModal";
 import RangeModal from "@src/componentes/Modals/RangeModal";
 import RangeCard from "@src/componentes/RangeCard";
@@ -10,16 +9,11 @@ import {
 } from "@src/store/trainer";
 import { selectUserDataState } from "@src/store/userData";
 import { DataEntry } from "@src/types";
-import colors from "@src/utils/colors";
 import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
+import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
-import {
-  FlatList,
-  Platform,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, Platform, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import RangeListControls from "./components/RangeListControls";
 const { base } = screenDimensions();

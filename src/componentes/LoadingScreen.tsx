@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { View, Animated } from "react-native";
-import { ModalTitle } from "./AppText";
-import AppIcon from "./Modals/AppIcon";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
+import React, { useEffect, useRef } from "react";
+import { Animated, View } from "react-native";
+import AppIcon from "./Modals/AppIcon";
 
 const { base } = screenDimensions();
 
@@ -13,7 +12,7 @@ const LoadingScreen = () => {
   useEffect(() => {
     Animated.timing(progress, {
       toValue: 1,
-      duration: 5000, // 5 seconds
+      duration: 3000, // 5 seconds
       useNativeDriver: false, // width animation
     }).start();
   }, []);
