@@ -6,7 +6,6 @@ import {
   GridName,
   UserDataState,
 } from "@src/types";
-import { isValidGridDataEntry } from "@src/types/validators";
 import formatDate from "@src/utils/formatDate";
 import getInitialUserData from "@src/utils/getInitialUserData";
 import sort from "@src/utils/sortDataEntries";
@@ -24,7 +23,7 @@ const slice = createSlice({
       state,
       action: {
         payload: DataEntry[];
-      }
+      },
     ) => {
       state.dataEntries = action.payload;
       state.dataEntries = sort(state.dataEntries);
@@ -36,7 +35,7 @@ const slice = createSlice({
           gridName: string;
           newGridName?: string;
         };
-      }
+      },
     ) => {
       const { gridName, newGridName, ...updates } =
         action.payload;
@@ -44,7 +43,7 @@ const slice = createSlice({
       const effectiveGridName = newGridName ?? gridName;
 
       const index = state.dataEntries.findIndex(
-        (entry) => entry.gridName === gridName
+        (entry) => entry.gridName === gridName,
       );
 
       if (index !== -1) {
@@ -79,7 +78,7 @@ const slice = createSlice({
     },
     cleanDataEntries: (state) => {
       state.dataEntries = state.dataEntries.filter(
-        (entry) => gridNamesSet.has(entry.gridName)
+        (entry) => gridNamesSet.has(entry.gridName),
       );
     },
   },

@@ -86,11 +86,18 @@ const SettingsCard: React.FC<{
         borderColor: colors.C3,
         padding: 15 * base,
         flexDirection: "row",
+        alignItems: "center",
         // justifyContent: "space-between",
       }}
       onPress={onPress}
     >
-      <View style={{ width: 40 }}>{iconMap[title]}</View>
+      <View
+        style={{
+          width: 40,
+        }}
+      >
+        {iconMap[title]}
+      </View>
       <SettingsCardText>{title}</SettingsCardText>
     </AppTouchable>
   );
@@ -108,7 +115,7 @@ export const ToggleQuickReviewCard = () => {
     dispatch(toggleAllowQuickReview());
   };
   return (
-    <AppTouchable
+    <View
       style={{
         width: "90%",
         borderBottomWidth: 2 * base,
@@ -116,13 +123,14 @@ export const ToggleQuickReviewCard = () => {
         padding: 15 * base,
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "center",
       }}
-      onPress={toggle}
     >
       <View
         style={{
           flexDirection: "row",
           justifyContent: "flex-start",
+          alignItems: "center",
         }}
       >
         <View style={{ width: 40 }}>
@@ -141,6 +149,6 @@ export const ToggleQuickReviewCard = () => {
           transform: [{ scaleX: 0.7 }, { scaleY: 0.8 }],
         }}
       />
-    </AppTouchable>
+    </View>
   );
 };
