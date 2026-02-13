@@ -9,7 +9,7 @@ import { AppPressable } from "./AppPressables";
 import { useDispatch } from "react-redux";
 import { updateDataEntry } from "@src/store/userData";
 import { ModalButton } from "./Modals/ModalButtons";
-import { FeaturedGridText } from "./AppText";
+import { FeaturedGridText, ModalText } from "./AppText";
 const { base } = screenDimensions();
 const { C1, C2, BG2, BG3, BLUE } = colors;
 
@@ -43,7 +43,7 @@ const FeaturedGrid: React.FC<{
 }> = ({ gridName, toggleEdit }) => {
   const state = store.getState();
   const dataEntry = state.userData.dataEntries.find(
-    (e) => e.gridName === gridName
+    (e) => e.gridName === gridName,
   );
   const dispatch = useDispatch();
 
@@ -57,11 +57,11 @@ const FeaturedGrid: React.FC<{
       updateDataEntry({
         gridName,
         featuredHandsArray: featuredHandsArray.includes(
-          hand
+          hand,
         )
           ? featuredHandsArray.filter((a) => a !== hand)
           : [hand, ...featuredHandsArray],
-      })
+      }),
     );
   };
 
@@ -71,29 +71,49 @@ const FeaturedGrid: React.FC<{
         gridName,
         featuredHandsArray:
           GridData[gridName]?.featured || handsArray,
-      })
+      }),
     );
   };
 
   return (
-    <View style={{ alignItems: "center", width: "100%" }}>
-      {[...Array(13)].map((_, rowIdx) => (
-        <View key={rowIdx} style={{ flexDirection: "row" }}>
-          {[...Array(13)].map((_, colIdx) => {
-            const i = rowIdx * 13 + colIdx;
-            return (
-              <FeaturedCell
-                key={i}
-                hand={handsArray[i]}
-                featured={featuredHandsArray.includes(
-                  handsArray[i]
-                )}
-                toggleFeatured={toggleFeatured}
-              />
-            );
-          })}
-        </View>
-      ))}
+    <View
+      style={{
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
+      <View
+        style={{
+          alignItems: "center",
+          width: "100%",
+          paddingVertical: 20 * base,
+        }}
+      >
+        {[...Array(13)].map((_, rowIdx) => (
+          <View
+            key={rowIdx}
+            style={{ flexDirection: "row" }}
+          >
+            {[...Array(13)].map((_, colIdx) => {
+              const i = rowIdx * 13 + colIdx;
+              return (
+                <FeaturedCell
+                  key={i}
+                  hand={handsArray[i]}
+                  featured={featuredHandsArray.includes(
+                    handsArray[i],
+                  )}
+                  toggleFeatured={toggleFeatured}
+                />
+              );
+            })}
+          </View>
+        ))}
+      </View>
+      <ModalText>
+        Use this Grid to select which hands you want to
+        review
+      </ModalText>
       <ModalButton
         text="Reset"
         onPress={resetToDefault}
