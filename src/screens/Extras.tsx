@@ -85,7 +85,7 @@ const Extras = () => {
         {process.env.NODE_ENV === "development" && (
           <SettingsCard
             onPress={resetUserData}
-            title={"⚠️ Reset User Data"}
+            title={"Reset User Data ⚠️"}
           />
         )}
       </View>

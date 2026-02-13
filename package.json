@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "generate:grids": "ts-node -P tsconfig.scripts.json -r tsconfig-paths/register scripts/generateGrids.ts"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -18,6 +19,7 @@
     "@react-navigation/native-stack": "^7.3.26",
     "@react-navigation/stack": "^7.4.8",
     "@reduxjs/toolkit": "^2.8.2",
+    "canvas": "^3.2.1",
     "csv-parse": "^5.6.0",
     "dayjs": "^1.11.13",
     "expo": "~54.0.31",
@@ -44,8 +46,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@types/node": "^25.2.3",
     "@types/papaparse": "^5.3.16",
     "@types/react": "~19.1.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "~5.9.2"
   },
   "private": true,

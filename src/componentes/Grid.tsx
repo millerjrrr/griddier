@@ -3,13 +3,16 @@ import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import React, { useState } from "react";
-import { Platform, Text, View } from "react-native";
+import { Image, Platform, Text, View } from "react-native";
 import { GridName, HandsObject } from "../types";
 import { handsArray } from "../utils/handsArrayLogic";
 import { AppPressable } from "./AppPressables";
 import Cell from "./Cell";
 import { getRange } from "@src/utils/getRange";
 import { WhiteTextBold } from "./AppText";
+import { RangeImages } from "@assets/data/rangeImageMap";
+import { OrderedKey } from "@assets/data/OrderedKeys";
+import { RangeIdMap } from "@assets/data/RangeIdMap";
 
 interface GridProps {
   name: GridName;
@@ -31,6 +34,9 @@ const Grid: React.FC<GridProps> = ({
   const hands: HandsObject = range.hands;
 
   const { BG3, C3 } = colors;
+
+  const source =
+    RangeImages[RangeIdMap[name as OrderedKey]];
 
   return (
     <View
@@ -61,28 +67,15 @@ const Grid: React.FC<GridProps> = ({
           </WhiteTextBold>
         </AppPressable>
       ) : (
-        [...Array(13)].map((_, rowIdx) => (
-          <View
-            key={rowIdx}
-            style={{ flexDirection: "row" }}
-          >
-            {[...Array(13)].map((_, colIdx) => {
-              const i = rowIdx * 13 + colIdx;
-              return (
-                <Cell
-                  key={i}
-                  actions={hands[handsArray[i]]}
-                  hand={handsArray[i]}
-                  size={
-                    Platform.OS === "web"
-                      ? (0.85 * width) / 13
-                      : size
-                  }
-                />
-              );
-            })}
-          </View>
-        ))
+        <Image
+          source={source}
+          style={{
+            width: 0.85 * width,
+            height: 0.85 * width,
+            opacity: 0.95,
+          }}
+          resizeMode="contain"
+        />
       )}
     </View>
   );

@@ -65,6 +65,9 @@ const iconMap = {
       color={color}
     />
   ),
+  "Reset User Data ⚠️": (
+    <AntDesign name="warning" size={size} color={color} />
+  ),
 };
 
 const SettingsCard: React.FC<{
@@ -72,7 +75,8 @@ const SettingsCard: React.FC<{
   title:
     | ModalName
     | "Export user data"
-    | "Import user data";
+    | "Import user data"
+    | "Reset User Data ⚠️";
 }> = ({ onPress, title }) => {
   return (
     <AppTouchable
