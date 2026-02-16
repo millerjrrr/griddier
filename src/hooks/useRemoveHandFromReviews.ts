@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import useUpdateDatabase from "./useUpdateDatabase";
 import usePlaySound from "./usePlaySound";
 const success = require("assets/sounds/success.wav");
-const { base } = screenDimensions();
+const { tbase } = screenDimensions();
 
 const useRemoveHandFromReviews = () => {
   const dispatch = useDispatch();
@@ -43,8 +43,8 @@ const useRemoveHandFromReviews = () => {
         text1: "Warning!",
         text2: `No entry found for grid: ${gridName}`,
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 * base },
-        text2Style: { fontSize: 17 * base },
+        text1Style: { fontSize: 20 * tbase },
+        text2Style: { fontSize: 17 * tbase },
       });
       return;
     }

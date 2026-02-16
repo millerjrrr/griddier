@@ -12,7 +12,7 @@ import { FeaturedGridText, ModalText } from "../../AppText";
 import { ModalButton } from "../ModalButtons";
 import Toast from "react-native-toast-message";
 import { getRange } from "@src/utils/getRange";
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 const { C1, C2, BG2, BG3, BLUE } = colors;
 
 const FeaturedCell: React.FC<{
@@ -85,8 +85,8 @@ const FeaturedGrid: React.FC<{
         text1: "Denied",
         text2: `Cannot have less than 3 hands for review!`,
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 * base },
-        text2Style: { fontSize: 17 * base },
+        text1Style: { fontSize: 20 * tbase },
+        text2Style: { fontSize: 17 * tbase },
       });
     }
   };

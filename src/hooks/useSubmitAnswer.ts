@@ -27,7 +27,7 @@ import usePlaySound from "./usePlaySound";
 import useTestCompleted from "./useTestCompleted";
 import useUpdateDatabase from "./useUpdateDatabase";
 const cymbal = require("assets/sounds/cymbal.wav");
-const { base } = screenDimensions();
+const { tbase } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
   x.allin === y.allin &&
@@ -65,8 +65,8 @@ const useSubmitAnswer = () => {
         text1: "Warning!",
         text2: "❗ currentHand is undefined at index",
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 * base },
-        text2Style: { fontSize: 17 * base },
+        text1Style: { fontSize: 20 * tbase },
+        text2Style: { fontSize: 17 * tbase },
       });
       return;
     }

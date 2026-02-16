@@ -15,7 +15,7 @@ import AppModal from "./AppModal";
 import { CloseButton, ModalButton } from "./ModalButtons";
 import useTestCompleted from "@src/hooks/useTestCompleted";
 
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 
 const RemoveModal = ({ visible }: { visible: boolean }) => {
   const { gridName, filteredHandsArray, index } =
@@ -35,8 +35,8 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
       text1: "Removed",
       text2: `This hand will no longer be reviewed`,
       visibilityTime: 2000,
-      text1Style: { fontSize: 20 * base },
-      text2Style: { fontSize: 17 * base },
+      text1Style: { fontSize: 20 * tbase },
+      text2Style: { fontSize: 17 * tbase },
     });
 
   const removeHand = () => {
@@ -46,8 +46,8 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
         text1: "Denied",
         text2: `Cannot have less than 3 hands for review!`,
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 * base },
-        text2Style: { fontSize: 17 * base },
+        text1Style: { fontSize: 20 * tbase },
+        text2Style: { fontSize: 17 * tbase },
       });
     else if (index + 1 === filteredHandsArray.length) {
       onClose();
@@ -72,19 +72,19 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
       <View style={{ width: "100%", alignItems: "center" }}>
         <ModalTitle
           style={{
-            fontSize: 120 * base,
+            fontSize: 120 * tbase,
           }}
         >
           {filteredHandsArray[index]}
         </ModalTitle>
         <FontAwesome
           name="trash"
-          size={60 * base}
+          size={60 * tbase}
           color={colors.C2}
         />
         <ModalText
           style={{
-            fontSize: 18 * base,
+            fontSize: 18 * tbase,
             textAlign: "center",
             paddingVertical: 15 * base,
           }}

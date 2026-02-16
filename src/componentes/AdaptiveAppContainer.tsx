@@ -35,15 +35,15 @@ const AdaptiveAppContainer = ({
       >
         <View
           style={{
-            height,
-            width,
+            height: height + base * 10 * 2,
+            width: width + base * 10 * 2,
             borderRadius,
             overflow: "hidden",
             borderWidth: base * 10,
             backgroundColor: "black",
           }}
         >
-          <View
+          <View //fake camera holder
             style={{
               width: 0.3 * width,
               height: 0.085 * width,

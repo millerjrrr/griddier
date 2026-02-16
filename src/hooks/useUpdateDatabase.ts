@@ -4,7 +4,7 @@ import {
   setTimePlaying,
 } from "@src/store/trainer";
 import { updateDataEntry } from "@src/store/userData";
-import { GridName } from "@src/types";
+import { GridName, StrictDateString } from "@src/types";
 import formatDate from "@src/utils/formatDate";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
 import zeroTime from "@src/utils/zeroTime";
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import Toast from "react-native-toast-message";
 import screenDimensions from "@src/utils/screenDimensions";
-const { base } = screenDimensions();
+const { tbase } = screenDimensions();
 
 const useUpdateDatabase = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const useUpdateDatabase = () => {
 
   const updateDatabase = (
     gridName: GridName,
-    correct: boolean
+    correct: boolean,
   ) => {
     const now = new Date();
 
@@ -35,8 +35,8 @@ const useUpdateDatabase = () => {
         text1: "Warning!",
         text2: `No entry found for grid: ${gridName}`,
         visibilityTime: 2000,
-        text1Style: { fontSize: 20 * base },
-        text2Style: { fontSize: 17 * base },
+        text1Style: { fontSize: 20 * tbase },
+        text2Style: { fontSize: 17 * tbase },
       });
       return;
     }
@@ -46,10 +46,10 @@ const useUpdateDatabase = () => {
 
     const todaysDateAsDate = zeroTime(new Date());
 
-    const entryHasDueDate = !!entry.dueDate;
-
-    const dueDateAsDate = entryHasDueDate
-      ? getLocalDateFromYYYYMMDD(entry.dueDate)
+    const dueDateAsDate = !!entry.dueDate
+      ? getLocalDateFromYYYYMMDD(
+          entry.dueDate as StrictDateString | "",
+        )
       : null;
 
     const isDueTodayOrPast =
@@ -64,11 +64,13 @@ const useUpdateDatabase = () => {
       // Next due date: today + 2^level days
       const nextDate = new Date();
       nextDate.setDate(
-        nextDate.getDate() + Math.pow(2, entry.level)
+        nextDate.getDate() + Math.pow(2, entry.level),
       );
-      const dueDate = isDueTodayOrPast
-        ? formatDate(nextDate)
-        : entry.dueDate;
+      const dueDate = (
+        isDueTodayOrPast
+          ? formatDate(nextDate)
+          : entry.dueDate
+      ) as StrictDateString | "";
 
       dispatch(
         updateDataEntry({
@@ -82,7 +84,7 @@ const useUpdateDatabase = () => {
           handsPlayed: entry.handsPlayed + handsPlayed + 1,
           lastStudied: today,
           individualHandDrillingData,
-        })
+        }),
       );
     } else {
       // Reset level, due today
@@ -95,7 +97,7 @@ const useUpdateDatabase = () => {
           dueDate: today,
           lastStudied: today,
           individualHandDrillingData,
-        })
+        }),
       );
     }
 

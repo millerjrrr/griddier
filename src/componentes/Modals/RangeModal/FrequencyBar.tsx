@@ -18,7 +18,7 @@ interface FreqBarProps {
   handsObject: HandsObject;
 }
 
-const { width: vw, base } = screenDimensions();
+const { width: vw, base, tbase } = screenDimensions();
 
 const SubBar: React.FC<{
   freq: number;
@@ -50,7 +50,7 @@ const SubBar: React.FC<{
           </FrequencyBarText>
           {!showCombos && (
             <FrequencyBarCombosText
-              style={{ fontSize: 10 * base }}
+              style={{ fontSize: 10 * tbase }}
             >
               %
             </FrequencyBarCombosText>

@@ -5,6 +5,8 @@ import appShadow from "@src/utils/appShadow";
 import returnFrequencyArray from "@src/utils/returnFrequencyArray";
 import colors from "@src/utils/colors";
 import { ModalText } from "@src/componentes/AppText";
+import screenDimensions from "@src/utils/screenDimensions";
+const { base, tbase } = screenDimensions();
 
 interface Props {
   levelsArray: number[];
@@ -21,7 +23,7 @@ const LevelHistogram: React.FC<Props> = ({
   let maxHeight = Math.max(...heights);
 
   const normalizedHeights = heights.map(
-    (h) => (h * histHeight) / maxHeight
+    (h) => (h * histHeight) / maxHeight,
   );
   const { C2, BG4 } = colors;
 
@@ -51,9 +53,9 @@ const LevelHistogram: React.FC<Props> = ({
       </View>
       <ModalText
         style={{
-          fontSize: 50,
+          fontSize: 50 * tbase,
           fontWeight: "bold",
-          padding: 10,
+          padding: 10 * base,
         }}
       >
         {heights[selected - 1]}
@@ -72,9 +74,9 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "flex-end",
-    padding: 10,
-    borderRadius: 10,
-    borderWidth: 1,
+    padding: 10 * base,
+    borderRadius: 10 * base,
+    borderWidth: 1 * base,
   },
 });
 

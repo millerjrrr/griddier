@@ -7,18 +7,34 @@ const screenDimensions = () => {
   const { width: vw, height: vh } =
     Dimensions.get("window");
 
-  const { width, height, base } = Platform.select({
-    ios: { width: vw, height: vh, base: vh / scale },
-    android: { width: vw, height: vh, base: vw / scale2 },
-    web: {
-      width: Math.min(430, vh * 0.462),
-      height: Math.min(930, vh * 0.95),
-      base: Math.min(930, vh * 0.95) / scale,
+  const { width, height, base, tbase } = Platform.select({
+    ios: {
+      width: vw,
+      height: vh,
+      base: vh / scale,
+      tbase: Math.pow(vh / scale, 1),
     },
-    default: { width: vw, height: vh, base: vh / scale },
+    android: {
+      width: vw,
+      height: vh,
+      base: vw / scale2,
+      tbase: Math.pow(vw / scale2, 1),
+    },
+    web: {
+      width: vh * 0.462,
+      height: vh * 0.95,
+      base: (vh * 0.95) / scale,
+      tbase: Math.pow((vh * 0.95) / scale, 1),
+    },
+    default: {
+      width: vw,
+      height: vh,
+      base: vh / scale,
+      tbase: Math.pow(vh / scale, 1),
+    },
   });
 
-  return { width, height, base };
+  return { width, height, base, tbase };
 };
 
 export default screenDimensions;

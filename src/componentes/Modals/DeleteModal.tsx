@@ -1,20 +1,18 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { updateDataEntry } from "@src/store/userData";
 import { DataEntry, GridName } from "@src/types";
-import appShadow from "@src/utils/appShadow";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
 import React from "react";
-import { StyleSheet, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { ModalText, ModalTitle } from "../AppText";
 import LevelStars from "../LevelStars";
 import AppModal from "./AppModal";
 import { CloseButton, ModalButton } from "./ModalButtons";
 
-const { BLUE, BG1, DARKRED, C1 } = colors;
+const { BG1 } = colors;
 
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 
 interface RangeModalProps {
   visible: boolean;
@@ -44,7 +42,7 @@ const DeleteModal: React.FC<RangeModalProps> = ({
         lastStudied: "",
         individualHandDrillingData,
         featuredHandsArray: undefined,
-      })
+      }),
     );
 
     onClose();
@@ -52,8 +50,8 @@ const DeleteModal: React.FC<RangeModalProps> = ({
 
   const titleFontSize =
     dataEntry.gridName.length < 35 * base
-      ? 20 * base
-      : 17 * base;
+      ? 20 * tbase
+      : 17 * tbase;
 
   return (
     <AppModal visible={visible}>

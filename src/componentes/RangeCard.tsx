@@ -13,7 +13,7 @@ import {
   StackSizeText,
 } from "./AppText";
 
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 
 interface RangeCardProps {
   dataEntry: DataEntry;
@@ -82,8 +82,8 @@ const RangeCard: React.FC<RangeCardProps> = ({
             fontSize:
               dataEntry.gridName.length <
               (!locked ? 28 : 35)
-                ? 20 * base
-                : 17 * base,
+                ? 20 * tbase
+                : 17 * tbase,
           }}
         >
           {dataEntry.gridName.slice(

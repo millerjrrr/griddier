@@ -11,13 +11,12 @@ import { ModalSmallText, ModalTitle } from "../AppText";
 import AppModal from "./AppModal";
 import { ModalButton } from "./ModalButtons";
 const icon = require("@assets/icon.png");
-const { height, width } = screenDimensions();
+const { height, width, base, tbase } = screenDimensions();
 
 interface ModalProps {
   visible: boolean;
   onClose: () => void;
 }
-const { base } = screenDimensions();
 
 const MethodologyModal: React.FC<ModalProps> = ({
   visible,
@@ -72,7 +71,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
         </ModalSmallText>
         <ModalSmallText
           style={{
-            fontSize: 25 * base,
+            fontSize: 25 * tbase,
             width: "100%",
             paddingBottom: 5 * base,
           }}
@@ -85,7 +84,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
         </ModalSmallText>
         <ModalSmallText
           style={{
-            fontSize: 25 * base,
+            fontSize: 25 * tbase,
             width: "100%",
             paddingBottom: 5 * base,
           }}
@@ -105,7 +104,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
 
         <ModalSmallText
           style={{
-            fontSize: 25 * base,
+            fontSize: 25 * tbase,
             width: "100%",
             paddingBottom: 5 * base,
           }}
@@ -119,7 +118,7 @@ const MethodologyModal: React.FC<ModalProps> = ({
 
         <ModalSmallText
           style={{
-            fontSize: 25 * base,
+            fontSize: 25 * tbase,
             width: "100%",
             paddingBottom: 5 * base,
           }}

@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 import { updateDataEntry } from "@src/store/userData";
 import formatDate from "@src/utils/formatDate";
 const lockIcon = require("@assets/img/lock.png");
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 const { BLUE, C2, BG2 } = colors;
 const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
@@ -50,8 +50,8 @@ export const ModalButton: React.FC<ModalButtonProps> = ({
           text1: "Locked: Complete previous levels",
           text2: "Press & hold to unlock",
           visibilityTime: 2500,
-          text1Style: { fontSize: 20 * base },
-          text2Style: { fontSize: 17 * base },
+          text1Style: { fontSize: 20 * tbase },
+          text2Style: { fontSize: 17 * tbase },
         })
     : onPress;
 

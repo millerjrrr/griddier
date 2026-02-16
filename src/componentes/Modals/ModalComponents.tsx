@@ -7,7 +7,7 @@ import { AppTouchable } from "../AppPressables";
 import { ModalTitle } from "../AppText";
 import LevelStars from "../LevelStars";
 import colors from "./../../utils/colors";
-const { base, width } = screenDimensions();
+const { base, tbase, width } = screenDimensions();
 
 export const Overlay: React.FC<{ children: ReactNode }> = ({
   children,
@@ -71,10 +71,10 @@ export const RangeModalTitle: React.FC<{
             fontWeight: "bold",
             fontSize:
               dataEntry.gridName.length < 25
-                ? 25 * base
+                ? 25 * tbase
                 : dataEntry.gridName.length < 30
-                  ? 23 * base
-                  : 20 * base,
+                  ? 23 * tbase
+                  : 20 * tbase,
             paddingBottom: 5 * base,
           }}
         >
@@ -91,7 +91,7 @@ export const RangeModalTitle: React.FC<{
       <AppTouchable onPress={toggleEdit}>
         <AntDesign
           name={editModeIsOn ? "close" : "edit"}
-          size={24}
+          size={24 * base}
           color={colors.C2}
         />
       </AppTouchable>

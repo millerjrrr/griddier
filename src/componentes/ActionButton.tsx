@@ -36,7 +36,7 @@ import {
   ActionButtonText,
   ActionButtonTextSmall,
 } from "./AppText";
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 
 type ActionName = "AllIn" | "Raise" | "Call" | "Fold";
 
@@ -83,8 +83,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
                 text1: "Press & Hold Button",
                 text2: "to immediately fill grid",
                 visibilityTime: 5000,
-                text1Style: { fontSize: 20 * base },
-                text2Style: { fontSize: 17 * base },
+                text1Style: { fontSize: 20 * tbase },
+                text2Style: { fontSize: 17 * tbase },
               });
             answer.a = (allin + 1) as ValidFraction;
             dispatch(incAllIn());
@@ -98,8 +98,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
                 text1: "Press & Hold Button",
                 text2: "to immediately fill grid",
                 visibilityTime: 5000,
-                text1Style: { fontSize: 20 * base },
-                text2Style: { fontSize: 17 * base },
+                text1Style: { fontSize: 20 * tbase },
+                text2Style: { fontSize: 17 * tbase },
               });
             answer.r = (raise + 1) as ValidFraction;
             dispatch(incRaise());
@@ -113,8 +113,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
                 text1: "Press & Hold Button",
                 text2: "to immediately fill grid",
                 visibilityTime: 5000,
-                text1Style: { fontSize: 20 * base },
-                text2Style: { fontSize: 17 * base },
+                text1Style: { fontSize: 20 * tbase },
+                text2Style: { fontSize: 17 * tbase },
               });
             answer.c = (call + 1) as ValidFraction;
             dispatch(incCall());

@@ -20,7 +20,7 @@ import {
   AppTouchable,
 } from "./AppPressables";
 import { GridCellSubText, GridCellText } from "./AppText";
-const { base } = screenDimensions();
+const { base, tbase } = screenDimensions();
 
 export interface GridCellProps {
   actions: HandActions;
@@ -179,7 +179,7 @@ const Cell: React.FC<GridCellProps> = ({
         >
           <GridCellText
             style={{
-              fontSize: size ? size * 0.4 : 10 * base,
+              fontSize: size ? size * 0.4 : 10 * tbase,
             }}
           >
             {hand}

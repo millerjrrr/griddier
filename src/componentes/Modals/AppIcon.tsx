@@ -23,8 +23,8 @@ const AppIcon: React.FC<{
         source={icon}
         resizeMode="contain"
         style={{
-          width: size * base,
-          height: size * base,
+          width: size,
+          height: size,
           borderRadius,
         }}
       />

@@ -1,8 +1,7 @@
-import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { WhiteTextBold } from "./AppText";
-const { width, base } = screenDimensions();
+const { width, base, tbase } = screenDimensions();
 
 interface SpotNameProps {
   name: string;
@@ -10,7 +9,8 @@ interface SpotNameProps {
 
 const SpotName: React.FC<SpotNameProps> = ({ name }) => {
   // If tooLong is true, insert \n at your chosen character
-  const fontSize = name.length > 25 ? 20 * base : 25 * base;
+  const fontSize =
+    name.length > 25 ? 20 * tbase : 25 * tbase;
 
   return (
     <View
