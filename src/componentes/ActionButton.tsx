@@ -63,7 +63,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   } = useSelector(selectTrainerState);
   const Range = getRange(gridName);
 
-  const { submitAnswer } = useSubmitAnswer();
+  const submitAnswer = useSubmitAnswer();
 
   const playSound = usePlaySound();
 

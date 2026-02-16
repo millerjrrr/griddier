@@ -1,15 +1,16 @@
 import { GridData } from "@assets/data/GridData";
 import store from "@src/store";
+import { updateDataEntry } from "@src/store/userData";
 import { GridName, PokerHand } from "@src/types";
 import colors from "@src/utils/colors";
 import { handsArray } from "@src/utils/handsArrayLogic";
 import screenDimensions from "@src/utils/screenDimensions";
-import { Text, View } from "react-native";
-import { AppPressable } from "./AppPressables";
+import { View } from "react-native";
 import { useDispatch } from "react-redux";
-import { updateDataEntry } from "@src/store/userData";
-import { ModalButton } from "./Modals/ModalButtons";
-import { FeaturedGridText, ModalText } from "./AppText";
+import { AppPressable } from "../../AppPressables";
+import { FeaturedGridText, ModalText } from "../../AppText";
+import { ModalButton } from "../ModalButtons";
+import Toast from "react-native-toast-message";
 const { base } = screenDimensions();
 const { C1, C2, BG2, BG3, BLUE } = colors;
 
@@ -53,16 +54,30 @@ const FeaturedGrid: React.FC<{
     handsArray;
 
   const toggleFeatured = (hand: PokerHand) => {
-    dispatch(
-      updateDataEntry({
-        gridName,
-        featuredHandsArray: featuredHandsArray.includes(
-          hand,
-        )
-          ? featuredHandsArray.filter((a) => a !== hand)
-          : [hand, ...featuredHandsArray],
-      }),
-    );
+    if (
+      featuredHandsArray.length > 3 ||
+      !featuredHandsArray.includes(hand)
+    )
+      dispatch(
+        updateDataEntry({
+          gridName,
+          featuredHandsArray: featuredHandsArray.includes(
+            hand,
+          )
+            ? featuredHandsArray.filter((a) => a !== hand)
+            : [hand, ...featuredHandsArray],
+        }),
+      );
+    else {
+      Toast.show({
+        type: "error",
+        text1: "Denied",
+        text2: `Cannot have less than 3 hands for review!`,
+        visibilityTime: 2000,
+        text1Style: { fontSize: 20 * base },
+        text2Style: { fontSize: 17 * base },
+      });
+    }
   };
 
   const resetToDefault = () => {

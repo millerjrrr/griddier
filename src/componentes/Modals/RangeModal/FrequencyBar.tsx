@@ -6,13 +6,13 @@ import { HandsObject } from "@src/types";
 import calculateFrequencies from "@src/utils/calculateFrequencies";
 import colors from "@src/utils/colors";
 import screenDimensions from "@src/utils/screenDimensions";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { AppPressable } from "./AppPressables";
+import { AppPressable } from "../../AppPressables";
 import {
   FrequencyBarCombosText,
   FrequencyBarText,
-} from "./AppText";
+} from "../../AppText";
 
 interface FreqBarProps {
   handsObject: HandsObject;

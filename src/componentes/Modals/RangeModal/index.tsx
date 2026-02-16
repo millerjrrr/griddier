@@ -1,22 +1,21 @@
-import { selectTrainerState } from "@src/store/trainer";
+import FeaturedGrid from "@src/componentes/Modals/RangeModal/FeaturedGrid";
+import useInitializeTrainerState from "@src/hooks/useInitializeTrainerState";
+import store from "@src/store";
 import { HandsObject, RangeModalProps } from "@src/types";
 import colors from "@src/utils/colors";
 import { getRange } from "@src/utils/getRange";
 import screenDimensions from "@src/utils/screenDimensions";
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, Text, View } from "react-native";
+import { Animated, View } from "react-native";
 import Toast from "react-native-toast-message";
-import { useSelector } from "react-redux";
 import Cell from "../../Cell";
-import FrequencyBar from "../../FrequencyBar";
-import Grid from "../../Grid";
 import AppModal from "../AppModal";
 import { RangeModalTitle } from "../ModalComponents";
+import FrequencyBar from "./FrequencyBar";
+import Grid from "./Grid";
 import RangeDisplayButtons from "./RangeDisplayButtons";
 import RangeInfoSummary from "./RangeInfoSummary";
 import SuccessDisplayButtons from "./SuccessDisplayButtons";
-import FeaturedGrid from "@src/componentes/FeaturedGrid";
-import useInitializeTrainerState from "@src/hooks/useInitializeTrainerState";
 
 const { GOLD, RED, BG4 } = colors;
 
@@ -32,15 +31,18 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const initializeTrainerState =
     useInitializeTrainerState();
 
+  const state = store.getState();
+  const { gridName, feedback, filteredHandsArray } =
+    state.trainer;
+
+  const ModalGridName = dataEntry?.gridName || gridName;
+
   const toggleEdit = () => {
-    if (editModeOn) initializeTrainerState;
+    if (editModeOn) initializeTrainerState(ModalGridName);
     setEditMode(!editModeOn);
   };
 
-  const { gridName, feedback, filteredHandsArray } =
-    useSelector(selectTrainerState);
-
-  const range = getRange(dataEntry?.gridName || gridName);
+  const range = getRange(ModalGridName);
 
   const hands: HandsObject = range.hands;
 
@@ -48,7 +50,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const [showFeedbackView, setShowFeedbackView] =
     useState(false);
   const feedbackScale = useRef(
-    new Animated.Value(1)
+    new Animated.Value(1),
   ).current;
 
   useEffect(() => {
@@ -78,8 +80,8 @@ const RangeModal: React.FC<RangeModalProps> = ({
   const backgroundColor = success
     ? GOLD
     : feedback
-    ? RED
-    : BG4;
+      ? RED
+      : BG4;
 
   return (
     <AppModal
@@ -116,14 +118,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
                 )}
               </Animated.View>
             )}
-            <Grid
-              name={dataEntry.gridName}
-              hidden={
-                !success &&
-                !feedback &&
-                dataEntry.lastStudied !== ""
-              }
-            />
+            <Grid name={ModalGridName} />
           </View>
           <FrequencyBar handsObject={range.hands} />
           <RangeInfoSummary dataEntry={dataEntry} />
@@ -142,7 +137,7 @@ const RangeModal: React.FC<RangeModalProps> = ({
         </>
       ) : (
         <FeaturedGrid
-          gridName={gridName}
+          gridName={ModalGridName}
           toggleEdit={toggleEdit}
         />
       )}

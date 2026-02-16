@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ModalText, ModalTitle } from "../AppText";
 import AppModal from "./AppModal";
 import { CloseButton, ModalButton } from "./ModalButtons";
+import useTestCompleted from "@src/hooks/useTestCompleted";
 
 const { base } = screenDimensions();
 
@@ -22,18 +23,13 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
 
   const removeHandFromReviews = useRemoveHandFromReviews();
   const dispatch = useDispatch();
+  const testCompleted = useTestCompleted();
 
   const onClose = () => {
     dispatch(setShowRemoveModal(false));
   };
 
-  const removeHand = () => {
-    removeHandFromReviews(
-      gridName,
-      filteredHandsArray[index]
-    );
-
-    onClose();
+  const handWillNoLongerBeReviewedMsg = () =>
     Toast.show({
       type: "success",
       text1: "Removed",
@@ -42,6 +38,33 @@ const RemoveModal = ({ visible }: { visible: boolean }) => {
       text1Style: { fontSize: 20 * base },
       text2Style: { fontSize: 17 * base },
     });
+
+  const removeHand = () => {
+    if (filteredHandsArray.length <= 3)
+      Toast.show({
+        type: "error",
+        text1: "Denied",
+        text2: `Cannot have less than 3 hands for review!`,
+        visibilityTime: 2000,
+        text1Style: { fontSize: 20 * base },
+        text2Style: { fontSize: 17 * base },
+      });
+    else if (index + 1 === filteredHandsArray.length) {
+      onClose();
+      testCompleted();
+      removeHandFromReviews(
+        gridName,
+        filteredHandsArray[index],
+      );
+      handWillNoLongerBeReviewedMsg();
+    } else {
+      removeHandFromReviews(
+        gridName,
+        filteredHandsArray[index],
+      );
+      onClose();
+      handWillNoLongerBeReviewedMsg();
+    }
   };
 
   return (

@@ -24,13 +24,13 @@ const useRemoveHandFromReviews = () => {
 
   const removeHandFromReviews = (
     gridName: GridName,
-    hand: PokerHand
+    hand: PokerHand,
   ) => {
     const state = store.getState(); // ✅ safe here
     const { dataEntries } = state.userData;
 
     const entry = dataEntries.find(
-      (item) => item.gridName === gridName
+      (item) => item.gridName === gridName,
     );
 
     const featured =
@@ -49,11 +49,14 @@ const useRemoveHandFromReviews = () => {
       return;
     }
 
-    const newHandDrillingData = Object.fromEntries(
-      Object.entries(
-        entry.individualHandDrillingData
-      ).filter(([key]) => key !== hand)
-    );
+    const newHandDrillingData =
+      entry?.individualHandDrillingData
+        ? Object.fromEntries(
+            Object.entries(
+              entry?.individualHandDrillingData,
+            ).filter(([key]) => key !== hand),
+          )
+        : undefined;
 
     dispatch(
       updateDataEntry({
@@ -62,7 +65,7 @@ const useRemoveHandFromReviews = () => {
         featuredHandsArray: featured
           ? featured.filter((a) => a !== hand)
           : undefined,
-      })
+      }),
     );
 
     //also need to remove from current playing data
@@ -71,11 +74,11 @@ const useRemoveHandFromReviews = () => {
       state.trainer; //needs to be
 
     const newRepeatsArray = repeatsArray.filter(
-      (repeat) => repeat !== hand
+      (repeat) => repeat !== hand,
     );
 
     const newFilteredHandsArray = filteredHandsArray.filter(
-      (repeat) => repeat !== hand
+      (repeat) => repeat !== hand,
     );
 
     if (newFilteredHandsArray.length === 0) {
@@ -88,7 +91,7 @@ const useRemoveHandFromReviews = () => {
     } else {
       dispatch(setRepeatsArray(newRepeatsArray));
       dispatch(
-        setFilteredHandsArray(newFilteredHandsArray)
+        setFilteredHandsArray(newFilteredHandsArray),
       );
     }
   };

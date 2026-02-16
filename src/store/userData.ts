@@ -65,7 +65,7 @@ const slice = createSlice({
           lastStudied: updates.lastStudied ?? "",
           priority: updates.priority ?? 1,
           individualHandDrillingData:
-            updates.individualHandDrillingData ?? {},
+            updates.individualHandDrillingData ?? undefined,
           featuredHandsArray:
             updates.featuredHandsArray ?? undefined,
         });

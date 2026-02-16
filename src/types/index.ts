@@ -59,7 +59,7 @@ export interface DataEntry {
   handsPlayed: number;
   lastStudied: StrictDateString | "";
   priority: number;
-  individualHandDrillingData: IndividualHandDrillingData;
+  individualHandDrillingData?: IndividualHandDrillingData;
   featuredHandsArray?: PokerHand[];
 }
 

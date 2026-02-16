@@ -10,12 +10,12 @@ import {
   setFilteredHandsArray,
   setRepeatsArray,
   setShowRangeModal,
-  setSuccessModal,
   updateFilteredHand,
 } from "@src/store/trainer";
 import { ActionCombo } from "@src/types";
 import formatDate from "@src/utils/formatDate";
 import getLocalDateFromYYYYMMDD from "@src/utils/getLocalDateFromYYYMMDD";
+import { getRange } from "@src/utils/getRange";
 import { moveToFront } from "@src/utils/moveToFront";
 import screenDimensions from "@src/utils/screenDimensions";
 import { timePassedSince } from "@src/utils/timePassedSince";
@@ -24,10 +24,9 @@ import Toast from "react-native-toast-message";
 import { useDispatch } from "react-redux";
 import useGetDataEntries from "./useGetDataEntries";
 import usePlaySound from "./usePlaySound";
+import useTestCompleted from "./useTestCompleted";
 import useUpdateDatabase from "./useUpdateDatabase";
-import { getRange } from "@src/utils/getRange";
 const cymbal = require("assets/sounds/cymbal.wav");
-const success = require("assets/sounds/success.wav");
 const { base } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>
@@ -40,6 +39,8 @@ const useSubmitAnswer = () => {
   const getDataEntries = useGetDataEntries();
 
   const updateDatabase = useUpdateDatabase();
+  const playSound = usePlaySound();
+  const testCompleted = useTestCompleted();
 
   const submitAnswer = () => {
     const state = store.getState(); // ✅ safe here
@@ -54,10 +55,8 @@ const useSubmitAnswer = () => {
 
     const timeInc = Math.min(
       10 * 1000,
-      timePassedSince(startedPlaying)
+      timePassedSince(startedPlaying),
     );
-
-    const playSound = usePlaySound();
 
     const currentHand = filteredHandsArray[index];
     if (!currentHand) {
@@ -91,7 +90,7 @@ const useSubmitAnswer = () => {
 
     const nextDate = new Date();
     nextDate.setDate(
-      nextDate.getDate() + Math.pow(2, handData.level)
+      nextDate.getDate() + Math.pow(2, handData.level),
     );
 
     dispatch(incTimePlaying(timeInc));
@@ -121,7 +120,7 @@ const useSubmitAnswer = () => {
                 level: newLevel,
                 due: newDueDate,
               },
-            })
+            }),
           );
       }
 
@@ -129,13 +128,7 @@ const useSubmitAnswer = () => {
         dispatch(incIndex());
       } else {
         // console.log("🎉 Test completed");
-
-        dispatch(resetIndex());
-        dispatch(setFeedback(false));
-
-        updateDatabase(gridName, true);
-        dispatch(setSuccessModal(true));
-        playSound(success);
+        testCompleted();
       }
     } else {
       // for a wrong answer
@@ -146,15 +139,15 @@ const useSubmitAnswer = () => {
         dispatch(
           updateFilteredHand({
             [currentHand]: { level: 1, due: newDueDate },
-          })
+          }),
         );
 
       const newRepeatsArray = repeatsArray.includes(
-        currentHand
+        currentHand,
       )
         ? moveToFront(
             repeatsArray,
-            repeatsArray.indexOf(currentHand)
+            repeatsArray.indexOf(currentHand),
           )
         : [currentHand, ...repeatsArray];
 
@@ -163,19 +156,19 @@ const useSubmitAnswer = () => {
           ? [
               ...newRepeatsArray,
               ...filteredHandsArray.slice(
-                repeatsArray.length
+                repeatsArray.length,
               ),
             ]
           : index + 1 < filteredHandsArray.length
-          ? [
-              ...newRepeatsArray,
-              ...filteredHandsArray.slice(index + 1),
-            ]
-          : [...newRepeatsArray];
+            ? [
+                ...newRepeatsArray,
+                ...filteredHandsArray.slice(index + 1),
+              ]
+            : [...newRepeatsArray];
 
       dispatch(setRepeatsArray(newRepeatsArray));
       dispatch(
-        setFilteredHandsArray(newFilteredHandsArray)
+        setFilteredHandsArray(newFilteredHandsArray),
       );
       dispatch(resetIndex());
       updateDatabase(gridName, false);
@@ -187,7 +180,7 @@ const useSubmitAnswer = () => {
     dispatch(resetActions());
   };
 
-  return { submitAnswer };
+  return submitAnswer;
 };
 
 export default useSubmitAnswer;

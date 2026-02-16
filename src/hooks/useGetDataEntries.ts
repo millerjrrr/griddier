@@ -22,7 +22,7 @@ const useGetDataEntries = () => {
         lastStudied: "",
         priority: OrderedKeys.indexOf(gridName as any),
 
-        individualHandDrillingData: {},
+        individualHandDrillingData: undefined,
         featuredHandsArray: undefined,
       };
     }

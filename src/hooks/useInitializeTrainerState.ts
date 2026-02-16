@@ -22,11 +22,11 @@ const useInitializeTrainerState = () => {
   const initializeTrainerState = (
     gridName: GridName,
     shuffled: boolean = true,
-    fullReview: boolean = false
+    fullReview: boolean = false,
   ) => {
     const state = store.getState();
     const dataEntry = state.userData.dataEntries.find(
-      (e) => e.gridName === gridName
+      (e) => e.gridName === gridName,
     );
     const individualHandDrillingData =
       dataEntry?.individualHandDrillingData || {};
@@ -45,28 +45,28 @@ const useInitializeTrainerState = () => {
     let handsForReview = fullReview
       ? [...featured]
       : individualHandDrillingData &&
-        Object.keys(individualHandDrillingData).length > 0
-      ? repeating
-        ? Object.entries(individualHandDrillingData)
-            .filter(
-              ([_, { due }]) =>
-                getLocalDateFromYYYYMMDD(due) <= tomorrow
-            )
-            .map(([key]) => key)
-        : Object.entries(individualHandDrillingData)
-            .filter(
-              ([_, { due }]) =>
-                getLocalDateFromYYYYMMDD(due) <= today
-            )
-            .map(([key]) => key)
-      : [...featured];
+          Object.keys(individualHandDrillingData).length > 0
+        ? repeating
+          ? Object.entries(individualHandDrillingData)
+              .filter(
+                ([_, { due }]) =>
+                  getLocalDateFromYYYYMMDD(due) <= tomorrow,
+              )
+              .map(([key]) => key)
+          : Object.entries(individualHandDrillingData)
+              .filter(
+                ([_, { due }]) =>
+                  getLocalDateFromYYYYMMDD(due) <= today,
+              )
+              .map(([key]) => key)
+        : [...featured];
 
     // revise at least minRevision grids
     const minRevision = 10;
     if (handsForReview.length < minRevision) {
       const missing = minRevision - handsForReview.length;
       const available = fisherYatesShuffle(
-        featured.filter((k) => !handsForReview.includes(k))
+        featured.filter((k) => !handsForReview.includes(k)),
       );
       handsForReview.push(...available.slice(0, missing));
     }
@@ -77,7 +77,7 @@ const useInitializeTrainerState = () => {
         : sortHands(handsForReview);
 
     if (process.env.NODE_ENV === "development") {
-      handsForReview = handsForReview.slice(0, 2);
+      handsForReview = handsForReview.slice(0, 5);
     }
 
     dispatch(setRepeatsArray([]));
