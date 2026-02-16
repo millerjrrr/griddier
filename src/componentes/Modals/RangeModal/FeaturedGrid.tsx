@@ -5,12 +5,13 @@ import { GridName, PokerHand } from "@src/types";
 import colors from "@src/utils/colors";
 import { handsArray } from "@src/utils/handsArrayLogic";
 import screenDimensions from "@src/utils/screenDimensions";
-import { View } from "react-native";
+import { View, ViewStyle } from "react-native";
 import { useDispatch } from "react-redux";
 import { AppPressable } from "../../AppPressables";
 import { FeaturedGridText, ModalText } from "../../AppText";
 import { ModalButton } from "../ModalButtons";
 import Toast from "react-native-toast-message";
+import { getRange } from "@src/utils/getRange";
 const { base } = screenDimensions();
 const { C1, C2, BG2, BG3, BLUE } = colors;
 
@@ -18,23 +19,33 @@ const FeaturedCell: React.FC<{
   featured: boolean;
   hand: PokerHand;
   toggleFeatured: (hand: PokerHand) => void;
-}> = ({ featured, hand, toggleFeatured }) => {
+  hidden: boolean;
+}> = ({ featured, hand, toggleFeatured, hidden }) => {
+  const style: ViewStyle = {
+    height: 30 * base,
+    aspectRatio: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: featured ? BG2 : BG3,
+    borderRadius: 3,
+    borderWidth: 0.5,
+    borderColor: C1,
+    opacity: hidden ? 0.3 : 1,
+  };
+
+  const props = {
+    style,
+    ...(!hidden && {
+      onPress: () => toggleFeatured(hand),
+    }),
+  };
+
+  const Container = hidden ? View : AppPressable;
+
   return (
-    <AppPressable
-      style={{
-        height: 30 * base,
-        aspectRatio: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: featured ? BG2 : BG3,
-        borderRadius: 3,
-        borderWidth: 0.5,
-        borderColor: C1,
-      }}
-      onPress={() => toggleFeatured(hand)}
-    >
+    <Container {...props}>
       <FeaturedGridText>{hand}</FeaturedGridText>
-    </AppPressable>
+    </Container>
   );
 };
 
@@ -90,6 +101,12 @@ const FeaturedGrid: React.FC<{
     );
   };
 
+  const range = getRange(gridName);
+
+  const priorArray = handsArray.filter(
+    (hand) => range.hands?.[hand].prior !== 0,
+  );
+
   return (
     <View
       style={{
@@ -119,6 +136,9 @@ const FeaturedGrid: React.FC<{
                     handsArray[i],
                   )}
                   toggleFeatured={toggleFeatured}
+                  hidden={
+                    !priorArray.includes(handsArray[i])
+                  }
                 />
               );
             })}

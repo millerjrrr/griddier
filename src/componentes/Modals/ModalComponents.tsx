@@ -33,7 +33,7 @@ export const Container: React.FC<{
   return (
     <View
       style={{
-        opacity: 0.95,
+        opacity: 0.98,
         padding: 7 * base,
         borderRadius: 12 * base,
         width: width * 0.95,
@@ -73,14 +73,14 @@ export const RangeModalTitle: React.FC<{
               dataEntry.gridName.length < 25
                 ? 25 * base
                 : dataEntry.gridName.length < 30
-                ? 23 * base
-                : 20 * base,
+                  ? 23 * base
+                  : 20 * base,
             paddingBottom: 5 * base,
           }}
         >
           {dataEntry.gridName.slice(0, 3) === "100"
             ? dataEntry.gridName.slice(
-                dataEntry.gridName.indexOf(" ") + 1
+                dataEntry.gridName.indexOf(" ") + 1,
               )
             : dataEntry.gridName}
         </ModalTitle>

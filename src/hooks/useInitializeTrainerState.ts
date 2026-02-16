@@ -14,6 +14,8 @@ import zeroTime from "@src/utils/zeroTime";
 import { useDispatch, useStore } from "react-redux";
 import type { RootState } from "@src/store";
 import { getRange } from "@src/utils/getRange";
+import intersection from "@src/utils/intersection";
+import { handsArray } from "./../utils/handsArrayLogic";
 
 const useInitializeTrainerState = () => {
   const dispatch = useDispatch();
@@ -36,8 +38,16 @@ const useInitializeTrainerState = () => {
     tomorrow.setDate(tomorrow.getDate() + 1);
     const range = getRange(gridName);
 
-    const featured =
-      dataEntry?.featuredHandsArray ?? range.featured;
+    const priorArray = handsArray.filter(
+      (hand) => range.hands?.[hand].prior !== 0,
+    );
+
+    const featured = dataEntry?.featuredHandsArray
+      ? intersection(
+          dataEntry?.featuredHandsArray,
+          priorArray,
+        )
+      : range.featured;
 
     const repeating =
       dataEntry?.dueDate === formatDate(tomorrow);
