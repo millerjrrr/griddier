@@ -11,6 +11,8 @@ import store, { persistor } from "./src/store";
 import screenDimensions from "./src/utils/screenDimensions";
 const { base } = screenDimensions();
 
+// Final app version before re-write
+
 export default function App() {
   // Force app to reload when focused
   const [appKey, setAppKey] = useState(0);
