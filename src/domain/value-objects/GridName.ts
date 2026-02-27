@@ -1,4 +1,4 @@
 import { PositionName } from "./Position";
 
-export type GridName = `${string}` &
+export type GridName = `${number} ${string}` &
   `${string}${PositionName}${string}`;

@@ -1,5 +1,7 @@
-{
-  "100 LJ RFI 2": {
+[
+  {
+    "id": 1,
+    "title": "100 LJ RFI 2",
     "hands": {
       "22": {
         "allin": 0,
@@ -1053,7 +1055,9 @@
       "raiseSize": 2
     }
   },
-  "100 HJ RFI 2": {
+  {
+    "id": 2,
+    "title": "100 HJ RFI 2",
     "hands": {
       "22": {
         "allin": 0,
@@ -2109,7 +2113,9 @@
       }
     }
   },
-  "100 CO RFI 2.3": {
+  {
+    "id": 3,
+    "title": "100 CO RFI 2.3",
     "hands": {
       "22": {
         "allin": 0,
@@ -3174,7 +3180,9 @@
       }
     }
   },
-  "100 BU RFI 2.5": {
+  {
+    "id": 4,
+    "title": "100 BU RFI 2.5",
     "hands": {
       "22": {
         "allin": 0,
@@ -4237,7 +4245,9 @@
       }
     }
   },
-  "100 SB RFI 3": {
+  {
+    "id": 5,
+    "title": "100 SB RFI 3",
     "hands": {
       "22": {
         "allin": 0,
@@ -5298,7 +5308,9 @@
       }
     }
   },
-  "100 BB vs LJ RFI 2 (12)": {
+  {
+    "id": 6,
+    "title": "100 BB vs LJ RFI 2 (12)",
     "hands": {
       "22": {
         "allin": 0,
@@ -6464,7 +6476,9 @@
       }
     }
   },
-  "100 BB vs HJ RFI 2 (12.3)": {
+  {
+    "id": 7,
+    "title": "100 BB vs HJ RFI 2 (12.3)",
     "hands": {
       "22": {
         "allin": 0,
@@ -7630,7 +7644,9 @@
       }
     }
   },
-  "100 BB vs CO RFI 2.3 (13.5)": {
+  {
+    "id": 8,
+    "title": "100 BB vs CO RFI 2.3 (13.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -8796,7 +8812,9 @@
       }
     }
   },
-  "100 BB vs BU RFI 2.5 (13)": {
+  {
+    "id": 9,
+    "title": "100 BB vs BU RFI 2.5 (13)",
     "hands": {
       "22": {
         "allin": 0,
@@ -9962,7 +9980,9 @@
       }
     }
   },
-  "100 BB vs SB RFI 3 (10)": {
+  {
+    "id": 10,
+    "title": "100 BB vs SB RFI 3 (10)",
     "hands": {
       "22": {
         "allin": 0,
@@ -11118,7 +11138,9 @@
       }
     }
   },
-  "100 SB vs LJ RFI 2 (10)": {
+  {
+    "id": 11,
+    "title": "100 SB vs LJ RFI 2 (10)",
     "hands": {
       "22": {
         "allin": 0,
@@ -12183,7 +12205,9 @@
       }
     }
   },
-  "100 SB vs HJ RFI 2 (11)": {
+  {
+    "id": 12,
+    "title": "100 SB vs HJ RFI 2 (11)",
     "hands": {
       "22": {
         "allin": 0,
@@ -13248,7 +13272,9 @@
       }
     }
   },
-  "100 SB vs CO RFI 2.3 (11.5)": {
+  {
+    "id": 13,
+    "title": "100 SB vs CO RFI 2.3 (11.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -14313,7 +14339,9 @@
       }
     }
   },
-  "100 SB vs BU RFI 2.5 (12)": {
+  {
+    "id": 14,
+    "title": "100 SB vs BU RFI 2.5 (12)",
     "hands": {
       "22": {
         "allin": 0,
@@ -15384,7 +15412,9 @@
       }
     }
   },
-  "100 BU vs LJ RFI 2 (7.5)": {
+  {
+    "id": 15,
+    "title": "100 BU vs LJ RFI 2 (7.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -16473,7 +16503,9 @@
       }
     }
   },
-  "100 BU vs HJ RFI 2 (7.5)": {
+  {
+    "id": 16,
+    "title": "100 BU vs HJ RFI 2 (7.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -17562,7 +17594,9 @@
       }
     }
   },
-  "100 BU vs CO RFI 2.3 (7.5)": {
+  {
+    "id": 17,
+    "title": "100 BU vs CO RFI 2.3 (7.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -18652,7 +18686,9 @@
       }
     }
   },
-  "100 CO vs LJ RFI 2 (6.5)": {
+  {
+    "id": 18,
+    "title": "100 CO vs LJ RFI 2 (6.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -19711,7 +19747,9 @@
       }
     }
   },
-  "100 CO vs HJ RFI 2 (6.5)": {
+  {
+    "id": 19,
+    "title": "100 CO vs HJ RFI 2 (6.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -20766,7 +20804,9 @@
       }
     }
   },
-  "100 LJ RFI vs HJ/CO3 (6.5->19)": {
+  {
+    "id": 20,
+    "title": "100 LJ RFI vs HJ/CO3 (6.5->19)",
     "hands": {
       "22": {
         "allin": 0,
@@ -21852,7 +21892,9 @@
       }
     }
   },
-  "100 LJ RFI vs BU3 (7.5->20)": {
+  {
+    "id": 21,
+    "title": "100 LJ RFI vs BU3 (7.5->20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -22938,7 +22980,9 @@
       }
     }
   },
-  "100 LJ RFI vs SB3 (10->19)": {
+  {
+    "id": 22,
+    "title": "100 LJ RFI vs SB3 (10->19)",
     "hands": {
       "22": {
         "allin": 0,
@@ -24024,7 +24068,9 @@
       }
     }
   },
-  "100 LJ RFI vs BB3 (12->22)": {
+  {
+    "id": 23,
+    "title": "100 LJ RFI vs BB3 (12->22)",
     "hands": {
       "22": {
         "allin": 0,
@@ -25111,7 +25157,9 @@
       }
     }
   },
-  "100 HJ RFI vs CO3 (6.5->19)": {
+  {
+    "id": 24,
+    "title": "100 HJ RFI vs CO3 (6.5->19)",
     "hands": {
       "22": {
         "allin": 0,
@@ -26198,7 +26246,9 @@
       }
     }
   },
-  "100 HJ RFI vs BU3 (7.5->20)": {
+  {
+    "id": 25,
+    "title": "100 HJ RFI vs BU3 (7.5->20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -27285,7 +27335,9 @@
       }
     }
   },
-  "100 HJ RFI vs SB3 (11->22)": {
+  {
+    "id": 26,
+    "title": "100 HJ RFI vs SB3 (11->22)",
     "hands": {
       "22": {
         "allin": 0,
@@ -28372,7 +28424,9 @@
       }
     }
   },
-  "100 HJ RFI vs BB3 (12.3->24.9)": {
+  {
+    "id": 27,
+    "title": "100 HJ RFI vs BB3 (12.3->24.9)",
     "hands": {
       "22": {
         "allin": 0,
@@ -29461,7 +29515,9 @@
       }
     }
   },
-  "100 CO RFI vs BU3 (7.5->21)": {
+  {
+    "id": 28,
+    "title": "100 CO RFI vs BU3 (7.5->21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -30557,7 +30613,9 @@
       }
     }
   },
-  "100 CO RFI vs SB3 (11.5->25)": {
+  {
+    "id": 29,
+    "title": "100 CO RFI vs SB3 (11.5->25)",
     "hands": {
       "22": {
         "allin": 0,
@@ -31647,7 +31705,9 @@
       }
     }
   },
-  "100 CO RFI vs BB3 (13.5->28)": {
+  {
+    "id": 30,
+    "title": "100 CO RFI vs BB3 (13.5->28)",
     "hands": {
       "22": {
         "allin": 0,
@@ -32737,7 +32797,9 @@
       }
     }
   },
-  "100 BU RFI vs SB3 (12->26)": {
+  {
+    "id": 31,
+    "title": "100 BU RFI vs SB3 (12->26)",
     "hands": {
       "22": {
         "allin": 0,
@@ -33838,7 +33900,9 @@
       }
     }
   },
-  "100 BU RFI vs BB3 (13->27)": {
+  {
+    "id": 32,
+    "title": "100 BU RFI vs BB3 (13->27)",
     "hands": {
       "22": {
         "allin": 0,
@@ -34941,7 +35005,9 @@
       }
     }
   },
-  "100 SB RFI vs BB3 (9->25)": {
+  {
+    "id": 33,
+    "title": "100 SB RFI vs BB3 (9->25)",
     "hands": {
       "22": {
         "allin": 0,
@@ -36054,7 +36120,9 @@
       }
     }
   },
-  "100 SB RFI vs BB3 (10->21)": {
+  {
+    "id": 34,
+    "title": "100 SB RFI vs BB3 (10->21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -37167,7 +37235,9 @@
       }
     }
   },
-  "100 CO vs LJ4 (19)": {
+  {
+    "id": 35,
+    "title": "100 CO vs LJ4 (19)",
     "hands": {
       "22": {
         "allin": 0,
@@ -38243,7 +38313,9 @@
       }
     }
   },
-  "100 CO vs HJ4 (19)": {
+  {
+    "id": 36,
+    "title": "100 CO vs HJ4 (19)",
     "hands": {
       "22": {
         "allin": 0,
@@ -39324,7 +39396,9 @@
       }
     }
   },
-  "100 BU vs LJ4 (20)": {
+  {
+    "id": 37,
+    "title": "100 BU vs LJ4 (20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -40406,7 +40480,9 @@
       }
     }
   },
-  "100 BU vs HJ4 (20)": {
+  {
+    "id": 38,
+    "title": "100 BU vs HJ4 (20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -41488,7 +41564,9 @@
       }
     }
   },
-  "100 BU vs CO4 (21)": {
+  {
+    "id": 39,
+    "title": "100 BU vs CO4 (21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -42571,7 +42649,9 @@
       }
     }
   },
-  "100 SB vs LJ4 (19->40)": {
+  {
+    "id": 40,
+    "title": "100 SB vs LJ4 (19->40)",
     "hands": {
       "22": {
         "allin": 0,
@@ -43650,7 +43730,9 @@
       }
     }
   },
-  "100 SB vs HJ4 (22->40)": {
+  {
+    "id": 41,
+    "title": "100 SB vs HJ4 (22->40)",
     "hands": {
       "22": {
         "allin": 0,
@@ -44730,7 +44812,9 @@
       }
     }
   },
-  "100 SB vs CO4 (25)": {
+  {
+    "id": 42,
+    "title": "100 SB vs CO4 (25)",
     "hands": {
       "22": {
         "allin": 0,
@@ -45813,7 +45897,9 @@
       }
     }
   },
-  "100 SB vs BU4 (26)": {
+  {
+    "id": 43,
+    "title": "100 SB vs BU4 (26)",
     "hands": {
       "22": {
         "allin": 0,
@@ -46901,7 +46987,9 @@
       }
     }
   },
-  "100 BB vs LJ4 (22->40)": {
+  {
+    "id": 44,
+    "title": "100 BB vs LJ4 (22->40)",
     "hands": {
       "22": {
         "allin": 0,
@@ -47977,7 +48065,9 @@
       }
     }
   },
-  "100 BB vs HJ4 (24.9)": {
+  {
+    "id": 45,
+    "title": "100 BB vs HJ4 (24.9)",
     "hands": {
       "22": {
         "allin": 0,
@@ -49055,7 +49145,9 @@
       }
     }
   },
-  "100 BB vs CO4 (28)": {
+  {
+    "id": 46,
+    "title": "100 BB vs CO4 (28)",
     "hands": {
       "22": {
         "allin": 0,
@@ -50133,7 +50225,9 @@
       }
     }
   },
-  "100 BB vs BU4 (27)": {
+  {
+    "id": 47,
+    "title": "100 BB vs BU4 (27)",
     "hands": {
       "22": {
         "allin": 0,
@@ -51223,7 +51317,9 @@
       }
     }
   },
-  "100 BB vs SB4 (21)": {
+  {
+    "id": 48,
+    "title": "100 BB vs SB4 (21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -52315,7 +52411,9 @@
       }
     }
   },
-  "100 BU4 vs CO3 vs LJO (2->6.5->13)": {
+  {
+    "id": 49,
+    "title": "100 BU4 vs CO3 vs LJO (2->6.5->13)",
     "hands": {
       "22": {
         "allin": 0,
@@ -53381,7 +53479,9 @@
       }
     }
   },
-  "100 BU4 vs CO3 vs HJO (2->6.5->13)": {
+  {
+    "id": 50,
+    "title": "100 BU4 vs CO3 vs HJO (2->6.5->13)",
     "hands": {
       "22": {
         "allin": 0,
@@ -54447,7 +54547,9 @@
       }
     }
   },
-  "100 SB4 vs BU3 vs LJO (2->7.5->20)": {
+  {
+    "id": 51,
+    "title": "100 SB4 vs BU3 vs LJO (2->7.5->20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -55511,7 +55613,9 @@
       }
     }
   },
-  "100 SB4 vs BU3 vs HJO (2->7.5->21)": {
+  {
+    "id": 52,
+    "title": "100 SB4 vs BU3 vs HJO (2->7.5->21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -56577,7 +56681,9 @@
       }
     }
   },
-  "100 SB4 vs BU3 vs COO (2.3->7.5->21)": {
+  {
+    "id": 53,
+    "title": "100 SB4 vs BU3 vs COO (2.3->7.5->21)",
     "hands": {
       "22": {
         "allin": 0,
@@ -57657,7 +57763,9 @@
       }
     }
   },
-  "100 BB4 vs SB3 vs LJO (2->10->20)": {
+  {
+    "id": 54,
+    "title": "100 BB4 vs SB3 vs LJO (2->10->20)",
     "hands": {
       "22": {
         "allin": 0,
@@ -58724,7 +58832,9 @@
       }
     }
   },
-  "100 BB4 vs SB3 vs HJO (2->11->23)": {
+  {
+    "id": 55,
+    "title": "100 BB4 vs SB3 vs HJO (2->11->23)",
     "hands": {
       "22": {
         "allin": 0,
@@ -59791,7 +59901,9 @@
       }
     }
   },
-  "100 BB4 vs SB3 vs COO (2.3->11.5->25)": {
+  {
+    "id": 56,
+    "title": "100 BB4 vs SB3 vs COO (2.3->11.5->25)",
     "hands": {
       "22": {
         "allin": 0,
@@ -60860,7 +60972,9 @@
       }
     }
   },
-  "100 BB4 vs SB3 vs BUO (2.5->12->23)": {
+  {
+    "id": 57,
+    "title": "100 BB4 vs SB3 vs BUO (2.5->12->23)",
     "hands": {
       "22": {
         "allin": 0,
@@ -61929,7 +62043,9 @@
       }
     }
   },
-  "100 SB vs LJ RFI 2 (10) with flats": {
+  {
+    "id": 58,
+    "title": "100 SB vs LJ RFI 2 (10) with flats",
     "hands": {
       "22": {
         "allin": 0,
@@ -63013,7 +63129,9 @@
       }
     }
   },
-  "100 SB vs HJ RFI 2 (11) with flats": {
+  {
+    "id": 59,
+    "title": "100 SB vs HJ RFI 2 (11) with flats",
     "hands": {
       "22": {
         "allin": 0,
@@ -64096,7 +64214,9 @@
       }
     }
   },
-  "100 CO vs LJ RFI 2 (6.5) with flats": {
+  {
+    "id": 60,
+    "title": "100 CO vs LJ RFI 2 (6.5) with flats",
     "hands": {
       "22": {
         "allin": 0,
@@ -65170,7 +65290,9 @@
       }
     }
   },
-  "100 CO vs HJ RFI 2 (6.5) with flats": {
+  {
+    "id": 61,
+    "title": "100 CO vs HJ RFI 2 (6.5) with flats",
     "hands": {
       "22": {
         "allin": 0,
@@ -66244,7 +66366,9 @@
       }
     }
   },
-  "50 LJ RFI 2": {
+  {
+    "id": 62,
+    "title": "50 LJ RFI 2",
     "hands": {
       "22": {
         "allin": 0,
@@ -67295,7 +67419,9 @@
       "raiseSize": 2
     }
   },
-  "50 HJ RFI 2": {
+  {
+    "id": 63,
+    "title": "50 HJ RFI 2",
     "hands": {
       "22": {
         "allin": 0,
@@ -68346,7 +68472,9 @@
       }
     }
   },
-  "50 CO RFI 2.2": {
+  {
+    "id": 64,
+    "title": "50 CO RFI 2.2",
     "hands": {
       "22": {
         "allin": 0,
@@ -69404,7 +69532,9 @@
       }
     }
   },
-  "50 BU RFI 2.5": {
+  {
+    "id": 65,
+    "title": "50 BU RFI 2.5",
     "hands": {
       "22": {
         "allin": 0,
@@ -70469,7 +70599,9 @@
       }
     }
   },
-  "50 SB RFI 3": {
+  {
+    "id": 66,
+    "title": "50 SB RFI 3",
     "hands": {
       "22": {
         "allin": 0,
@@ -71533,7 +71665,9 @@
       }
     }
   },
-  "50 CO vs LJ RFI 2 (6)": {
+  {
+    "id": 67,
+    "title": "50 CO vs LJ RFI 2 (6)",
     "hands": {
       "22": {
         "allin": 0,
@@ -72585,7 +72719,9 @@
       }
     }
   },
-  "50 CO vs HJ RFI 2 (6)": {
+  {
+    "id": 68,
+    "title": "50 CO vs HJ RFI 2 (6)",
     "hands": {
       "22": {
         "allin": 0,
@@ -73638,7 +73774,9 @@
       }
     }
   },
-  "50 BU vs LJ RFI 2 (6)": {
+  {
+    "id": 69,
+    "title": "50 BU vs LJ RFI 2 (6)",
     "hands": {
       "22": {
         "allin": 0,
@@ -74697,7 +74835,9 @@
       }
     }
   },
-  "50 BU vs HJ RFI 2 (6)": {
+  {
+    "id": 70,
+    "title": "50 BU vs HJ RFI 2 (6)",
     "hands": {
       "22": {
         "allin": 0,
@@ -75760,7 +75900,9 @@
       }
     }
   },
-  "50 BU vs CO RFI 2.2 (6)": {
+  {
+    "id": 71,
+    "title": "50 BU vs CO RFI 2.2 (6)",
     "hands": {
       "22": {
         "allin": 0,
@@ -76819,7 +76961,9 @@
       }
     }
   },
-  "50 SB vs LJ RFI 2 (8)": {
+  {
+    "id": 72,
+    "title": "50 SB vs LJ RFI 2 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -77882,7 +78026,9 @@
       }
     }
   },
-  "50 SB vs HJ RFI 2 (7.5)": {
+  {
+    "id": 73,
+    "title": "50 SB vs HJ RFI 2 (7.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -78945,7 +79091,9 @@
       }
     }
   },
-  "50 SB vs CO RFI 2.2 (8)": {
+  {
+    "id": 74,
+    "title": "50 SB vs CO RFI 2.2 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -80008,7 +80156,9 @@
       }
     }
   },
-  "50 SB vs BU RFI 2.5 (8.5)": {
+  {
+    "id": 75,
+    "title": "50 SB vs BU RFI 2.5 (8.5)",
     "hands": {
       "22": {
         "allin": 0,
@@ -81070,7 +81220,9 @@
       }
     }
   },
-  "50 BB vs LJ RFI 2 (8)": {
+  {
+    "id": 76,
+    "title": "50 BB vs LJ RFI 2 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -82219,7 +82371,9 @@
       }
     }
   },
-  "50 BB vs HJ RFI 2 (8)": {
+  {
+    "id": 77,
+    "title": "50 BB vs HJ RFI 2 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -83370,7 +83524,9 @@
       }
     }
   },
-  "50 BB vs CO RFI 2.2 (8)": {
+  {
+    "id": 78,
+    "title": "50 BB vs CO RFI 2.2 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -84520,7 +84676,9 @@
       }
     }
   },
-  "50 BB vs BU RFI 2.5 (10)": {
+  {
+    "id": 79,
+    "title": "50 BB vs BU RFI 2.5 (10)",
     "hands": {
       "22": {
         "allin": 0,
@@ -85670,7 +85828,9 @@
       }
     }
   },
-  "50 BB vs SB RFI 3 (8)": {
+  {
+    "id": 80,
+    "title": "50 BB vs SB RFI 3 (8)",
     "hands": {
       "22": {
         "allin": 0,
@@ -86834,7 +86994,9 @@
       }
     }
   },
-  "50 LJ RFI vs CO3 (6->13)": {
+  {
+    "id": 81,
+    "title": "50 LJ RFI vs CO3 (6->13)",
     "hands": {
       "22": {
         "allin": 0,
@@ -87914,7 +88076,9 @@
       }
     }
   },
-  "50 HJ RFI vs CO3 (6->13)": {
+  {
+    "id": 82,
+    "title": "50 HJ RFI vs CO3 (6->13)",
     "hands": {
       "22": {
         "allin": 0,
@@ -88999,4 +89163,4 @@
       }
     }
   }
-}
+]
