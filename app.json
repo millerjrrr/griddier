@@ -4,10 +4,10 @@
     "slug": "Griddier",
     "version": "1.0.5",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#640092"
     },
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/icon-android.png",
+        "foregroundImage": "./assets/icon-android.png",
         "backgroundColor": "#640092"
       },
       "edgeToEdgeEnabled": true,
@@ -30,7 +30,7 @@
       "visible": "sticky-immersive"
     },
     "web": {
-      "favicon": "./src/assets/icon.png",
+      "favicon": "./assets/icon.png",
       "name": "Griddier",
       "description": "Learn poker hands efficiently"
     },
