@@ -1,21 +1,11 @@
 import React from "react";
 import { View, Button } from "react-native";
 
-import { LocalPokerRangeDataSource } from "@/data/data-sources/local/LocalPokerRangeDataSource";
-import { PokerRangeRepositoryImpl } from "@/data/repositories/PokerRangeRepositoryImpl";
-import { GetAllRangesUseCase } from "@/domain/use-cases/GetAllRangesUseCase";
+import { getAllRangesUseCase } from "@/container";
 
 export default function RangesList() {
   const handlePress = async () => {
-    // 🔌 manual wiring (totally fine for now)
-    const dataSource = new LocalPokerRangeDataSource();
-    const repository = new PokerRangeRepositoryImpl(
-      dataSource,
-    );
-    const useCase = new GetAllRangesUseCase(repository);
-
-    const ranges = await useCase.execute();
-
+    const ranges = await getAllRangesUseCase.execute();
     console.log("RANGES:", ranges[0]);
   };
 
