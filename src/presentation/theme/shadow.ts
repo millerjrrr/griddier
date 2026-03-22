@@ -1,6 +1,7 @@
 // presentation/theme/shadows.ts
 
 import { Platform, ViewStyle } from "react-native";
+import colors from "./colors";
 
 export const shadowLevels = {
   sm: 2,
@@ -8,9 +9,11 @@ export const shadowLevels = {
   lg: 8,
 } as const;
 
-export const createShadow = (
-  level: keyof typeof shadowLevels,
-  color: `#${string}` = "#000000",
+const { C1 } = colors;
+
+export const appShadow = (
+  level: keyof typeof shadowLevels = "md",
+  color: `#${string}` = C1,
 ): ViewStyle => {
   const value = shadowLevels[level];
 

@@ -1,11 +1,11 @@
-import RangesList from "@/presentation/screens/RangesList";
+import RangesShop from "@/presentation/screens/RangesShop";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <RangesList />
+      <RangesShop />
       <StatusBar style="auto" />
     </View>
   );
