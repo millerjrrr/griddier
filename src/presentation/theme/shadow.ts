@@ -2,11 +2,13 @@
 
 import { Platform, ViewStyle } from "react-native";
 import colors from "./colors";
+import getAppDimensions from "./appDimensions";
+const { base } = getAppDimensions();
 
 export const shadowLevels = {
-  sm: 2,
-  md: 4,
-  lg: 8,
+  sm: base * 2,
+  md: base * 4,
+  lg: base * 8,
 } as const;
 
 const { C1 } = colors;

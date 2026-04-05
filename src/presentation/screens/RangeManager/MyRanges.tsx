@@ -6,12 +6,12 @@ import {
   Text,
   View,
 } from "react-native";
-import RangeListsBackground from "../../components/RangeListsBackground";
 import { typography } from "../../theme";
 import RangeCard from "../../components/RangeCard";
 import { useGetUserRangeData } from "../../hooks/useGetUserRangeData";
+import RangeListControls from "@/presentation/components/RangeManagerComponents/RangeListControls";
 
-const RangesList = () => {
+const MyRanges = () => {
   const { data } = useGetUserRangeData();
 
   const ListContent = (
@@ -48,7 +48,8 @@ const RangesList = () => {
   );
 
   return (
-    <RangeListsBackground>
+    <View style={{ flex: 1 }}>
+      <RangeListControls />
       <View
         style={{
           flex: 1,
@@ -87,8 +88,8 @@ const RangesList = () => {
           </View>
         )}
       </View>
-    </RangeListsBackground>
+    </View>
   );
 };
 
-export default RangesList;
+export default MyRanges;

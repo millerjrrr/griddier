@@ -1,8 +1,10 @@
+import { appShadow } from "@/presentation/theme";
+import getAppDimensions from "@/presentation/theme/appDimensions";
+import colors from "@/presentation/theme/colors";
+import { LinearGradient } from "expo-linear-gradient";
 import { ReactNode } from "react";
 import { StyleSheet } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { appShadow } from "../theme";
-import colors from "../theme/colors";
+const { base } = getAppDimensions();
 
 const RangeListsBackground: React.FC<{
   children: ReactNode;
@@ -18,7 +20,7 @@ const RangeListsBackground: React.FC<{
       style={{
         opacity: 0.9,
         flex: 1,
-        borderRadius: 10,
+        borderRadius: 10 * base,
         ...appShadow(),
         overflow: "hidden",
         ...StyleSheet.absoluteFillObject,

@@ -1,7 +1,11 @@
+import getAppDimensions from "./appDimensions";
+const { base } = getAppDimensions();
+
 export const spacing = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
+  xxs: base * 2,
+  xs: base * 4,
+  sm: base * 8,
+  md: base * 16,
+  lg: base * 24,
+  xl: base * 32,
 } as const;

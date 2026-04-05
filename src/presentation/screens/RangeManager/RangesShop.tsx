@@ -6,7 +6,6 @@ import {
   Text,
   View,
 } from "react-native";
-import RangeListsBackground from "../../components/RangeListsBackground";
 import { typography } from "../../theme";
 import RangeCard from "../../components/RangeCard";
 import { useGetPokerRanges } from "../../hooks/useGetPokerRanges";
@@ -14,6 +13,9 @@ import { upsertUserRangeDataEntryUseCase } from "@/container";
 import { toLevel } from "@/domain/value-objects/Level";
 import { toNonNegativeInteger } from "@/domain/value-objects/NonNegativeInteger";
 import { StrictDateString } from "@/domain/value-objects/StrictDateString";
+import RangeListsBackground from "@/presentation/components/RangeManagerComponents/RangeListsBackground";
+import RangeListControls from "@/presentation/components/RangeManagerComponents/RangeListControls";
+import BackNavigationButton from "@/presentation/components/BackNavigationButton";
 
 const RangesShop = () => {
   const { data } = useGetPokerRanges();
@@ -76,6 +78,8 @@ const RangesShop = () => {
 
   return (
     <RangeListsBackground>
+      <BackNavigationButton />
+      <RangeListControls noPlus />
       <View
         style={{
           flex: 1,

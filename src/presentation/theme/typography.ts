@@ -1,21 +1,23 @@
 import colors from "./colors";
+import getAppDimensions from "./appDimensions";
+const { base } = getAppDimensions();
 
 export const typography = {
   title: {
-    fontSize: 20,
+    fontSize: base * 20,
     fontWeight: "600",
     color: colors.C1,
   },
   body: {
-    fontSize: 16,
+    fontSize: base * 16,
     fontWeight: "400",
   },
   caption: {
-    fontSize: 12,
+    fontSize: base * 12,
     fontWeight: "300",
   },
   stackSizeTag: {
-    fontSize: 15,
+    fontSize: base * 15,
     fontWeight: "600",
     color: colors.C1,
     textAlign: "center",

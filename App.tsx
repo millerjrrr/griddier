@@ -1,23 +1,27 @@
-import RangesList from "@/presentation/screens/RangeManager/RangesList";
-import RangesShop from "@/presentation/screens/RangeManager/RangesShop";
+import AdaptiveAppContainer from "@/presentation/components/layout/AdaptiveAppContainer";
+import BGContainer from "@/presentation/components/layout/BGContainer";
+import AppContainer from "@/presentation/navigation/AppContainer";
+import getAppDimensions from "@/presentation/theme/appDimensions";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+const { base } = getAppDimensions();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <RangesShop /> */}
-      <RangesList />
-      <StatusBar style="dark" />
-    </View>
+    <AdaptiveAppContainer>
+      <BGContainer>
+        <View
+          style={{
+            height: 30 * base,
+          }}
+        />
+        <AppContainer />
+        <StatusBar
+          style="light"
+          translucent
+          backgroundColor="#00000000"
+        />
+      </BGContainer>
+    </AdaptiveAppContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
