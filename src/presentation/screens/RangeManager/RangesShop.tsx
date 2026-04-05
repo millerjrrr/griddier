@@ -6,13 +6,17 @@ import {
   Text,
   View,
 } from "react-native";
-import RangeListsBackground from "../components/RangeListsBackground";
-import { typography } from "../theme";
-import RangeCard from "../components/RangeCard";
-import { useRangeTitles } from "../hooks/useRangeTitles";
+import RangeListsBackground from "../../components/RangeListsBackground";
+import { typography } from "../../theme";
+import RangeCard from "../../components/RangeCard";
+import { useGetPokerRanges } from "../../hooks/useGetPokerRanges";
+import { upsertUserRangeDataEntryUseCase } from "@/container";
+import { toLevel } from "@/domain/value-objects/Level";
+import { toNonNegativeInteger } from "@/domain/value-objects/NonNegativeInteger";
+import { StrictDateString } from "@/domain/value-objects/StrictDateString";
 
 const RangesShop = () => {
-  const { data } = useRangeTitles();
+  const { data } = useGetPokerRanges();
 
   const ListContent = (
     <FlatList
@@ -21,12 +25,40 @@ const RangesShop = () => {
         // must be called item for FlatList to work
         return (
           <RangeCard
-            title={item}
-            selectFunction={() => console.log(item)}
+            title={item.title}
+            selectFunction={async () => {
+              const today =
+                "2026-04-05" as StrictDateString;
+
+              const entry = {
+                id: item.id,
+                title: item.title,
+                dueDate: today,
+                level: toLevel(0),
+                drilled: toNonNegativeInteger(0),
+                timeDrilling: toNonNegativeInteger(0),
+                handsPlayed: toNonNegativeInteger(0),
+                lastStudied: today,
+                individualHandDrillingData: {},
+                featuredHandsArray: [],
+              };
+
+              await upsertUserRangeDataEntryUseCase.execute(
+                entry,
+              );
+
+              console.log(
+                item.id,
+                item.title,
+                "added to store",
+              );
+
+              console.log(entry);
+            }}
           />
         );
       }}
-      keyExtractor={(item) => item}
+      keyExtractor={(item) => String(item.id)}
       style={{
         flex: 1,
         width: "100%",
