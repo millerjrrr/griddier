@@ -1,30 +1,22 @@
-import {
-  getAllUserRangeDataUseCase,
-  resetUserDataUseCase,
-} from "@/container";
-import { useEffect, useState } from "react";
+import { resetUserDataUseCase } from "@/container";
+import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
+import { useState } from "react";
 import { ExtrasModalName } from "./types";
 
 export const useExtrasScreen = () => {
   const [activeModal, setActiveModal] =
     useState<ExtrasModalName>(null);
 
-  const [dataEntries, setDataEntries] = useState([]);
+  const {
+    data: dataEntries,
+    loading,
+    reload,
+  } = useGetUserRangeData();
 
   const openModal = (modal: ExtrasModalName) =>
     setActiveModal(modal);
 
   const closeModal = () => setActiveModal(null);
-
-  const loadUserData = async () => {
-    const entries =
-      await getAllUserRangeDataUseCase.execute();
-    setDataEntries(entries);
-  };
-
-  useEffect(() => {
-    loadUserData();
-  }, []);
 
   const handleExportUserData = async () => {
     console.log("working on it. coming soon");
@@ -32,7 +24,7 @@ export const useExtrasScreen = () => {
 
   const handleImportUserData = async () => {
     console.log("working on it. coming soon");
-    await loadUserData();
+    await reload();
   };
 
   const handleResetUserData = async () => {
@@ -51,5 +43,7 @@ export const useExtrasScreen = () => {
     handleImportUserData,
     handleResetUserData,
     showResetCard: process.env.NODE_ENV === "development",
+    dataEntries,
+    loading,
   };
 };

@@ -7,13 +7,20 @@ import {
   View,
 } from "react-native";
 import { typography } from "../../theme";
-import RangeCard from "../../components/RangeManagerComponents/RangeCard";
 import { useGetUserRangeData } from "../../hooks/useGetUserRangeData";
 import RangeListControls from "@/presentation/components/RangeManagerComponents/RangeListControls";
 import UserRangeDataCard from "@/presentation/components/RangeManagerComponents/UserRangeDataCard";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 const MyRanges = () => {
-  const { data } = useGetUserRangeData();
+  const { data, reload } = useGetUserRangeData();
+
+  useFocusEffect(
+    useCallback(() => {
+      reload();
+    }, []),
+  );
 
   const ListContent = (
     <FlatList

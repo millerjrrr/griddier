@@ -1,17 +1,16 @@
 import { Platform } from "react-native";
-import * as FileSystem from "expo-file-system/legacy";
 import { AppStorageRepository } from "@/domain/repositories/AppStorageRepository";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { USER_RANGE_DATA_KEY } from "./storageKeys";
 
 export class AppStorageRepositoryImpl implements AppStorageRepository {
   async resetUserData(): Promise<void> {
     if (Platform.OS === "web") {
-      localStorage.clear();
+      localStorage.removeItem(USER_RANGE_DATA_KEY);
       window.location.reload();
       return;
     }
 
-    const path =
-      FileSystem.documentDirectory + "AsyncStorage.json";
-    await FileSystem.writeAsStringAsync(path, "{}");
+    await AsyncStorage.removeItem(USER_RANGE_DATA_KEY);
   }
 }

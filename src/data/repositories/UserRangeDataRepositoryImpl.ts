@@ -1,8 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { UserRangeDataEntry } from "@/domain/models/UserRangeDataEntry";
 import { UserRangeDataRepository } from "@/domain/repositories/UserRangeDataRepository";
-
-const USER_RANGE_DATA_KEY = "user_range_data";
+import { USER_RANGE_DATA_KEY } from "./storageKeys";
 
 type UserRangeDataStore = Record<
   string,
