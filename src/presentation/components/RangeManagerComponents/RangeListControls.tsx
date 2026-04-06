@@ -1,12 +1,26 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import AddRangeButton from "./AddRangeButton";
 import getAppDimensions from "@/presentation/theme/appDimensions";
+import FilterButton from "./FilterButton";
+import FilterOptions from "./FilterOptions";
+import { RangesFilter } from "@/presentation/types/rangeFilter";
 const { base } = getAppDimensions();
 
-const RangeListControls: React.FC<{ noPlus?: boolean }> = ({
-  noPlus,
-}) => {
-  // const filter = useSelector(selectFilter);
+type RangeListControlsProps = {
+  noPlus?: boolean;
+  filter: RangesFilter;
+  setFilter: React.Dispatch<
+    React.SetStateAction<RangesFilter>
+  >;
+  clearFilter: () => void;
+};
+
+const RangeListControls: React.FC<
+  RangeListControlsProps
+> = ({ noPlus, filter, setFilter, clearFilter }) => {
+  const toggleFilter = () => {
+    setFilter({ ...filter, activated: !filter.activated });
+  };
 
   return (
     <View
@@ -27,9 +41,14 @@ const RangeListControls: React.FC<{ noPlus?: boolean }> = ({
         }}
       >
         {!noPlus && <AddRangeButton />}
-        {/* <FilterButton /> */}
+        <FilterButton toggle={toggleFilter} />
       </View>
-      {/* {filter.activated && <FilterOptions />} */}
+      {filter.activated && (
+        <FilterOptions
+          filter={filter}
+          setFilter={setFilter}
+        />
+      )}
     </View>
   );
 };

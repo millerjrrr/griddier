@@ -5,7 +5,7 @@ import {
 } from "@/container";
 import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
 import { useState } from "react";
-import { ExtrasModalName } from "./types";
+import { ExtrasModalName } from "../screens/Extras/types";
 
 export const useExtrasScreen = () => {
   const [activeModal, setActiveModal] =

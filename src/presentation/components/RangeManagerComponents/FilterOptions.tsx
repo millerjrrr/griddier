@@ -1,60 +1,38 @@
-import { View } from "react-native";
-import colors from "@src/utils/colors";
+import React from "react";
+import { Text, View } from "react-native";
+import colors from "@/presentation/theme/colors";
 import {
-  Filter,
-  PositionName,
-  positions,
+  appShadow,
+  typography,
+} from "@/presentation/theme";
+import getAppDimensions from "@/presentation/theme/appDimensions";
+import {
+  ALL_STACK_SIZES,
   StackSize,
-  stackSizes,
-  VsActionFilter,
-  vsActions,
-} from "@src/types";
-import { WhiteTextBold } from "@src/componentes/AppText";
-import { AppTouchable } from "@src/componentes/AppPressables";
-import appShadow from "@src/utils/appShadow";
-import { useDispatch, useSelector } from "react-redux";
+} from "@/domain/value-objects/StackSize";
 import {
-  selectFilter,
-  updateFilter,
-} from "@src/store/trainer";
-import screenDimensions from "@src/utils/screenDimensions";
-const { base } = screenDimensions();
+  ALL_POSITION_NAMES,
+  PositionName,
+} from "@/domain/value-objects/Position";
+import { vsActions } from "@/domain/value-objects/VsActions";
+import { AppTouchable } from "../AppPressables";
+import { RangesFilter } from "@/presentation/types/rangeFilter";
 
-const SetFilterButton: React.FC<{
+const { base } = getAppDimensions();
+
+type VsActionFilter = (typeof vsActions)[number];
+
+type SetFilterButtonProps = {
   name: PositionName | VsActionFilter | StackSize;
-}> = ({ name }) => {
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
+  selected: boolean;
+  onPress: () => void;
+};
 
-  const setUserPosition = (pos: PositionName | "") => {
-    const update: Partial<Filter> = {
-      pos: filter.pos === pos ? "" : pos,
-    };
-    dispatch(updateFilter(update));
-  };
-
-  const setVsAction = (action: VsActionFilter | "") => {
-    const update: Partial<Filter> = {
-      action: filter.action === action ? "" : action,
-    };
-    dispatch(updateFilter(update));
-  };
-
-  const setStackSize = (stack: StackSize | "") => {
-    const update: Partial<Filter> = {
-      stack: filter.stack === stack ? "" : stack,
-    };
-    dispatch(updateFilter(update));
-  };
-
-  const onPress =
-    typeof name === "number"
-      ? () => setStackSize(name)
-      : vsActions.includes(name)
-      ? () => setVsAction(name)
-      : () => setUserPosition(name as PositionName | "");
-
-  const selected = Object.values(filter).includes(name);
+const SetFilterButton: React.FC<SetFilterButtonProps> = ({
+  name,
+  selected,
+  onPress,
+}) => {
   const tintColor = selected ? colors.C1 : colors.BG3;
 
   return (
@@ -63,7 +41,9 @@ const SetFilterButton: React.FC<{
         backgroundColor: colors.BG1,
         borderRadius: 100 * base,
         padding: 3 * base,
-        width: ![100, 150, 200, "R+3B"].includes(name)
+        width: ![100, 150, 200, "R+3B"].includes(
+          name as any,
+        )
           ? 30 * base
           : undefined,
         height: 30 * base,
@@ -71,19 +51,53 @@ const SetFilterButton: React.FC<{
         justifyContent: "center",
         marginHorizontal: 5 * base,
         ...(![50, 100, 150, 200].includes(name as any)
-          ? appShadow(colors.C1)
+          ? appShadow("md", colors.C1)
           : {}),
       }}
       onPress={onPress}
     >
-      <WhiteTextBold s={20 * base} color={tintColor}>
+      <Text
+        style={[typography.title, { color: tintColor }]}
+      >
         {name}
-      </WhiteTextBold>
+      </Text>
     </AppTouchable>
   );
 };
 
-const FilterOptions = () => {
+type FilterOptionsProps = {
+  filter: RangesFilter;
+  setFilter: React.Dispatch<
+    React.SetStateAction<RangesFilter>
+  >;
+};
+
+const FilterOptions: React.FC<FilterOptionsProps> = ({
+  filter,
+  setFilter,
+}) => {
+  const setUserPosition = (position: PositionName) => {
+    setFilter((prev) => ({
+      ...prev,
+      position:
+        prev.position === position ? null : position,
+    }));
+  };
+
+  const setVsAction = (action: VsActionFilter) => {
+    setFilter((prev) => ({
+      ...prev,
+      action: prev.action === action ? null : action,
+    }));
+  };
+
+  const setStackSize = (stack: StackSize) => {
+    setFilter((prev) => ({
+      ...prev,
+      stack: prev.stack === stack ? null : stack,
+    }));
+  };
+
   return (
     <View>
       <View
@@ -95,10 +109,16 @@ const FilterOptions = () => {
           padding: 4 * base,
         }}
       >
-        {positions.map((position) => (
-          <SetFilterButton key={position} name={position} />
+        {ALL_POSITION_NAMES.map((position) => (
+          <SetFilterButton
+            key={position}
+            name={position}
+            selected={filter.position === position}
+            onPress={() => setUserPosition(position)}
+          />
         ))}
       </View>
+
       <View
         style={{
           flexDirection: "row",
@@ -110,9 +130,15 @@ const FilterOptions = () => {
         }}
       >
         {vsActions.map((action) => (
-          <SetFilterButton key={action} name={action} />
+          <SetFilterButton
+            key={action}
+            name={action}
+            selected={filter.action === action}
+            onPress={() => setVsAction(action)}
+          />
         ))}
       </View>
+
       <View
         style={{
           flexDirection: "row",
@@ -123,8 +149,13 @@ const FilterOptions = () => {
           paddingBottom: 3 * base,
         }}
       >
-        {stackSizes.map((stack) => (
-          <SetFilterButton key={stack} name={stack} />
+        {ALL_STACK_SIZES.map((stack) => (
+          <SetFilterButton
+            key={stack}
+            name={stack}
+            selected={filter.stack === stack}
+            onPress={() => setStackSize(stack)}
+          />
         ))}
       </View>
     </View>

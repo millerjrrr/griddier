@@ -1,26 +1,14 @@
 import Feather from "@expo/vector-icons/Feather";
-import colors from "@src/utils/colors";
+import colors from "@/presentation/theme/colors";
 import ControlButton from "./ControlButton";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectFilter,
-  updateFilter,
-} from "@src/store/trainer";
-import screenDimensions from "@src/utils/screenDimensions";
-const { base } = screenDimensions();
+import getAppDimensions from "@/presentation/theme/appDimensions";
+const { base } = getAppDimensions();
 
-const FilterButton = () => {
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
-
-  const toggleFilter = () => {
-    dispatch(
-      updateFilter({ activated: !filter.activated })
-    );
-  };
-
+const FilterButton: React.FC<{ toggle: () => void }> = ({
+  toggle,
+}) => {
   return (
-    <ControlButton onPress={toggleFilter}>
+    <ControlButton onPress={toggle}>
       <Feather
         name="filter"
         size={24 * base}

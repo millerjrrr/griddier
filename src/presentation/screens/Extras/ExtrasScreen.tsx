@@ -1,6 +1,6 @@
 import ExtrasModals from "@/presentation/components/ExtrasComponents/ExtrasModals";
 import ExtrasView from "./ExtrasView";
-import { useExtrasScreen } from "./useExtrasScreen";
+import { useExtrasScreen } from "../../hooks/useExtrasScreen";
 
 const ExtrasScreen = () => {
   const {

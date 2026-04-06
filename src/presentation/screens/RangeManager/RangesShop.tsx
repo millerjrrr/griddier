@@ -16,13 +16,40 @@ import { StrictDateString } from "@/domain/value-objects/StrictDateString";
 import RangeListsBackground from "@/presentation/components/RangeManagerComponents/RangeListsBackground";
 import RangeListControls from "@/presentation/components/RangeManagerComponents/RangeListControls";
 import BackNavigationButton from "@/presentation/components/BackNavigationButton";
+import { useRangesFilter } from "@/presentation/hooks/useRangesFilter";
+import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
+import getAppDimensions from "@/presentation/theme/appDimensions";
+const { base } = getAppDimensions();
 
 const RangesShop = () => {
   const { data } = useGetPokerRanges();
+  const { data: userData } = useGetUserRangeData();
+
+  const {
+    filter,
+    setFilter,
+    clearFilter,
+    filteredPokerRangeIds,
+  } = useRangesFilter(data.map((range) => range.id));
+
+  const alreadyStudiedSet = new Set(
+    userData.map((range) => range.id),
+  );
+  const filteredPokerRangeIdsSet = new Set(
+    filteredPokerRangeIds,
+  );
+
+  const filteredData = data.filter(
+    (range) =>
+      filteredPokerRangeIdsSet.has(range.id) &&
+      !alreadyStudiedSet.has(range.id),
+  );
+
+  const paddingTop = (filter.activated ? 160 : 50) * base;
 
   const ListContent = (
     <FlatList
-      data={data}
+      data={filteredData}
       renderItem={({ item }) => {
         // must be called item for FlatList to work
         return (
@@ -64,14 +91,14 @@ const RangesShop = () => {
       style={{
         flex: 1,
         width: "100%",
-        paddingVertical: 20,
-        paddingHorizontal: 15,
+        paddingVertical: 20 * base,
+        paddingHorizontal: 15 * base,
         backgroundColor: "transparent",
       }}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
-        paddingTop: 50,
-        paddingBottom: 80,
+        paddingTop,
+        paddingBottom: 80 * base,
       }}
     />
   );
@@ -79,7 +106,12 @@ const RangesShop = () => {
   return (
     <RangeListsBackground>
       <BackNavigationButton />
-      <RangeListControls noPlus />
+      <RangeListControls
+        noPlus
+        filter={filter}
+        setFilter={setFilter}
+        clearFilter={clearFilter}
+      />
       <View
         style={{
           flex: 1,
@@ -88,7 +120,7 @@ const RangesShop = () => {
           width: "100%",
         }}
       >
-        {data.length > 0 ? (
+        {filteredData.length > 0 ? (
           Platform.OS === "web" ? (
             ListContent
           ) : (
@@ -111,7 +143,9 @@ const RangesShop = () => {
             </MaskedView>
           )
         ) : (
-          <View style={{ flex: 1, paddingTop: 50 }}>
+          <View
+            style={{ flex: 1, paddingTop: paddingTop + 30 }}
+          >
             <Text style={typography.title}>
               No ranges to display for this filter
             </Text>
