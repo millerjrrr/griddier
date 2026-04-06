@@ -12,7 +12,7 @@ import MyRanges from "@/presentation/screens/RangeManager/MyRanges";
 const RangesStack =
   createStackNavigator<RangesStackParamList>();
 
-const RangesNavigator = () => {
+const RangesStackNavigator = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
     cardStyle: {
@@ -43,4 +43,4 @@ const RangesNavigator = () => {
   );
 };
 
-export default RangesNavigator;
+export default RangesStackNavigator;
