@@ -1,4 +1,7 @@
-import { resetUserDataUseCase } from "@/container";
+import {
+  exportUserDataUseCase,
+  resetUserDataUseCase,
+} from "@/container";
 import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
 import { useState } from "react";
 import { ExtrasModalName } from "./types";
@@ -19,7 +22,11 @@ export const useExtrasScreen = () => {
   const closeModal = () => setActiveModal(null);
 
   const handleExportUserData = async () => {
-    console.log("working on it. coming soon");
+    try {
+      await exportUserDataUseCase.execute();
+    } catch (error) {
+      console.error("Failed to export user data", error);
+    }
   };
 
   const handleImportUserData = async () => {
