@@ -7,9 +7,10 @@ import {
   View,
 } from "react-native";
 import { typography } from "../../theme";
-import RangeCard from "../../components/RangeCard";
+import RangeCard from "../../components/RangeManagerComponents/RangeCard";
 import { useGetUserRangeData } from "../../hooks/useGetUserRangeData";
 import RangeListControls from "@/presentation/components/RangeManagerComponents/RangeListControls";
+import UserRangeDataCard from "@/presentation/components/RangeManagerComponents/UserRangeDataCard";
 
 const MyRanges = () => {
   const { data } = useGetUserRangeData();
@@ -19,8 +20,8 @@ const MyRanges = () => {
       data={data}
       renderItem={({ item }) => {
         return (
-          <RangeCard
-            title={item.title}
+          <UserRangeDataCard
+            dataEntry={item}
             selectFunction={() => {
               console.log(
                 item.id,

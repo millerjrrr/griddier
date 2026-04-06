@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { typography } from "../../theme";
-import RangeCard from "../../components/RangeCard";
+import RangeCard from "../../components/RangeManagerComponents/RangeCard";
 import { useGetPokerRanges } from "../../hooks/useGetPokerRanges";
 import { upsertUserRangeDataEntryUseCase } from "@/container";
 import { toLevel } from "@/domain/value-objects/Level";
@@ -36,7 +36,7 @@ const RangesShop = () => {
                 id: item.id,
                 title: item.title,
                 dueDate: today,
-                level: toLevel(0),
+                level: toLevel(5),
                 drilled: toNonNegativeInteger(0),
                 timeDrilling: toNonNegativeInteger(0),
                 handsPlayed: toNonNegativeInteger(0),

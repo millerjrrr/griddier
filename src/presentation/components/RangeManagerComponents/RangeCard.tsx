@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
-import { appShadow, typography } from "../theme";
-import colors from "../theme/colors";
-import { AppTouchable } from "./AppPressables";
+import { appShadow, typography } from "../../theme";
+import colors from "../../theme/colors";
+import { AppTouchable } from "../AppPressables";
 import { Entypo } from "@expo/vector-icons";
 
 interface RangeCardProps {
