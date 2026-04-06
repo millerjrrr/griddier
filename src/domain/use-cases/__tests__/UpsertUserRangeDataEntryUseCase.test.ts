@@ -1,4 +1,4 @@
-import { UpsertUserRangeDataEntryUseCase } from "../UpsertUserRangeDataEntryUseCase";
+import { UpsertUserRangeDataEntryUseCase } from "../userData/UpsertUserRangeDataEntryUseCase";
 import { UserRangeDataEntry } from "../../models/UserRangeDataEntry";
 import { UserRangeDataRepository } from "../../repositories/UserRangeDataRepository";
 import { toLevel } from "../../value-objects/Level";

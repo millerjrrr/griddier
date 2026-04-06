@@ -1,5 +1,5 @@
-import { UserRangeDataEntry } from "../models/UserRangeDataEntry";
-import { UserRangeDataRepository } from "../repositories/UserRangeDataRepository";
+import { UserRangeDataEntry } from "../../models/UserRangeDataEntry";
+import { UserRangeDataRepository } from "../../repositories/UserRangeDataRepository";
 
 export class GetAllUserRangeDataUseCase {
   constructor(

@@ -9,6 +9,7 @@ export const shadowLevels = {
   sm: base * 2,
   md: base * 4,
   lg: base * 8,
+  xl: base * 20,
 } as const;
 
 const { C1 } = colors;

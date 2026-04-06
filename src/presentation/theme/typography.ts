@@ -35,9 +35,15 @@ export const typography = {
     textAlign: "center",
     padding: 8 * base,
   },
+  modalTextLeft: {
+    fontSize: 25 * textBase,
+    color: colors.C2,
+    padding: 8 * base,
+  },
   modalSmallText: {
     fontSize: 20 * textBase,
     color: colors.C2,
+    padding: 8 * base,
     paddingBottom: 15 * base,
   },
 

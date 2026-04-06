@@ -3,11 +3,11 @@ import Trainer from "../screens/Trainer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { TabNavigationParamList } from "./types/TabNavigationParamList";
-import Extras from "../screens/Extras";
 import colors from "../theme/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import getAppDimensions from "../theme/appDimensions";
 import RangesStackNavigator from "./stacks/RangesStackNavigator";
+import ExtrasScreen from "../screens/Extras/ExtrasScreen";
 const { base } = getAppDimensions();
 
 const Tab =
@@ -65,7 +65,7 @@ const RootNavigator: React.FC = () => {
         />
         <Tab.Screen
           name="Extras"
-          component={Extras}
+          component={ExtrasScreen}
           options={{
             tabBarIcon: ({ color, focused }) => (
               <MaterialCommunityIcons
