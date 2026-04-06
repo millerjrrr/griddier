@@ -26,7 +26,10 @@ const StudyDataModal: React.FC<ModalProps> = ({
   onClose,
 }) => {
   const { data } = useGetUserRangeData();
-  const levelsArray = data.map((entry) => entry.level);
+  const dataEntries = Object.values(data);
+  const levelsArray = dataEntries.map(
+    (entry) => entry.level,
+  );
   const frequencies = returnFrequencyArray(levelsArray);
   const showHist = frequencies.length > 2;
 

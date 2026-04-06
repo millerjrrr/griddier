@@ -7,23 +7,22 @@ import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
 
 const StatsContainer = ({ size = 22 }) => {
   const { data } = useGetUserRangeData();
+  const dataEntries = Object.values(data);
 
   const { C2, BG4 } = colors;
 
-  const timeDrilling = data
+  const timeDrilling = dataEntries
     .map((entry) => entry.timeDrilling)
     .reduce((a, b) => a + b, 0);
 
-  const unlocked = data.length;
+  const unlocked = dataEntries.length;
 
-  const drillsCompleted = data
+  const drillsCompleted = dataEntries
     .map((entry) => entry.drilled)
     .reduce((a, b) => a + b, 0);
 
-  const handsPlayed = data
-    .map((entry) =>
-      !entry.handsPlayed ? 0 : entry.handsPlayed,
-    )
+  const handsPlayed = dataEntries
+    .map((entry) => entry.handsPlayed)
     .reduce((a, b) => a + b, 0);
 
   return (

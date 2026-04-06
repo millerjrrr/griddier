@@ -1,5 +1,6 @@
 import {
   exportUserDataUseCase,
+  importUserDataUseCase,
   resetUserDataUseCase,
 } from "@/container";
 import { useGetUserRangeData } from "@/presentation/hooks/useGetUserRangeData";
@@ -30,8 +31,16 @@ export const useExtrasScreen = () => {
   };
 
   const handleImportUserData = async () => {
-    console.log("working on it. coming soon");
-    await reload();
+    try {
+      const success = await importUserDataUseCase.execute();
+
+      if (!success) return;
+
+      console.log("User data imported successfully");
+      reload();
+    } catch (error) {
+      console.error("Import failed:", error);
+    }
   };
 
   const handleResetUserData = async () => {

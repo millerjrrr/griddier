@@ -10,6 +10,8 @@ import { GetAllUserRangeDataUseCase } from "@/domain/use-cases/userData/GetAllUs
 import { UpsertUserRangeDataEntryUseCase } from "@/domain/use-cases/userData/UpsertUserRangeDataEntryUseCase";
 import { ResetUserDataUseCase } from "./domain/use-cases/userData/ResetUserDataUseCase";
 import { UserDataExportRepositoryImpl } from "./data/repositories/UserDataExportRepositoryImpl";
+import { UserDataImportRepositoryImpl } from "./data/repositories/UserDataImportRepositoryImpl";
+import { ImportUserDataUseCase } from "./domain/use-cases/userData/ImportUserDataUseCase";
 
 // --- Data layer ---
 const pokerRangeDataSource =
@@ -27,6 +29,9 @@ const appDataRepository = new AppStorageRepositoryImpl();
 
 const userDataExportRepository =
   new UserDataExportRepositoryImpl();
+
+const userDataImportRepository =
+  new UserDataImportRepositoryImpl();
 
 // --- Use cases ---
 export const getAllRangesUseCase = new GetAllRangesUseCase(
@@ -48,4 +53,11 @@ export const exportUserDataUseCase =
   new ExportUserDataUseCase(
     userRangeDataRepository,
     userDataExportRepository,
+  );
+
+export const importUserDataUseCase =
+  new ImportUserDataUseCase(
+    userDataImportRepository,
+    userRangeDataRepository,
+    pokerRangeRepository,
   );

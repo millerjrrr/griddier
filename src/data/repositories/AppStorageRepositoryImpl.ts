@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 import { AppStorageRepository } from "@/domain/repositories/AppStorageRepository";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { USER_RANGE_DATA_KEY } from "./storageKeys";
+import { USER_RANGE_DATA_KEY } from "../constants/storageKeys";
 
 export class AppStorageRepositoryImpl implements AppStorageRepository {
   async resetUserData(): Promise<void> {
