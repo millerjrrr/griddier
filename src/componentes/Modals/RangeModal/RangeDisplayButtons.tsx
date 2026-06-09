@@ -49,10 +49,10 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
 
   const newDrill = gridName !== dataEntry.gridName;
 
-  const rangesNavigation =
-    useNavigation<
-      StackNavigationProp<RangesStackParamsList>
-    >();
+  // const rangesNavigation =
+  //   useNavigation<
+  //     StackNavigationProp<RangesStackParamsList>
+  //   >();
 
   const startQuickReview = () => {
     dispatch(resetStartTime());
@@ -61,7 +61,7 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
     dispatch(setGridName(dataEntry.gridName));
     if (newDrill)
       initializeTrainerState(dataEntry.gridName);
-    rangesNavigation.goBack();
+    // rangesNavigation.goBack();
     dispatch(updateFilter({ activated: false }));
     onClose();
     navigation.navigate("Trainer" as never);
@@ -73,7 +73,7 @@ const RangeDisplayButtons: React.FC<RangeModalProps> = ({
     dispatch(resetIndex());
     dispatch(setGridName(dataEntry.gridName));
     initializeTrainerState(dataEntry.gridName, false, true);
-    rangesNavigation.goBack();
+    // rangesNavigation.goBack();
     dispatch(updateFilter({ activated: false }));
     onClose();
     navigation.navigate("Trainer" as never);

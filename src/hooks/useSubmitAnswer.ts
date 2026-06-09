@@ -26,7 +26,7 @@ import useGetDataEntries from "./useGetDataEntries";
 import usePlaySound from "./usePlaySound";
 import useTestCompleted from "./useTestCompleted";
 import useUpdateDatabase from "./useUpdateDatabase";
-const cymbal = require("assets/sounds/cymbal.wav");
+const cymbal = require("@assets/sounds/cymbal.wav");
 const { tbase } = screenDimensions();
 
 const isMatch = (x: ActionCombo, y: ActionCombo) =>

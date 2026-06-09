@@ -14,7 +14,7 @@ import Toast from "react-native-toast-message";
 import { useDispatch } from "react-redux";
 import useUpdateDatabase from "./useUpdateDatabase";
 import usePlaySound from "./usePlaySound";
-const success = require("assets/sounds/success.wav");
+const success = require("@assets/sounds/success.wav");
 const { tbase } = screenDimensions();
 
 const useRemoveHandFromReviews = () => {

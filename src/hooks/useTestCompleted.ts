@@ -7,7 +7,7 @@ import {
 import { useDispatch } from "react-redux";
 import usePlaySound from "./usePlaySound";
 import useUpdateDatabase from "./useUpdateDatabase";
-const success = require("assets/sounds/success.wav");
+const success = require("@assets/sounds/success.wav");
 
 const useTestCompleted = () => {
   const dispatch = useDispatch();

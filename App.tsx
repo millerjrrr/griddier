@@ -9,6 +9,7 @@ import BGContainer from "./src/componentes/BGContainer";
 import AppContainer from "./src/navigation/AppContainer";
 import store, { persistor } from "./src/store";
 import screenDimensions from "./src/utils/screenDimensions";
+import LoadingScreen from "./src/componentes/LoadingScreen";
 const { base } = screenDimensions();
 
 // Final app version before re-write
@@ -38,7 +39,10 @@ export default function App() {
     <AdaptiveAppContainer key={appKey}>
       <BGContainer>
         <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
+          <PersistGate
+            loading={<LoadingScreen red />}
+            persistor={persistor}
+          >
             <View
               style={{
                 height: 30 * base,

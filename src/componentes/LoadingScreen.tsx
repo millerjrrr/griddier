@@ -6,7 +6,9 @@ import AppIcon from "./Modals/AppIcon";
 
 const { base } = screenDimensions();
 
-const LoadingScreen = () => {
+const LoadingScreen: React.FC<{
+  red?: boolean;
+}> = ({ red }) => {
   const progress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -47,7 +49,9 @@ const LoadingScreen = () => {
           style={{
             height: "100%",
             width: widthInterpolated,
-            backgroundColor: colors.C1,
+            backgroundColor: red
+              ? colors.DARKRED
+              : colors.C1,
           }}
         />
       </View>

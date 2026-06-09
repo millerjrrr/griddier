@@ -12,7 +12,7 @@ import appShadow from "../utils/appShadow";
 import { ColorName, ValidFraction } from "../types";
 const Overlay = require("@assets/img/ActionButtonOverlay.png");
 
-const pop = require("assets/sounds/pop.wav");
+const pop = require("@assets/sounds/pop.wav");
 
 import {
   incAllIn,
