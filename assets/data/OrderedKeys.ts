@@ -64,6 +64,10 @@ export const OrderedKeys = [
   "100 BB vs BU RFI 2 (11)",
   "100 BB vs BU RFI 2 and SB Flat (12)",
   "100 SB3 (12) vs BU 2.5 vs BB4 (23)",
+  "100 SB RFI 5",
+  "100 SB RFI 5 vs 3B (15->27)",
+  "100 SB Limp vs BB 3.5 (14)",
+  "100 SB LRR vs BB4 28",
   "50 LJ RFI 2",
   "50 HJ RFI 2",
   "50 CO RFI 2.2",
@@ -85,7 +89,6 @@ export const OrderedKeys = [
   "50 BB vs SB RFI 3 (8)",
   "50 LJ RFI vs CO3 (6->13)",
   "50 HJ RFI vs CO3 (6->13)",
-  
 ] as const;
 
 export type OrderedKey = (typeof OrderedKeys)[number];

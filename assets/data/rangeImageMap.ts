@@ -87,4 +87,8 @@ export const RangeImages: Record<RangeId, any> = {
   R000084: require("@assets/img/generatedGrids/R000084.png"),
   R000085: require("@assets/img/generatedGrids/R000085.png"),
   R000086: require("@assets/img/generatedGrids/R000086.png"),
+  R000087: require("@assets/img/generatedGrids/R000087.png"),
+  R000088: require("@assets/img/generatedGrids/R000088.png"),
+  R000089: require("@assets/img/generatedGrids/R000089.png"),
+  R000090: require("@assets/img/generatedGrids/R000090.png"),
 };
